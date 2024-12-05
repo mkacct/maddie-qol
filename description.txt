@@ -1,0 +1,24 @@
+This is a quality-of-life mod intended to add "completeness" to various aspects of the game, mostly regarding items and crafting.
+
+Check the Steam Workshop page for relevant links.
+
+The mod's features are as follows. Most features can be enabled/disabled individually in the mod's configuration.
+
+Teleportation:
+- Return Tools: Adds an upgraded Magic Mirror and Cell Phone that include the return portal feature of the Potion of Return. This feature is also integrated into the vanilla Shellphone.
+- Teleport Item Scroll-Away: When you teleport using a potion, mirror, or phone, your hotbar will automatically scroll to its first item so you don't accidentally teleport again. (This feature is disabled by default since its behavior can be unintuitive.)
+
+Miscellaneous Items:
+- Button: A visually stateless alternative to the switch. Sold by the Mechanic.
+- Pink Banner: A pink variant of the decorative banner, so that there is now one for each team color. Crafted like the others.
+
+Vanilla Item Obtainability:
+- Dungeon Item Renewability: Dungeon Bricks of all colors can be obtained by fishing.
+- Lihzahrd Item Renewability: Lihzahrd Bricks and related items can be obtained by shopping from NPCs in the Jungle after defeating Golem.
+- Missing Furniture Recipes: Adds missing recipes for Dungeon and Obsidian furniture.
+- Trap Recipes: All traps are craftable in a graveyard.
+- Chest Recipes: All otherwise non-renewable chests are craftable.
+- Vase Recipes: Dungeon and Obsidian Vases are craftable.
+- Easier Title Music Box Obtainability: All three title music boxes are obtainable through alternate methods that do not require combining large quantities of other music boxes.
+- Encumbering Stone Recipe: The Encumbering Stone is craftable.
+- Hellforge Recipe: The Hellforge is craftable, albeit requiring Hellstone Bars so as not to break progression.

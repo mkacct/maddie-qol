@@ -1,0 +1,137 @@
+Items: {
+	ReturnMirror: {
+		DisplayName: Return Mirror
+		Tooltip:
+			'''
+			Gaze in the mirror to return home [c/646464:and create a portal]
+			[c/646464:Use portal to return when you are done]
+			[c/ff1919:Return tools disabled in mod configuration]
+			'''
+		TooltipWhenEnabled:
+			'''
+			Gaze in the mirror to return home and create a portal
+			Use portal to return when you are done
+			'''
+	}
+
+	CellPhonePlus: {
+		DisplayName: Cell Phone+
+		Tooltip:
+			'''
+			Displays everything
+			Allows you to return home at will
+			[c/646464:Includes return portal]
+			[c/ff1919:Return tools disabled in mod configuration]
+			'''
+		TooltipWhenEnabled:
+			'''
+			Displays everything
+			Allows you to return home at will
+			Includes return portal
+			'''
+	}
+
+	PinkBanner: {
+		DisplayName: Pink Banner
+		Tooltip: ""
+	}
+
+	Button: {
+		DisplayName: Button
+		Tooltip: ""
+	}
+}
+
+Tiles.Button.MapEntryName: Button
+Recipes.DungeonBrickRecipeGroupName: Any Dungeon Brick
+Misc.ReturnPortalTooltipLine: Includes return portal
+
+Configs: {
+	ModuleConfig: {
+		DisplayName: Modules
+
+		Headers: {
+			Teleportation: Teleportation
+			VanillaItemObtainability: Vanilla Item Obtainability
+		}
+
+		enableReturnTools: {
+			Label: Enable Return Tools
+			Tooltip:
+				'''
+				Allows the crafting and use of items
+				allowing unlimited use of the Potion of Return's effect
+				'''
+		}
+
+		enableRecallItemSwitchAway: {
+			Label: Enable Teleport Item Scroll-Away
+			Tooltip:
+				'''
+				When you teleport using a potion, mirror, or phone,
+				your hotbar will scroll to its first item so you don't accidentally teleport again
+				(If the inventory is open, it won't scroll away until you close the inventory)
+				'''
+		}
+
+		enableDungeonItemRenewability: {
+			Label: Enable Dungeon Item Renewability
+			Tooltip:
+				'''
+				Dungeon Bricks and related items will be renewable
+				through fishing or crafting
+				'''
+		}
+
+		enableLihzahrdItemRenewability: {
+			Label: Enable Lihzahrd Item Renewability
+			Tooltip:
+				'''
+				Lihzahrd Bricks and related items will be renewable
+				through shopping or crafting
+				'''
+		}
+
+		enableTrapRecipes: {
+			Label: Enable Trap Recipes
+			Tooltip:
+				'''
+				Adds crafting recipes for all traps
+				(Also makes the detonator purchasable)
+				'''
+		}
+
+		enableChestRecipes: {
+			Label: Enable Chest Recipes
+			Tooltip: Adds crafting recipes for all non-renewable chests
+		}
+
+		enableVaseRecipes: {
+			Label: Enable Vase Recipes
+			Tooltip: Adds crafting recipes for vases
+		}
+
+		enableEasierTitleMusicBoxRecipes: {
+			Label: Enable Easier Title Music Box Obtainability
+			Tooltip:
+				'''
+				Adds easier methods for obtaining menu screen music boxes
+				that don't require combining large quantities of other music boxes
+				'''
+		}
+
+		enableEncumberingStoneRecipe: {
+			Label: Enable Encumbering Stone Recipe
+			Tooltip: Adds a crafting recipe for the Encumbering Stone
+		}
+
+		enableHellforgeRecipe: {
+			Label: Enable Hellforge Recipe
+			Tooltip:
+				'''
+				Adds a crafting recipe for the Hellforge
+				(The crafting recipe requires Hellstone Bars, so progression is unchanged)
+				'''
+		}
+	}
+}

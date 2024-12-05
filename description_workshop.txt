@@ -1,0 +1,32 @@
+This is a quality-of-life mod intended to add "completeness" to various aspects of the game, mostly regarding items and crafting.
+
+[url=https://github.com/mkacct/maddie-qol/wiki]Wiki[/url]
+[url=https://github.com/mkacct/maddie-qol]View on GitHub[/url]
+[url=https://github.com/mkacct/maddie-qol/issues/new/choose]Report an issue[/url]
+
+The mod's features are as follows. Most features can be enabled/disabled individually in the mod's configuration.
+
+[h3]Teleportation[/h3]
+[list]
+	[*][b]Return Tools[/b]: Adds an upgraded Magic Mirror and Cell Phone that include the return portal feature of the Potion of Return. This feature is also integrated into the vanilla Shellphone.
+	[*][b]Teleport Item Scroll-Away[/b]: When you teleport using a potion, mirror, or phone, your hotbar will automatically scroll to its first item so you don't accidentally teleport again. (This feature is disabled by default since its behavior can be unintuitive.)
+[/list]
+
+[h3]Miscellaneous Items[/h3]
+[list]
+	[*][b]Button[/b]: A visually stateless alternative to the switch. Sold by the Mechanic.
+	[*][b]Pink Banner[/b]: A pink variant of the decorative banner, so that there is now one for each team color. Crafted like the others.
+[/list]
+
+[h3]Vanilla Item Obtainability[/h3]
+[list]
+	[*][b]Dungeon Item Renewability[/b]: Dungeon Bricks of all colors can be obtained by fishing.
+	[*][b]Lihzahrd Item Renewability[/b]: Lihzahrd Bricks and related items can be obtained by shopping from NPCs in the Jungle after defeating Golem.
+	[*][b]Missing Furniture Recipes[/b]: Adds missing recipes for Dungeon and Obsidian furniture.
+	[*][b]Trap Recipes[/b]: All traps are craftable in a graveyard.
+	[*][b]Chest Recipes[/b]: All otherwise non-renewable chests are craftable.
+	[*][b]Vase Recipes[/b]: Dungeon and Obsidian Vases are craftable.
+	[*][b]Easier Title Music Box Obtainability[/b]: All three title music boxes are obtainable through alternate methods that do not require combining large quantities of other music boxes.
+	[*][b]Encumbering Stone Recipe[/b]: The Encumbering Stone is craftable.
+	[*][b]Hellforge Recipe[/b]: The Hellforge is craftable, albeit requiring Hellstone Bars so as not to break progression.
+[/list]
