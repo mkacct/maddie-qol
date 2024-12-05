@@ -15,7 +15,6 @@ The mod's features are as follows. Most features can be enabled/disabled individ
 [h3]Miscellaneous Items[/h3]
 [list]
 	[*][b]Button[/b]: A visually stateless alternative to the switch. Sold by the Mechanic.
-	[*][b]Pink Banner[/b]: A pink variant of the decorative banner, so that there is now one for each team color. Crafted like the others.
 [/list]
 
 [h3]Vanilla Item Obtainability[/h3]

@@ -10,7 +10,6 @@ Teleportation:
 
 Miscellaneous Items:
 - Button: A visually stateless alternative to the switch. Sold by the Mechanic.
-- Pink Banner: A pink variant of the decorative banner, so that there is now one for each team color. Crafted like the others.
 
 Vanilla Item Obtainability:
 - Dungeon Item Renewability: Dungeon Bricks of all colors can be obtained by fishing.

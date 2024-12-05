@@ -31,11 +31,6 @@ Items: {
 			'''
 	}
 
-	PinkBanner: {
-		DisplayName: Pink Banner
-		Tooltip: ""
-	}
-
 	Button: {
 		DisplayName: Button
 		Tooltip: ""
