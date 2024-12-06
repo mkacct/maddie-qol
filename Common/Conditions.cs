@@ -1,4 +1,4 @@
-using static MaddieQoL.Common.Misc;
+using static MaddieQoL.Common.Shorthands;
 using Terraria;
 
 namespace MaddieQoL.Common;

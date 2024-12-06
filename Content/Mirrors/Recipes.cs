@@ -1,4 +1,5 @@
 using static MaddieQoL.Util.RecipeUtil;
+using static MaddieQoL.Common.Shorthands;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,7 +8,7 @@ namespace MaddieQoL.Content.Mirrors;
 
 public class MirrorRecipes : ModSystem {
 	public override void AddRecipes() {
-		if (!ModContent.GetInstance<ModuleConfig>().enableReturnTools) {return;}
+		if (!ModuleConfig().enableReturnTools) {return;}
 		{
 			Recipe recipe = Recipe.Create(ItemID.ShellphoneDummy);
 			recipe.AddIngredient<Items.CellPhonePlus>();
@@ -19,7 +20,7 @@ public class MirrorRecipes : ModSystem {
 	}
 
 	public override void PostAddRecipes() {
-		if (!ModContent.GetInstance<ModuleConfig>().enableReturnTools) {return;}
+		if (!ModuleConfig().enableReturnTools) {return;}
 		bool hasDisabledVanillaShellphoneRecipe = false;
 		foreach (Recipe recipe in Main.recipe) {
 			if (

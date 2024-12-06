@@ -1,4 +1,5 @@
 using static MaddieQoL.Util.RecipeUtil;
+using static MaddieQoL.Common.Shorthands;
 using Terraria;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -24,7 +25,7 @@ public class RenewabilityRecipes : ModSystem {
 	}
 
 	private static void AddChestRecipes() {
-		if (!ModContent.GetInstance<ModuleConfig>().enableChestRecipes) {return;}
+		if (!ModuleConfig().enableChestRecipes) {return;}
 		{ // Gold Chest
 			Recipe recipe = Recipe.Create(ItemID.GoldChest);
 			recipe.AddIngredient(ItemID.GoldBar, 8);
@@ -64,12 +65,12 @@ public class RenewabilityRecipes : ModSystem {
 	}
 
 	private static void AddGoldChestShimmer() {
-		if (!ModContent.GetInstance<ModuleConfig>().enableTrapRecipes) {return;}
+		if (!ModuleConfig().enableTrapRecipes) {return;}
 		ItemID.Sets.ShimmerTransformToItem[ItemID.GoldChest] = ItemID.DeadMansChest;
 	}
 
 	private static void AddTrapRecipes() {
-		if (!ModContent.GetInstance<ModuleConfig>().enableTrapRecipes) {return;}
+		if (!ModuleConfig().enableTrapRecipes) {return;}
 		RecipeOrderedRegisterer registerer = OrderedRegistererStartingAfter(ItemID.PressureTrack);
 		IList<KeyValuePair<short, int>> poisonItemsAndQtys = [
 			new(ItemID.VilePowder, 30),
@@ -97,7 +98,7 @@ public class RenewabilityRecipes : ModSystem {
 	}
 
 	private static void AddDungeonTrapRecipes(RecipeOrderedRegisterer registerer) {
-		if (!ModContent.GetInstance<ModuleConfig>().enableDungeonItemRenewability) {return;}
+		if (!ModuleConfig().enableDungeonItemRenewability) {return;}
 		{ // Spike
 			Recipe recipe = Recipe.Create(ItemID.Spike);
 			recipe.AddRecipeGroup(RecipeGroupID.IronBar);
@@ -107,7 +108,7 @@ public class RenewabilityRecipes : ModSystem {
 	}
 
 	private static void AddLihzahrdTrapRecipes(RecipeOrderedRegisterer registerer) {
-		if (!ModContent.GetInstance<ModuleConfig>().enableLihzahrdItemRenewability) {return;}
+		if (!ModuleConfig().enableLihzahrdItemRenewability) {return;}
 		{ // Wooden Spike
 			Recipe recipe = Recipe.Create(ItemID.WoodenSpike);
 			recipe.AddRecipeGroup(RecipeGroupID.Wood, 4);
@@ -150,7 +151,7 @@ public class RenewabilityRecipes : ModSystem {
 	}
 
 	private static void AddEncumberingStoneRecipe() {
-		if (!ModContent.GetInstance<ModuleConfig>().enableEncumberingStoneRecipe) {return;}
+		if (!ModuleConfig().enableEncumberingStoneRecipe) {return;}
 		Recipe recipe = Recipe.Create(ItemID.EncumberingStone);
 		recipe.AddIngredient(ItemID.StoneBlock, 50);
 		recipe.AddIngredient(ItemID.IronBar, 2);
@@ -282,7 +283,7 @@ public class RenewabilityRecipes : ModSystem {
 			recipe.AddIngredient(ItemID.Hellstone, 2);
 			registerer.Register(recipe);
 		}
-		if (ModContent.GetInstance<ModuleConfig>().enableVaseRecipes) { // Obsidian Vase
+		if (ModuleConfig().enableVaseRecipes) { // Obsidian Vase
 			Recipe recipe = Recipe.Create(ItemID.ObsidianVase);
 			recipe.AddIngredient(ItemID.Obsidian, 10);
 			recipe.AddIngredient(ItemID.Hellstone, 2);
@@ -292,7 +293,7 @@ public class RenewabilityRecipes : ModSystem {
 	}
 
 	private static void AddHellforgeRecipe() {
-		if (!ModContent.GetInstance<ModuleConfig>().enableHellforgeRecipe) {return;}
+		if (!ModuleConfig().enableHellforgeRecipe) {return;}
 		Recipe recipe = Recipe.Create(ItemID.Hellforge);
 		recipe.AddIngredient(ItemID.Furnace);
 		recipe.AddIngredient(ItemID.HellstoneBar, 10);
@@ -472,7 +473,7 @@ public class RenewabilityRecipes : ModSystem {
 		}
 		// Skip: Toilet
 		registerer.SortAfterLastRecipeOf(furnitureItems[i++]);
-		if (ModContent.GetInstance<ModuleConfig>().enableVaseRecipes) { // Vase
+		if (ModuleConfig().enableVaseRecipes) { // Vase
 			Recipe recipe = Recipe.Create(furnitureItems[i++]);
 			recipe.AddIngredient(brick, 12);
 			recipe.AddTile(TileID.WorkBenches);
@@ -486,7 +487,7 @@ public class RenewabilityRecipes : ModSystem {
 	}
 
 	private static void AddGothicFurnitureRecipes() {
-		if (!ModContent.GetInstance<ModuleConfig>().enableDungeonItemRenewability) {return;}
+		if (!ModuleConfig().enableDungeonItemRenewability) {return;}
 		RecipeOrderedRegisterer registerer = OrderedRegistererStartingAfter(ItemID.GreenDungeonWorkBench);
 		{ // Gothic Bookcase
 			Recipe recipe = Recipe.Create(ItemID.GothicBookcase);

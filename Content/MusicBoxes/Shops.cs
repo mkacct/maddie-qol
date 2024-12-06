@@ -1,3 +1,4 @@
+using static MaddieQoL.Common.Shorthands;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,7 +15,7 @@ public class MusicBoxShops : GlobalNPC {
 	}
 
 	private static void ModifyPrincessShop(NPCShop shop) {
-		if (!ModContent.GetInstance<ModuleConfig>().enableEasierTitleMusicBoxRecipes) {return;}
+		if (!ModuleConfig().enableEasierTitleMusicBoxRecipes) {return;}
 		// MusicBoxTitleAlt is actually Music Box (Journey's Beginning)
 		shop.InsertBefore(ItemID.MusicBoxCredits, ItemID.MusicBoxTitleAlt, Condition.Hardmode);
 	}

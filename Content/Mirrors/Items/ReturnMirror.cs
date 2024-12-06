@@ -1,4 +1,5 @@
 using static MaddieQoL.Util.RecipeUtil;
+using static MaddieQoL.Common.Shorthands;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -11,7 +12,7 @@ namespace MaddieQoL.Content.Mirrors.Items;
 public class ReturnMirror : ModItem {
 	private static LocalizedText TooltipWhenEnabled {get; set;}
 
-    public override LocalizedText Tooltip => ModContent.GetInstance<ModuleConfig>().enableReturnTools ? TooltipWhenEnabled : base.Tooltip;
+	public override LocalizedText Tooltip => ModuleConfig().enableReturnTools ? TooltipWhenEnabled : base.Tooltip;
 
 	public override void SetStaticDefaults(){
 		TooltipWhenEnabled = this.GetLocalization(nameof(TooltipWhenEnabled));
@@ -26,12 +27,12 @@ public class ReturnMirror : ModItem {
 	}
 
 	public override void UseStyle(Player player, Rectangle heldItemFrame) {
-		bool enable = ModContent.GetInstance<ModuleConfig>().enableReturnTools;
+		bool enable = ModuleConfig().enableReturnTools;
 		MirrorUtil.UseMirrorStyle(player, this.Item, enable ? MirrorUtil.Return : MirrorUtil.Recall);
 	}
 
 	public override void AddRecipes() {
-		if (!ModContent.GetInstance<ModuleConfig>().enableReturnTools) {return;}
+		if (!ModuleConfig().enableReturnTools) {return;}
 		RecipeOrderedRegisterer registerer = OrderedRegistererStartingAfter(ItemID.MagicMirror);
 		int[] mirrors = [
 			ItemID.MagicMirror,

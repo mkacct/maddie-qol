@@ -46,9 +46,9 @@ public class Button : ModTile {
 		return true;
 	}
 
-    public override bool RightClick(int i, int j) {
-        SoundEngine.PlaySound(SoundID.Mech, new Vector2(i*16, j*16));
+	public override bool RightClick(int i, int j) {
+		SoundEngine.PlaySound(SoundID.Mech, new Vector2(i*16, j*16));
 		Wiring.TripWire(i, j, 1, 1);
 		return true;
-    }
+	}
 }

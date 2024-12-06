@@ -10,9 +10,9 @@ public class RecipeGroups : ModSystem {
 
 	private static LocalizedText DungeonBrickRecipeGroupName {get; set;}
 
-    public override void SetStaticDefaults() {
-    	DungeonBrickRecipeGroupName = this.Mod.GetLocalization($"{nameof(RecipeGroups)}.{nameof(DungeonBrickRecipeGroupName)}");
-    }
+	public override void SetStaticDefaults() {
+		DungeonBrickRecipeGroupName = this.Mod.GetLocalization($"{nameof(RecipeGroups)}.{nameof(DungeonBrickRecipeGroupName)}");
+	}
 
 	public override void AddRecipeGroups() {
 		{

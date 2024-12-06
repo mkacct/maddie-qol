@@ -1,4 +1,5 @@
 using static MaddieQoL.Util.RecipeUtil;
+using static MaddieQoL.Common.Shorthands;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,7 +8,7 @@ namespace MaddieQoL.Content.MusicBoxes;
 
 public class MusicBoxRecipes : ModSystem {
 	public override void AddRecipes() {
-		if (!ModContent.GetInstance<ModuleConfig>().enableEasierTitleMusicBoxRecipes) {return;}
+		if (!ModuleConfig().enableEasierTitleMusicBoxRecipes) {return;}
 		{ // Music Box (Title)
 			Recipe recipe = Recipe.Create(ItemID.MusicBoxTitle);
 			recipe.AddIngredient(ItemID.MusicBox);

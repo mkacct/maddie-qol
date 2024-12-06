@@ -6,10 +6,7 @@ The mod's features are as follows. Most features can be enabled/disabled individ
 
 Teleportation:
 - Return Tools: Adds an upgraded Magic Mirror and Cell Phone that include the return portal feature of the Potion of Return. This feature is also integrated into the vanilla Shellphone.
-- Teleport Item Scroll-Away: When you teleport using a potion, mirror, or phone, your hotbar will automatically scroll to its first item so you don't accidentally teleport again. (This feature is disabled by default since its behavior can be unintuitive.)
-
-Miscellaneous Items:
-- Button: A visually stateless alternative to the switch. Sold by the Mechanic.
+- Teleport Item Scroll-Away: When you teleport using a potion, mirror, or phone, your hotbar will automatically scroll to its first item so you don't accidentally teleport again. (Disabled by default.)
 
 Vanilla Item Obtainability:
 - Dungeon Item Renewability: Dungeon Bricks of all colors can be obtained by fishing.
@@ -21,3 +18,6 @@ Vanilla Item Obtainability:
 - Easier Title Music Box Obtainability: All three title music boxes are obtainable through alternate methods that do not require combining large quantities of other music boxes.
 - Encumbering Stone Recipe: The Encumbering Stone is craftable.
 - Hellforge Recipe: The Hellforge is craftable, albeit requiring Hellstone Bars so as not to break progression.
+
+Miscellanea:
+- Button: A visually stateless alternative to the switch. Sold by the Mechanic.

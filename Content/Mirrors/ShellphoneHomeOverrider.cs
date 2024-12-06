@@ -1,4 +1,4 @@
-using static MaddieQoL.Common.Misc;
+using static MaddieQoL.Common.Shorthands;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -15,14 +15,14 @@ public class MirrorShellphoneHomeOverrider : GlobalItem {
 	}
 
 	public override void ModifyTooltips(Item item, List<TooltipLine> tooltips) {
-		if (!ModContent.GetInstance<ModuleConfig>().enableReturnTools) {return;}
+		if (!ModuleConfig().enableReturnTools) {return;}
 		if (item.type == ItemID.Shellphone) {
 			tooltips.Add(new TooltipLine(Mod, "ReturnPortalInfo", ReturnPortalTooltipLine.Value));
 		}
 	}
 
 	public override void Load() {
-		if (!ModContent.GetInstance<ModuleConfig>().enableReturnTools) {return;}
+		if (!ModuleConfig().enableReturnTools) {return;}
 		On_Player.Spawn += (On_Player.orig_Spawn orig, Player self, PlayerSpawnContext context) => {
 			Item selectedItem = self.inventory[self.selectedItem];
 			if ((context == PlayerSpawnContext.RecallFromItem) && (selectedItem.type == ItemID.Shellphone)) {
