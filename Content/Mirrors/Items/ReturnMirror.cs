@@ -15,6 +15,9 @@ public class ReturnMirror : ModItem {
 
 	public override void SetStaticDefaults(){
 		TooltipWhenEnabled = this.GetLocalization(nameof(TooltipWhenEnabled));
+
+		ItemID.Sets.DuplicationMenuToolsFilter[this.Item.type] = true;
+		ItemID.Sets.SortingPriorityBossSpawns[this.Item.type] = 24;
 	}
 
 	public override void SetDefaults() {
@@ -35,7 +38,7 @@ public class ReturnMirror : ModItem {
 			ItemID.IceMirror
 		];
 		foreach (int mirror in mirrors) {
-			Recipe recipe = Recipe.Create(ModContent.ItemType<ReturnMirror>());
+			Recipe recipe = this.CreateRecipe();
 			recipe.AddIngredient(mirror);
 			recipe.AddIngredient(ItemID.Obsidian, 8);
 			recipe.AddIngredient(ItemID.CrystalShard, 30);

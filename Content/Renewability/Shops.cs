@@ -1,3 +1,4 @@
+using MaddieQoL.Common;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -31,7 +32,7 @@ public class RenewabilityShops : GlobalNPC {
 		if (!ModContent.GetInstance<ModuleConfig>().enableLihzahrdItemRenewability) {return;}
 		shop.Add(new Item(ItemID.LihzahrdBrick) {
 			shopCustomPrice = Item.buyPrice(0, 0, 10, 0)
-		}, Condition.InJungle, Condition.DownedGolem);
+		}, Condition.InJungle, Condition.DownedGolem, Conditions.PlayerHasPickaxePower(210));
 	}
 
 	private static void ModifyMechanicShop(NPCShop shop) {

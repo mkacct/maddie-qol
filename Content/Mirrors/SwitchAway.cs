@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using MaddieQoL.Util;
+using MaddieQoL.Common;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

@@ -15,6 +15,9 @@ public class CellPhonePlus : ModItem {
 
 	public override void SetStaticDefaults(){
 		TooltipWhenEnabled = this.GetLocalization(nameof(TooltipWhenEnabled));
+
+		ItemID.Sets.DuplicationMenuToolsFilter[this.Item.type] = true;
+		ItemID.Sets.SortingPriorityBossSpawns[this.Item.type] = 25;
 	}
 
 	public override void SetDefaults() {
@@ -49,7 +52,7 @@ public class CellPhonePlus : ModItem {
 			ItemID.CellPhone
 		];
 		foreach (int device in devices) {
-			Recipe recipe = Recipe.Create(ModContent.ItemType<CellPhonePlus>());
+			Recipe recipe = this.CreateRecipe();
 			recipe.AddIngredient(device);
 			recipe.AddIngredient<ReturnMirror>();
 			recipe.AddTile(TileID.TinkerersWorkbench);

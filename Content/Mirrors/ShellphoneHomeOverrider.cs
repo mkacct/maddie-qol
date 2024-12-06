@@ -1,3 +1,4 @@
+using static MaddieQoL.Common.Misc;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -10,7 +11,7 @@ public class MirrorShellphoneHomeOverrider : GlobalItem {
 	private static LocalizedText ReturnPortalTooltipLine {get; set;}
 
 	public override void SetStaticDefaults(){
-		ReturnPortalTooltipLine = Mod.GetLocalization($"Misc.{nameof(ReturnPortalTooltipLine)}");
+		ReturnPortalTooltipLine = this.Mod.GetLocalization($"{LangMisc}.{nameof(ReturnPortalTooltipLine)}");
 	}
 
 	public override void ModifyTooltips(Item item, List<TooltipLine> tooltips) {

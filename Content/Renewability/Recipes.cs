@@ -2,30 +2,15 @@ using static MaddieQoL.Util.RecipeUtil;
 using Terraria;
 using System.Collections.Generic;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 using MaddieQoL.Util;
+using MaddieQoL.Common;
 
 namespace MaddieQoL.Content.Renewability;
 
 public class RenewabilityRecipes : ModSystem {
-	private const string DungeonBrickRecipeGroup = nameof(ItemID.BlueBrick);
-
-	private static LocalizedText DungeonBrickRecipeGroupName {get; set;}
-
 	public override void SetStaticDefaults() {
-		DungeonBrickRecipeGroupName = Mod.GetLocalization($"Recipes.{nameof(DungeonBrickRecipeGroupName)}");
 		AddGoldChestShimmer();
-	}
-
-	public override void AddRecipeGroups() {
-		{
-			RecipeGroup group = new(
-				() => {return DungeonBrickRecipeGroupName.Value;},
-				ItemID.BlueBrick, ItemID.GreenBrick, ItemID.PinkBrick
-			);
-			RecipeGroup.RegisterGroup(DungeonBrickRecipeGroup, group);
-		}
 	}
 
 	public override void AddRecipes() {
@@ -505,26 +490,26 @@ public class RenewabilityRecipes : ModSystem {
 		RecipeOrderedRegisterer registerer = OrderedRegistererStartingAfter(ItemID.GreenDungeonWorkBench);
 		{ // Gothic Bookcase
 			Recipe recipe = Recipe.Create(ItemID.GothicBookcase);
-			recipe.AddRecipeGroup(DungeonBrickRecipeGroup, 20);
+			recipe.AddRecipeGroup(RecipeGroups.DungeonBrickRecipeGroup, 20);
 			recipe.AddIngredient(ItemID.Book, 10);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
 			registerer.Register(recipe.DisableDecraft());
 		}
 		{ // Gothic Chair
 			Recipe recipe = Recipe.Create(ItemID.GothicChair);
-			recipe.AddRecipeGroup(DungeonBrickRecipeGroup, 4);
+			recipe.AddRecipeGroup(RecipeGroups.DungeonBrickRecipeGroup, 4);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
 			registerer.Register(recipe.DisableDecraft());
 		}
 		{ // Gothic Table
 			Recipe recipe = Recipe.Create(ItemID.GothicTable);
-			recipe.AddRecipeGroup(DungeonBrickRecipeGroup, 8);
+			recipe.AddRecipeGroup(RecipeGroups.DungeonBrickRecipeGroup, 8);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
 			registerer.Register(recipe.DisableDecraft());
 		}
 		{ // Gothic Work Bench
 			Recipe recipe = Recipe.Create(ItemID.GothicWorkBench);
-			recipe.AddRecipeGroup(DungeonBrickRecipeGroup, 10);
+			recipe.AddRecipeGroup(RecipeGroups.DungeonBrickRecipeGroup, 10);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
 			registerer.Register(recipe.DisableDecraft());
 		}
