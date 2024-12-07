@@ -7,7 +7,7 @@ The mod's features are as follows. Most features can be enabled/disabled individ
 
 [h3]Teleportation[/h3]
 [list]
-	[*][b]Return Tools[/b]: Adds an upgraded Magic Mirror and Cell Phone that include the return portal feature of the Potion of Return. This feature is also integrated into the vanilla Shellphone.
+	[*][b]Return Tools[/b]: Adds an upgraded Magic Mirror and phones that include the return portal feature of the Potion of Return.
 	[*][b]Teleport Item Scroll-Away[/b]: When you teleport using a potion, mirror, or phone, your hotbar will automatically scroll to its first item so you don't accidentally teleport again. (Disabled by default since its behavior can be unintuitive.)
 [/list]
 

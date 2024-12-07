@@ -26,23 +26,15 @@ public class CellPhonePlus : ModItem {
 	}
 
 	public override void UseStyle(Player player, Rectangle heldItemFrame) {
-		bool enable = ModuleConfig().enableReturnTools;
-		MirrorUtil.UseMirrorStyle(player, this.Item, enable ? MirrorUtil.Return : MirrorUtil.Recall);
+		if (ModuleConfig().enableReturnTools) {
+			Styles.UseReturnStyle(player, this.Item);
+		} else {
+			Styles.UseRecallStyle(player, this.Item);
+		}
 	}
 
 	public override void UpdateInfoAccessory(Player player) {
-		player.accWatch = 3;
-		player.accDepthMeter = 1;
-		player.accCompass = 1;
-		player.accFishFinder = true;
-		player.accWeatherRadio = true;
-		player.accCalendar = true;
-		player.accThirdEye = true;
-		player.accJarOfSouls = true;
-		player.accCritterGuide = true;
-		player.accStopwatch = true;
-		player.accOreFinder = true;
-		player.accDreamCatcher = true;
+		Util.DisplayEverything(player);
 	}
 
 	public override void AddRecipes() {

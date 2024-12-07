@@ -40,7 +40,6 @@ Items: {
 Tiles.Button.MapEntryName: Button
 RecipeGroups.DungeonBrickRecipeGroupName: Any Dungeon Brick
 Conditions.PlayerHasPickaxePower: When the player has at least {0}% pickaxe power
-Misc.ReturnPortalTooltipLine: Includes return portal
 
 Configs: {
 	ModuleConfig: {

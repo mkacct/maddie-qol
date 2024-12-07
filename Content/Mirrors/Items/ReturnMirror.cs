@@ -27,8 +27,11 @@ public class ReturnMirror : ModItem {
 	}
 
 	public override void UseStyle(Player player, Rectangle heldItemFrame) {
-		bool enable = ModuleConfig().enableReturnTools;
-		MirrorUtil.UseMirrorStyle(player, this.Item, enable ? MirrorUtil.Return : MirrorUtil.Recall);
+		if (ModuleConfig().enableReturnTools) {
+			Styles.UseReturnStyle(player, this.Item);
+		} else {
+			Styles.UseRecallStyle(player, this.Item);
+		}
 	}
 
 	public override void AddRecipes() {
