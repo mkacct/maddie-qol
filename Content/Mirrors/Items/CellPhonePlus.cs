@@ -6,6 +6,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.Achievements;
+using Terraria.GameContent.Achievements;
 
 namespace MaddieQoL.Content.Mirrors.Items;
 
@@ -35,6 +37,11 @@ public class CellPhonePlus : ModItem {
 
 	public override void UpdateInfoAccessory(Player player) {
 		Util.DisplayEverything(player);
+	}
+
+	public override bool OnPickup(Player player) {
+		AchievementsHelper.NotifyItemPickup(player, new Item(ItemID.CellPhone));
+		return true;
 	}
 
 	public override void AddRecipes() {
