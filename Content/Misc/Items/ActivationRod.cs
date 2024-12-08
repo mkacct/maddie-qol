@@ -1,4 +1,5 @@
 using static MaddieQoL.Util.RecipeUtil;
+using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,6 +10,8 @@ namespace MaddieQoL.Content.Misc.Items;
 
 public class ActivationRod : ModItem {
 	private static readonly SoundStyle SignalSound = SoundID.Item49;
+
+	private Vector2? _pendingNetActivateWireCoords = null;
 
 	public override void SetStaticDefaults() {
 		ItemID.Sets.AlsoABuildingItem[this.Item.type] = true;
@@ -30,25 +33,57 @@ public class ActivationRod : ModItem {
 
 	public override bool CanUseItem(Player player) {
 		if (player.whoAmI != Main.myPlayer) {return true;}
-		Use(player, Main.MouseWorld);
+		this.ClientUse(player);
 		return true;
 	}
 
-	private void Use(Player player, Vector2 mouseWorld) {
+	private void ClientUse(Player player) {
 		if (!player.IsTargetTileInItemRange(this.Item)) {return;}
-		Point tilePos = mouseWorld.ToTileCoordinates();
+		Point tilePos = Main.MouseWorld.ToTileCoordinates();
 		if (!player.CanDoWireStuffHere(tilePos.X, tilePos.Y)) {return;}
 		Tile tile = Main.tile[tilePos];
 		if (!TileHasWire(tile)) {return;}
-		SoundEngine.PlaySound(SignalSound, new Vector2(mouseWorld.X, mouseWorld.Y));
-		Wiring.TripWire(tilePos.X, tilePos.Y, 1, 1);
+
+		ActivateWire(Main.MouseWorld);
+		this.NetActivateWire(Main.MouseWorld);
 	}
 
 	private static bool TileHasWire(Tile tile) {
 		return tile.RedWire || tile.GreenWire || tile.BlueWire || tile.YellowWire;
 	}
 
-	public override void HoldItem(Player player) {
+	private void NetActivateWire(Vector2 coords) {
+		if (Main.netMode == NetmodeID.MultiplayerClient) {
+			this._pendingNetActivateWireCoords = coords;
+			this.Item.NetStateChanged();
+		}
+	}
+
+	private static void ActivateWire(Vector2 coords) {
+		SoundEngine.PlaySound(SignalSound, coords);
+		Point tilePos = coords.ToTileCoordinates();
+		Wiring.TripWire(tilePos.X, tilePos.Y, 1, 1);
+	}
+
+    public override void NetSend(BinaryWriter writer) {
+        if (this._pendingNetActivateWireCoords.HasValue) {
+			writer.Write(true);
+			writer.Write(this._pendingNetActivateWireCoords.Value.X);
+			writer.Write(this._pendingNetActivateWireCoords.Value.Y);
+			this._pendingNetActivateWireCoords = null;
+			return;
+		}
+		writer.Write(false);
+    }
+
+	public override void NetReceive(BinaryReader reader) {
+		if (reader.ReadBoolean()) {
+			Vector2 worldPos = new(reader.ReadSingle(), reader.ReadSingle());
+			ActivateWire(worldPos);
+		}
+	}
+
+    public override void HoldItem(Player player) {
 		if (player.whoAmI != Main.myPlayer) {return;}
 		if (!player.IsTargetTileInItemRange(this.Item)) {return;}
 		player.cursorItemIconEnabled = true;
