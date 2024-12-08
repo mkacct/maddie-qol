@@ -14,7 +14,7 @@ public class ReturnMirror : ModItem {
 
 	public override LocalizedText Tooltip => ModuleConfig().enableReturnTools ? TooltipWhenEnabled : base.Tooltip;
 
-	public override void SetStaticDefaults(){
+	public override void SetStaticDefaults() {
 		TooltipWhenEnabled = this.GetLocalization(nameof(TooltipWhenEnabled));
 
 		ItemID.Sets.DuplicationMenuToolsFilter[this.Item.type] = true;

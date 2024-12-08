@@ -65,8 +65,8 @@ public class ActivationRod : ModItem {
 		Wiring.TripWire(tilePos.X, tilePos.Y, 1, 1);
 	}
 
-    public override void NetSend(BinaryWriter writer) {
-        if (this._pendingNetActivateWireCoords.HasValue) {
+	public override void NetSend(BinaryWriter writer) {
+		if (this._pendingNetActivateWireCoords.HasValue) {
 			writer.Write(true);
 			writer.Write(this._pendingNetActivateWireCoords.Value.X);
 			writer.Write(this._pendingNetActivateWireCoords.Value.Y);
@@ -74,7 +74,7 @@ public class ActivationRod : ModItem {
 			return;
 		}
 		writer.Write(false);
-    }
+	}
 
 	public override void NetReceive(BinaryReader reader) {
 		if (reader.ReadBoolean()) {
@@ -83,7 +83,7 @@ public class ActivationRod : ModItem {
 		}
 	}
 
-    public override void HoldItem(Player player) {
+	public override void HoldItem(Player player) {
 		if (player.whoAmI != Main.myPlayer) {return;}
 		if (!player.IsTargetTileInItemRange(this.Item)) {return;}
 		player.cursorItemIconEnabled = true;
