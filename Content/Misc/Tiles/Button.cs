@@ -47,8 +47,25 @@ public class Button : ModTile {
 	}
 
 	public override bool RightClick(int i, int j) {
-		SoundEngine.PlaySound(SoundID.Mech, new Vector2(i*16, j*16));
-		Wiring.TripWire(i, j, 1, 1);
+		Wiring.HitSwitch(i, j);
+		NetMessage.SendData(MessageID.HitSwitch, -1, -1, null, i, j);
 		return true;
+	}
+
+	public override void Load() {
+		On_Wiring.HitSwitch += (On_Wiring.orig_HitSwitch orig, int i, int j) => {
+			bool overridden = this.OverrideHitSwitch(i, j);
+			if (!overridden) {orig(i, j);}
+        };
+	}
+
+	private bool OverrideHitSwitch(int i, int j) {
+		if (!WorldGen.InWorld(i, j) || Main.tile[i, j] == null) {return false;}
+		if (Main.tile[i, j].TileType == this.Type) {
+			SoundEngine.PlaySound(SoundID.Mech, new Vector2(i*16, j*16));
+			Wiring.TripWire(i, j, 1, 1);
+			return true;
+		}
+		return false;
 	}
 }
