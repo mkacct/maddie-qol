@@ -13,6 +13,7 @@ The mod's features are as follows. Most features can be enabled/disabled individ
 
 [h3]Wiring[/h3]
 [list]
+	[*][b]Signal Generator[/b]: A craftable tool allowing you to activate wires by clicking on them.
 	[*][b]Button[/b]: A visually stateless alternative to the switch. Sold by the Mechanic.
 [/list]
 

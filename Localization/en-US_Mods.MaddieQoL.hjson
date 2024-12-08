@@ -35,6 +35,15 @@ Items: {
 		DisplayName: Button
 		Tooltip: ""
 	}
+
+	ActivationRod: {
+		DisplayName: Signal Generator
+		Tooltip:
+			'''
+			Activates wires
+			'Not to be confused with an actuation rod'
+			'''
+	}
 }
 
 Tiles.Button.MapEntryName: Button

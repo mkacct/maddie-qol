@@ -56,7 +56,7 @@ public class Button : ModTile {
 		On_Wiring.HitSwitch += (On_Wiring.orig_HitSwitch orig, int i, int j) => {
 			bool overridden = this.OverrideHitSwitch(i, j);
 			if (!overridden) {orig(i, j);}
-        };
+		};
 	}
 
 	private bool OverrideHitSwitch(int i, int j) {

@@ -9,6 +9,7 @@ Teleportation:
 - Teleport Item Scroll-Away: When you teleport using a potion, mirror, or phone, your hotbar will automatically scroll to its first item so you don't accidentally teleport again. (Disabled by default.)
 
 Wiring:
+- Signal Generator: A craftable tool allowing you to activate wires by clicking on them.
 - Button: A visually stateless alternative to the switch. Sold by the Mechanic.
 
 Vanilla Item Obtainability:
