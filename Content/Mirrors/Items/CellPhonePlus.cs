@@ -24,6 +24,7 @@ public class CellPhonePlus : ModItem {
 
 	public override void SetDefaults() {
 		this.Item.CloneDefaults(ItemID.CellPhone);
+		this.Item.rare = ItemRarityID.Yellow;
 	}
 
 	public override void UseStyle(Player player, Rectangle heldItemFrame) {

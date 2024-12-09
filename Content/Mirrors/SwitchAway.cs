@@ -1,4 +1,5 @@
 using static MaddieQoL.Common.Shorthands;
+using static MaddieQoL.Content.Mirrors.MirrorShellphonePlusSystem;
 using System.Collections.Generic;
 using MaddieQoL.Common;
 using Microsoft.Xna.Framework;
@@ -25,6 +26,7 @@ public class MirrorSwitchAway : GlobalItem {
 			ItemID.DemonConch
 		};
 		AllTeleportOnUseItems.UnionWith(IDSets.ShellphoneItemIDs);
+		AllTeleportOnUseItems.UnionWith(ShellphonePlusItemIDs);
 	}
 
 	public override void UseStyle(Item item, Player player, Rectangle heldItemFrame) {

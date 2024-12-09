@@ -1,3 +1,13 @@
+Common: {
+	DisplaysAll: Displays everything
+	ReturnToolsDisabled: "[c/ff1919:Return tools disabled in mod configuration]"
+	ShellphonePlusDesc:
+		'''
+		<right> to toggle destination
+		'If you listen closely, you can hear Item_6.wav'
+		'''
+}
+
 Items: {
 	ReturnMirror: {
 		DisplayName: Return Mirror
@@ -5,7 +15,7 @@ Items: {
 			'''
 			Gaze in the mirror to return home [c/646464:and create a portal]
 			[c/646464:Use portal to return when you are done]
-			[c/ff1919:Return tools disabled in mod configuration]
+			{$Common.ReturnToolsDisabled}
 			'''
 		TooltipWhenEnabled:
 			'''
@@ -18,10 +28,10 @@ Items: {
 		DisplayName: Cell Phone+
 		Tooltip:
 			'''
-			Displays everything
+			{$Common.DisplaysAll}
 			Allows you to return home at will [c/646464:and create a portal]
 			[c/646464:Use portal to return when you are done]
-			[c/ff1919:Return tools disabled in mod configuration]
+			{$Common.ReturnToolsDisabled}
 			'''
 		TooltipWhenEnabled:
 			'''
@@ -44,10 +54,118 @@ Items: {
 			'Not to be confused with an actuation rod'
 			'''
 	}
+
+	ShellphonePlusDummy: {
+		DisplayName: Shellphone Pro
+		Tooltip:
+			'''
+			{$Common.DisplaysAll}
+			{$Common.ShellphonePlusDesc}
+			[c/646464:Includes return portal mode]
+			{$Common.ReturnToolsDisabled}
+			'''
+		TooltipWhenEnabled:
+			'''
+			{$Common.DisplaysAll}
+			Includes return portal mode
+			{$Common.ShellphonePlusDesc}
+			'''
+	}
+
+	ShellphonePlusReturn: {
+		DisplayName: Shellphone Pro (Return)
+		Tooltip:
+			'''
+			{$Common.DisplaysAll}
+			Allows you to return home at will [c/646464:and create a portal]
+			[c/646464:Use portal to return when you are done]
+			{$Common.ShellphonePlusDesc}
+			{$Common.ReturnToolsDisabled}
+			'''
+		TooltipWhenEnabled:
+			'''
+			{$Common.DisplaysAll}
+			Allows you to return home at will and create a portal
+			Use portal to return when you are done
+			{$Common.ShellphonePlusDesc}
+			'''
+	}
+
+	ShellphonePlusHome: {
+		DisplayName: Shellphone Pro (Home)
+		Tooltip:
+			'''
+			{$Common.DisplaysAll}
+			Allows you to return home at will
+			{$Common.ShellphonePlusDesc}
+			{$Common.ReturnToolsDisabled}
+			'''
+		TooltipWhenEnabled:
+			'''
+			{$Common.DisplaysAll}
+			Allows you to return home at will
+			{$Common.ShellphonePlusDesc}
+			'''
+	}
+
+	ShellphonePlusOcean: {
+		DisplayName: Shellphone Pro (Ocean)
+		Tooltip:
+			'''
+			{$Common.DisplaysAll}
+			Allows you to travel to the ocean at will
+			{$Common.ShellphonePlusDesc}
+			{$Common.ReturnToolsDisabled}
+			'''
+		TooltipWhenEnabled:
+			'''
+			{$Common.DisplaysAll}
+			Allows you to travel to the ocean at will
+			{$Common.ShellphonePlusDesc}
+			'''
+	}
+
+	ShellphonePlusHell: {
+		DisplayName: Shellphone Pro (Underworld)
+		Tooltip:
+			'''
+			{$Common.DisplaysAll}
+			Allows you to travel to the underworld at will
+			{$Common.ShellphonePlusDesc}
+			{$Common.ReturnToolsDisabled}
+			'''
+		TooltipWhenEnabled:
+			'''
+			{$Common.DisplaysAll}
+			Allows you to travel to the underworld at will
+			{$Common.ShellphonePlusDesc}
+			'''
+	}
+
+	ShellphonePlusSpawn: {
+		DisplayName: Shellphone Pro (Spawn)
+		Tooltip:
+			'''
+			{$Common.DisplaysAll}
+			Allows you to return to spawn at will
+			{$Common.ShellphonePlusDesc}
+			'''
+		TooltipWhenEnabled:
+			'''
+			{$Common.DisplaysAll}
+			Allows you to return to spawn at will
+			{$Common.ShellphonePlusDesc}
+			'''
+	}
 }
 
 Tiles.Button.MapEntryName: Button
-RecipeGroups.DungeonBrickRecipeGroupName: Any Dungeon Brick
+
+RecipeGroups: {
+	ShellphoneRecipeGroupName: Shellphone
+	DungeonBrickRecipeGroupName: Any Dungeon Brick
+}
+
 Conditions.PlayerHasPickaxePower: When the player has at least {0}% pickaxe power
 
 Configs: {
