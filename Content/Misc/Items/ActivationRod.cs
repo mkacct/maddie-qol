@@ -31,6 +31,10 @@ public class ActivationRod : ModItem {
 		this.Item.value = Item.sellPrice(0, 0, 40, 0);
 	}
 
+	public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup) {
+		itemGroup = ContentSamples.CreativeHelper.ItemGroup.Wiring;
+	}
+
 	public override bool CanUseItem(Player player) {
 		if (player.whoAmI != Main.myPlayer) {return true;}
 		this.ClientUse(player);
