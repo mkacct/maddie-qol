@@ -11,7 +11,7 @@ namespace MaddieQoL.Content.Misc.Items;
 public class ActivationRod : ModItem {
 	private static readonly SoundStyle SignalSound = SoundID.Item49;
 
-	private Vector2? _pendingNetActivateWireCoords = null;
+	private Point? _pendingNetActivateWireCoords = null;
 
 	public override void SetStaticDefaults() {
 		ItemID.Sets.AlsoABuildingItem[this.Item.type] = true;
@@ -43,30 +43,28 @@ public class ActivationRod : ModItem {
 
 	private void ClientUse(Player player) {
 		if (!player.IsTargetTileInItemRange(this.Item)) {return;}
-		Point tilePos = Main.MouseWorld.ToTileCoordinates();
-		if (!player.CanDoWireStuffHere(tilePos.X, tilePos.Y)) {return;}
-		Tile tile = Main.tile[tilePos];
+		if (!player.CanDoWireStuffHere(Player.tileTargetX, Player.tileTargetY)) {return;}
+		Tile tile = Main.tile[Player.tileTargetX, Player.tileTargetY];
 		if (!TileHasWire(tile)) {return;}
 
-		ActivateWire(Main.MouseWorld);
-		this.NetActivateWire(Main.MouseWorld);
+		ActivateWire(Player.tileTargetX, Player.tileTargetY);
+		this.NetActivateWire(Player.tileTargetX, Player.tileTargetY);
 	}
 
 	private static bool TileHasWire(Tile tile) {
 		return tile.RedWire || tile.GreenWire || tile.BlueWire || tile.YellowWire;
 	}
 
-	private void NetActivateWire(Vector2 coords) {
+	private void NetActivateWire(int tileTargetX, int tileTargetY) {
 		if (Main.netMode == NetmodeID.MultiplayerClient) {
-			this._pendingNetActivateWireCoords = coords;
+			this._pendingNetActivateWireCoords = new Point(tileTargetX, tileTargetY);
 			this.Item.NetStateChanged();
 		}
 	}
 
-	private static void ActivateWire(Vector2 coords) {
-		SoundEngine.PlaySound(SignalSound, coords);
-		Point tilePos = coords.ToTileCoordinates();
-		Wiring.TripWire(tilePos.X, tilePos.Y, 1, 1);
+	private static void ActivateWire(int tileTargetX, int tileTargetY) {
+		SoundEngine.PlaySound(SignalSound, new Vector2(tileTargetX * 16 + 8, tileTargetY * 16 + 8));
+		Wiring.TripWire(tileTargetX, tileTargetY, 1, 1);
 	}
 
 	public override void NetSend(BinaryWriter writer) {
@@ -82,8 +80,7 @@ public class ActivationRod : ModItem {
 
 	public override void NetReceive(BinaryReader reader) {
 		if (reader.ReadBoolean()) {
-			Vector2 worldPos = new(reader.ReadSingle(), reader.ReadSingle());
-			ActivateWire(worldPos);
+			ActivateWire(reader.ReadInt32(), reader.ReadInt32());
 		}
 	}
 
