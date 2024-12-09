@@ -5,7 +5,7 @@ namespace MaddieQoL.Content.Misc.Items;
 
 public class Button : ModItem {
 	public override void SetStaticDefaults() {
-		Item.ResearchUnlockCount = 5;
+		this.Item.ResearchUnlockCount = 5;
 	}
 
 	public override void SetDefaults() {
