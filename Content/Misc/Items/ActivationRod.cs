@@ -19,8 +19,8 @@ public class ActivationRod : ModItem {
 	}
 
 	public override void SetDefaults() {
-		this.Item.width = 36;
-		this.Item.height = 36;
+		this.Item.width = 32;
+		this.Item.height = 32;
 		this.Item.useStyle = ItemUseStyleID.Swing;
 		this.Item.useAnimation = 15;
 		this.Item.useTime = 15;
