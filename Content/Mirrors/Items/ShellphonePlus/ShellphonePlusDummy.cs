@@ -43,6 +43,6 @@ public class ShellphonePlusDummy : AbstractShellphonePlus {
 
 	public override void OnCreated(ItemCreationContext context) {
 		if (context is InitializationItemCreationContext) {return;}
-		this.Item.ChangeItemType(ShellphonePlusTypeSequence[0]);
+		this.Item.ChangeItemType(ShellphonePlusNextType(-1));
 	}
 }

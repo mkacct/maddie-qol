@@ -1,3 +1,4 @@
+using static MaddieQoL.Common.Shorthands;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -13,7 +14,7 @@ namespace MaddieQoL.Content.Mirrors;
 public class MirrorShellphonePlusSystem : ModSystem {
 	internal static readonly int ShellphonePlusDummyType = ModContent.ItemType<ShellphonePlusDummy>();
 
-	internal static readonly int[] ShellphonePlusTypeSequence = [
+	private static readonly int[] ShellphonePlusTypeSequence = [
 		ModContent.ItemType<ShellphonePlusReturn>(),
 		ModContent.ItemType<ShellphonePlusHome>(),
 		ModContent.ItemType<ShellphonePlusOcean>(),
@@ -29,9 +30,12 @@ public class MirrorShellphonePlusSystem : ModSystem {
 	}
 
 	internal static int ShellphonePlusNextType(int type) {
-		int currentIndex = Array.IndexOf(ShellphonePlusTypeSequence, type);
-		int nextIndex = (currentIndex + 1) % ShellphonePlusTypeSequence.Length;
-		return ShellphonePlusTypeSequence[nextIndex];
+		int index = Array.IndexOf(ShellphonePlusTypeSequence, type);
+		index = (index + 1) % ShellphonePlusTypeSequence.Length;
+		if (!ModuleConfig().enableReturnTools && (ShellphonePlusTypeSequence[index] == ModContent.ItemType<ShellphonePlusReturn>())) {
+			index = (index + 1) % ShellphonePlusTypeSequence.Length;
+		}
+		return ShellphonePlusTypeSequence[index];
 	}
 
 	public override void Load() {
