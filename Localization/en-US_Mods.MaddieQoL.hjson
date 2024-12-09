@@ -149,6 +149,7 @@ Items: {
 			{$Common.DisplaysAll}
 			Allows you to return to spawn at will
 			{$Common.ShellphonePlusDesc}
+			{$Common.ReturnToolsDisabled}
 			'''
 		TooltipWhenEnabled:
 			'''
