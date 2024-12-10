@@ -11,7 +11,7 @@ namespace MaddieQoL.Content.Misc.Items;
 public class ActivationRod : ModItem {
 	private static readonly SoundStyle SignalSound = SoundID.Item49;
 
-	private Point? _pendingNetActivateWireCoords = null;
+	private Point? _pendingNetActivationCoords = null;
 
 	public override void SetStaticDefaults() {
 		ItemID.Sets.AlsoABuildingItem[this.Item.type] = true;
@@ -47,8 +47,11 @@ public class ActivationRod : ModItem {
 		Tile tile = Main.tile[Player.tileTargetX, Player.tileTargetY];
 		if (!TileHasWire(tile)) {return;}
 
-		ActivateWire(Player.tileTargetX, Player.tileTargetY);
-		this.NetActivateWire(Player.tileTargetX, Player.tileTargetY);
+		if (Main.netMode == NetmodeID.SinglePlayer) {
+			ActivateWire(Player.tileTargetX, Player.tileTargetY);
+		} else {
+			this.NetActivateWire(Player.tileTargetX, Player.tileTargetY);
+		}
 	}
 
 	private static bool TileHasWire(Tile tile) {
@@ -57,31 +60,34 @@ public class ActivationRod : ModItem {
 
 	private void NetActivateWire(int tileTargetX, int tileTargetY) {
 		if (Main.netMode == NetmodeID.MultiplayerClient) {
-			this._pendingNetActivateWireCoords = new Point(tileTargetX, tileTargetY);
+			this._pendingNetActivationCoords = new Point(tileTargetX, tileTargetY);
 			this.Item.NetStateChanged();
 		}
 	}
 
-	private static void ActivateWire(int tileTargetX, int tileTargetY) {
-		SoundEngine.PlaySound(SignalSound, new Vector2(tileTargetX * 16 + 8, tileTargetY * 16 + 8));
-		Wiring.TripWire(tileTargetX, tileTargetY, 1, 1);
-	}
-
 	public override void NetSend(BinaryWriter writer) {
-		if (this._pendingNetActivateWireCoords.HasValue) {
-			writer.Write(true);
-			writer.Write(this._pendingNetActivateWireCoords.Value.X);
-			writer.Write(this._pendingNetActivateWireCoords.Value.Y);
-			this._pendingNetActivateWireCoords = null;
-			return;
+		writer.Write(this._pendingNetActivationCoords.HasValue);
+		if (this._pendingNetActivationCoords.HasValue) {
+			writer.Write(this._pendingNetActivationCoords.Value.X);
+			writer.Write(this._pendingNetActivationCoords.Value.Y);
+			this._pendingNetActivationCoords = null;
 		}
-		writer.Write(false);
 	}
 
 	public override void NetReceive(BinaryReader reader) {
 		if (reader.ReadBoolean()) {
-			ActivateWire(reader.ReadInt32(), reader.ReadInt32());
+			Point coords = new(reader.ReadInt32(), reader.ReadInt32());
+			ActivateWire(coords.X, coords.Y);
+			if (Main.netMode == NetmodeID.Server) {
+				this._pendingNetActivationCoords = coords;
+				this.Item.NetStateChanged();
+			}
 		}
+	}
+
+	private static void ActivateWire(int tileTargetX, int tileTargetY) {
+		SoundEngine.PlaySound(SignalSound, new Vector2(tileTargetX * 16 + 8, tileTargetY * 16 + 8)); // TODO: make sound play for all players
+		Wiring.TripWire(tileTargetX, tileTargetY, 1, 1);
 	}
 
 	public override void HoldItem(Player player) {
