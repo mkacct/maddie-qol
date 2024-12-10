@@ -86,7 +86,7 @@ public class ActivationRod : ModItem {
 	}
 
 	private static void ActivateWire(int tileTargetX, int tileTargetY) {
-		SoundEngine.PlaySound(SignalSound, new Vector2(tileTargetX * 16 + 8, tileTargetY * 16 + 8)); // TODO: make sound play for all players
+		SoundEngine.PlaySound(SignalSound, new Vector2(tileTargetX * 16 + 8, tileTargetY * 16 + 8));
 		Wiring.TripWire(tileTargetX, tileTargetY, 1, 1);
 	}
 
