@@ -10,10 +10,10 @@ namespace MaddieQoL.Content.Mirrors.Items.ShellphonePlus;
 
 public abstract class AbstractShellphonePlus : ModItem {
 	public override void SetStaticDefaults() {
-		if (this.Item.type != ShellphonePlusDummyType) {
-			ItemID.Sets.ShimmerCountsAsItem[this.Item.type] = ShellphonePlusDummyType;
+		if (this.Item.type != ShellphonePlusDummyItemID) {
+			ItemID.Sets.ShimmerCountsAsItem[this.Item.type] = ShellphonePlusDummyItemID;
 		}
-		this.Item.ResearchUnlockCount = (this.Item.type == ShellphonePlusDummyType) ? 1 : 0;
+		this.Item.ResearchUnlockCount = (this.Item.type == ShellphonePlusDummyItemID) ? 1 : 0;
 		ItemID.Sets.DuplicationMenuToolsFilter[this.Item.type] = true;
 		ItemID.Sets.SortingPriorityBossSpawns[this.Item.type] = 30;
 	}
@@ -41,12 +41,12 @@ public abstract class AbstractShellphonePlus : ModItem {
 		player.releaseUseTile = false;
 		Main.mouseRightRelease = false;
 		SoundEngine.PlaySound(SoundID.Unlock);
-		this.Item.ChangeItemType(ShellphonePlusNextType(this.Item.type));
+		this.Item.ChangeItemType(ShellphonePlusNextItemID(this.Item.type));
 		Recipe.FindRecipes();
 	}
 
 	public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI) {
-		Main.GetItemDrawFrame(ShellphonePlusDummyType, out var itemTexture, out var itemFrame);
+		Main.GetItemDrawFrame(ShellphonePlusDummyItemID, out var itemTexture, out var itemFrame);
 		Vector2 drawOrigin = itemFrame.Size() / 2f;
 		Vector2 drawPosition = this.Item.Bottom - Main.screenPosition - new Vector2(0, drawOrigin.Y);
 		spriteBatch.Draw(itemTexture, drawPosition, itemFrame, lightColor, rotation, drawOrigin, scale, SpriteEffects.None, 0);

@@ -12,9 +12,9 @@ using Terraria.UI;
 namespace MaddieQoL.Content.Mirrors;
 
 public class MirrorShellphonePlusSystem : ModSystem {
-	internal static readonly int ShellphonePlusDummyType = ModContent.ItemType<ShellphonePlusDummy>();
+	internal static readonly int ShellphonePlusDummyItemID = ModContent.ItemType<ShellphonePlusDummy>();
 
-	private static readonly int[] ShellphonePlusTypeSequence = [
+	private static readonly int[] ShellphonePlusItemIDSequence = [
 		ModContent.ItemType<ShellphonePlusReturn>(),
 		ModContent.ItemType<ShellphonePlusHome>(),
 		ModContent.ItemType<ShellphonePlusOcean>(),
@@ -25,17 +25,17 @@ public class MirrorShellphonePlusSystem : ModSystem {
 	internal static readonly ISet<int> ShellphonePlusItemIDs;
 
 	static MirrorShellphonePlusSystem() {
-		ShellphonePlusItemIDs = new HashSet<int> {ShellphonePlusDummyType};
-		ShellphonePlusItemIDs.UnionWith(ShellphonePlusTypeSequence);
+		ShellphonePlusItemIDs = new HashSet<int> {ShellphonePlusDummyItemID};
+		ShellphonePlusItemIDs.UnionWith(ShellphonePlusItemIDSequence);
 	}
 
-	internal static int ShellphonePlusNextType(int type) {
-		int index = Array.IndexOf(ShellphonePlusTypeSequence, type);
-		index = (index + 1) % ShellphonePlusTypeSequence.Length;
-		if (!ModuleConfig().enableReturnTools && (ShellphonePlusTypeSequence[index] == ModContent.ItemType<ShellphonePlusReturn>())) {
-			index = (index + 1) % ShellphonePlusTypeSequence.Length;
+	internal static int ShellphonePlusNextItemID(int itemId) {
+		int index = Array.IndexOf(ShellphonePlusItemIDSequence, itemId);
+		index = (index + 1) % ShellphonePlusItemIDSequence.Length;
+		if (!ModuleConfig().enableReturnTools && (ShellphonePlusItemIDSequence[index] == ModContent.ItemType<ShellphonePlusReturn>())) {
+			index = (index + 1) % ShellphonePlusItemIDSequence.Length;
 		}
-		return ShellphonePlusTypeSequence[index];
+		return ShellphonePlusItemIDSequence[index];
 	}
 
 	public override void Load() {
@@ -52,12 +52,12 @@ public class MirrorShellphonePlusSystem : ModSystem {
 	private static void AddItemResearchOverride() {
 		// Using reflection since ContentSamples.AddItemResearchOverride() is private for some reason
 		MethodInfo AddItemResearchOverride = typeof(ContentSamples).GetMethod("AddItemResearchOverride", BindingFlags.NonPublic | BindingFlags.Static);
-		AddItemResearchOverride.Invoke(null, [ShellphonePlusDummyType, ShellphonePlusTypeSequence]);
+		AddItemResearchOverride.Invoke(null, [ShellphonePlusDummyItemID, ShellphonePlusItemIDSequence]);
 	}
 
 	private static void TryItemSwap(Item item) {
 		if (ShellphonePlusItemIDs.Contains(item.type)) {
-			item.ChangeItemType(ShellphonePlusNextType(item.type));
+			item.ChangeItemType(ShellphonePlusNextItemID(item.type));
 			AfterItemSwap();
 		}
 	}
