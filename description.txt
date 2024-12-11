@@ -22,3 +22,4 @@ Vanilla Item Obtainability:
 - Easier Title Music Box Obtainability: All three title music boxes are obtainable through alternate methods that do not require combining large quantities of other music boxes.
 - Encumbering Stone Recipe: The Encumbering Stone is craftable.
 - Hellforge Recipe: The Hellforge is craftable, albeit requiring Hellstone Bars so as not to break progression.
+- Default Familiar Set: All newly-created characters spawn with the Familiar set in their inventory. (Disabled by default.)

@@ -253,5 +253,14 @@ Configs: {
 				(The crafting recipe requires Hellstone Bars, so progression is unchanged)
 				'''
 		}
+
+		enableDefaultFamiliarSet: {
+			Label: Enable Default Familiar Set
+			Tooltip:
+				'''
+				All newly-created characters will spawn with the Familiar set in their inventory
+				(Also makes the Familiar set have no value)
+				'''
+		}
 	}
 }

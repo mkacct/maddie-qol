@@ -49,4 +49,8 @@ public class ModuleConfig : ModConfig
 	[DefaultValue(true)]
 	[ReloadRequired]
 	public bool enableHellforgeRecipe;
+
+	[DefaultValue(false)]
+	[ReloadRequired]
+	public bool enableDefaultFamiliarSet;
 }

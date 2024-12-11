@@ -28,4 +28,5 @@ The mod consists of the following modules (many of which can be enabled/disabled
 	[*][b]Easier Title Music Box Obtainability[/b]: All three title music boxes are obtainable through alternate methods that do not require combining large quantities of other music boxes.
 	[*][b]Encumbering Stone Recipe[/b]: The Encumbering Stone is craftable.
 	[*][b]Hellforge Recipe[/b]: The Hellforge is craftable, albeit requiring Hellstone Bars so as not to break progression.
+	[*][b]Default Familiar Set[/b]: All newly-created characters spawn with the Familiar set in their inventory. (Disabled by default.)
 [/list]
