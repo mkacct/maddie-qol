@@ -41,10 +41,7 @@ Items: {
 			'''
 	}
 
-	Button: {
-		DisplayName: Button
-		Tooltip: ""
-	}
+	Button.DisplayName: Button
 
 	ActivationRod: {
 		DisplayName: Signal Generator

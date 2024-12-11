@@ -1,9 +1,12 @@
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace MaddieQoL.Content.Misc.Items;
 
 public class Button : ModItem {
+	public override LocalizedText Tooltip => LocalizedText.Empty;
+
 	public override void SetStaticDefaults() {
 		this.Item.ResearchUnlockCount = 5;
 		ItemID.Sets.SortingPriorityWiring[this.Item.type] = 91;
