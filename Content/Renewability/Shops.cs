@@ -30,10 +30,11 @@ public class RenewabilityShops : GlobalNPC {
 	}
 
 	private static void ModifyWitchDoctorShop(NPCShop shop) {
-		if (!ModuleConfig().enableLihzahrdItemRenewability) {return;}
-		shop.Add(new Item(ItemID.LihzahrdBrick) {
-			shopCustomPrice = Item.buyPrice(0, 0, 10, 0)
-		}, Condition.InJungle, Condition.DownedGolem, Conditions.PlayerHasPickaxePower(210));
+		// TODO: reassess after 1.4.5
+		// if (!ModuleConfig().enableLihzahrdItemRenewability) {return;}
+		// shop.Add(new Item(ItemID.LihzahrdBrick) {
+		// 	shopCustomPrice = Item.buyPrice(0, 0, 10, 0)
+		// }, Condition.InJungle, Condition.DownedGolem, Conditions.PlayerHasPickaxePower(210));
 	}
 
 	private static void ModifyMechanicShop(NPCShop shop) {

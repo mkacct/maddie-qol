@@ -194,22 +194,18 @@ Configs: {
 				'''
 		}
 
-		enableDungeonItemRenewability: {
-			Label: Enable Dungeon Item Renewability
-			Tooltip:
-				'''
-				Dungeon Bricks and related items will be renewable
-				through fishing or crafting
-				'''
-		}
-
 		enableLihzahrdItemRenewability: {
 			Label: Enable Lihzahrd Item Renewability
 			Tooltip:
 				'''
-				Lihzahrd Bricks and related items will be renewable
+				Lihzahrd placeable items will be renewable
 				through shopping or crafting
 				'''
+		}
+
+		enableDungeonItemRenewability: {
+			Label: Enable Dungeon Item Recipes
+			Tooltip: Adds crafting recipes for additional Dungeon placeable items
 		}
 
 		enableTrapRecipes: {

@@ -13,9 +13,9 @@ Wiring:
 - Button: A visually stateless alternative to the switch. Sold by the Mechanic.
 
 Vanilla Item Obtainability:
-- Dungeon Item Renewability: Dungeon Bricks of all colors can be obtained by fishing.
-- Lihzahrd Item Renewability: Lihzahrd Bricks and related items can be obtained by shopping from NPCs in the Jungle after defeating Golem.
+- Lihzahrd Item Renewability: Lihzahrd placeable items can be obtained by shopping from NPCs in the Jungle after defeating Golem.
 - Missing Furniture Recipes: Adds missing recipes for Dungeon and Obsidian furniture.
+- Dungeon Item Recipes: Additional Dungeon placeable items are craftable.
 - Trap Recipes: All traps are craftable in a graveyard.
 - Chest Recipes: All otherwise non-renewable chests are craftable.
 - Vase Recipes: Dungeon and Obsidian Vases are craftable.

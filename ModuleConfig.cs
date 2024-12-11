@@ -20,11 +20,11 @@ public class ModuleConfig : ModConfig
 
 	[DefaultValue(true)]
 	[ReloadRequired]
-	public bool enableDungeonItemRenewability;
+	public bool enableLihzahrdItemRenewability;
 
 	[DefaultValue(true)]
 	[ReloadRequired]
-	public bool enableLihzahrdItemRenewability;
+	public bool enableDungeonItemRenewability;
 
 	[DefaultValue(true)]
 	[ReloadRequired]
