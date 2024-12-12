@@ -165,6 +165,7 @@ RecipeGroups: {
 }
 
 Conditions.PlayerHasPickaxePower: When the player has at least {0}% pickaxe power
+Misc.ChestLockAddlTooltip: Can also lock a certain door
 
 Configs: {
 	ModuleConfig: {
@@ -256,6 +257,15 @@ Configs: {
 				'''
 				All newly-created characters will spawn with the Familiar set in their inventory
 				(Also makes the Familiar set have no value)
+				'''
+		}
+
+		enableLihzahrdDoorLock: {
+			Label: Enable Lihzahrd Door Lock
+			Tooltip:
+				'''
+				Chest Locks can also be used to lock Lihzahrd Doors
+				(after defeating Plantera)
 				'''
 		}
 	}

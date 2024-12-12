@@ -53,4 +53,7 @@ public class ModuleConfig : ModConfig
 	[DefaultValue(false)]
 	[ReloadRequired]
 	public bool enableDefaultFamiliarSet;
+
+	[DefaultValue(true)]
+	public bool enableLihzahrdDoorLock;
 }

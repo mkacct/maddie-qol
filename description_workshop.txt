@@ -29,4 +29,5 @@ The mod consists of the following modules (many of which can be enabled/disabled
 	[*][b]Encumbering Stone Recipe[/b]: The Encumbering Stone is craftable.
 	[*][b]Hellforge Recipe[/b]: The Hellforge is craftable, albeit requiring Hellstone Bars so as not to break progression.
 	[*][b]Default Familiar Set[/b]: All newly-created characters spawn with the Familiar set in their inventory. (Disabled by default.)
+	[*][b]Lihzahrd Door Lock[/b]: The Chest Lock also works on Lihzahrd Doors (after defeating Plantera).
 [/list]
