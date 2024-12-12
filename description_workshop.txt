@@ -19,15 +19,15 @@ The mod consists of the following modules (many of which can be enabled/disabled
 
 [h3]Vanilla Item Obtainability[/h3]
 [list]
-	[*][b]Lihzahrd Item Renewability[/b]: Lihzahrd placeable items can be obtained by shopping from NPCs in the Jungle after defeating Golem.
 	[*][b]Missing Furniture Recipes[/b]: Adds missing recipes for Dungeon and Obsidian furniture.
+	[*][b]Lihzahrd Item Renewability[/b]: Lihzahrd placeable items can be obtained by shopping from NPCs in the Jungle after defeating Golem.
 	[*][b]Dungeon Item Recipes[/b]: Additional Dungeon placeable items are craftable.
 	[*][b]Trap Recipes[/b]: All traps are craftable in a graveyard.
 	[*][b]Chest Recipes[/b]: All otherwise non-renewable chests are craftable.
 	[*][b]Vase Recipes[/b]: Dungeon and Obsidian Vases are craftable.
 	[*][b]Easier Title Music Box Obtainability[/b]: All three title music boxes are obtainable through alternate methods that do not require combining large quantities of other music boxes.
-	[*][b]Encumbering Stone Recipe[/b]: The Encumbering Stone is craftable.
-	[*][b]Hellforge Recipe[/b]: The Hellforge is craftable, albeit requiring Hellstone Bars so as not to break progression.
 	[*][b]Default Familiar Set[/b]: All newly-created characters spawn with the Familiar set in their inventory. (Disabled by default.)
 	[*][b]Lihzahrd Door Lock[/b]: The Chest Lock also works on Lihzahrd Doors (after defeating Plantera).
+	[*][b]Encumbering Stone Recipe[/b]: The Encumbering Stone is craftable.
+	[*][b]Hellforge Recipe[/b]: The Hellforge is craftable, albeit requiring Hellstone Bars so as not to break progression.
 [/list]

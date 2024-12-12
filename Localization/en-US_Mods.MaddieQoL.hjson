@@ -237,20 +237,6 @@ Configs: {
 				'''
 		}
 
-		enableEncumberingStoneRecipe: {
-			Label: Enable Encumbering Stone Recipe
-			Tooltip: Adds a crafting recipe for the Encumbering Stone
-		}
-
-		enableHellforgeRecipe: {
-			Label: Enable Hellforge Recipe
-			Tooltip:
-				'''
-				Adds a crafting recipe for the Hellforge
-				(The crafting recipe requires Hellstone Bars, so progression is unchanged)
-				'''
-		}
-
 		enableDefaultFamiliarSet: {
 			Label: Enable Default Familiar Set
 			Tooltip:
@@ -266,6 +252,20 @@ Configs: {
 				'''
 				Chest Locks can also be used to lock Lihzahrd Doors
 				(after defeating Plantera)
+				'''
+		}
+
+		enableEncumberingStoneRecipe: {
+			Label: Enable Encumbering Stone Recipe
+			Tooltip: Adds a crafting recipe for the Encumbering Stone
+		}
+
+		enableHellforgeRecipe: {
+			Label: Enable Hellforge Recipe
+			Tooltip:
+				'''
+				Adds a crafting recipe for the Hellforge
+				(The crafting recipe requires Hellstone Bars, so progression is unchanged)
 				'''
 		}
 	}

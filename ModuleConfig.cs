@@ -42,6 +42,13 @@ public class ModuleConfig : ModConfig
 	[ReloadRequired]
 	public bool enableEasierTitleMusicBoxRecipes;
 
+	[DefaultValue(false)]
+	[ReloadRequired]
+	public bool enableDefaultFamiliarSet;
+
+	[DefaultValue(true)]
+	public bool enableLihzahrdDoorLock;
+
 	[DefaultValue(true)]
 	[ReloadRequired]
 	public bool enableEncumberingStoneRecipe;
@@ -49,11 +56,4 @@ public class ModuleConfig : ModConfig
 	[DefaultValue(true)]
 	[ReloadRequired]
 	public bool enableHellforgeRecipe;
-
-	[DefaultValue(false)]
-	[ReloadRequired]
-	public bool enableDefaultFamiliarSet;
-
-	[DefaultValue(true)]
-	public bool enableLihzahrdDoorLock;
 }

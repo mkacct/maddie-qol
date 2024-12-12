@@ -13,14 +13,14 @@ Wiring:
 - Button: A visually stateless alternative to the switch. Sold by the Mechanic.
 
 Vanilla Item Obtainability:
-- Lihzahrd Item Renewability: Lihzahrd placeable items can be obtained by shopping from NPCs in the Jungle after defeating Golem.
 - Missing Furniture Recipes: Adds missing recipes for Dungeon and Obsidian furniture.
+- Lihzahrd Item Renewability: Lihzahrd placeable items can be obtained by shopping from NPCs in the Jungle after defeating Golem.
 - Dungeon Item Recipes: Additional Dungeon placeable items are craftable.
 - Trap Recipes: All traps are craftable in a graveyard.
 - Chest Recipes: All otherwise non-renewable chests are craftable.
 - Vase Recipes: Dungeon and Obsidian Vases are craftable.
 - Easier Title Music Box Obtainability: All three title music boxes are obtainable through alternate methods that do not require combining large quantities of other music boxes.
-- Encumbering Stone Recipe: The Encumbering Stone is craftable.
-- Hellforge Recipe: The Hellforge is craftable, albeit requiring Hellstone Bars so as not to break progression.
 - Default Familiar Set: All newly-created characters spawn with the Familiar set in their inventory. (Disabled by default.)
 - Lihzahrd Door Lock: The Chest Lock also works on Lihzahrd Doors (after defeating Plantera).
+- Encumbering Stone Recipe: The Encumbering Stone is craftable.
+- Hellforge Recipe: The Hellforge is craftable, albeit requiring Hellstone Bars so as not to break progression.
