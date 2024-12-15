@@ -23,4 +23,5 @@ Vanilla Item Obtainability:
 - Default Familiar Set: All newly-created characters spawn with the Familiar set in their inventory. (Disabled by default.)
 - Lihzahrd Door Lock: The Chest Lock also works on Lihzahrd Doors (after defeating Plantera).
 - Encumbering Stone Recipe: The Encumbering Stone is craftable.
+- Pwnhammer Recipe: The Pwnhammer is craftable from Hallowed Bars.
 - Hellforge Recipe: The Hellforge is craftable, albeit requiring Hellstone Bars so as not to break progression.

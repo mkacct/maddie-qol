@@ -260,6 +260,11 @@ Configs: {
 			Tooltip: Adds a crafting recipe for the Encumbering Stone
 		}
 
+		enablePwnhammerRecipe: {
+			Label: Enable Pwnhammer Recipe
+			Tooltip: Adds a crafting recipe for the Pwnhammer (using Hallowed Bars)
+		}
+
 		enableHellforgeRecipe: {
 			Label: Enable Hellforge Recipe
 			Tooltip:

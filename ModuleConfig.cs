@@ -55,5 +55,9 @@ public class ModuleConfig : ModConfig
 
 	[DefaultValue(true)]
 	[ReloadRequired]
+	public bool enablePwnhammerRecipe;
+
+	[DefaultValue(true)]
+	[ReloadRequired]
 	public bool enableHellforgeRecipe;
 }
