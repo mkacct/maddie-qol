@@ -1,6 +1,6 @@
 This is a minimal quality-of-life mod intended to unobtrusively add "completeness" to various aspects of the game, mostly regarding items and crafting. It is a strictly "Vanilla+" mod, only adding content that in my opinion ought to be present in the base game, with obtainment methods characteristic of the base game. Many crafting recipes are added, so use a mod such as Recipe Browser if you'd like to see them.
 
-Check the Steam Workshop page for relevant links.
+Check the Steam Workshop page for relevant links, including where to report bugs.
 
 The mod consists of the following modules (many of which can be enabled/disabled individually in the mod's configuration).
 
