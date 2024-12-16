@@ -54,7 +54,7 @@ internal sealed class Styles {
 			Vector2 vector2 = Vector2.UnitY.RotatedBy(player.itemAnimation * ((float)Math.PI * 2f) / 30f) * new Vector2(15f, 0f);
 			for (int num = 0; num < 2; num++) {
 				if (Main.rand.NextBool(3)) {
-					Dust dust2 = Dust.NewDustPerfect(player.Bottom + vector2, 35);
+					Dust dust2 = Dust.NewDustPerfect(player.Bottom + vector2, DustID.Lava);
 					dust2.velocity.Y *= 0f;
 					dust2.velocity.Y -= 4.5f;
 					dust2.velocity.X *= 1.5f;
@@ -90,7 +90,7 @@ internal sealed class Styles {
 						color = Color.White;
 						break;
 				}
-				Dust dust3 = Dust.NewDustPerfect(Main.rand.NextVector2FromRectangle(player.Hitbox), 267);
+				Dust dust3 = Dust.NewDustPerfect(Main.rand.NextVector2FromRectangle(player.Hitbox), DustID.RainbowMk2);
 				dust3.noGravity = true;
 				dust3.color = color;
 				dust3.velocity *= 2f;
