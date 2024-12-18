@@ -18,7 +18,6 @@ public class RenewabilityRecipes : ModSystem {
 		AddChestRecipes();
 		AddTrapRecipes();
 		AddEncumberingStoneRecipe();
-		AddPwnhammerRecipe();
 		AddObsidianFurnitureRecipes();
 		AddHellforgeRecipe();
 		AddDungeonFurnitureRecipes();
@@ -158,14 +157,6 @@ public class RenewabilityRecipes : ModSystem {
 		recipe.AddIngredient(ItemID.IronBar, 2);
 		recipe.AddTile(TileID.HeavyWorkBench).AddCondition(Condition.InGraveyard);
 		RegisterBeforeFirstRecipe(recipe.DisableDecraft(), ItemID.PanicNecklace);
-	}
-
-	private static void AddPwnhammerRecipe() {
-		if (!ModuleConfig().enablePwnhammerRecipe) {return;}
-		Recipe recipe = Recipe.Create(ItemID.Pwnhammer);
-		recipe.AddIngredient(ItemID.HallowedBar, 18);
-		recipe.AddTile(TileID.MythrilAnvil);
-		RegisterAfterLastRecipe(recipe.DisableDecraft(), ItemID.PickaxeAxe);
 	}
 
 	private static void AddObsidianFurnitureRecipes() {

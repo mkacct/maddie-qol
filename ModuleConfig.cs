@@ -42,6 +42,10 @@ public class ModuleConfig : ModConfig
 	[ReloadRequired]
 	public bool enableEasierTitleMusicBoxRecipes;
 
+	[DefaultValue(true)]
+	[ReloadRequired]
+	public bool enableDirtFromMud;
+
 	[DefaultValue(false)]
 	[ReloadRequired]
 	public bool enableDefaultFamiliarSet;

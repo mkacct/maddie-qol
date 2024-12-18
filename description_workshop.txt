@@ -27,6 +27,7 @@ The mod consists of the following modules (many of which can be enabled/disabled
 	[*][b]Chest Recipes[/b]: All otherwise non-renewable chests are craftable.
 	[*][b]Vase Recipes[/b]: Dungeon and Obsidian Vases are craftable.
 	[*][b]Easier Title Music Box Obtainability[/b]: All three title music boxes are obtainable through alternate methods that do not require combining large quantities of other music boxes.
+	[*][b]Dirt from Mud[/b]: Mud blocks can be crafted back into dirt blocks at a furnace.
 	[*][b]Default Familiar Set[/b]: All newly-created characters spawn with the Familiar set in their inventory. (Disabled by default.)
 	[*][b]Lihzahrd Door Lock[/b]: The Chest Lock also works on Lihzahrd Doors (after defeating Plantera).
 	[*][b]Encumbering Stone Recipe[/b]: The Encumbering Stone is craftable.

@@ -237,6 +237,11 @@ Configs: {
 				'''
 		}
 
+		enableDirtFromMud: {
+			Label: Enable Dirt from Mud
+			Tooltip: Allows crafting dirt blocks from mud blocks at a furnace
+		}
+
 		enableDefaultFamiliarSet: {
 			Label: Enable Default Familiar Set
 			Tooltip:
