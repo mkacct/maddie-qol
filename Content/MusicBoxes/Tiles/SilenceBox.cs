@@ -9,6 +9,7 @@ using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Terraria.Localization;
 
 namespace MaddieQoL.Content.MusicBoxes.Tiles;
 
@@ -30,7 +31,7 @@ public class SilenceBox : ModTile {
 		TileObjectData.newTile.StyleLineSkip = 2;
 		TileObjectData.addTile(this.Type);
 
-		AddMapEntry(new Color(191, 142, 111));
+		AddMapEntry(new Color(191, 142, 111), Language.GetText("ItemName.MusicBox"));
 	}
 
 	public override void MouseOver(int i, int j) {

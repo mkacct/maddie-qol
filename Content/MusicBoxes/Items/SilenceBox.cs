@@ -10,6 +10,7 @@ public class SilenceBox : ModItem {
 
 	public override void SetStaticDefaults() {
 		ItemID.Sets.CanGetPrefixes[this.Type] = false;
+		ItemID.Sets.ShimmerTransformToItem[this.Type] = ItemID.MusicBox;
 		MusicLoader.AddMusicBox(
 			this.Mod,
 			MusicLoader.GetMusicSlot(this.Mod, "Assets/Music/Silence"),
