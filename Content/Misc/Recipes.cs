@@ -7,10 +7,6 @@ using Terraria.ModLoader;
 namespace MaddieQoL.Content.Misc;
 
 public class MiscRecipes : ModSystem {
-	public override void SetStaticDefaults() {
-		// TODO shimmer?
-	}
-
 	public override void AddRecipes() {
 		AddDirtBlockRecipe();
 		AddPwnhammerRecipe();
