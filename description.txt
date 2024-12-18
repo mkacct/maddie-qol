@@ -11,6 +11,7 @@ Teleportation:
 Wiring and Devices:
 - Signal Generator: A craftable tool you can use to activate wires by clicking on them.
 - Button: A visually stateless alternative to the switch. Sold by the Mechanic.
+- Silence Box: Suppresses the game's music. Sold by the Wizard in a graveyard.
 
 Vanilla Item Obtainability:
 - Missing Furniture Recipes: Adds missing recipes for Dungeon and Obsidian furniture.

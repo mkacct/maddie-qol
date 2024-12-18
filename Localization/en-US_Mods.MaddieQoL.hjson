@@ -155,6 +155,8 @@ Items: {
 			'Not to be confused with an actuation rod'
 			'''
 	}
+
+	SilenceBox.DisplayName: Silence Box
 }
 
 Tiles.Button.MapEntryName: Button

@@ -8,10 +8,17 @@ namespace MaddieQoL.Content.MusicBoxes;
 public class MusicBoxShops : GlobalNPC {
 	public override void ModifyShop(NPCShop shop) {
 		switch (shop.NpcType) {
+			case NPCID.Wizard:
+				ModifyWizardShop(shop);
+				break;
 			case NPCID.Princess:
 				ModifyPrincessShop(shop);
 				break;
 		}
+	}
+
+	private static void ModifyWizardShop(NPCShop shop) {
+		shop.InsertAfter(ItemID.MusicBox, ModContent.ItemType<Items.SilenceBox>(), Condition.InGraveyard);
 	}
 
 	private static void ModifyPrincessShop(NPCShop shop) {
