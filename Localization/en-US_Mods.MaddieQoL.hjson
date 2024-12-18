@@ -41,17 +41,6 @@ Items: {
 			'''
 	}
 
-	Button.DisplayName: Button
-
-	ActivationRod: {
-		DisplayName: Signal Generator
-		Tooltip:
-			'''
-			Activates wires
-			'Not to be confused with an actuation rod'
-			'''
-	}
-
 	ShellphonePlusDummy: {
 		DisplayName: Shellphone Pro
 		Tooltip:
@@ -153,6 +142,17 @@ Items: {
 			{$Common.DisplaysAll}
 			Allows you to return to spawn at will
 			{$Common.ShellphonePlusDesc}
+			'''
+	}
+
+	Button.DisplayName: Button
+
+	ActivationRod: {
+		DisplayName: Signal Generator
+		Tooltip:
+			'''
+			Activates wires
+			'Not to be confused with an actuation rod'
 			'''
 	}
 }

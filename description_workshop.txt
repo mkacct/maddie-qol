@@ -12,7 +12,7 @@ The mod consists of the following modules (many of which can be enabled/disabled
 	[*][b]Teleport Item Scroll-Away[/b]: When you teleport using a potion, mirror, or phone, your hotbar will automatically scroll to its first item so you don't accidentally teleport again. (Disabled by default.)
 [/list]
 
-[h3]Wiring[/h3]
+[h3]Wiring and Devices[/h3]
 [list]
 	[*][b]Signal Generator[/b]: A craftable tool you can use to activate wires by clicking on them.
 	[*][b]Button[/b]: A visually stateless alternative to the switch. Sold by the Mechanic.
@@ -26,7 +26,7 @@ The mod consists of the following modules (many of which can be enabled/disabled
 	[*][b]Trap Recipes[/b]: All traps are craftable in a graveyard.
 	[*][b]Chest Recipes[/b]: All otherwise non-renewable chests are craftable.
 	[*][b]Vase Recipes[/b]: Dungeon and Obsidian Vases are craftable.
-	[*][b]Easier Title Music Box Obtainability[/b]: All three title music boxes are obtainable through alternate methods that do not require combining large quantities of other music boxes.
+	[*][b]Easier Title Music Boxes[/b]: All three title music boxes are obtainable through alternate methods that do not require combining large quantities of other music boxes.
 	[*][b]Dirt from Mud[/b]: Mud blocks can be crafted back into dirt blocks at a furnace.
 	[*][b]Default Familiar Set[/b]: All newly-created characters spawn with the Familiar set in their inventory. (Disabled by default.)
 	[*][b]Lihzahrd Door Lock[/b]: The Chest Lock also works on Lihzahrd Doors (after defeating Plantera).

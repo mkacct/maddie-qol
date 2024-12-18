@@ -3,8 +3,7 @@ using Terraria.ModLoader.Config;
 
 namespace MaddieQoL;
 
-public class ModuleConfig : ModConfig
-{
+public class ModuleConfig : ModConfig {
 	public override ConfigScope Mode => ConfigScope.ServerSide;
 
 	[Header("Teleportation")]

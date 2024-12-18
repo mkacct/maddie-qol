@@ -8,7 +8,7 @@ Teleportation:
 - Return Tools: Adds an upgraded Magic Mirror and phones that include the return portal feature of the Potion of Return.
 - Teleport Item Scroll-Away: When you teleport using a potion, mirror, or phone, your hotbar will automatically scroll to its first item so you don't accidentally teleport again. (Disabled by default.)
 
-Wiring:
+Wiring and Devices:
 - Signal Generator: A craftable tool you can use to activate wires by clicking on them.
 - Button: A visually stateless alternative to the switch. Sold by the Mechanic.
 
@@ -19,7 +19,7 @@ Vanilla Item Obtainability:
 - Trap Recipes: All traps are craftable in a graveyard.
 - Chest Recipes: All otherwise non-renewable chests are craftable.
 - Vase Recipes: Dungeon and Obsidian Vases are craftable.
-- Easier Title Music Box Obtainability: All three title music boxes are obtainable through alternate methods that do not require combining large quantities of other music boxes.
+- Easier Title Music Boxes: All three title music boxes are obtainable through alternate methods that do not require combining large quantities of other music boxes.
 - Dirt from Mud: Mud blocks can be crafted back into dirt blocks at a furnace.
 - Default Familiar Set: All newly-created characters spawn with the Familiar set in their inventory. (Disabled by default.)
 - Lihzahrd Door Lock: The Chest Lock also works on Lihzahrd Doors (after defeating Plantera).
