@@ -2,7 +2,7 @@ This is a minimal quality-of-life mod intended to unobtrusively add "completenes
 
 This mod is not considered finished; more features will likely be added in the future.
 
-[strike]TCF post (content details)[/strike] [i](not yet written)[/i]
+[url=https://forums.terraria.org/index.php?threads/maddies-completeness-mod.140131/]TCF post (content details)[/url]
 [url=https://github.com/mkacct/maddie-qol]View on GitHub[/url]
 [url=https://github.com/mkacct/maddie-qol/issues/new/choose]Report an issue[/url]
 
