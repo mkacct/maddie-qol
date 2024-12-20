@@ -1,5 +1,7 @@
 This is a minimal quality-of-life mod intended to unobtrusively add "completeness" to various aspects of the game, mostly regarding items and crafting. It is a strictly "Vanilla+" mod, only adding content that in my opinion ought to be present in the base game, with obtainment methods characteristic of the base game. Many crafting recipes are added, so use a mod such as Recipe Browser if you'd like to see them.
 
+This mod is not considered finished; more features will likely be added in the future.
+
 [strike]TCF post (content details)[/strike] [i](not yet written)[/i]
 [url=https://github.com/mkacct/maddie-qol]View on GitHub[/url]
 [url=https://github.com/mkacct/maddie-qol/issues/new/choose]Report an issue[/url]
