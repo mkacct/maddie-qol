@@ -31,7 +31,7 @@ public class SilenceBox : ModTile {
 		TileObjectData.newTile.StyleLineSkip = 2;
 		TileObjectData.addTile(this.Type);
 
-		AddMapEntry(new Color(191, 142, 111), Language.GetText("ItemName.MusicBox"));
+		this.AddMapEntry(new Color(191, 142, 111), Language.GetText("ItemName.MusicBox"));
 	}
 
 	public override void MouseOver(int i, int j) {

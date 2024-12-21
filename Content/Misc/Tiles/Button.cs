@@ -30,9 +30,9 @@ public class Button : ModTile {
 		TileObjectData.newTile.FlattenAnchors = true;
 		TileObjectData.addTile(this.Type);
 
-		this.DustType = DustID.Silver;
+		this.DustType = DustID.TintableDust;
 
-		AddMapEntry(new Color(213, 203, 204), MapEntryName);
+		this.AddMapEntry(new Color(213, 203, 204), MapEntryName);
 	}
 
 	public override void MouseOver(int i, int j) {

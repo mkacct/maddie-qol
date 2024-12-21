@@ -19,11 +19,11 @@ public class RenewabilityChestLockOverrider : GlobalItem {
 
 	private static LocalizedText ChestLockAddlTooltip {get; set;}
 
-    public override void SetStaticDefaults() {
+	public override void SetStaticDefaults() {
 		ChestLockAddlTooltip = this.Mod.GetLocalization($"{LangMisc}.{nameof(ChestLockAddlTooltip)}");
-    }
+	}
 
-    public override void Load() {
+	public override void Load() {
 		On_Player.PlaceThing_LockChest += (On_Player.orig_PlaceThing_LockChest orig, Player self) => {
 			orig(self);
 			if (ModuleConfig().enableLihzahrdDoorLock) {
