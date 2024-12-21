@@ -184,6 +184,7 @@ Configs: {
 				'''
 				Allows the crafting and use of items
 				allowing unlimited use of the Potion of Return's effect
+				(If disabled, existing return tools will function as recall tools)
 				'''
 		}
 
