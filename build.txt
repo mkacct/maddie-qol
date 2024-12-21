@@ -3,4 +3,4 @@ author = MK
 version = 0.1.2
 homepage = https://github.com/mkacct/maddie-qol
 includeSource = true
-buildIgnore = .gitignore, .vscode/*, *.aseprite
+buildIgnore = .gitignore, .vscode/*, README.md, *.aseprite
