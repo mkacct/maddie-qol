@@ -88,9 +88,8 @@ public class RenewabilityRecipes : ModSystem {
 		{ // Geyser
 			Recipe recipe = Recipe.Create(ItemID.GeyserTrap);
 			recipe.AddIngredient(ItemID.StoneBlock, 8);
-			recipe.AddIngredient(ItemID.LavaBucket);
 			recipe.AddIngredient(ItemID.Gel, 30);
-			recipe.AddTile(TileID.HeavyWorkBench).AddCondition(Condition.InGraveyard);
+			recipe.AddTile(TileID.HeavyWorkBench).AddCondition(Condition.NearLava, Condition.InGraveyard);
 			registerer.Register(recipe.DisableDecraft());
 		}
 		AddDungeonTrapRecipes(registerer);
