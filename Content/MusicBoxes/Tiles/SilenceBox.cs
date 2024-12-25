@@ -1,4 +1,3 @@
-using static MaddieQoL.Util.TileUtil;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -10,6 +9,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.Localization;
+using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.MusicBoxes.Tiles;
 
@@ -51,7 +51,7 @@ public class SilenceBox : ModTile {
 		int drawYOffset = TileObjectData.GetTileData(tile).DrawYOffset;
 		spriteBatch.Draw(
 			GlowTexture.Value,
-			TileDrawPosition(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y + drawYOffset),
+			TileUtil.TileDrawPosition(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y + drawYOffset),
 			new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, 16),
 			Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f
 		);

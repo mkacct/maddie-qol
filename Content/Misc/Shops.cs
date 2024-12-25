@@ -1,8 +1,8 @@
 using static MaddieQoL.Common.Shorthands;
-using static MaddieQoL.Util.ShopUtil;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
+using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.Misc;
 
@@ -45,7 +45,7 @@ public class MiscShops : GlobalNPC {
 
 	private static void ModifyTravelingMerchantActiveShop(Item[] items) {
 		if (!ModuleConfig().enableMerchantShopPerDialogue) {return;}
-		TryAddItemToActiveShop(items, new Item(ItemID.AngelStatue) {
+		ShopUtil.TryAddItemToActiveShop(items, new Item(ItemID.AngelStatue) {
 			shopCustomPrice = Item.buyPrice(0, 5, 0, 0)
 		});
 	}
