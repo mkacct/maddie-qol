@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MaddieQoL.Content.LiquidManipulation.Items;
+namespace MaddieQoL.Content.LiquidManipulation.Items.SourcesAndDrains;
 
 public abstract class AbstractSourceOrDrainItem : ModItem {
 	public override void SetStaticDefaults() {

@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ObjectData;
 
-namespace MaddieQoL.Content.LiquidManipulation.Tiles;
+namespace MaddieQoL.Content.LiquidManipulation.Tiles.SourcesAndDrains;
 
 public abstract class AbstractSourceTile : AbstractSourceOrDrainTile {
 	protected abstract int LiquidType {get;}

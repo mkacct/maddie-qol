@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MaddieQoL.Content.LiquidManipulation.Tiles;
+namespace MaddieQoL.Content.LiquidManipulation.Tiles.SourcesAndDrains;
 
 public abstract class AbstractSourceOrDrainTile : ModTile {
 	public override void SetStaticDefaults() {
