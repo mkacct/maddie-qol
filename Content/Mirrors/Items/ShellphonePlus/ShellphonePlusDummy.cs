@@ -1,6 +1,5 @@
 using static MaddieQoL.Util.RecipeUtil;
 using static MaddieQoL.Common.Shorthands;
-using static MaddieQoL.Content.Mirrors.MirrorShellphonePlusSystem;
 using MaddieQoL.Util;
 using Terraria;
 using Terraria.ID;
@@ -42,7 +41,6 @@ public class ShellphonePlusDummy : AbstractShellphonePlus {
 	}
 
 	public override void OnCreated(ItemCreationContext context) {
-		if (context is InitializationItemCreationContext) {return;}
-		this.Item.ChangeItemType(ShellphonePlusNextItemID(-1));
+		this.HandleDummyItemCreation(context);
 	}
 }

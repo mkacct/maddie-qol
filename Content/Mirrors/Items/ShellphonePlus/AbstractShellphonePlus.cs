@@ -4,11 +4,13 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
-using Terraria.ModLoader;
+using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.Mirrors.Items.ShellphonePlus;
 
-public abstract class AbstractShellphonePlus : ModItem {
+public abstract class AbstractShellphonePlus : AbstractSwappableItem {
+	protected override SoundStyle AltFunctionSwapSound => ShellphonePlusSwapSound;
+
 	public override void SetStaticDefaults() {
 		if (this.Item.type != ShellphonePlusDummyItemID) {
 			ItemID.Sets.ShimmerCountsAsItem[this.Item.type] = ShellphonePlusDummyItemID;
@@ -27,29 +29,12 @@ public abstract class AbstractShellphonePlus : ModItem {
 		Util.DisplayEverything(player);
 	}
 
-	public override bool AltFunctionUse(Player player) {return true;}
-
-	public override bool CanUseItem(Player player) {
-		if (player.altFunctionUse == 2) {
-			HandleAltFunction(player);
-			return false;
-		}
-		return true;
-	}
-
-	private void HandleAltFunction(Player player) {
-		player.releaseUseTile = false;
-		Main.mouseRightRelease = false;
-		SoundEngine.PlaySound(SoundID.Unlock);
-		this.Item.ChangeItemType(ShellphonePlusNextItemID(this.Item.type));
-		Recipe.FindRecipes();
+	protected override int NextItemID(int itemId) {
+		return ShellphonePlusNextItemID(itemId);
 	}
 
 	public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI) {
-		Main.GetItemDrawFrame(ShellphonePlusDummyItemID, out var itemTexture, out var itemFrame);
-		Vector2 drawOrigin = itemFrame.Size() / 2f;
-		Vector2 drawPosition = this.Item.Bottom - Main.screenPosition - new Vector2(0, drawOrigin.Y);
-		spriteBatch.Draw(itemTexture, drawPosition, itemFrame, lightColor, rotation, drawOrigin, scale, SpriteEffects.None, 0);
+		this.DrawItemInWorld(ShellphonePlusDummyItemID, spriteBatch, lightColor, rotation, scale);
 		return false;
 	}
 }
