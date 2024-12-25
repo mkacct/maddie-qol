@@ -6,6 +6,7 @@ Common: {
 		<right> to toggle destination
 		'If you listen closely, you can hear Item_6.wav'
 		'''
+	LiquidSourcesAndDrainsDisabled: "[c/ff1919:Endless liquid sources/drains disabled in mod configuration]"
 }
 
 Items: {
@@ -157,6 +158,86 @@ Items: {
 	}
 
 	SilenceBox.DisplayName: Music Box (Silence)
+
+	WaterSource: {
+		DisplayName: Endless Water Source
+		Tooltip:
+			'''
+			[c/646464:Endlessly emits water]
+			{$Common.LiquidSourcesAndDrainsDisabled}
+			'''
+		TooltipWhenEnabled: Endlessly emits water
+	}
+
+	LavaSource: {
+		DisplayName: Endless Lava Source
+		Tooltip:
+			'''
+			[c/646464:Endlessly emits lava]
+			{$Common.LiquidSourcesAndDrainsDisabled}
+			'''
+		TooltipWhenEnabled: Endlessly emits lava
+	}
+
+	HoneySource: {
+		DisplayName: Endless Honey Source
+		Tooltip:
+			'''
+			[c/646464:Endlessly emits honey]
+			{$Common.LiquidSourcesAndDrainsDisabled}
+			'''
+		TooltipWhenEnabled: Endlessly emits honey
+	}
+
+	ShimmerSource: {
+		DisplayName: Endless Shimmer Source
+		Tooltip:
+			'''
+			[c/646464:Endlessly emits Shimmer]
+			{$Common.LiquidSourcesAndDrainsDisabled}
+			'''
+		TooltipWhenEnabled: Endlessly emits Shimmer
+	}
+
+	WaterDrain: {
+		DisplayName: Endless Water Drain
+		Tooltip:
+			'''
+			[c/646464:Endlessly drains water]
+			{$Common.LiquidSourcesAndDrainsDisabled}
+			'''
+		TooltipWhenEnabled: Endlessly drains water
+	}
+
+	LavaDrain: {
+		DisplayName: Endless Lava Drain
+		Tooltip:
+			'''
+			[c/646464:Endlessly drains lava]
+			{$Common.LiquidSourcesAndDrainsDisabled}
+			'''
+		TooltipWhenEnabled: Endlessly drains lava
+	}
+
+	HoneyDrain: {
+		DisplayName: Endless Honey Drain
+		Tooltip:
+			'''
+			[c/646464:Endlessly drains honey]
+			{$Common.LiquidSourcesAndDrainsDisabled}
+			'''
+		TooltipWhenEnabled: Endlessly drains honey
+	}
+
+	UniversalDrain: {
+		DisplayName: Universal Endless Drain
+		Tooltip:
+			'''
+			[c/646464:Endlessly drains liquid]
+			{$Common.LiquidSourcesAndDrainsDisabled}
+			'''
+		TooltipWhenEnabled: Endlessly drains liquid
+	}
 }
 
 Tiles.Button.MapEntryName: Button
@@ -167,7 +248,12 @@ RecipeGroups: {
 }
 
 Conditions.PlayerHasPickaxePower: When the player has at least {0}% pickaxe power
-Misc.ChestLockAddlTooltip: Can also lock a certain door
+
+Misc: {
+	LiquidSourceName: Liquid Source
+	LiquidDrainName: Liquid Drain
+	ChestLockAddlTooltip: Can also lock a certain door
+}
 
 Configs: {
 	ModuleConfig: {
@@ -175,6 +261,7 @@ Configs: {
 
 		Headers: {
 			Teleportation: Teleportation
+			WiringAndDevices: Wiring And Devices
 			VanillaItemObtainability: Vanilla Item Obtainability
 		}
 
@@ -195,6 +282,16 @@ Configs: {
 				When you teleport using a potion, mirror, or phone,
 				your hotbar will scroll to its first item so you don't accidentally teleport again
 				(If the inventory is open, it won't scroll away until you close the inventory)
+				'''
+		}
+
+		enableLiquidSourcesAndDrains: {
+			Label: Enable Endless Liquid Sources & Drains
+			Tooltip:
+				'''
+				Allows the crafting and use of mechanisms
+				capable of endlessly creating/removing liquids
+				(If disabled, existing sources & drains will not function)
 				'''
 		}
 

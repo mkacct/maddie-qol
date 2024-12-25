@@ -15,6 +15,12 @@ public class ModuleConfig : ModConfig {
 	[DefaultValue(false)]
 	public bool enableRecallItemSwitchAway;
 
+	[Header("WiringAndDevices")]
+
+	[DefaultValue(true)]
+	[ReloadRequired]
+	public bool enableLiquidSourcesAndDrains;
+
 	[Header("VanillaItemObtainability")]
 
 	[DefaultValue(true)]
