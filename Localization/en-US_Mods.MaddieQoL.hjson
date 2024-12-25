@@ -378,5 +378,14 @@ Configs: {
 				(The crafting recipe requires Hellstone Bars, so progression is unchanged)
 				'''
 		}
+
+		enableMerchantShopPerDialogue: {
+			Label: Enable No False Advertising
+			Tooltip:
+				'''
+				The Merchant will sell all items that he claims to sell in his dialogue
+				(Also the Traveling Merchant will sell the Angel Statue)
+				'''
+		}
 	}
 }
