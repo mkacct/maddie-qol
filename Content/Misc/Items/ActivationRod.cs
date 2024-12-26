@@ -44,7 +44,7 @@ public class ActivationRod : ModItem {
 	private void ClientUse(Player player) {
 		if (!player.IsTargetTileInItemRange(this.Item)) {return;}
 		if (!player.CanDoWireStuffHere(Player.tileTargetX, Player.tileTargetY)) {return;}
-		Tile tile = Main.tile[Player.tileTargetX, Player.tileTargetY];
+		Tile tile = Framing.GetTileSafely(Player.tileTargetX, Player.tileTargetY);;
 		if (!TileHasWire(tile)) {return;}
 
 		if (Main.netMode == NetmodeID.SinglePlayer) {
