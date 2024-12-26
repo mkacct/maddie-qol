@@ -261,7 +261,7 @@ Configs: {
 
 		Headers: {
 			Teleportation: Teleportation
-			WiringAndDevices: Wiring And Devices
+			LiquidManipulation: Liquid Manipulation
 			VanillaItemObtainability: Vanilla Item Obtainability
 		}
 
