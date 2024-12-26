@@ -22,7 +22,7 @@ public abstract class AbstractSourceTile : AbstractSourceOrDrainTile {
 		Tile tile = Framing.GetTileSafely(tileX, tileY);
 		if ((tile.LiquidAmount == 0) || (tile.LiquidType == this.LiquidType)) {
 			tile.LiquidType = this.LiquidType;
-			tile.Get<LiquidData>().Amount = 255;
+			tile.Get<LiquidData>().Amount = byte.MaxValue;
 			WorldGen.SquareTileFrame(tileX, tileY);
 		}
 	}
