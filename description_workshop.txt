@@ -14,7 +14,13 @@ The mod consists of the following modules (many of which can be enabled/disabled
 	[*][b]Teleport Item Scroll-Away[/b]: When you teleport using a potion, mirror, or phone, your hotbar will automatically scroll to its first item so you don't accidentally teleport again. (Disabled by default.)
 [/list]
 
-[h3]Wiring and Devices[/h3]
+[h3]Liquid Manipulation[/h3]
+[list]
+	[*][b]Bottomless Multipurpose Bucket[/b]: A Tinkerer's Workshop combination of the Bottomless Buckets for the three mundane liquids, switchable like the Shellphone.
+	[*][b]Endless Sources & Drains[/b]: Mechanisms for creating or removing endless amounts of liquid. Crafted with a pump and the corresponding Bottomless Bucket or Sponge.
+[/list]
+
+[h3]Wiring[/h3]
 [list]
 	[*][b]Signal Generator[/b]: A craftable tool you can use to activate wires by clicking on them.
 	[*][b]Button[/b]: A visually stateless alternative to the switch. Sold by the Mechanic.
@@ -36,4 +42,5 @@ The mod consists of the following modules (many of which can be enabled/disabled
 	[*][b]Encumbering Stone Recipe[/b]: The Encumbering Stone is craftable.
 	[*][b]Pwnhammer Recipe[/b]: The Pwnhammer is craftable from Hallowed Bars.
 	[*][b]Hellforge Recipe[/b]: The Hellforge is craftable, albeit requiring Hellstone Bars so as not to break progression.
+	[*][b]No False Advertising[/b]: The Merchant will sell all items that he claims to sell, including dirt blocks. (Disabled by default since it's a joke.)
 [/list]

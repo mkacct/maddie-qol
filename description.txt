@@ -10,7 +10,11 @@ Teleportation:
 - Return Tools: Adds an upgraded Magic Mirror and phones that include the return portal feature of the Potion of Return.
 - Teleport Item Scroll-Away: When you teleport using a potion, mirror, or phone, your hotbar will automatically scroll to its first item so you don't accidentally teleport again. (Disabled by default.)
 
-Wiring and Devices:
+Liquid Manipulation:
+- Bottomless Multipurpose Bucket: A Tinkerer's Workshop combination of the Bottomless Buckets for the three mundane liquids, switchable like the Shellphone.
+- Endless Sources & Drains: Mechanisms for creating or removing endless amounts of liquid. Crafted with a pump and the corresponding Bottomless Bucket or Sponge.
+
+Wiring:
 - Signal Generator: A craftable tool you can use to activate wires by clicking on them.
 - Button: A visually stateless alternative to the switch. Sold by the Mechanic.
 - Music Box (Silence): Suppresses the game's music. Sold by the Wizard in a graveyard.
@@ -29,3 +33,4 @@ Vanilla Item Obtainability:
 - Encumbering Stone Recipe: The Encumbering Stone is craftable.
 - Pwnhammer Recipe: The Pwnhammer is craftable from Hallowed Bars.
 - Hellforge Recipe: The Hellforge is craftable, albeit requiring Hellstone Bars so as not to break progression.
+- No False Advertising: The Merchant will sell all items that he claims to sell, including dirt blocks. (Disabled by default since it's a joke.)
