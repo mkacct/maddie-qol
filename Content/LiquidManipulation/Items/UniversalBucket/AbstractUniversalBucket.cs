@@ -31,11 +31,12 @@ public abstract class AbstractUniversalBucket : AbstractSwappableItem {
 
 	public override bool? UseItem(Player player) {
 		if (!this.LiquidType.HasValue) {return null;}
-		if (this.PourLiquid(player)) {return true;}
+		if (player.whoAmI != Main.myPlayer) {return null;}
+		if (this.ClientPourLiquid(player)) {return true;}
 		return null;
 	}
 
-	private bool PourLiquid(Player player) {
+	private bool ClientPourLiquid(Player player) {
 		if (player.noBuilding) {return false;}
 		if (!player.IsTargetTileInItemRange(this.Item)) {return false;}
 		Tile tile = Framing.GetTileSafely(Player.tileTargetX, Player.tileTargetY);
