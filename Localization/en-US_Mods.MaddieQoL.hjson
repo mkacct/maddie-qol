@@ -6,6 +6,7 @@ Common: {
 		<right> to toggle destination
 		'If you listen closely, you can hear Item_6.wav'
 		'''
+	UniversalBucketDesc: <right> to toggle liquid
 	LiquidSourcesAndDrainsDisabled: "[c/ff1919:Endless liquid sources/drains disabled in mod configuration]"
 }
 
@@ -158,6 +159,43 @@ Items: {
 	}
 
 	SilenceBox.DisplayName: Music Box (Silence)
+
+	UniversalBucketDummy: {
+		DisplayName: Bottomless Multipurpose Bucket
+		Tooltip:
+			'''
+			Contains endless amounts of liquids
+			Can be poured out
+			{$Common.UniversalBucketDesc}
+			'''
+	}
+
+	UniversalBucketWater: {
+		DisplayName: Bottomless Multipurpose Bucket (Water)
+		Tooltip:
+			'''
+			{$ItemTooltip.BottomlessBucket}
+			{$Common.UniversalBucketDesc}
+			'''
+	}
+
+	UniversalBucketLava: {
+		DisplayName: Bottomless Multipurpose Bucket (Lava)
+		Tooltip:
+			'''
+			{$ItemTooltip.BottomlessLavaBucket}
+			{$Common.UniversalBucketDesc}
+			'''
+	}
+
+	UniversalBucketHoney: {
+		DisplayName: Bottomless Multipurpose Bucket (Honey)
+		Tooltip:
+			'''
+			{$ItemTooltip.BottomlessHoneyBucket}
+			{$Common.UniversalBucketDesc}
+			'''
+	}
 
 	WaterSource: {
 		DisplayName: Endless Water Source
