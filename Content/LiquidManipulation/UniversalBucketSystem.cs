@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using Terraria.ModLoader;
+using Terraria.ID;
+using Terraria.Audio;
 using MaddieQoL.Util;
 using MaddieQoL.Content.LiquidManipulation.Items.UniversalBucket;
 
@@ -16,6 +18,8 @@ public class LiquidManipulationUniversalBucketSystem : ModSystem {
 
 	internal static readonly ISet<int> UniversalBucketItemIDs;
 
+	internal static readonly SoundStyle UniversalBucketSwapSound = SoundID.Splash;
+
 	static LiquidManipulationUniversalBucketSystem() {
 		UniversalBucketItemIDs = new HashSet<int> {UniversalBucketDummyItemID};
 		UniversalBucketItemIDs.UnionWith(UniversalBucketItemIDSequence);
@@ -23,7 +27,7 @@ public class LiquidManipulationUniversalBucketSystem : ModSystem {
 
 	public override void Load() {
 		SwappableItemUtil.RegisterItemResearchOverrideHook(UniversalBucketItemIDSequence, UniversalBucketDummyItemID);
-		SwappableItemUtil.RegisterItemSwapHook(UniversalBucketItemIDs, UniversalBucketNextItemID);
+		SwappableItemUtil.RegisterItemSwapHook(UniversalBucketItemIDs, UniversalBucketNextItemID, UniversalBucketSwapSound);
 	}
 
 	internal static int UniversalBucketNextItemID(int itemId) {

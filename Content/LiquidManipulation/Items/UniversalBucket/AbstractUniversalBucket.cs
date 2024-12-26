@@ -9,7 +9,9 @@ using Terraria.Audio;
 namespace MaddieQoL.Content.LiquidManipulation.Items.UniversalBucket;
 
 public abstract class AbstractUniversalBucket : AbstractSwappableItem {
-	protected virtual int? LiquidType => null;
+    protected override SoundStyle AltFunctionSwapSound => UniversalBucketSwapSound;
+
+    protected virtual int? LiquidType => null;
 
 	public override void SetStaticDefaults() {
 		if (this.Item.type != UniversalBucketDummyItemID) {

@@ -32,7 +32,9 @@ public abstract class AbstractSwappableItem : ModItem {
 	private void HandleAltFunction(Player player) {
 		player.releaseUseTile = false;
 		Main.mouseRightRelease = false;
-		SoundEngine.PlaySound(this.AltFunctionSwapSound);
+		SoundEngine.PlaySound(this.AltFunctionSwapSound with {
+			SoundLimitBehavior = SoundLimitBehavior.ReplaceOldest
+		});
 		this.Item.ChangeItemType(this.NextItemID(this.Item.type));
 		Recipe.FindRecipes();
 	}
