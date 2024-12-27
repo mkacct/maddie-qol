@@ -9,9 +9,9 @@ using Terraria.Audio;
 namespace MaddieQoL.Content.LiquidManipulation.Items.UniversalBucket;
 
 public abstract class AbstractUniversalBucket : AbstractSwappableItem {
-    protected override SoundStyle AltFunctionSwapSound => UniversalBucketSwapSound;
+	protected override SoundStyle AltFunctionSwapSound => UniversalBucketSwapSound;
 
-    protected virtual int? LiquidType => null;
+	protected virtual int? LiquidType => null;
 
 	public override void SetStaticDefaults() {
 		if (this.Item.type != UniversalBucketDummyItemID) {
@@ -56,11 +56,8 @@ public abstract class AbstractUniversalBucket : AbstractSwappableItem {
 	}
 
 	public override void HoldItem(Player player) {
-		if (player.whoAmI != Main.myPlayer) {return;}
 		if (player.noBuilding) {return;}
-		if (!player.IsTargetTileInItemRange(this.Item)) {return;}
-		player.cursorItemIconEnabled = true;
-		Main.ItemIconCacheUpdate(this.Item.type);
+		ItemUtil.DrawHoldItemIcon(player, this.Item);
 	}
 
 	protected override int NextItemID(int itemId) {
@@ -68,7 +65,7 @@ public abstract class AbstractUniversalBucket : AbstractSwappableItem {
 	}
 
 	public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI) {
-		this.DrawItemInWorld(UniversalBucketDummyItemID, spriteBatch, lightColor, rotation, scale);
+		ItemUtil.DrawItemInWorld(UniversalBucketDummyItemID, this.Item, spriteBatch, lightColor, rotation, scale);
 		return false;
 	}
 }

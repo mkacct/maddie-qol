@@ -1,10 +1,11 @@
 using static MaddieQoL.Util.RecipeUtil;
 using System.IO;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 using Terraria.Audio;
+using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.Misc.Items;
 
@@ -91,10 +92,7 @@ public class ActivationRod : ModItem {
 	}
 
 	public override void HoldItem(Player player) {
-		if (player.whoAmI != Main.myPlayer) {return;}
-		if (!player.IsTargetTileInItemRange(this.Item)) {return;}
-		player.cursorItemIconEnabled = true;
-		Main.ItemIconCacheUpdate(this.Item.type);
+		ItemUtil.DrawHoldItemIcon(player, this.Item);
 	}
 
 	public override void AddRecipes() {

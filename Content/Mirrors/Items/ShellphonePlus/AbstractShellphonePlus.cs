@@ -34,7 +34,7 @@ public abstract class AbstractShellphonePlus : AbstractSwappableItem {
 	}
 
 	public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI) {
-		this.DrawItemInWorld(ShellphonePlusDummyItemID, spriteBatch, lightColor, rotation, scale);
+		ItemUtil.DrawItemInWorld(ShellphonePlusDummyItemID, this.Item, spriteBatch, lightColor, rotation, scale);
 		return false;
 	}
 }

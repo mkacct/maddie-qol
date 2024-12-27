@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -46,16 +44,6 @@ public abstract class AbstractSwappableItem : ModItem {
 	protected void HandleDummyItemCreation(ItemCreationContext context) {
 		if (context is InitializationItemCreationContext) {return;}
 		this.Item.ChangeItemType(this.NextItemID(-1));
-	}
-
-	protected void DrawItemInWorld(
-		int drawItemId,
-		SpriteBatch spriteBatch, Color lightColor, float rotation, float scale
-	) {
-		Main.GetItemDrawFrame(drawItemId, out var itemTexture, out var itemFrame);
-		Vector2 drawOrigin = itemFrame.Size() / 2f;
-		Vector2 drawPosition = this.Item.Bottom - Main.screenPosition - new Vector2(0, drawOrigin.Y);
-		spriteBatch.Draw(itemTexture, drawPosition, itemFrame, lightColor, rotation, drawOrigin, scale, SpriteEffects.None, 0);
 	}
 }
 
