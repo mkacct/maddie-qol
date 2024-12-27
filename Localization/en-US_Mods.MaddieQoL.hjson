@@ -278,7 +278,7 @@ Items: {
 	}
 }
 
-Tiles.Button.MapEntryName: Button
+Tiles.Button.MapEntry: Button
 
 RecipeGroups: {
 	ShellphoneRecipeGroupName: Shellphone

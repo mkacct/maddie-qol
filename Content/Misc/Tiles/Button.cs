@@ -11,11 +11,7 @@ using Terraria.ObjectData;
 namespace MaddieQoL.Content.Misc.Tiles;
 
 public class Button : ModTile {
-	private static LocalizedText MapEntryName {get; set;}
-
 	public override void SetStaticDefaults() {
-		MapEntryName = this.GetLocalization(nameof(MapEntryName));
-
 		Main.tileFrameImportant[this.Type] = true;
 		Main.tileSolid[this.Type] = false;
 		Main.tileObsidianKill[this.Type] = true;
@@ -32,7 +28,7 @@ public class Button : ModTile {
 
 		this.DustType = DustID.TintableDust;
 
-		this.AddMapEntry(new Color(213, 203, 204), MapEntryName);
+		this.AddMapEntry(new Color(213, 203, 204), this.CreateMapEntryName());
 	}
 
 	public override void MouseOver(int i, int j) {
