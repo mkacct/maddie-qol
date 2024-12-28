@@ -25,6 +25,10 @@ public class ModuleConfig : ModConfig {
 
 	[DefaultValue(true)]
 	[ReloadRequired]
+	public bool enableTorchDeswap;
+
+	[DefaultValue(true)]
+	[ReloadRequired]
 	public bool enableLihzahrdItemRenewability;
 
 	[DefaultValue(true)]

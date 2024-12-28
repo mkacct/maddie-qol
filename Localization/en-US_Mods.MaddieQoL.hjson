@@ -282,10 +282,15 @@ Tiles.Button.MapEntry: Button
 
 RecipeGroups: {
 	ShellphoneRecipeGroupName: Shellphone
+	BiomeTorchRecipeGroupName: Any Biome Torch
+	BiomeCampfireRecipeGroupName: Any Biome Campfire
 	DungeonBrickRecipeGroupName: Any Dungeon Brick
 }
 
-Conditions.PlayerHasPickaxePower: When the player has at least {0}% pickaxe power
+Conditions: {
+	PlayerHasTorchGodsFavor: When the player has earned the Torch God's Favor
+	PlayerHasPickaxePower: When the player has at least {0}% pickaxe power
+}
 
 Misc: {
 	LiquidSourceName: Liquid Source
@@ -330,6 +335,15 @@ Configs: {
 				Allows the crafting and use of mechanisms
 				capable of endlessly creating/removing liquids
 				(If disabled, existing sources & drains will not function)
+				'''
+		}
+
+		enableTorchDeswap: {
+			Label: Enable Torch Deswapping
+			Tooltip:
+				'''
+				Biome torches (and campfires) can be crafted back into normal ones
+				once the Torch God's Favor has been earned
 				'''
 		}
 
