@@ -147,6 +147,7 @@ Items: {
 			'''
 	}
 
+	CavernPylon.DisplayName: Cavern Pylon
 	Button.DisplayName: Button
 
 	ActivationRod: {
@@ -278,7 +279,10 @@ Items: {
 	}
 }
 
-Tiles.Button.MapEntry: Button
+Tiles: {
+	CavernPylon.MapEntry: Cavern Pylon
+	Button.MapEntry: Button
+}
 
 RecipeGroups: {
 	ShellphoneRecipeGroupName: Shellphone
