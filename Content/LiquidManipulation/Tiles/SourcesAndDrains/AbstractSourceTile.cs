@@ -3,20 +3,15 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ObjectData;
+using Terraria.Localization;
 
 namespace MaddieQoL.Content.LiquidManipulation.Tiles.SourcesAndDrains;
 
 public abstract class AbstractSourceTile : AbstractSourceOrDrainTile {
 	protected abstract int LiquidType {get;}
 
-	public override void SetStaticDefaults() {
-		base.SetStaticDefaults();
-
-		TileObjectData.newTile.CopyFrom(TileObjectData.GetTileData(TileID.OutletPump, 0));
-		TileObjectData.addTile(this.Type);
-
-		this.AddMapEntry(new Color(144, 148, 144), this.Mod.GetLocalization($"{LangMisc}.LiquidSourceName"));
-	}
+	protected override TileObjectData CopyFromTileObjectData => TileObjectData.GetTileData(TileID.OutletPump, 0);
+	protected override LocalizedText MapEntryName => this.Mod.GetLocalization($"{LangMisc}.LiquidSourceName");
 
 	protected override void OperateOnTile(int tileX, int tileY) {
 		Tile tile = Framing.GetTileSafely(tileX, tileY);

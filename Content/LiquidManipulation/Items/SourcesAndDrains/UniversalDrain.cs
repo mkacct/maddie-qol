@@ -6,10 +6,12 @@ using Terraria.ModLoader;
 
 namespace MaddieQoL.Content.LiquidManipulation.Items.SourcesAndDrains;
 
-public class UniversalDrain : AbstractSourceOrDrainItem {
+public class UniversalDrain : AbstractDrainItem {
 	private static LocalizedText TooltipWhenEnabled {get; set;}
 
 	public override LocalizedText Tooltip => ModuleConfig().enableLiquidSourcesAndDrains ? TooltipWhenEnabled : base.Tooltip;
+
+	protected override int TileIDToPlace => ModContent.TileType<Tiles.SourcesAndDrains.UniversalDrain>();
 
 	public override void SetStaticDefaults() {
 		base.SetStaticDefaults();
@@ -17,8 +19,6 @@ public class UniversalDrain : AbstractSourceOrDrainItem {
 	}
 
 	public override void SetDefaults() {
-		this.Item.CloneDefaults(ItemID.OutletPump);
-		this.Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.SourcesAndDrains.UniversalDrain>());
 		base.SetDefaults();
 		this.Item.rare = ItemRarityID.Yellow;
 		this.Item.value = Item.sellPrice(0, 30, 0, 0);

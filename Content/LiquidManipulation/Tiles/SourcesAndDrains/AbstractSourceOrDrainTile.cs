@@ -1,17 +1,28 @@
 using static MaddieQoL.Common.Shorthands;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
+using Terraria.ObjectData;
 
 namespace MaddieQoL.Content.LiquidManipulation.Tiles.SourcesAndDrains;
 
 public abstract class AbstractSourceOrDrainTile : ModTile {
+	protected abstract TileObjectData CopyFromTileObjectData {get;}
+	protected abstract LocalizedText MapEntryName {get;}
+
 	public override void SetStaticDefaults() {
 		Main.tileFrameImportant[this.Type] = true;
 		Main.tileLavaDeath[this.Type] = false;
 		TileID.Sets.IsAMechanism[this.Type] = true;
 
 		this.DustType = DustID.Iron;
+
+		TileObjectData.newTile.CopyFrom(this.CopyFromTileObjectData);
+		TileObjectData.addTile(this.Type);
+
+		this.AddMapEntry(new Color(144, 148, 144), this.MapEntryName);
 	}
 
 	public override void HitWire(int i, int j) {
