@@ -147,19 +147,6 @@ Items: {
 			'''
 	}
 
-	Button.DisplayName: Button
-
-	ActivationRod: {
-		DisplayName: Signal Generator
-		Tooltip:
-			'''
-			Activates wires
-			'Not to be confused with an actuation rod'
-			'''
-	}
-
-	SilenceBox.DisplayName: Music Box (Silence)
-
 	UniversalBucketDummy: {
 		DisplayName: Bottomless Multipurpose Bucket
 		Tooltip:
@@ -276,6 +263,19 @@ Items: {
 			'''
 		TooltipWhenEnabled: Endlessly drains liquid
 	}
+
+	Button.DisplayName: Button
+
+	ActivationRod: {
+		DisplayName: Signal Generator
+		Tooltip:
+			'''
+			Activates wires
+			'Not to be confused with an actuation rod'
+			'''
+	}
+
+	SilenceBox.DisplayName: Music Box (Silence)
 }
 
 Tiles.Button.MapEntry: Button
