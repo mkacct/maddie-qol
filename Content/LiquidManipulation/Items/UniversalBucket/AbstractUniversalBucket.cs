@@ -25,7 +25,7 @@ public abstract class AbstractUniversalBucket : AbstractSwappableItem {
 	public override void SetDefaults() {
 		this.Item.CloneDefaults(ItemID.BottomlessBucket);
 		this.Item.tileBoost = 3;
-		this.Item.useAnimation = 8;
+		this.Item.useAnimation = 7;
 		this.Item.useTime = 3;
 		this.Item.rare = ItemRarityID.Yellow;
 		this.Item.value = Item.sellPrice(0, 30, 0, 0);
