@@ -343,7 +343,7 @@ Configs: {
 			Tooltip:
 				'''
 				Biome torches (and campfires) can be crafted back into normal ones
-				once the Torch God's Favor has been earned
+				(The crafting recipes will only be displayed when biome torch swap is enabled)
 				'''
 		}
 
