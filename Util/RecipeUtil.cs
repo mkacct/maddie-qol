@@ -29,6 +29,10 @@ public sealed class RecipeUtil {
 		registerer.SortAfterLastRecipeOf(itemId);
 		return registerer;
 	}
+
+	public static bool RecipeHasCustomShimmerResults(Recipe recipe) {
+		return (recipe.customShimmerResults != null) && (recipe.customShimmerResults.Count > 0);
+	}
 }
 
 public class RecipeOrderedRegisterer() {

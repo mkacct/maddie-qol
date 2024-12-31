@@ -43,5 +43,5 @@ The mod consists of the following modules (many of which can be enabled/disabled
 	[*][b]Encumbering Stone Recipe[/b]: The Encumbering Stone is craftable.
 	[*][b]Pwnhammer Recipe[/b]: The Pwnhammer is craftable from Hallowed Bars.
 	[*][b]Hellforge Recipe[/b]: The Hellforge is craftable, albeit requiring Hellstone Bars so as not to break progression.
-	[*][b]No False Advertising[/b]: The Merchant will sell all items that he claims to sell, including dirt blocks. (Disabled by default since it's a joke.)
+	[*][b]No False Advertising[/b]: The Merchant will sell all items that he claims to sell, including dirt blocks. (Disabled by default since this module was created as a joke.)
 [/list]

@@ -12,6 +12,10 @@ public class MiscRecipes : ModSystem {
 		AddPwnhammerRecipe();
 	}
 
+	public override void PostAddRecipes() {
+		AddCopperArmorShimmerExceptions();
+	}
+
 	private static void AddDirtBlockRecipe() {
 		if (!ModuleConfig().enableDirtFromMud) {return;}
 		Recipe recipe = Recipe.Create(ItemID.DirtBlock);
@@ -26,5 +30,19 @@ public class MiscRecipes : ModSystem {
 		recipe.AddIngredient(ItemID.HallowedBar, 18);
 		recipe.AddTile(TileID.MythrilAnvil);
 		RegisterAfterLastRecipe(recipe.DisableDecraft(), ItemID.PickaxeAxe);
+	}
+
+	private static void AddCopperArmorShimmerExceptions() {
+		if (!ModuleConfig().enableMerchantShopPerDialogue) {return;}
+		int[] copperArmors = [ItemID.CopperHelmet, ItemID.CopperChainmail, ItemID.CopperGreaves];
+		foreach (Recipe recipe in Main.recipe) {
+			if (!recipe.HasIngredient(ItemID.CopperBar)) {continue;}
+			if (RecipeHasCustomShimmerResults(recipe)) {continue;}
+			foreach (int copperArmor in copperArmors) {
+				if (recipe.HasResult(copperArmor)) {
+					recipe.AddCustomShimmerResult(ItemID.CopperOre);
+				}
+			}
+		}
 	}
 }
