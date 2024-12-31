@@ -288,7 +288,7 @@ RecipeGroups: {
 }
 
 Conditions: {
-	PlayerHasTorchGodsFavor: When the player has earned the Torch God's Favor
+	BiomeTorchSwapEnabled: When biome torch swap is enabled
 	PlayerHasPickaxePower: When the player has at least {0}% pickaxe power
 }
 
