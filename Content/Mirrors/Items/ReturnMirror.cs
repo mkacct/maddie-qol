@@ -45,8 +45,9 @@ public class ReturnMirror : ModItem {
 			Recipe recipe = this.CreateRecipe();
 			recipe.AddIngredient(mirror);
 			recipe.AddIngredient(ItemID.Obsidian, 8);
-			recipe.AddIngredient(ItemID.CrystalShard, 30);
-			recipe.AddIngredient(ItemID.SoulofNight, 15);
+			recipe.AddIngredient(ItemID.CrystalShard, 15);
+			recipe.AddIngredient(ItemID.SoulofNight, 8);
+			recipe.AddIngredient(ItemID.SoulofSight, 15);
 			recipe.AddTile(TileID.AdamantiteForge);
 			registerer.Register(recipe);
 		}
