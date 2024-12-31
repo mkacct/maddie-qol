@@ -12,6 +12,7 @@ namespace MaddieQoL.Content.Renewability;
 public class RenewabilityRecipes : ModSystem {
 	public override void SetStaticDefaults() {
 		AddGoldChestShimmer();
+		AddExtraShimmers();
 	}
 
 	public override void AddRecipes() {
@@ -521,5 +522,11 @@ public class RenewabilityRecipes : ModSystem {
 			recipe.AddTile(TileID.LihzahrdFurnace);
 			RegisterAfterLastRecipe(recipe, ItemID.ToiletLihzhard);
 		}
+	}
+
+	private static void AddExtraShimmers() {
+		ItemID.Sets.ShimmerTransformToItem[ItemID.Moondial] = ItemID.Sundial;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.SunflowerMinecart] = ItemID.LadybugMinecart;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.LadybugMinecart] = ItemID.SunflowerMinecart;
 	}
 }
