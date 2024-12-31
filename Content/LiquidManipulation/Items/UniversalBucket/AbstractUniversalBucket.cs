@@ -11,13 +11,15 @@ namespace MaddieQoL.Content.LiquidManipulation.Items.UniversalBucket;
 public abstract class AbstractUniversalBucket : AbstractSwappableItem {
 	protected override SoundStyle AltFunctionSwapSound => UniversalBucketSwapSound;
 
+	protected virtual int DummyItemID => UniversalBucketDummyItemID;
+
 	protected virtual int? LiquidType => null;
 
 	public override void SetStaticDefaults() {
-		if (this.Item.type != UniversalBucketDummyItemID) {
-			ItemID.Sets.ShimmerCountsAsItem[this.Item.type] = UniversalBucketDummyItemID;
+		if (this.Item.type != DummyItemID) {
+			ItemID.Sets.ShimmerCountsAsItem[this.Item.type] = DummyItemID;
 		}
-		this.Item.ResearchUnlockCount = (this.Item.type == UniversalBucketDummyItemID) ? 1 : 0;
+		this.Item.ResearchUnlockCount = (this.Item.type == DummyItemID) ? 1 : 0;
 		ItemID.Sets.AlsoABuildingItem[this.Item.type] = true;
 		ItemID.Sets.DuplicationMenuToolsFilter[this.Item.type] = true;
 	}
@@ -65,7 +67,7 @@ public abstract class AbstractUniversalBucket : AbstractSwappableItem {
 	}
 
 	public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI) {
-		ItemUtil.DrawItemInWorld(UniversalBucketDummyItemID, this.Item, spriteBatch, lightColor, rotation, scale);
+		ItemUtil.DrawItemInWorld(DummyItemID, this.Item, spriteBatch, alphaColor, rotation, scale);
 		return false;
 	}
 }

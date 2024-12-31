@@ -281,7 +281,7 @@ Items: {
 Tiles.Button.MapEntry: Button
 
 RecipeGroups: {
-	ShellphoneRecipeGroupName: Shellphone
+	ShellphoneRecipeGroupName: Any Shellphone
 	BiomeTorchRecipeGroupName: Any Biome Torch
 	BiomeCampfireRecipeGroupName: Any Biome Campfire
 	DungeonBrickRecipeGroupName: Any Dungeon Brick

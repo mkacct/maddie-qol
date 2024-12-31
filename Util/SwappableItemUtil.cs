@@ -83,7 +83,9 @@ public sealed class SwappableItemUtil {
 	// This method replicates the behavior of ItemSlot.AfterItemSwap()
 	// The behavior should be identical (besides the specific sound effect)
 	private static void AfterItemSwap(SoundStyle swapSound) {
-		SoundEngine.PlaySound(swapSound);
+		SoundEngine.PlaySound(swapSound with {
+			SoundLimitBehavior = SoundLimitBehavior.ReplaceOldest
+		});
 		Main.stackSplit = 30;
 		Main.mouseRightRelease = false;
 		Recipe.FindRecipes();
