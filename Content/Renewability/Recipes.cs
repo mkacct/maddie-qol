@@ -152,8 +152,7 @@ public class RenewabilityRecipes : ModSystem {
 	private static void AddEncumberingStoneRecipe() {
 		if (!ModuleConfig().enableEncumberingStoneRecipe) {return;}
 		Recipe recipe = Recipe.Create(ItemID.EncumberingStone);
-		recipe.AddIngredient(ItemID.StoneBlock, 50);
-		recipe.AddRecipeGroup(RecipeGroupID.IronBar, 2);
+		recipe.AddIngredient(ItemID.StoneBlock, 100);
 		recipe.AddTile(TileID.HeavyWorkBench).AddCondition(Condition.InGraveyard);
 		RegisterBeforeFirstRecipe(recipe.DisableDecraft(), ItemID.PanicNecklace);
 	}
