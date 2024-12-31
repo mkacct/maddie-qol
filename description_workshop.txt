@@ -16,7 +16,7 @@ The mod consists of the following modules (many of which can be enabled/disabled
 
 [h3]Liquid Manipulation[/h3]
 [list]
-	[*][b]Bottomless Multipurpose Bucket[/b]: A Tinkerer's Workshop combination of the Bottomless Buckets for the three mundane liquids, switchable like the Shellphone.
+	[*][b]Bottomless Multipurpose Bucket[/b]: A Tinkerer's Workshop combination of the Bottomless Buckets for the three mundane liquids (and another that includes Shimmer), switchable like the Shellphone.
 	[*][b]Endless Sources & Drains[/b]: Mechanisms for creating or removing endless amounts of liquid. Crafted with a pump and the corresponding Bottomless Bucket or Sponge.
 [/list]
 

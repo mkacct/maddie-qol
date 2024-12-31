@@ -184,6 +184,52 @@ Items: {
 			'''
 	}
 
+	UniversalShimmerBucketDummy: {
+		DisplayName: Bottomless All-Purpose Bucket
+		Tooltip:
+			'''
+			Contains endless amounts of liquids, including Shimmer
+			Can be poured out
+			{$Common.UniversalBucketDesc}
+			'''
+	}
+
+	UniversalShimmerBucketWater: {
+		DisplayName: Bottomless All-Purpose Bucket (Water)
+		Tooltip:
+			'''
+			{$ItemTooltip.BottomlessBucket}
+			{$Common.UniversalBucketDesc}
+			'''
+	}
+
+	UniversalShimmerBucketLava: {
+		DisplayName: Bottomless All-Purpose Bucket (Lava)
+		Tooltip:
+			'''
+			{$ItemTooltip.BottomlessLavaBucket}
+			{$Common.UniversalBucketDesc}
+			'''
+	}
+
+	UniversalShimmerBucketHoney: {
+		DisplayName: Bottomless All-Purpose Bucket (Honey)
+		Tooltip:
+			'''
+			{$ItemTooltip.BottomlessHoneyBucket}
+			{$Common.UniversalBucketDesc}
+			'''
+	}
+
+	UniversalShimmerBucketShimmer: {
+		DisplayName: Bottomless All-Purpose Bucket (Shimmer)
+		Tooltip:
+			'''
+			{$ItemTooltip.BottomlessShimmerBucket}
+			{$Common.UniversalBucketDesc}
+			'''
+	}
+
 	WaterSource: {
 		DisplayName: Endless Water Source
 		Tooltip:
@@ -282,6 +328,7 @@ Tiles.Button.MapEntry: Button
 
 RecipeGroups: {
 	ShellphoneRecipeGroupName: Any Shellphone
+	UniversalBucketRecipeGroupName: Any Bottomless Multipurpose Bucket
 	BiomeTorchRecipeGroupName: Any Biome Torch
 	BiomeCampfireRecipeGroupName: Any Biome Campfire
 	DungeonBrickRecipeGroupName: Any Dungeon Brick

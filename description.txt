@@ -11,7 +11,7 @@ Teleportation:
 - Teleport Item Scroll-Away: When you teleport using a potion, mirror, or phone, your hotbar will automatically scroll to its first item so you don't accidentally teleport again. (Disabled by default.)
 
 Liquid Manipulation:
-- Bottomless Multipurpose Bucket: A Tinkerer's Workshop combination of the Bottomless Buckets for the three mundane liquids, switchable like the Shellphone.
+- Bottomless Multipurpose Bucket: A Tinkerer's Workshop combination of the Bottomless Buckets for the three mundane liquids (and another that includes Shimmer), switchable like the Shellphone.
 - Endless Sources & Drains: Mechanisms for creating or removing endless amounts of liquid. Crafted with a pump and the corresponding Bottomless Bucket or Sponge.
 
 Wiring:
