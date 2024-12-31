@@ -12,6 +12,7 @@ namespace MaddieQoL.Content.Renewability;
 public class RenewabilityRecipes : ModSystem {
 	public override void SetStaticDefaults() {
 		AddGoldChestShimmer();
+		AddBrickReverseShimmers();
 		AddExtraShimmers();
 	}
 
@@ -524,8 +525,34 @@ public class RenewabilityRecipes : ModSystem {
 		}
 	}
 
+	private static void AddBrickReverseShimmers() {
+		ItemID.Sets.ShimmerTransformToItem[ItemID.AncientCopperBrick] = ItemID.CopperBrick;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.AncientSilverBrick] = ItemID.SilverBrick;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.AncientGoldBrick] = ItemID.GoldBrick;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.AncientBlueDungeonBrick] = ItemID.BlueBrick;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.AncientGreenDungeonBrick] = ItemID.GreenBrick;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.AncientPinkDungeonBrick] = ItemID.PinkBrick;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.AncientObsidianBrick] = ItemID.ObsidianBrick;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.AncientHellstoneBrick] = ItemID.HellstoneBrick;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.AncientCobaltBrick] = ItemID.CobaltBrick;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.AncientMythrilBrick] = ItemID.MythrilBrick;
+
+		ItemID.Sets.ShimmerTransformToItem[ItemID.HeavenforgeBrick] = ItemID.LunarBrick;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.LunarRustBrick] = ItemID.LunarBrick;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.AstraBrick] = ItemID.LunarBrick;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.DarkCelestialBrick] = ItemID.LunarBrick;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.MercuryBrick] = ItemID.LunarBrick;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.StarRoyaleBrick] = ItemID.LunarBrick;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.CryocoreBrick] = ItemID.LunarBrick;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.CosmicEmberBrick] = ItemID.LunarBrick;
+	}
+
 	private static void AddExtraShimmers() {
 		ItemID.Sets.ShimmerTransformToItem[ItemID.Moondial] = ItemID.Sundial;
+
+		ItemID.Sets.ShimmerTransformToItem[ItemID.HelFire] = ItemID.Cascade;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.ZapinatorOrange] = ItemID.ZapinatorGray;
+
 		ItemID.Sets.ShimmerTransformToItem[ItemID.SunflowerMinecart] = ItemID.LadybugMinecart;
 		ItemID.Sets.ShimmerTransformToItem[ItemID.LadybugMinecart] = ItemID.SunflowerMinecart;
 	}
