@@ -12,7 +12,7 @@ namespace MaddieQoL.Content.Renewability;
 public class RenewabilityRecipes : ModSystem {
 	public override void SetStaticDefaults() {
 		AddGoldChestShimmer();
-		AddBrickReverseShimmers();
+		AddReverseShimmers();
 		AddExtraShimmers();
 	}
 
@@ -525,7 +525,9 @@ public class RenewabilityRecipes : ModSystem {
 		}
 	}
 
-	private static void AddBrickReverseShimmers() {
+	private static void AddReverseShimmers() {
+		ItemID.Sets.ShimmerTransformToItem[ItemID.Moondial] = ItemID.Sundial;
+
 		ItemID.Sets.ShimmerTransformToItem[ItemID.AncientCopperBrick] = ItemID.CopperBrick;
 		ItemID.Sets.ShimmerTransformToItem[ItemID.AncientSilverBrick] = ItemID.SilverBrick;
 		ItemID.Sets.ShimmerTransformToItem[ItemID.AncientGoldBrick] = ItemID.GoldBrick;
@@ -548,8 +550,6 @@ public class RenewabilityRecipes : ModSystem {
 	}
 
 	private static void AddExtraShimmers() {
-		ItemID.Sets.ShimmerTransformToItem[ItemID.Moondial] = ItemID.Sundial;
-
 		ItemID.Sets.ShimmerTransformToItem[ItemID.HelFire] = ItemID.Cascade;
 		ItemID.Sets.ShimmerTransformToItem[ItemID.ZapinatorOrange] = ItemID.ZapinatorGray;
 
