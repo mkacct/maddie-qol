@@ -365,6 +365,7 @@ public class RenewabilityRecipes : ModSystem {
 			ItemID.PinkDungeonVase,
 			ItemID.PinkDungeonWorkBench
 		]);
+		AddDungeonMiscFurnitureRecipes();
 		AddGothicFurnitureRecipes();
 	}
 
@@ -484,6 +485,19 @@ public class RenewabilityRecipes : ModSystem {
 			recipe.AddIngredient(brick, 10);
 			registerer.Register(recipe);
 		}
+	}
+
+	private static void AddDungeonMiscFurnitureRecipes() {
+		if (!ModuleConfig().enableDungeonItemRenewability) {return;}
+		RecipeOrderedRegisterer registerer = OrderedRegistererStartingBefore(ItemID.PinkDungeonBathtub);
+		{
+			Recipe recipe = Recipe.Create(ItemID.DungeonDoor);
+			recipe.AddRecipeGroup(RecipeGroupID.Wood, 6);
+			recipe.AddRecipeGroup(RecipeGroupID.IronBar, 1);
+			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
+			registerer.Register(recipe.DisableDecraft());
+		}
+		// TODO: dungeon lanterns
 	}
 
 	private static void AddGothicFurnitureRecipes() {
