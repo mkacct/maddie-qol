@@ -452,7 +452,7 @@ Configs: {
 
 		enableDecorativeBannerRenewability: {
 			Label: Enable Decorative Banner Renewability
-			Tooltip: All decorative banners will be renewable through fishing
+			Tooltip: All otherwise non-renewable decorative banners will be renewable through fishing
 		}
 
 		enableLihzahrdDoorLock: {
