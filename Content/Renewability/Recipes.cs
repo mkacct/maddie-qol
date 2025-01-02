@@ -497,7 +497,57 @@ public class RenewabilityRecipes : ModSystem {
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
 			registerer.Register(recipe.DisableDecraft());
 		}
-		// TODO: dungeon lanterns
+		{
+			Recipe recipe = Recipe.Create(ItemID.ChainLantern);
+			recipe.AddIngredient(ItemID.Chain, 6);
+			recipe.AddIngredient(ItemID.Torch);
+			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
+			registerer.Register(recipe.DisableDecraft());
+		}
+		{
+			Recipe recipe = Recipe.Create(ItemID.BrassLantern);
+			recipe.AddIngredient(ItemID.CopperBrick, 6);
+			recipe.AddIngredient(ItemID.Torch);
+			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
+			registerer.Register(recipe.DisableDecraft());
+		}
+		{
+			Recipe recipe = Recipe.Create(ItemID.CagedLantern);
+			recipe.AddIngredient(ItemID.TinBrick, 6);
+			recipe.AddIngredient(ItemID.Torch);
+			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
+			registerer.Register(recipe.DisableDecraft());
+		}
+		{
+			Recipe recipe = Recipe.Create(ItemID.CarriageLantern);
+			recipe.AddIngredient(ItemID.LeadBrick, 6);
+			recipe.AddIngredient(ItemID.Torch);
+			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
+			registerer.Register(recipe.DisableDecraft());
+		}
+		{
+			Recipe recipe = Recipe.Create(ItemID.AlchemyLantern);
+			recipe.AddIngredient(ItemID.Glass, 6);
+			recipe.AddIngredient(ItemID.BottledWater);
+			recipe.AddIngredient(ItemID.Daybloom);
+			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
+			registerer.Register(recipe.DisableDecraft());
+		}
+		{
+			Recipe recipe = Recipe.Create(ItemID.DiablostLamp);
+			recipe.AddIngredient(ItemID.Silk, 3);
+			recipe.AddIngredient(ItemID.Torch);
+			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
+			registerer.Register(recipe.DisableDecraft());
+		}
+		{
+			Recipe recipe = Recipe.Create(ItemID.OilRagSconse);
+			recipe.AddIngredient(ItemID.IronBrick, 4);
+			recipe.AddIngredient(ItemID.Silk);
+			recipe.AddIngredient(ItemID.Torch);
+			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
+			registerer.Register(recipe.DisableDecraft());
+		}
 	}
 
 	private static void AddGothicFurnitureRecipes() {
