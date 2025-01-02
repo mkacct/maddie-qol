@@ -59,6 +59,10 @@ public class ModuleConfig : ModConfig {
 	[ReloadRequired]
 	public bool enableDefaultFamiliarSet;
 
+	[DefaultValue(false)]
+	[ReloadRequired]
+	public bool enableDecorativeBannerRenewability;
+
 	[DefaultValue(true)]
 	public bool enableLihzahrdDoorLock;
 
