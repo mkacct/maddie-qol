@@ -490,42 +490,42 @@ public class RenewabilityRecipes : ModSystem {
 	private static void AddDungeonMiscFurnitureRecipes() {
 		if (!ModuleConfig().enableDungeonItemRenewability) {return;}
 		RecipeOrderedRegisterer registerer = OrderedRegistererStartingBefore(ItemID.PinkDungeonBathtub);
-		{
+		{ // Dungeon Door
 			Recipe recipe = Recipe.Create(ItemID.DungeonDoor);
 			recipe.AddRecipeGroup(RecipeGroupID.Wood, 6);
 			recipe.AddRecipeGroup(RecipeGroupID.IronBar, 1);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
 			registerer.Register(recipe.DisableDecraft());
 		}
-		{
+		{ // Chain Lantern
 			Recipe recipe = Recipe.Create(ItemID.ChainLantern);
 			recipe.AddIngredient(ItemID.Chain, 6);
 			recipe.AddIngredient(ItemID.Torch);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
 			registerer.Register(recipe.DisableDecraft());
 		}
-		{
+		{ // Brass Lantern
 			Recipe recipe = Recipe.Create(ItemID.BrassLantern);
 			recipe.AddIngredient(ItemID.CopperBrick, 6);
 			recipe.AddIngredient(ItemID.Torch);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
 			registerer.Register(recipe.DisableDecraft());
 		}
-		{
+		{ // Caged Lantern
 			Recipe recipe = Recipe.Create(ItemID.CagedLantern);
 			recipe.AddIngredient(ItemID.TinBrick, 6);
 			recipe.AddIngredient(ItemID.Torch);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
 			registerer.Register(recipe.DisableDecraft());
 		}
-		{
+		{ // Carriage Lantern
 			Recipe recipe = Recipe.Create(ItemID.CarriageLantern);
 			recipe.AddIngredient(ItemID.LeadBrick, 6);
 			recipe.AddIngredient(ItemID.Torch);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
 			registerer.Register(recipe.DisableDecraft());
 		}
-		{
+		{ // Alchemy Lantern
 			Recipe recipe = Recipe.Create(ItemID.AlchemyLantern);
 			recipe.AddIngredient(ItemID.Glass, 6);
 			recipe.AddIngredient(ItemID.BottledWater);
@@ -533,14 +533,14 @@ public class RenewabilityRecipes : ModSystem {
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
 			registerer.Register(recipe.DisableDecraft());
 		}
-		{
+		{ // Diabolist Lamp
 			Recipe recipe = Recipe.Create(ItemID.DiablostLamp);
 			recipe.AddIngredient(ItemID.Silk, 3);
 			recipe.AddIngredient(ItemID.Torch);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
 			registerer.Register(recipe.DisableDecraft());
 		}
-		{
+		{ // Oil Rag Sconce
 			Recipe recipe = Recipe.Create(ItemID.OilRagSconse);
 			recipe.AddIngredient(ItemID.IronBrick, 4);
 			recipe.AddIngredient(ItemID.Silk);

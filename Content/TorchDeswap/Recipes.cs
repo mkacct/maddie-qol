@@ -13,13 +13,13 @@ public class TorchDeswapRecipes : ModSystem {
 
 	public override void AddRecipes() {
 		if (!ModuleConfig().enableTorchDeswap) {return;}
-		{
+		{ // Torch
 			Recipe recipe = Recipe.Create(ItemID.Torch);
 			recipe.AddRecipeGroup(RecipeGroups.BiomeTorchRecipeGroup);
 			recipe.AddCondition(Conditions.BiomeTorchSwapEnabled);
 			RegisterAfterLastRecipe(recipe.DisableDecraft(), ItemID.Torch);
 		}
-		{
+		{ // Campfire
 			Recipe recipe = Recipe.Create(ItemID.Campfire);
 			recipe.AddRecipeGroup(RecipeGroups.BiomeCampfireRecipeGroup);
 			recipe.AddCondition(Conditions.BiomeTorchSwapEnabled);
