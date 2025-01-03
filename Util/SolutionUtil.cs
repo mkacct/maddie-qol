@@ -93,31 +93,38 @@ public abstract class AbstractSolutionProjectile : ModProjectile {
 	/// Otherwise, converts tiles and walls based on GetResultTile() and GetResultWall().
 	/// </summary>
 	protected virtual void ConvertTile(int x, int y) {
+		this.TryConvertWallLayer(x, y);
+		this.TryConvertTileLayer(x, y);
+	}
+
+	private void TryConvertTileLayer(int x, int y) {
 		Tile tile = Framing.GetTileSafely(x, y);
-		if (tile.WallType != WallID.None) {
-			WallConversion? wallConversion = this.GetResultWall(tile.WallType, y);
-			if (!wallConversion.HasValue) {return;}
-			if (tile.WallType == wallConversion.Value.NewWallID) {return;}
-			tile.WallType = wallConversion.Value.NewWallID;
-			WorldGen.SquareWallFrame(x, y);
+		if (!tile.HasTile) {return;}
+		TileConversion? tileConversion = this.GetResultTile(tile.TileType, y);
+		if (!tileConversion.HasValue) {return;}
+		if (tileConversion.Value.NewTileID.HasValue) {
+			if (tile.TileType == tileConversion.Value.NewTileID.Value) {return;}
+			WorldGen.TryKillingTreesAboveIfTheyWouldBecomeInvalid(x, y, tileConversion.Value.NewTileID.Value);
+			tile.TileType = tileConversion.Value.NewTileID.Value;
+			WorldGen.SquareTileFrame(x, y);
 			NetMessage.SendTileSquare(-1, x, y, 1);
-		}
-		if (tile.HasTile) {
-			TileConversion? tileConversion = this.GetResultTile(tile.TileType, y);
-			if (!tileConversion.HasValue) {return;}
-			if (tileConversion.Value.NewTileID.HasValue) {
-				if (tile.TileType == tileConversion.Value.NewTileID.Value) {return;}
-				WorldGen.TryKillingTreesAboveIfTheyWouldBecomeInvalid(x, y, tileConversion.Value.NewTileID.Value);
-				tile.TileType = tileConversion.Value.NewTileID.Value;
-				WorldGen.SquareTileFrame(x, y);
-				NetMessage.SendTileSquare(-1, x, y, 1);
-			} else { // kill tile
-				WorldGen.KillTile(x, y);
-				if (Main.netMode == NetmodeID.MultiplayerClient) {
-					NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 0, x, y);
-				}
+		} else { // kill tile
+			WorldGen.KillTile(x, y);
+			if (Main.netMode == NetmodeID.MultiplayerClient) {
+				NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 0, x, y);
 			}
 		}
+	}
+
+	private void TryConvertWallLayer(int x, int y) {
+		Tile tile = Framing.GetTileSafely(x, y);
+		if (tile.WallType == WallID.None) {return;}
+		WallConversion? wallConversion = this.GetResultWall(tile.WallType, y);
+		if (!wallConversion.HasValue) {return;}
+		if (tile.WallType == wallConversion.Value.NewWallID) {return;}
+		tile.WallType = wallConversion.Value.NewWallID;
+		WorldGen.SquareWallFrame(x, y);
+		NetMessage.SendTileSquare(-1, x, y, 1);
 	}
 
 	protected virtual TileConversion? GetResultTile(ushort origTileId, int y) {return null;}
