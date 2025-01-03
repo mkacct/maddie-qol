@@ -69,6 +69,10 @@ public class ModuleConfig : ModConfig {
 	[ReloadRequired]
 	public bool enableDecorativeBannerRenewability;
 
+	[DefaultValue(false)]
+	[ReloadRequired]
+	public bool enableAddPotsToWand;
+
 	[DefaultValue(true)]
 	public bool enableLihzahrdDoorLock;
 

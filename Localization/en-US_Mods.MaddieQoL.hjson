@@ -485,6 +485,16 @@ Configs: {
 			Tooltip: All otherwise non-renewable decorative banners will be renewable through fishing
 		}
 
+		enableAddPotsToWand: {
+			Label: Enable Add Pots to Rubblemaker
+			Tooltip:
+				'''
+				Integrates the vanilla code to add pots to the set of
+				objects creatable using the Rubblemaker (Medium)
+				(Pots will drop nothing, not even the item used to place them)
+				'''
+		}
+
 		enableLihzahrdDoorLock: {
 			Label: Enable Lihzahrd Door Lock
 			Tooltip:
