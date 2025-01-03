@@ -321,10 +321,28 @@ Items: {
 			'''
 	}
 
+	LightGreenSolution: {
+		DisplayName: Light Green Solution
+		Tooltip:
+			'''
+			[c/646464:Used by the Clentaminator]
+			[c/646464:Spreads the Purity]
+			[c/646464:Does not spread the Jungle]
+			[c/ff1919:Disabled in mod configuration]
+			'''
+		TooltipWhenEnabled:
+			'''
+			Used by the Clentaminator
+			Spreads the Purity
+			Does not spread the Jungle
+			'''
+	}
+
 	SilenceBox.DisplayName: Music Box (Silence)
 }
 
 Tiles.Button.MapEntry: Button
+Projectiles.LightGreenSolutionProjectile.DisplayName: Exclusive Pure Spray
 
 RecipeGroups: {
 	ShellphoneRecipeGroupName: Any Shellphone
@@ -352,6 +370,7 @@ Configs: {
 		Headers: {
 			Teleportation: Teleportation
 			LiquidManipulation: Liquid Manipulation
+			OtherItems: Other Items
 			VanillaItemObtainability: Vanilla Item Obtainability
 		}
 
@@ -382,6 +401,17 @@ Configs: {
 				Allows the crafting and use of mechanisms
 				capable of endlessly creating/removing liquids
 				(If disabled, existing sources & drains will not function)
+				'''
+		}
+
+		enablePurificationOnlySolution: {
+			Label: Enable Purification-Only Solution
+			Tooltip:
+				'''
+				Allows the purchase and use of Light Green Solution,
+				which removes Corruption, Crimson, and Hallow
+				but does not convert Glowing Mushroom biome to Jungle
+				(If disabled, existing Light Green Solution will not work)
 				'''
 		}
 

@@ -21,6 +21,12 @@ public class ModuleConfig : ModConfig {
 	[ReloadRequired]
 	public bool enableLiquidSourcesAndDrains;
 
+	[Header("OtherItems")]
+
+	[DefaultValue(true)]
+	[ReloadRequired]
+	public bool enablePurificationOnlySolution;
+
 	[Header("VanillaItemObtainability")]
 
 	[DefaultValue(true)]

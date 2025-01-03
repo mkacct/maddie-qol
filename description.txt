@@ -20,6 +20,7 @@ Wiring:
 
 Other Items:
 - Music Box (Silence): Suppresses the game's music. Sold by the Wizard in a graveyard.
+- Purification-Only Solution: The Steampunker sells Light Green Solution, which is the same as Green Solution except it leaves Glowing Mushroom biomes alone.
 
 Vanilla Item Obtainability:
 - Missing Furniture Recipes: Adds missing recipes for Dungeon and Obsidian furniture.

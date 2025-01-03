@@ -29,6 +29,7 @@ The mod consists of the following modules (many of which can be enabled/disabled
 [h3]Other Items[/h3]
 [list]
 	[*][b]Music Box (Silence)[/b]: Suppresses the game's music. Sold by the Wizard in a graveyard.
+	[*][b]Purification-Only Solution[/b]: The Steampunker sells Light Green Solution, which is the same as Green Solution except it leaves Glowing Mushroom biomes alone.
 [/list]
 
 [h3]Vanilla Item Obtainability[/h3]
