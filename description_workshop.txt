@@ -24,6 +24,10 @@ The mod consists of the following modules (many of which can be enabled/disabled
 [list]
 	[*][b]Signal Generator[/b]: A craftable tool you can use to activate wires by clicking on them.
 	[*][b]Button[/b]: A visually stateless alternative to the switch. Sold by the Mechanic.
+[/list]
+
+[h3]Other Items[/h3]
+[list]
 	[*][b]Music Box (Silence)[/b]: Suppresses the game's music. Sold by the Wizard in a graveyard.
 [/list]
 

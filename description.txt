@@ -17,6 +17,8 @@ Liquid Manipulation:
 Wiring:
 - Signal Generator: A craftable tool you can use to activate wires by clicking on them.
 - Button: A visually stateless alternative to the switch. Sold by the Mechanic.
+
+Other Items:
 - Music Box (Silence): Suppresses the game's music. Sold by the Wizard in a graveyard.
 
 Vanilla Item Obtainability:
