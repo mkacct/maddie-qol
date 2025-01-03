@@ -49,7 +49,7 @@ public abstract class AbstractUniversalBucket : AbstractSwappableItem {
 		if ((tile.LiquidAmount == 0) || (tile.LiquidType == this.LiquidType.Value)) {
 			SoundEngine.PlaySound(SoundID.SplashWeak, new Vector2(player.Center.X, player.Center.Y));
 			tile.LiquidType = this.LiquidType.Value;
-			tile.Get<LiquidData>().Amount = byte.MaxValue;
+			tile.LiquidAmount = byte.MaxValue;
 			WorldGen.SquareTileFrame(Player.tileTargetX, Player.tileTargetY);
 			if (Main.netMode == NetmodeID.MultiplayerClient) {NetMessage.sendWater(Player.tileTargetX, Player.tileTargetY);}
 			return true;

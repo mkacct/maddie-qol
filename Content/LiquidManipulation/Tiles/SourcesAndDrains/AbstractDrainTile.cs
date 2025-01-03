@@ -14,7 +14,7 @@ public abstract class AbstractDrainTile : AbstractSourceOrDrainTile {
 	protected override void OperateOnTile(int tileX, int tileY) {
 		Tile tile = Framing.GetTileSafely(tileX, tileY);
 		if ((tile.LiquidAmount > 0) && this.CanDrain(tile.LiquidType)) {
-			tile.Get<LiquidData>().Amount = 0;
+			tile.LiquidAmount = 0;
 			WorldGen.SquareTileFrame(tileX, tileY);
 		}
 	}
