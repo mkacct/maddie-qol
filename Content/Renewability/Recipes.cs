@@ -528,8 +528,7 @@ public class RenewabilityRecipes : ModSystem {
 		{ // Alchemy Lantern
 			Recipe recipe = Recipe.Create(ItemID.AlchemyLantern);
 			recipe.AddIngredient(ItemID.Glass, 6);
-			recipe.AddIngredient(ItemID.BottledWater);
-			recipe.AddIngredient(ItemID.Daybloom);
+			recipe.AddIngredient(ItemID.ShinePotion);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
 			registerer.Register(recipe.DisableDecraft());
 		}
