@@ -1,5 +1,4 @@
 using static MaddieQoL.Content.LiquidManipulation.LiquidManipulationUniversalBucketSystem;
-using Terraria;
 using Terraria.ID;
 
 namespace MaddieQoL.Content.LiquidManipulation.Items.UniversalBucket.ShimmerBucket;

@@ -1,5 +1,4 @@
 using static MaddieQoL.Common.Shorthands;
-using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
