@@ -13,10 +13,11 @@ public class UniversalShimmerBucketDummy : AbstractUniversalShimmerBucket {
 		RecipeOrderedRegisterer registerer = OrderedRegistererStartingAfter(ItemID.BottomlessShimmerBucket);
 		{
 			Recipe recipe = this.CreateRecipe();
-			recipe.AddRecipeGroup(RecipeGroups.UniversalBucketRecipeGroup);
-			recipe.AddIngredient(ItemID.LunarBar, 10);
-			recipe.AddTile(TileID.LunarCraftingStation);
-			recipe.AddCustomShimmerResult(ModContent.ItemType<UniversalBucketWater>());
+			recipe.AddIngredient(ItemID.BottomlessBucket);
+			recipe.AddIngredient(ItemID.BottomlessLavaBucket);
+			recipe.AddIngredient(ItemID.BottomlessHoneyBucket);
+			recipe.AddIngredient(ItemID.BottomlessShimmerBucket);
+			recipe.AddTile(TileID.TinkerersWorkbench);
 			registerer.Register(recipe);
 		}
 		{
