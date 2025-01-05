@@ -24,25 +24,25 @@ public class RenewabilityShops : GlobalNPC {
 	}
 
 	private static void ModifyDemolitionistShop(NPCShop shop) {
-		if (!ModuleConfig().enableTrapRecipes) {return;}
+		if (!ModuleConf.enableTrapRecipes) {return;}
 		shop.InsertAfter(ItemID.Dynamite, ItemID.Detonator, Condition.NpcIsPresent(NPCID.Mechanic));
 	}
 
 	private static void ModifyWitchDoctorShop(NPCShop shop) {
 		// TODO: reassess after 1.4.5
-		// if (!ModuleConfig().enableLihzahrdItemRenewability) {return;}
+		// if (!ModuleConf.enableLihzahrdItemRenewability) {return;}
 		// shop.Add(new Item(ItemID.LihzahrdBrick) {
 		// 	shopCustomPrice = Item.buyPrice(0, 0, 10, 0)
 		// }, Condition.InJungle, Condition.DownedGolem, Conditions.PlayerHasPickaxePower(210));
 	}
 
 	private static void ModifyMechanicShop(NPCShop shop) {
-		if (!ModuleConfig().enableLihzahrdItemRenewability) {return;}
+		if (!ModuleConf.enableLihzahrdItemRenewability) {return;}
 		shop.InsertAfter(ItemID.BluePressurePlate, ItemID.LihzahrdPressurePlate, Condition.InJungle, Condition.DownedGolem);
 	}
 
 	private static void ModifySteampunkerShop(NPCShop shop) {
-		if (!ModuleConfig().enableLihzahrdItemRenewability) {return;}
+		if (!ModuleConf.enableLihzahrdItemRenewability) {return;}
 		shop.InsertBefore(ItemID.SteampunkBoiler, ItemID.LihzahrdFurnace, Condition.InJungle, Condition.DownedGolem);
 	}
 }

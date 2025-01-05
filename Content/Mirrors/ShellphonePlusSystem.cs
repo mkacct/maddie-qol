@@ -36,7 +36,7 @@ public class MirrorShellphonePlusSystem : ModSystem {
 	internal static int ShellphonePlusNextItemID(int itemId) {
 		do {
 			itemId = SwappableItemUtil.NextID(ShellphonePlusItemIDSequence, itemId);
-		} while (!ModuleConfig().enableReturnTools && (itemId == ModContent.ItemType<ShellphonePlusReturn>()));
+		} while (!ModuleConf.enableReturnTools && (itemId == ModContent.ItemType<ShellphonePlusReturn>()));
 		return itemId;
 	}
 }

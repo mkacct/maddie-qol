@@ -8,7 +8,7 @@ namespace MaddieQoL.Content.LiquidManipulation.Items.SourcesAndDrains;
 public class ShimmerSource : AbstractSourceItem {
 	private static LocalizedText TooltipWhenEnabled {get; set;}
 
-	public override LocalizedText Tooltip => ModuleConfig().enableLiquidSourcesAndDrains ? TooltipWhenEnabled : base.Tooltip;
+	public override LocalizedText Tooltip => ModuleConf.enableLiquidSourcesAndDrains ? TooltipWhenEnabled : base.Tooltip;
 
 	protected override int TileIDToPlace => ModContent.TileType<Tiles.SourcesAndDrains.ShimmerSource>();
 

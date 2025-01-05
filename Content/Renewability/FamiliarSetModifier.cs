@@ -18,7 +18,7 @@ public class RenewabilityFamiliarSetModifier : GlobalItem {
 	}
 
 	public override void SetDefaults(Item item) {
-		if (!ModuleConfig().enableDefaultFamiliarSet) {return;}
+		if (!ModuleConf.enableDefaultFamiliarSet) {return;}
 		item.value = 0;
 	}
 }

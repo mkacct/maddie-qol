@@ -13,7 +13,7 @@ namespace MaddieQoL.Content.Mirrors.Items.ShellphonePlus;
 public class ShellphonePlusDummy : AbstractShellphonePlus {
 	private static LocalizedText TooltipWhenEnabled {get; set;}
 
-	public override LocalizedText Tooltip => ModuleConfig().enableReturnTools ? TooltipWhenEnabled : base.Tooltip;
+	public override LocalizedText Tooltip => ModuleConf.enableReturnTools ? TooltipWhenEnabled : base.Tooltip;
 
 	public override void SetStaticDefaults() {
 		base.SetStaticDefaults();
@@ -21,7 +21,7 @@ public class ShellphonePlusDummy : AbstractShellphonePlus {
 	}
 
 	public override void AddRecipes() {
-		if (!ModuleConfig().enableReturnTools) {return;}
+		if (!ModuleConf.enableReturnTools) {return;}
 		RecipeOrderedRegisterer registerer = OrderedRegistererStartingAfter(ItemID.ShellphoneDummy);
 		{
 			Recipe recipe = this.CreateRecipe();

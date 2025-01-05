@@ -12,7 +12,7 @@ public class TorchDeswapRecipes : ModSystem {
 	private bool _wasUsingBiomeTorches = false;
 
 	public override void AddRecipes() {
-		if (!ModuleConfig().enableTorchDeswap) {return;}
+		if (!ModuleConf.enableTorchDeswap) {return;}
 		{ // Torch
 			Recipe recipe = Recipe.Create(ItemID.Torch);
 			recipe.AddRecipeGroup(RecipeGroups.BiomeTorchRecipeGroup);
@@ -28,7 +28,7 @@ public class TorchDeswapRecipes : ModSystem {
 	}
 
 	public override void UpdateUI(GameTime gameTime) {
-		if (!ModuleConfig().enableTorchDeswap) {return;}
+		if (!ModuleConf.enableTorchDeswap) {return;}
 		if (Main.LocalPlayer.UsingBiomeTorches != this._wasUsingBiomeTorches) {
 			this._wasUsingBiomeTorches = Main.LocalPlayer.UsingBiomeTorches;
 			Recipe.FindRecipes();

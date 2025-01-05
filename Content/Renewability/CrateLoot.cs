@@ -31,7 +31,7 @@ public class RenewabilityCrateLoot : GlobalItem {
 	}
 
 	private static void ModifyDesertCratesLoot(ItemLoot itemLoot) {
-		if (!ModuleConfig().enableDecorativeBannerRenewability) {return;}
+		if (!ModuleConf.enableDecorativeBannerRenewability) {return;}
 		itemLoot.Add(ItemDropRules.OneStackFromOptions(7, 1, MaxBanners, [
 			ItemID.AnkhBanner,
 			ItemID.SnakeBanner,
@@ -40,7 +40,7 @@ public class RenewabilityCrateLoot : GlobalItem {
 	}
 
 	private static void ModifySkyCratesLoot(ItemLoot itemLoot) {
-		if (!ModuleConfig().enableDecorativeBannerRenewability) {return;}
+		if (!ModuleConf.enableDecorativeBannerRenewability) {return;}
 		itemLoot.Add(ItemDropRules.OneStackFromOptions(4, 1, MaxBanners, [
 			ItemID.WorldBanner,
 			ItemID.SunBanner,
@@ -49,7 +49,7 @@ public class RenewabilityCrateLoot : GlobalItem {
 	}
 
 	private static void ModifyDungeonCratesLoot(ItemLoot itemLoot) {
-		if (!ModuleConfig().enableDecorativeBannerRenewability) {return;}
+		if (!ModuleConf.enableDecorativeBannerRenewability) {return;}
 		itemLoot.Add(ItemDropRules.OneStackFromOptions(2, 1, MaxBanners, [
 			ItemID.MarchingBonesBanner,
 			ItemID.NecromanticSign,
@@ -61,7 +61,7 @@ public class RenewabilityCrateLoot : GlobalItem {
 	}
 
 	private static void ModifyLavaCratesLoot(ItemLoot itemLoot) {
-		if (!ModuleConfig().enableDecorativeBannerRenewability) {return;}
+		if (!ModuleConf.enableDecorativeBannerRenewability) {return;}
 		itemLoot.Add(ItemDropRules.OneStackFromOptions(2, 1, MaxBanners, [
 			ItemID.HellboundBanner,
 			ItemID.HellHammerBanner,

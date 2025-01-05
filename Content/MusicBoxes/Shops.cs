@@ -22,7 +22,7 @@ public class MusicBoxShops : GlobalNPC {
 	}
 
 	private static void ModifyPrincessShop(NPCShop shop) {
-		if (!ModuleConfig().enableEasierTitleMusicBoxRecipes) {return;}
+		if (!ModuleConf.enableEasierTitleMusicBoxRecipes) {return;}
 		// MusicBoxTitleAlt is actually Music Box (Journey's Beginning)
 		shop.InsertBefore(ItemID.MusicBoxCredits, ItemID.MusicBoxTitleAlt, Condition.Hardmode);
 	}

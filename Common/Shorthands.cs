@@ -7,6 +7,6 @@ public sealed class Shorthands {
 
 	public const string LangMisc = "Misc";
 
-	public static Mod ThisMod() {return ModContent.GetInstance<MaddieQoL>();}
-	public static ModuleConfig ModuleConfig() {return ModContent.GetInstance<ModuleConfig>();}
+	public static Mod ThisMod => ModContent.GetInstance<MaddieQoL>();
+	public static ModuleConfig ModuleConf => ModContent.GetInstance<ModuleConfig>();
 }

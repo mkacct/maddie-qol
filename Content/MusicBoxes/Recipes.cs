@@ -8,7 +8,7 @@ namespace MaddieQoL.Content.MusicBoxes;
 
 public class MusicBoxRecipes : ModSystem {
 	public override void AddRecipes() {
-		if (!ModuleConfig().enableEasierTitleMusicBoxRecipes) {return;}
+		if (!ModuleConf.enableEasierTitleMusicBoxRecipes) {return;}
 		{ // Music Box (Title)
 			Recipe recipe = Recipe.Create(ItemID.MusicBoxTitle);
 			recipe.AddIngredient(ItemID.MusicBox);

@@ -13,7 +13,7 @@ namespace MaddieQoL.Content.Mirrors.Items;
 public class CellPhonePlus : ModItem {
 	private static LocalizedText TooltipWhenEnabled {get; set;}
 
-	public override LocalizedText Tooltip => ModuleConfig().enableReturnTools ? TooltipWhenEnabled : base.Tooltip;
+	public override LocalizedText Tooltip => ModuleConf.enableReturnTools ? TooltipWhenEnabled : base.Tooltip;
 
 	public override void SetStaticDefaults() {
 		TooltipWhenEnabled = this.GetLocalization(nameof(TooltipWhenEnabled));
@@ -28,7 +28,7 @@ public class CellPhonePlus : ModItem {
 	}
 
 	public override void UseStyle(Player player, Rectangle heldItemFrame) {
-		if (ModuleConfig().enableReturnTools) {
+		if (ModuleConf.enableReturnTools) {
 			Styles.UseReturnStyle(player, this.Item);
 		} else {
 			Styles.UseRecallStyle(player, this.Item);
@@ -45,7 +45,7 @@ public class CellPhonePlus : ModItem {
 	}
 
 	public override void AddRecipes() {
-		if (!ModuleConfig().enableReturnTools) {return;}
+		if (!ModuleConf.enableReturnTools) {return;}
 		RecipeOrderedRegisterer registerer = OrderedRegistererStartingAfter(ItemID.CellPhone);
 		int[] devices = [
 			ItemID.PDA,

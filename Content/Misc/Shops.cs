@@ -19,7 +19,7 @@ public class MiscShops : GlobalNPC {
 	}
 
 	private static void ModifyMerchantShop(NPCShop shop) {
-		if (!ModuleConfig().enableMerchantShopPerDialogue) {return;}
+		if (!ModuleConf.enableMerchantShopPerDialogue) {return;}
 		shop.InsertAfter(ItemID.BugNet, new Item(ItemID.Umbrella) {
 			shopCustomPrice = Item.buyPrice(0, 0, 50, 0)
 		}, Condition.InRain);
@@ -44,7 +44,7 @@ public class MiscShops : GlobalNPC {
 	}
 
 	private static void ModifyTravelingMerchantActiveShop(Item[] items) {
-		if (!ModuleConfig().enableMerchantShopPerDialogue) {return;}
+		if (!ModuleConf.enableMerchantShopPerDialogue) {return;}
 		ShopUtil.TryAddItemToActiveShop(items, new Item(ItemID.AngelStatue) {
 			shopCustomPrice = Item.buyPrice(0, 5, 0, 0)
 		});

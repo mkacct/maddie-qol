@@ -10,11 +10,11 @@ namespace MaddieQoL.Content.ClentaminatorSolution.Items;
 public class LightGreenSolution : AbstractSolutionItem {
 	private static LocalizedText TooltipWhenEnabled {get; set;}
 
-	public override LocalizedText Tooltip => ModuleConfig().enablePurificationOnlySolution ? TooltipWhenEnabled : base.Tooltip;
+	public override LocalizedText Tooltip => ModuleConf.enablePurificationOnlySolution ? TooltipWhenEnabled : base.Tooltip;
 
 	protected override int SprayProjectileID => ModContent.ProjectileType<LightGreenSolutionProjectile>();
 
-	protected override bool IsItemTypeUsableAsAmmo => ModuleConfig().enablePurificationOnlySolution;
+	protected override bool IsItemTypeUsableAsAmmo => ModuleConf.enablePurificationOnlySolution;
 
 	public override void SetStaticDefaults() {
 		base.SetStaticDefaults();

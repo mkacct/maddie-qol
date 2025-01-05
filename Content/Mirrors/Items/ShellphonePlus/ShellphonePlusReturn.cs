@@ -9,7 +9,7 @@ namespace MaddieQoL.Content.Mirrors.Items.ShellphonePlus;
 public class ShellphonePlusReturn : AbstractShellphonePlus {
 	private static LocalizedText TooltipWhenEnabled {get; set;}
 
-	public override LocalizedText Tooltip => ModuleConfig().enableReturnTools ? TooltipWhenEnabled : base.Tooltip;
+	public override LocalizedText Tooltip => ModuleConf.enableReturnTools ? TooltipWhenEnabled : base.Tooltip;
 
 	public override void SetStaticDefaults() {
 		base.SetStaticDefaults();
@@ -17,7 +17,7 @@ public class ShellphonePlusReturn : AbstractShellphonePlus {
 	}
 
 	public override void UseStyle(Player player, Rectangle heldItemFrame) {
-		if (ModuleConfig().enableReturnTools) {
+		if (ModuleConf.enableReturnTools) {
 			Styles.UseReturnStyle(player, this.Item);
 		} else {
 			Styles.UseRecallStyle(player, this.Item);

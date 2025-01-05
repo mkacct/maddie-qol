@@ -26,7 +26,7 @@ public class RenewabilityChestLockOverrider : GlobalItem {
 	public override void Load() {
 		On_Player.PlaceThing_LockChest += (On_Player.orig_PlaceThing_LockChest orig, Player self) => {
 			orig(self);
-			if (ModuleConfig().enableLihzahrdDoorLock) {
+			if (ModuleConf.enableLihzahrdDoorLock) {
 				TryUseLockOnDoor(self);
 			}
 		};
@@ -75,7 +75,7 @@ public class RenewabilityChestLockOverrider : GlobalItem {
 	}
 
 	public override void ModifyTooltips(Item item, List<TooltipLine> tooltips) {
-		if (!ModuleConfig().enableLihzahrdDoorLock) {return;}
+		if (!ModuleConf.enableLihzahrdDoorLock) {return;}
 		if (item.type != ItemID.ChestLock) {return;}
 		tooltips.Add(new TooltipLine(this.Mod, "CanLockDoor", ChestLockAddlTooltip.Value));
 	}

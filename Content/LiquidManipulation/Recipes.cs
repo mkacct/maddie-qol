@@ -14,7 +14,7 @@ public class LiquidManipulationRecipes : ModSystem {
 	}
 
 	private static void AddSourceAndDrainRecipes() {
-		if (!ModuleConfig().enableLiquidSourcesAndDrains) {return;}
+		if (!ModuleConf.enableLiquidSourcesAndDrains) {return;}
 		RecipeOrderedRegisterer registerer = OrderedRegistererStartingAfter(ItemID.OutletPump);
 		{ // Endless Water Source
 			Recipe recipe = Recipe.Create(ModContent.ItemType<WaterSource>());

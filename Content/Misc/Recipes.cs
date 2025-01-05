@@ -17,7 +17,7 @@ public class MiscRecipes : ModSystem {
 	}
 
 	private static void AddDirtBlockRecipe() {
-		if (!ModuleConfig().enableDirtFromMud) {return;}
+		if (!ModuleConf.enableDirtFromMud) {return;}
 		Recipe recipe = Recipe.Create(ItemID.DirtBlock);
 		recipe.AddIngredient(ItemID.MudBlock);
 		recipe.AddTile(TileID.Furnaces);
@@ -25,7 +25,7 @@ public class MiscRecipes : ModSystem {
 	}
 
 	private static void AddPwnhammerRecipe() {
-		if (!ModuleConfig().enablePwnhammerRecipe) {return;}
+		if (!ModuleConf.enablePwnhammerRecipe) {return;}
 		Recipe recipe = Recipe.Create(ItemID.Pwnhammer);
 		recipe.AddIngredient(ItemID.HallowedBar, 18);
 		recipe.AddTile(TileID.MythrilAnvil);
@@ -33,7 +33,7 @@ public class MiscRecipes : ModSystem {
 	}
 
 	private static void AddCopperArmorShimmerExceptions() {
-		if (!ModuleConfig().enableMerchantShopPerDialogue) {return;}
+		if (!ModuleConf.enableMerchantShopPerDialogue) {return;}
 		int[] copperArmors = [ItemID.CopperHelmet, ItemID.CopperChainmail, ItemID.CopperGreaves];
 		foreach (Recipe recipe in Main.recipe) {
 			if (!recipe.HasIngredient(ItemID.CopperBar)) {continue;}

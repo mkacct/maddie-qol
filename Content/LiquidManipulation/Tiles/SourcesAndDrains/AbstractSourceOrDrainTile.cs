@@ -26,7 +26,7 @@ public abstract class AbstractSourceOrDrainTile : ModTile {
 	}
 
 	public override void HitWire(int i, int j) {
-		if (!ModuleConfig().enableLiquidSourcesAndDrains) {return;}
+		if (!ModuleConf.enableLiquidSourcesAndDrains) {return;}
 		Tile targetTile = Framing.GetTileSafely(i, j);
 		int x = i - targetTile.TileFrameX / 18;
 		int y = j - targetTile.TileFrameY / 18;

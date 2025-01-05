@@ -15,7 +15,7 @@ public class ClentaminatorSolutionShops : GlobalNPC {
 	}
 
 	private static void ModifySteampunkerShop(NPCShop shop) {
-		if (!ModuleConfig().enablePurificationOnlySolution) {return;}
+		if (!ModuleConf.enablePurificationOnlySolution) {return;}
 		shop.InsertAfter(ItemID.GreenSolution, ModContent.ItemType<LightGreenSolution>(), [.. shop.GetEntry(ItemID.GreenSolution).Conditions]);
 	}
 }
