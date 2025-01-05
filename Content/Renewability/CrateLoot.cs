@@ -19,8 +19,9 @@ public class RenewabilityCrateLoot : GlobalItem {
 			case ItemID.FloatingIslandFishingCrateHard:
 				ModifySkyCratesLoot(itemLoot);
 				break;
+			case ItemID.DungeonFishingCrate:
 			case ItemID.DungeonFishingCrateHard:
-				ModifyStockadeCrateLoot(itemLoot);
+				ModifyDungeonCratesLoot(itemLoot);
 				break;
 			case ItemID.LavaCrate:
 			case ItemID.LavaCrateHard:
@@ -47,7 +48,7 @@ public class RenewabilityCrateLoot : GlobalItem {
 		]));
 	}
 
-	private static void ModifyStockadeCrateLoot(ItemLoot itemLoot) {
+	private static void ModifyDungeonCratesLoot(ItemLoot itemLoot) {
 		if (!ModuleConfig().enableDecorativeBannerRenewability) {return;}
 		itemLoot.Add(ItemDropRules.OneStackFromOptions(2, 1, MaxBanners, [
 			ItemID.MarchingBonesBanner,
