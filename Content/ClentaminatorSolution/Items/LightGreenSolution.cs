@@ -19,6 +19,15 @@ public class LightGreenSolution : AbstractSolutionItem {
 	public override void SetStaticDefaults() {
 		base.SetStaticDefaults();
 		TooltipWhenEnabled = this.GetLocalization(nameof(TooltipWhenEnabled));
+
+		this.AddShimmers();
+	}
+
+	private void AddShimmers() {
+		if (ModuleConf.enablePurificationOnlySolution) {
+			ItemID.Sets.ShimmerTransformToItem[ItemID.GreenSolution] = this.Type;
+		}
+		ItemID.Sets.ShimmerTransformToItem[this.Type] = ItemID.GreenSolution;
 	}
 }
 
