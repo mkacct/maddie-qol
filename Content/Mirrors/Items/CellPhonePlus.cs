@@ -18,8 +18,8 @@ public class CellPhonePlus : ModItem {
 	public override void SetStaticDefaults() {
 		TooltipWhenEnabled = this.GetLocalization(nameof(TooltipWhenEnabled));
 
-		ItemID.Sets.DuplicationMenuToolsFilter[this.Item.type] = true;
-		ItemID.Sets.SortingPriorityBossSpawns[this.Item.type] = 25;
+		ItemID.Sets.DuplicationMenuToolsFilter[this.Type] = true;
+		ItemID.Sets.SortingPriorityBossSpawns[this.Type] = 25;
 	}
 
 	public override void SetDefaults() {

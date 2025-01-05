@@ -17,8 +17,8 @@ public class ReturnMirror : ModItem {
 	public override void SetStaticDefaults() {
 		TooltipWhenEnabled = this.GetLocalization(nameof(TooltipWhenEnabled));
 
-		ItemID.Sets.DuplicationMenuToolsFilter[this.Item.type] = true;
-		ItemID.Sets.SortingPriorityBossSpawns[this.Item.type] = 24;
+		ItemID.Sets.DuplicationMenuToolsFilter[this.Type] = true;
+		ItemID.Sets.SortingPriorityBossSpawns[this.Type] = 24;
 	}
 
 	public override void SetDefaults() {

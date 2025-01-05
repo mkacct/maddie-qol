@@ -10,7 +10,7 @@ public abstract class AbstractSourceOrDrainItem : ModItem {
 	protected abstract int ItemIDToClone {get;}
 
 	public override void SetStaticDefaults() {
-		ItemID.Sets.SortingPriorityWiring[this.Item.type] = 84;
+		ItemID.Sets.SortingPriorityWiring[this.Type] = 84;
 	}
 
 	public override void SetDefaults() {

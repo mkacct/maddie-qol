@@ -33,7 +33,7 @@ public abstract class AbstractSwappableItem : ModItem {
 		SoundEngine.PlaySound(this.AltFunctionSwapSound with {
 			SoundLimitBehavior = SoundLimitBehavior.ReplaceOldest
 		});
-		this.Item.ChangeItemType(this.NextItemID(this.Item.type));
+		this.Item.ChangeItemType(this.NextItemID(this.Type));
 		Recipe.FindRecipes();
 	}
 

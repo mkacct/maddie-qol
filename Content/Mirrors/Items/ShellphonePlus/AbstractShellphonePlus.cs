@@ -12,12 +12,12 @@ public abstract class AbstractShellphonePlus : AbstractSwappableItem {
 	protected override SoundStyle AltFunctionSwapSound => ShellphonePlusSwapSound;
 
 	public override void SetStaticDefaults() {
-		if (this.Item.type != ShellphonePlusDummyItemID) {
-			ItemID.Sets.ShimmerCountsAsItem[this.Item.type] = ShellphonePlusDummyItemID;
+		if (this.Type != ShellphonePlusDummyItemID) {
+			ItemID.Sets.ShimmerCountsAsItem[this.Type] = ShellphonePlusDummyItemID;
 		}
-		this.Item.ResearchUnlockCount = (this.Item.type == ShellphonePlusDummyItemID) ? 1 : 0;
-		ItemID.Sets.DuplicationMenuToolsFilter[this.Item.type] = true;
-		ItemID.Sets.SortingPriorityBossSpawns[this.Item.type] = 30;
+		this.Item.ResearchUnlockCount = (this.Type == ShellphonePlusDummyItemID) ? 1 : 0;
+		ItemID.Sets.DuplicationMenuToolsFilter[this.Type] = true;
+		ItemID.Sets.SortingPriorityBossSpawns[this.Type] = 30;
 	}
 
 	public override void SetDefaults() {

@@ -16,12 +16,12 @@ public abstract class AbstractUniversalBucket : AbstractSwappableItem {
 	protected virtual int? LiquidType => null;
 
 	public override void SetStaticDefaults() {
-		if (this.Item.type != DummyItemID) {
-			ItemID.Sets.ShimmerCountsAsItem[this.Item.type] = DummyItemID;
+		if (this.Type != DummyItemID) {
+			ItemID.Sets.ShimmerCountsAsItem[this.Type] = DummyItemID;
 		}
-		this.Item.ResearchUnlockCount = (this.Item.type == DummyItemID) ? 1 : 0;
-		ItemID.Sets.AlsoABuildingItem[this.Item.type] = true;
-		ItemID.Sets.DuplicationMenuToolsFilter[this.Item.type] = true;
+		this.Item.ResearchUnlockCount = (this.Type == DummyItemID) ? 1 : 0;
+		ItemID.Sets.AlsoABuildingItem[this.Type] = true;
+		ItemID.Sets.DuplicationMenuToolsFilter[this.Type] = true;
 	}
 
 	public override void SetDefaults() {

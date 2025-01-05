@@ -15,8 +15,8 @@ public class ActivationRod : ModItem {
 	private Point? _pendingNetActivationCoords = null;
 
 	public override void SetStaticDefaults() {
-		ItemID.Sets.AlsoABuildingItem[this.Item.type] = true;
-		ItemID.Sets.DuplicationMenuToolsFilter[this.Item.type] = true;
+		ItemID.Sets.AlsoABuildingItem[this.Type] = true;
+		ItemID.Sets.DuplicationMenuToolsFilter[this.Type] = true;
 	}
 
 	public override void SetDefaults() {
