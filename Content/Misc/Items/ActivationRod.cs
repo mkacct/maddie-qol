@@ -37,7 +37,7 @@ public class ActivationRod : ModItem {
 	}
 
 	public override bool CanUseItem(Player player) {
-		if (player.whoAmI != Main.myPlayer) {return true;}
+		if (player != Main.LocalPlayer) {return true;}
 		this.ClientUse(player);
 		return true;
 	}

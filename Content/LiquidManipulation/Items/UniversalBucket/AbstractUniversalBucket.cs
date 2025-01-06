@@ -35,7 +35,7 @@ public abstract class AbstractUniversalBucket : AbstractSwappableItem {
 
 	public override bool? UseItem(Player player) {
 		if (!this.LiquidType.HasValue) {return null;}
-		if (player.whoAmI != Main.myPlayer) {return null;}
+		if (player != Main.LocalPlayer) {return null;}
 		if (this.ClientPourLiquid(player)) {return true;}
 		return null;
 	}

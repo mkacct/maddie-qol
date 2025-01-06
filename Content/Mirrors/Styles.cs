@@ -43,7 +43,7 @@ internal sealed class Styles {
 		}, () => {
 			if (Main.netMode == NetmodeID.SinglePlayer) {
 				player.MagicConch();
-			} else if ((Main.netMode == NetmodeID.MultiplayerClient) && (player.whoAmI == Main.myPlayer)) {
+			} else if ((Main.netMode == NetmodeID.MultiplayerClient) && (player == Main.LocalPlayer)) {
 				NetMessage.SendData(MessageID.RequestTeleportationByServer, -1, -1, null, 1);
 			}
 		});
@@ -67,7 +67,7 @@ internal sealed class Styles {
 		}, () => {
 			if (Main.netMode == NetmodeID.SinglePlayer) {
 				player.DemonConch();
-			} else if ((Main.netMode == NetmodeID.MultiplayerClient) && (player.whoAmI == Main.myPlayer)) {
+			} else if ((Main.netMode == NetmodeID.MultiplayerClient) && (player == Main.LocalPlayer)) {
 				NetMessage.SendData(MessageID.RequestTeleportationByServer, -1, -1, null, 2);
 			}
 		});
@@ -99,7 +99,7 @@ internal sealed class Styles {
 		}, () => {
 			if (Main.netMode == NetmodeID.SinglePlayer) {
 				player.Shellphone_Spawn();
-			} else if ((Main.netMode == NetmodeID.MultiplayerClient) && (player.whoAmI == Main.myPlayer)) {
+			} else if ((Main.netMode == NetmodeID.MultiplayerClient) && (player == Main.LocalPlayer)) {
 				NetMessage.SendData(MessageID.RequestTeleportationByServer, -1, -1, null, 3);
 			}
 		});

@@ -18,7 +18,7 @@ public sealed class ItemUtil {
 	}
 
 	public static void DrawHoldItemIcon(Player player, Item thisItem) {
-		if (player.whoAmI != Main.myPlayer) {return;}
+		if (player != Main.LocalPlayer) {return;}
 		if (!player.IsTargetTileInItemRange(thisItem)) {return;}
 		player.cursorItemIconEnabled = true;
 		Main.ItemIconCacheUpdate(thisItem.type);
