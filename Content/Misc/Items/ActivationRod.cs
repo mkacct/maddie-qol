@@ -36,8 +36,8 @@ public class ActivationRod : ModItem {
 		itemGroup = ContentSamples.CreativeHelper.ItemGroup.Wiring;
 	}
 
-	public override bool CanUseItem(Player player) {
-		if (player != Main.LocalPlayer) {return true;}
+	public override bool? UseItem(Player player) {
+		if (player != Main.LocalPlayer) {return null;}
 		this.ClientUse(player);
 		return true;
 	}
@@ -45,13 +45,13 @@ public class ActivationRod : ModItem {
 	private void ClientUse(Player player) {
 		if (!player.IsTargetTileInItemRange(this.Item)) {return;}
 		if (!player.CanDoWireStuffHere(Player.tileTargetX, Player.tileTargetY)) {return;}
-		Tile tile = Framing.GetTileSafely(Player.tileTargetX, Player.tileTargetY);;
+		Tile tile = Framing.GetTileSafely(Player.tileTargetX, Player.tileTargetY);
 		if (!TileHasWire(tile)) {return;}
 
-		if (Main.netMode == NetmodeID.SinglePlayer) {
-			ActivateWire(Player.tileTargetX, Player.tileTargetY);
-		} else {
-			this.NetActivateWire(Player.tileTargetX, Player.tileTargetY);
+		ActivateWire(Player.tileTargetX, Player.tileTargetY);
+		if (Main.netMode == NetmodeID.MultiplayerClient) {
+			this._pendingNetActivationCoords = new Point(Player.tileTargetX, Player.tileTargetY);
+			this.Item.NetStateChanged();
 		}
 	}
 
@@ -59,11 +59,9 @@ public class ActivationRod : ModItem {
 		return tile.RedWire || tile.GreenWire || tile.BlueWire || tile.YellowWire;
 	}
 
-	private void NetActivateWire(int tileTargetX, int tileTargetY) {
-		if (Main.netMode == NetmodeID.MultiplayerClient) {
-			this._pendingNetActivationCoords = new Point(tileTargetX, tileTargetY);
-			this.Item.NetStateChanged();
-		}
+	private static void ActivateWire(int tileTargetX, int tileTargetY) {
+		SoundEngine.PlaySound(SignalSound, new Vector2(tileTargetX * 16 + 8, tileTargetY * 16 + 8));
+		Wiring.TripWire(tileTargetX, tileTargetY, 1, 1);
 	}
 
 	public override void NetSend(BinaryWriter writer) {
@@ -79,16 +77,7 @@ public class ActivationRod : ModItem {
 		if (reader.ReadBoolean()) {
 			Point coords = new(reader.ReadInt32(), reader.ReadInt32());
 			ActivateWire(coords.X, coords.Y);
-			if (Main.netMode == NetmodeID.Server) {
-				this._pendingNetActivationCoords = coords;
-				this.Item.NetStateChanged();
-			}
 		}
-	}
-
-	private static void ActivateWire(int tileTargetX, int tileTargetY) {
-		SoundEngine.PlaySound(SignalSound, new Vector2(tileTargetX * 16 + 8, tileTargetY * 16 + 8));
-		Wiring.TripWire(tileTargetX, tileTargetY, 1, 1);
 	}
 
 	public override void HoldItem(Player player) {
