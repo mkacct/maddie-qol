@@ -1,4 +1,5 @@
 Common: {
+	ItemDisabled: "[c/ff1919:Disabled in mod configuration]"
 	DisplaysAll: Displays everything
 	ReturnToolsDisabled: "[c/ff1919:Return tools disabled in mod configuration]"
 	ShellphonePlusDesc:
@@ -328,7 +329,7 @@ Items: {
 			[c/646464:Used by the Clentaminator]
 			[c/646464:Spreads the Purity]
 			[c/646464:Does not spread the Jungle]
-			[c/ff1919:Disabled in mod configuration]
+			{$Common.ItemDisabled}
 			'''
 		TooltipWhenEnabled:
 			'''
