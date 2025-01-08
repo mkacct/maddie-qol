@@ -5,8 +5,6 @@ using Terraria.ModLoader;
 namespace MaddieQoL.Common;
 
 public sealed class IDSets : ModSystem {
-	private IDSets() {} // prevent instantiation
-
 	public static readonly ISet<int> ShellphoneItemIDs = new HashSet<int> {
 		ItemID.ShellphoneDummy,
 		ItemID.Shellphone,

@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace MaddieQoL.Common;
 
-public class RecipeGroups : ModSystem {
+public sealed class RecipeGroups : ModSystem {
 	public const string ShellphoneRecipeGroup = nameof(ItemID.Shellphone);
 	public const string UniversalBucketRecipeGroup = $"{nameof(MaddieQoL)}:{nameof(Content.LiquidManipulation.Items.UniversalBucket.UniversalBucketDummy)}";
 	public const string BiomeTorchRecipeGroup = $"{nameof(MaddieQoL)}:BiomeTorch";
