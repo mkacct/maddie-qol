@@ -130,11 +130,11 @@ public abstract class AbstractSolutionProjectile : ModProjectile {
 	protected virtual TileConversion? GetResultTile(ushort origTileId, int y) {return null;}
 	protected virtual WallConversion? GetResultWall(ushort origWallId, int y) {return null;}
 
-	protected record struct TileConversion(ushort? NewTileID) {
+	protected readonly record struct TileConversion(ushort? NewTileID) {
 		public static TileConversion Kill => new(NewTileID: null);
 	}
 
-	protected record struct WallConversion(ushort NewWallID) {
+	protected readonly record struct WallConversion(ushort NewWallID) {
 		public static WallConversion Kill => new(WallID.None);
 	}
 }

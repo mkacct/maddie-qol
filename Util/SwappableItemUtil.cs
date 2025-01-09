@@ -61,7 +61,7 @@ public sealed class SwappableItemUtil {
 
 	private static void AddItemResearchOverride(int defaultItemId, int[] otherItemIds) {
 		// Using reflection since ContentSamples.AddItemResearchOverride() is private for some reason
-		MethodInfo AddItemResearchOverride = typeof(ContentSamples).GetMethod("AddItemResearchOverride", BindingFlags.NonPublic | BindingFlags.Static);
+		MethodInfo AddItemResearchOverride = typeof(ContentSamples).GetMethod("AddItemResearchOverride", BindingFlags.NonPublic | BindingFlags.Static, [typeof(int), typeof(int[])]);
 		AddItemResearchOverride.Invoke(null, [defaultItemId, otherItemIds]);
 	}
 
