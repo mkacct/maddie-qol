@@ -64,7 +64,7 @@ public abstract class AbstractSolutionProjectile : ModProjectile {
 
 			this.Progress += 1f;
 
-			var dust = Dust.NewDustDirect(new Vector2(this.Projectile.position.X, this.Projectile.position.Y), this.Projectile.width, this.Projectile.height, this.SprayDustID, this.Projectile.velocity.X * 0.2f, this.Projectile.velocity.Y * 0.2f, 100);
+			Dust dust = Dust.NewDustDirect(new Vector2(this.Projectile.position.X, this.Projectile.position.Y), this.Projectile.width, this.Projectile.height, this.SprayDustID, this.Projectile.velocity.X * 0.2f, this.Projectile.velocity.Y * 0.2f, 100);
 
 			dust.noGravity = true;
 			dust.scale *= 1.75f;

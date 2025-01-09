@@ -11,7 +11,7 @@ public sealed class ItemUtil {
 		int drawItemId, Item thisItem,
 		SpriteBatch spriteBatch, Color alphaColor, float rotation, float scale
 	) {
-		Main.GetItemDrawFrame(drawItemId, out var itemTexture, out var itemFrame);
+		Main.GetItemDrawFrame(drawItemId, out Texture2D itemTexture, out Rectangle itemFrame);
 		Vector2 drawOrigin = itemFrame.Size() / 2f;
 		Vector2 drawPosition = thisItem.Bottom - Main.screenPosition - new Vector2(0, drawOrigin.Y);
 		spriteBatch.Draw(itemTexture, drawPosition, itemFrame, alphaColor, rotation, drawOrigin, scale, SpriteEffects.None, 0);
