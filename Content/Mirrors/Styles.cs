@@ -5,9 +5,7 @@ using Terraria.ID;
 
 namespace MaddieQoL.Content.Mirrors;
 
-internal sealed class Styles {
-	private Styles() {} // prevent instantiation
-
+internal static class Styles {
 	internal static void UseRecallStyle(Player player, Item item) {
 		UseMirrorStyle(player, item, () => {
 			player.RemoveAllGrapplingHooks();

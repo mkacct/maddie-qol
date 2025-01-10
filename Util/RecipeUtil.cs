@@ -5,9 +5,7 @@ using Terraria;
 
 namespace MaddieQoL.Util;
 
-public sealed class RecipeUtil {
-	private RecipeUtil() {} // prevent instantiation
-
+public static class RecipeUtil {
 	public static void RegisterBeforeFirstRecipe(Recipe recipe, short itemId) {
 		recipe.SortBeforeFirstRecipesOf(itemId);
 		recipe.Register();

@@ -4,9 +4,7 @@ using Terraria;
 
 namespace MaddieQoL.Util;
 
-public sealed class ItemUtil {
-	private ItemUtil() {} // prevent instantiation
-
+public static class ItemUtil {
 	public static void DrawItemInWorld(
 		int drawItemId, Item thisItem,
 		SpriteBatch spriteBatch, Color alphaColor, float rotation, float scale

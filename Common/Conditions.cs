@@ -3,9 +3,7 @@ using Terraria;
 
 namespace MaddieQoL.Common;
 
-public sealed class Conditions {
-	private Conditions() {} // prevent instantiation
-
+public static class Conditions {
 	public static Condition BiomeTorchSwapEnabled => new(
 		ThisMod.GetLocalization($"{nameof(Conditions)}.{nameof(BiomeTorchSwapEnabled)}"),
 		() => {return Main.LocalPlayer.UsingBiomeTorches;}

@@ -47,9 +47,7 @@ public abstract class AbstractSwappableItem : ModItem {
 	}
 }
 
-public sealed class SwappableItemUtil {
-	private SwappableItemUtil() {} // prevent instantiation
-
+public static class SwappableItemUtil {
 	public static void RegisterItemResearchOverrideHook(int[] itemIdSequence, int? dummyItemId = null) {
 		int defaultItemId = dummyItemId ?? itemIdSequence[0];
 		int[] otherItemIds = dummyItemId.HasValue ? itemIdSequence : itemIdSequence[1..];

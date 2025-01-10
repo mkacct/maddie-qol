@@ -2,9 +2,7 @@ using Terraria.ModLoader;
 
 namespace MaddieQoL.Common;
 
-public sealed class Shorthands {
-	private Shorthands() {} // prevent instantiation
-
+public static class Shorthands {
 	public const string LangMisc = "Misc";
 
 	public static Mod ThisMod => ModContent.GetInstance<MaddieQoL>();
