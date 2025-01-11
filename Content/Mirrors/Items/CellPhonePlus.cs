@@ -1,12 +1,11 @@
-using static MaddieQoL.Util.RecipeUtil;
 using static MaddieQoL.Common.Shorthands;
-using MaddieQoL.Util;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.GameContent.Achievements;
+using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.Mirrors.Items;
 
@@ -46,7 +45,7 @@ public class CellPhonePlus : ModItem {
 
 	public override void AddRecipes() {
 		if (!ModuleConf.enableReturnTools) {return;}
-		RecipeOrderedRegisterer registerer = OrderedRegistererStartingAfter(ItemID.CellPhone);
+		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.CellPhone);
 		int[] devices = [
 			ItemID.PDA,
 			ItemID.CellPhone
@@ -56,7 +55,7 @@ public class CellPhonePlus : ModItem {
 			recipe.AddIngredient(device);
 			recipe.AddIngredient<ReturnMirror>();
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			registerer.Register(recipe);
+			recipe.RegisterUsing(registerer);
 		}
 	}
 }

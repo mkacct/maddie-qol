@@ -1,9 +1,9 @@
-using static MaddieQoL.Util.RecipeUtil;
 using static MaddieQoL.Common.Shorthands;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using MaddieQoL.Util;
 using MaddieQoL.Common;
 
 namespace MaddieQoL.Content.TorchDeswap;
@@ -17,13 +17,13 @@ public class TorchDeswapRecipes : ModSystem {
 			Recipe recipe = Recipe.Create(ItemID.Torch);
 			recipe.AddRecipeGroup(RecipeGroups.BiomeTorchRecipeGroup);
 			recipe.AddCondition(Conditions.BiomeTorchSwapEnabled);
-			RegisterAfterLastRecipe(recipe.DisableDecraft(), ItemID.Torch);
+			recipe.DisableDecraft().RegisterAfterLastRecipeOf(ItemID.Torch);
 		}
 		{ // Campfire
 			Recipe recipe = Recipe.Create(ItemID.Campfire);
 			recipe.AddRecipeGroup(RecipeGroups.BiomeCampfireRecipeGroup);
 			recipe.AddCondition(Conditions.BiomeTorchSwapEnabled);
-			RegisterAfterLastRecipe(recipe.DisableDecraft(), ItemID.Campfire);
+			recipe.DisableDecraft().RegisterAfterLastRecipeOf(ItemID.Campfire);
 		}
 	}
 

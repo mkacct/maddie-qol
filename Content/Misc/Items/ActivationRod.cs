@@ -1,4 +1,3 @@
-using static MaddieQoL.Util.RecipeUtil;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -86,6 +85,6 @@ public class ActivationRod : ModItem {
 		recipe.AddRecipeGroup(RecipeGroupID.IronBar, 10);
 		recipe.AddIngredient(ItemID.Wire, 60);
 		recipe.AddTile(TileID.Anvils);
-		RegisterBeforeFirstRecipe(recipe, ItemID.ActuationRod);
+		recipe.RegisterBeforeFirstRecipeOf(ItemID.ActuationRod);
 	}
 }

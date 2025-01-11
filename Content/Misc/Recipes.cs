@@ -1,8 +1,8 @@
-using static MaddieQoL.Util.RecipeUtil;
 using static MaddieQoL.Common.Shorthands;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.Misc;
 
@@ -21,7 +21,7 @@ public class MiscRecipes : ModSystem {
 		Recipe recipe = Recipe.Create(ItemID.DirtBlock);
 		recipe.AddIngredient(ItemID.MudBlock);
 		recipe.AddTile(TileID.Furnaces);
-		RegisterAfterLastRecipe(recipe.DisableDecraft(), ItemID.MudBlock);
+		recipe.DisableDecraft().RegisterAfterLastRecipeOf(ItemID.MudBlock);
 	}
 
 	private static void AddPwnhammerRecipe() {
@@ -29,7 +29,7 @@ public class MiscRecipes : ModSystem {
 		Recipe recipe = Recipe.Create(ItemID.Pwnhammer);
 		recipe.AddIngredient(ItemID.HallowedBar, 18);
 		recipe.AddTile(TileID.MythrilAnvil);
-		RegisterAfterLastRecipe(recipe.DisableDecraft(), ItemID.PickaxeAxe);
+		recipe.DisableDecraft().RegisterAfterLastRecipeOf(ItemID.PickaxeAxe);
 	}
 
 	private static void AddCopperArmorShimmerExceptions() {
@@ -37,7 +37,7 @@ public class MiscRecipes : ModSystem {
 		int[] copperArmors = [ItemID.CopperHelmet, ItemID.CopperChainmail, ItemID.CopperGreaves];
 		foreach (Recipe recipe in Main.recipe) {
 			if (!recipe.HasIngredient(ItemID.CopperBar)) {continue;}
-			if (RecipeHasCustomShimmerResults(recipe)) {continue;}
+			if (recipe.HasCustomShimmerResults()) {continue;}
 			foreach (int copperArmor in copperArmors) {
 				if (recipe.HasResult(copperArmor)) {
 					recipe.AddCustomShimmerResult(ItemID.CopperOre);

@@ -1,5 +1,4 @@
 using static MaddieQoL.Common.Shorthands;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ObjectData;

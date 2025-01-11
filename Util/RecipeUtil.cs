@@ -1,60 +1,47 @@
-using static MaddieQoL.Util.RecipeUtil;
 using System;
 using System.Linq;
 using Terraria;
 
 namespace MaddieQoL.Util;
 
-public static class RecipeUtil {
-	public static void RegisterBeforeFirstRecipe(Recipe recipe, short itemId) {
+public static class RecipeExtensions {
+	public static Recipe RegisterBeforeFirstRecipeOf(this Recipe recipe, short itemId) {
 		recipe.SortBeforeFirstRecipesOf(itemId);
 		recipe.Register();
+		return recipe;
 	}
 
-	public static void RegisterAfterLastRecipe(Recipe recipe, short itemId) {
+	public static Recipe RegisterAfterLastRecipeOf(this Recipe recipe, short itemId) {
 		recipe.SortAfter(Main.recipe.Last((recipe) => {return recipe.createItem.type == itemId;}));
 		recipe.Register();
+		return recipe;
 	}
 
-	public static RecipeOrderedRegisterer OrderedRegistererStartingBefore(short itemId) {
+	public static Recipe RegisterUsing(this Recipe recipe, RecipeOrderedRegisterer registerer) {
+		registerer.RegisterRecipe(recipe);
+		return recipe;
+	}
+
+	public static bool HasCustomShimmerResults(this Recipe recipe) {
+		return (recipe.customShimmerResults != null) && (recipe.customShimmerResults.Count > 0);
+	}
+}
+
+public class RecipeOrderedRegisterer {
+	private short lastItemId = -1;
+	private bool isBefore = false;
+	private Recipe lastRecipe = null;
+
+	public static RecipeOrderedRegisterer StartingBefore(short itemId) {
 		RecipeOrderedRegisterer registerer = new();
 		registerer.SortBeforeFirstRecipeOf(itemId);
 		return registerer;
 	}
 
-	public static RecipeOrderedRegisterer OrderedRegistererStartingAfter(short itemId) {
+	public static RecipeOrderedRegisterer StartingAfter(short itemId) {
 		RecipeOrderedRegisterer registerer = new();
 		registerer.SortAfterLastRecipeOf(itemId);
 		return registerer;
-	}
-
-	public static bool RecipeHasCustomShimmerResults(Recipe recipe) {
-		return (recipe.customShimmerResults != null) && (recipe.customShimmerResults.Count > 0);
-	}
-}
-
-public class RecipeOrderedRegisterer() {
-	private short lastItemId = -1;
-	private bool isBefore = false;
-	private Recipe lastRecipe = null;
-
-	/// <param name="recipe">must not yet be sorted</param>
-	public void Register(Recipe recipe) {
-		if (this.lastRecipe != null) {
-			recipe.SortAfter(lastRecipe);
-			recipe.Register();
-		} else if (this.lastItemId >= 0) {
-			if (this.isBefore) {
-				RegisterBeforeFirstRecipe(recipe, this.lastItemId);
-			} else {
-				RegisterAfterLastRecipe(recipe, this.lastItemId);
-			}
-		} else {
-			throw new Exception("No sorting criteria set");
-		}
-		this.lastRecipe = recipe;
-		this.lastItemId = -1;
-		this.isBefore = false;
 	}
 
 	public void SortBeforeFirstRecipeOf(short itemId) {
@@ -67,5 +54,26 @@ public class RecipeOrderedRegisterer() {
 		this.lastItemId = itemId;
 		this.isBefore = false;
 		this.lastRecipe = null;
+	}
+
+	/// <remarks>Prefer extension method Recipe.RegisterUsing() over calling this directly.</remarks>
+	/// <param name="recipe">Should not yet be sorted</param>
+	/// <exception cref="InvalidOperationException">If there is no basis for sorting yet</exception>
+	internal void RegisterRecipe(Recipe recipe) {
+		if (this.lastRecipe != null) {
+			recipe.SortAfter(lastRecipe);
+			recipe.Register();
+		} else if (this.lastItemId >= 0) {
+			if (this.isBefore) {
+				recipe.RegisterBeforeFirstRecipeOf(this.lastItemId);
+			} else {
+				recipe.RegisterAfterLastRecipeOf(this.lastItemId);
+			}
+		} else {
+			throw new InvalidOperationException("No sorting criteria set");
+		}
+		this.lastRecipe = recipe;
+		this.lastItemId = -1;
+		this.isBefore = false;
 	}
 }

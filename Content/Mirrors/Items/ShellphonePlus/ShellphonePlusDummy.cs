@@ -1,11 +1,10 @@
-using static MaddieQoL.Util.RecipeUtil;
 using static MaddieQoL.Common.Shorthands;
-using MaddieQoL.Util;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
+using MaddieQoL.Util;
 using MaddieQoL.Common;
 
 namespace MaddieQoL.Content.Mirrors.Items.ShellphonePlus;
@@ -22,21 +21,21 @@ public class ShellphonePlusDummy : AbstractShellphonePlus {
 
 	public override void AddRecipes() {
 		if (!ModuleConf.enableReturnTools) {return;}
-		RecipeOrderedRegisterer registerer = OrderedRegistererStartingAfter(ItemID.ShellphoneDummy);
+		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.ShellphoneDummy);
 		{
 			Recipe recipe = this.CreateRecipe();
 			recipe.AddIngredient<CellPhonePlus>();
 			recipe.AddIngredient(ItemID.MagicConch);
 			recipe.AddIngredient(ItemID.DemonConch);
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			registerer.Register(recipe);
+			recipe.RegisterUsing(registerer);
 		}
 		{
 			Recipe recipe = this.CreateRecipe();
 			recipe.AddRecipeGroup(RecipeGroups.ShellphoneRecipeGroup);
 			recipe.AddIngredient<ReturnMirror>();
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			registerer.Register(recipe.DisableDecraft());
+			recipe.DisableDecraft().RegisterUsing(registerer);
 		}
 	}
 

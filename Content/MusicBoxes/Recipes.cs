@@ -1,8 +1,8 @@
-using static MaddieQoL.Util.RecipeUtil;
 using static MaddieQoL.Common.Shorthands;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.MusicBoxes;
 
@@ -17,14 +17,14 @@ public class MusicBoxRecipes : ModSystem {
 			recipe.AddIngredient(ItemID.SoulofMight);
 			recipe.AddIngredient(ItemID.SoulofSight);
 			recipe.AddTile(TileID.DemonAltar);
-			RegisterAfterLastRecipe(recipe.DisableDecraft(), ItemID.MusicBoxTitle);
+			recipe.DisableDecraft().RegisterAfterLastRecipeOf(ItemID.MusicBoxTitle);
 		}
 		{ // Music Box (Alt Title)
 			Recipe recipe = Recipe.Create(ItemID.MusicBoxConsoleTitle);
 			recipe.AddIngredient(ItemID.MusicBoxTitle);
 			recipe.AddIngredient(ItemID.ChlorophyteBar, 5);
 			recipe.AddTile(TileID.WorkBenches).AddCondition(Condition.InGraveyard);
-			RegisterAfterLastRecipe(recipe.DisableDecraft(), ItemID.MusicBoxConsoleTitle);
+			recipe.DisableDecraft().RegisterAfterLastRecipeOf(ItemID.MusicBoxConsoleTitle);
 		}
 	}
 }

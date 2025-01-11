@@ -1,7 +1,7 @@
-using static MaddieQoL.Util.RecipeUtil;
 using Terraria;
 using Terraria.ID;
 using Terraria.DataStructures;
+using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.LiquidManipulation.Items.UniversalBucket;
 
@@ -12,7 +12,7 @@ public class UniversalBucketDummy : AbstractUniversalBucket {
 		recipe.AddIngredient(ItemID.BottomlessLavaBucket);
 		recipe.AddIngredient(ItemID.BottomlessHoneyBucket);
 		recipe.AddTile(TileID.TinkerersWorkbench);
-		RegisterBeforeFirstRecipe(recipe, ItemID.UltraAbsorbantSponge);
+		recipe.RegisterBeforeFirstRecipeOf(ItemID.UltraAbsorbantSponge);
 	}
 
 	public override void OnCreated(ItemCreationContext context) {

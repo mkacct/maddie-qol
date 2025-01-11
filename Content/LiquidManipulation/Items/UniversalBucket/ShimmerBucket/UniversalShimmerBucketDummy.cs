@@ -1,16 +1,14 @@
-using static MaddieQoL.Util.RecipeUtil;
 using Terraria;
 using Terraria.ID;
 using Terraria.DataStructures;
 using MaddieQoL.Common;
 using MaddieQoL.Util;
-using Terraria.ModLoader;
 
 namespace MaddieQoL.Content.LiquidManipulation.Items.UniversalBucket.ShimmerBucket;
 
 public class UniversalShimmerBucketDummy : AbstractUniversalShimmerBucket {
 	public override void AddRecipes() {
-		RecipeOrderedRegisterer registerer = OrderedRegistererStartingAfter(ItemID.BottomlessShimmerBucket);
+		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.BottomlessShimmerBucket);
 		{
 			Recipe recipe = this.CreateRecipe();
 			recipe.AddIngredient(ItemID.BottomlessBucket);
@@ -18,14 +16,14 @@ public class UniversalShimmerBucketDummy : AbstractUniversalShimmerBucket {
 			recipe.AddIngredient(ItemID.BottomlessHoneyBucket);
 			recipe.AddIngredient(ItemID.BottomlessShimmerBucket);
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			registerer.Register(recipe);
+			recipe.RegisterUsing(registerer);
 		}
 		{
 			Recipe recipe = this.CreateRecipe();
 			recipe.AddRecipeGroup(RecipeGroups.UniversalBucketRecipeGroup);
 			recipe.AddIngredient(ItemID.BottomlessShimmerBucket);
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			registerer.Register(recipe.DisableDecraft());
+			recipe.DisableDecraft().RegisterUsing(registerer);
 		}
 	}
 

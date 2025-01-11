@@ -1,4 +1,3 @@
-using static MaddieQoL.Util.RecipeUtil;
 using static MaddieQoL.Common.Shorthands;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -36,7 +35,7 @@ public class ReturnMirror : ModItem {
 
 	public override void AddRecipes() {
 		if (!ModuleConf.enableReturnTools) {return;}
-		RecipeOrderedRegisterer registerer = OrderedRegistererStartingAfter(ItemID.MagicMirror);
+		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.MagicMirror);
 		int[] mirrors = [
 			ItemID.MagicMirror,
 			ItemID.IceMirror
@@ -49,7 +48,7 @@ public class ReturnMirror : ModItem {
 			recipe.AddIngredient(ItemID.SoulofNight, 8);
 			recipe.AddIngredient(ItemID.SoulofSight, 15);
 			recipe.AddTile(TileID.AdamantiteForge);
-			registerer.Register(recipe);
+			recipe.RegisterUsing(registerer);
 		}
 	}
 }
