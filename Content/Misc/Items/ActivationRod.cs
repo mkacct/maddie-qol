@@ -1,18 +1,21 @@
 using static MaddieQoL.Util.RecipeUtil;
-using System.IO;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 using MaddieQoL.Util;
+using MaddieQoL.Common;
 
 namespace MaddieQoL.Content.Misc.Items;
 
 public class ActivationRod : ModItem {
-	private static readonly SoundStyle SignalSound = SoundID.Item49;
+	public static readonly PacketHandler<PointPacketData> ActivationPacketHandler = new(
+		ServerHandleActivationPacket,
+		ClientHandleActivationPacket
+	);
 
-	private Point? _pendingNetActivationCoords = null;
+	private static readonly SoundStyle SignalSound = SoundID.Item49;
 
 	public override void SetStaticDefaults() {
 		ItemID.Sets.AlsoABuildingItem[this.Type] = true;
@@ -48,10 +51,12 @@ public class ActivationRod : ModItem {
 		Tile tile = Framing.GetTileSafely(Player.tileTargetX, Player.tileTargetY);
 		if (!TileHasWire(tile)) {return;}
 
-		ActivateWire(Player.tileTargetX, Player.tileTargetY);
 		if (Main.netMode == NetmodeID.MultiplayerClient) {
-			this._pendingNetActivationCoords = new Point(Player.tileTargetX, Player.tileTargetY);
-			this.Item.NetStateChanged();
+			Point tileTarget = new(Player.tileTargetX, Player.tileTargetY);
+			ActivationPacketHandler.Send(new(tileTarget));
+		} else { // single player
+			Wiring.TripWire(Player.tileTargetX, Player.tileTargetY, 1, 1);
+			EmitSound(Player.tileTargetX, Player.tileTargetY);
 		}
 	}
 
@@ -59,25 +64,17 @@ public class ActivationRod : ModItem {
 		return tile.RedWire || tile.GreenWire || tile.BlueWire || tile.YellowWire;
 	}
 
-	private static void ActivateWire(int tileTargetX, int tileTargetY) {
+	private static void EmitSound(int tileTargetX, int tileTargetY) {
 		SoundEngine.PlaySound(SignalSound, new Vector2(tileTargetX * 16 + 8, tileTargetY * 16 + 8));
-		Wiring.TripWire(tileTargetX, tileTargetY, 1, 1);
 	}
 
-	public override void NetSend(BinaryWriter writer) {
-		writer.Write(this._pendingNetActivationCoords.HasValue);
-		if (this._pendingNetActivationCoords.HasValue) {
-			writer.Write(this._pendingNetActivationCoords.Value.X);
-			writer.Write(this._pendingNetActivationCoords.Value.Y);
-			this._pendingNetActivationCoords = null;
-		}
+	private static void ServerHandleActivationPacket(PointPacketData data, int srcPlayerId) {
+		Wiring.TripWire(data.Point.X, data.Point.Y, 1, 1);
+		ActivationPacketHandler.Send(new(data.Point));
 	}
 
-	public override void NetReceive(BinaryReader reader) {
-		if (reader.ReadBoolean()) {
-			Point coords = new(reader.ReadInt32(), reader.ReadInt32());
-			ActivateWire(coords.X, coords.Y);
-		}
+	private static void ClientHandleActivationPacket(PointPacketData data) {
+		EmitSound(data.Point.X, data.Point.Y);
 	}
 
 	public override void HoldItem(Player player) {
