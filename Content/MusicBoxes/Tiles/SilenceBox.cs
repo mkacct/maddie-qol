@@ -13,7 +13,7 @@ using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.MusicBoxes.Tiles;
 
-public class SilenceBox : ModTile {
+public sealed class SilenceBox : ModTile {
 	private static Asset<Texture2D> GlowTexture {get; set;}
 
 	public override void SetStaticDefaults() {

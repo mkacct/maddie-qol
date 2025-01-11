@@ -8,7 +8,7 @@ using Terraria.Audio;
 
 namespace MaddieQoL.Content.Mirrors;
 
-public class MirrorShellphonePlusSystem : ModSystem {
+public sealed class MirrorShellphonePlusSystem : ModSystem {
 	internal static readonly int ShellphonePlusDummyItemID = ModContent.ItemType<ShellphonePlusDummy>();
 
 	private static readonly int[] ShellphonePlusItemIDSequence = [

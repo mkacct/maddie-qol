@@ -9,7 +9,7 @@ using Terraria.ObjectData;
 
 namespace MaddieQoL.Content.Misc.Tiles;
 
-public class Button : ModTile {
+public sealed class Button : ModTile {
 	public override void SetStaticDefaults() {
 		Main.tileFrameImportant[this.Type] = true;
 		Main.tileSolid[this.Type] = false;

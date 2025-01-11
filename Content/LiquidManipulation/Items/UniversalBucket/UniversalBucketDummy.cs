@@ -5,7 +5,7 @@ using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.LiquidManipulation.Items.UniversalBucket;
 
-public class UniversalBucketDummy : AbstractUniversalBucket {
+public sealed class UniversalBucketDummy : AbstractUniversalBucket {
 	public override void AddRecipes() {
 		Recipe recipe = this.CreateRecipe();
 		recipe.AddIngredient(ItemID.BottomlessBucket);

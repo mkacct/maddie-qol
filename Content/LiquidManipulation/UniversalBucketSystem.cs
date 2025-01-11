@@ -8,7 +8,7 @@ using MaddieQoL.Content.LiquidManipulation.Items.UniversalBucket.ShimmerBucket;
 
 namespace MaddieQoL.Content.LiquidManipulation;
 
-public class LiquidManipulationUniversalBucketSystem : ModSystem {
+public sealed class LiquidManipulationUniversalBucketSystem : ModSystem {
 	internal static readonly int UniversalBucketDummyItemID = ModContent.ItemType<UniversalBucketDummy>();
 	internal static readonly int UniversalShimmerBucketDummyItemID = ModContent.ItemType<UniversalShimmerBucketDummy>();
 

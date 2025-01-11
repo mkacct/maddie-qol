@@ -8,7 +8,7 @@ using MaddieQoL.Common;
 
 namespace MaddieQoL.Content.TorchDeswap;
 
-public class TorchDeswapRecipes : ModSystem {
+public sealed class TorchDeswapRecipes : ModSystem {
 	private bool _wasUsingBiomeTorches = false;
 
 	public override void AddRecipes() {

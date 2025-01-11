@@ -9,7 +9,7 @@ using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.Mirrors.Items;
 
-public class CellPhonePlus : ModItem {
+public sealed class CellPhonePlus : ModItem {
 	private static LocalizedText TooltipWhenEnabled {get; set;}
 
 	public override LocalizedText Tooltip => ModuleConf.enableReturnTools ? TooltipWhenEnabled : base.Tooltip;

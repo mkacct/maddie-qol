@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace MaddieQoL.Content.Renewability;
 
-public class RenewabilityInventoryPlayerModifier : ModPlayer {
+public sealed class RenewabilityInventoryPlayerModifier : ModPlayer {
 	public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath) {
 		if (!ModuleConf.enableDefaultFamiliarSet) {yield break;}
 		yield return new Item(ItemID.FamiliarWig);

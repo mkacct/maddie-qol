@@ -6,7 +6,7 @@ using MaddieQoL.Common;
 
 namespace MaddieQoL.Content.Renewability;
 
-public class RenewabilityCrateLoot : GlobalItem {
+public sealed class RenewabilityCrateLoot : GlobalItem {
 	private const int MaxBanners = 2;
 
 	public override void ModifyItemLoot(Item item, ItemLoot itemLoot) {

@@ -7,7 +7,7 @@ using MaddieQoL.Content.LiquidManipulation.Items.SourcesAndDrains;
 
 namespace MaddieQoL.Content.LiquidManipulation;
 
-public class LiquidManipulationRecipes : ModSystem {
+public sealed class LiquidManipulationRecipes : ModSystem {
 	public override void AddRecipes() {
 		AddSourceAndDrainRecipes();
 	}

@@ -7,7 +7,7 @@ using Terraria.Localization;
 
 namespace MaddieQoL.Content.ClentaminatorSolution.Items;
 
-public class LightGreenSolution : AbstractSolutionItem {
+public sealed class LightGreenSolution : AbstractSolutionItem {
 	private static LocalizedText TooltipWhenEnabled {get; set;}
 
 	public override LocalizedText Tooltip => ModuleConf.enablePurificationOnlySolution ? TooltipWhenEnabled : base.Tooltip;

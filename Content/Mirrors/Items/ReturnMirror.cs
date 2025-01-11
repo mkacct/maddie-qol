@@ -8,7 +8,7 @@ using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.Mirrors.Items;
 
-public class ReturnMirror : ModItem {
+public sealed class ReturnMirror : ModItem {
 	private static LocalizedText TooltipWhenEnabled {get; set;}
 
 	public override LocalizedText Tooltip => ModuleConf.enableReturnTools ? TooltipWhenEnabled : base.Tooltip;

@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace MaddieQoL.Content.Mirrors;
 
-public class MirrorSwitchAway : GlobalItem {
+public sealed class MirrorSwitchAway : GlobalItem {
 	private static readonly ISet<int> AllTeleportOnUseItems;
 
 	static MirrorSwitchAway() {

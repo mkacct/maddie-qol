@@ -4,7 +4,7 @@ using Terraria.GameContent;
 
 namespace MaddieQoL.Content.Misc;
 
-public class AddPotsToWand : ModSystem {
+public sealed class AddPotsToWand : ModSystem {
 	public override void Load() {
 		if (!ModuleConf.enableAddPotsToWand) {return;}
 		int echoPileStyle = 0;

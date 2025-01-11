@@ -8,7 +8,7 @@ using MaddieQoL.Common;
 
 namespace MaddieQoL.Content.Misc.Items;
 
-public class ActivationRod : ModItem {
+public sealed class ActivationRod : ModItem {
 	public static readonly PacketHandler<PointPacketData> ActivationPacketHandler = new(
 		ServerHandleActivationPacket,
 		ClientHandleActivationPacket

@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace MaddieQoL.Content.Mirrors;
 
-public class MirrorReturnGateHoverIconOverrider : ModSystem {
+public sealed class MirrorReturnGateHoverIconOverrider : ModSystem {
 	private int gateIcon = -1;
 
 	internal static void SetGateIcon(int newGateIconId) {

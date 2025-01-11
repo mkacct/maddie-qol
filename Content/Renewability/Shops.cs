@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace MaddieQoL.Content.Renewability;
 
-public class RenewabilityShops : GlobalNPC {
+public sealed class RenewabilityShops : GlobalNPC {
 	public override void ModifyShop(NPCShop shop) {
 		switch (shop.NpcType) {
 			case NPCID.Demolitionist:

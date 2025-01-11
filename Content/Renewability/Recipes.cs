@@ -8,7 +8,7 @@ using MaddieQoL.Common;
 
 namespace MaddieQoL.Content.Renewability;
 
-public class RenewabilityRecipes : ModSystem {
+public sealed class RenewabilityRecipes : ModSystem {
 	public override void SetStaticDefaults() {
 		AddGoldChestShimmer();
 		AddReverseShimmers();

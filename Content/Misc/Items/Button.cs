@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace MaddieQoL.Content.Misc.Items;
 
-public class Button : ModItem {
+public sealed class Button : ModItem {
 	public override LocalizedText Tooltip => LocalizedText.Empty;
 
 	public override void SetStaticDefaults() {

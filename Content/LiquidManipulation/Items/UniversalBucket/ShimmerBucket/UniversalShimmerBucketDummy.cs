@@ -6,7 +6,7 @@ using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.LiquidManipulation.Items.UniversalBucket.ShimmerBucket;
 
-public class UniversalShimmerBucketDummy : AbstractUniversalShimmerBucket {
+public sealed class UniversalShimmerBucketDummy : AbstractUniversalShimmerBucket {
 	public override void AddRecipes() {
 		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.BottomlessShimmerBucket);
 		{

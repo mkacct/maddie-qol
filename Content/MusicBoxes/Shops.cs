@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace MaddieQoL.Content.MusicBoxes;
 
-public class MusicBoxShops : GlobalNPC {
+public sealed class MusicBoxShops : GlobalNPC {
 	public override void ModifyShop(NPCShop shop) {
 		switch (shop.NpcType) {
 			case NPCID.Wizard:

@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace MaddieQoL.Content.Renewability;
 
-public class RenewabilityFamiliarSetModifier : GlobalItem {
+public sealed class RenewabilityFamiliarSetModifier : GlobalItem {
 	private static readonly ISet<int> FamiliarSet = new HashSet<int> {
 		ItemID.FamiliarWig,
 		ItemID.FamiliarShirt,

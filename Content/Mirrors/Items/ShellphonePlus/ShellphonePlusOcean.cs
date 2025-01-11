@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace MaddieQoL.Content.Mirrors.Items.ShellphonePlus;
 
-public class ShellphonePlusOcean : AbstractShellphonePlus {
+public sealed class ShellphonePlusOcean : AbstractShellphonePlus {
 	private static LocalizedText TooltipWhenEnabled {get; set;}
 
 	public override LocalizedText Tooltip => ModuleConf.enableReturnTools ? TooltipWhenEnabled : base.Tooltip;

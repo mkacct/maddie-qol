@@ -10,7 +10,7 @@ using Terraria.Localization;
 
 namespace MaddieQoL.Content.Renewability;
 
-public class RenewabilityChestLockOverrider : GlobalItem {
+public sealed class RenewabilityChestLockOverrider : GlobalItem {
 	private const int DoorHeightTiles = 3, DoorTilesheetCellSize = 18;
 	private const int LihzahrdDoorClosedLockedSubId = 11, LihzahrdDoorClosedUnlockedSubId = 12;
 

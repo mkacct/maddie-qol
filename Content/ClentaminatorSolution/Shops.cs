@@ -5,7 +5,7 @@ using MaddieQoL.Content.ClentaminatorSolution.Items;
 
 namespace MaddieQoL.Content.ClentaminatorSolution;
 
-public class ClentaminatorSolutionShops : GlobalNPC {
+public sealed class ClentaminatorSolutionShops : GlobalNPC {
 	public override void ModifyShop(NPCShop shop) {
 		switch (shop.NpcType) {
 			case NPCID.Steampunker:

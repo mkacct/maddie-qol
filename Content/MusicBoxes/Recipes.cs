@@ -6,7 +6,7 @@ using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.MusicBoxes;
 
-public class MusicBoxRecipes : ModSystem {
+public sealed class MusicBoxRecipes : ModSystem {
 	public override void AddRecipes() {
 		if (!ModuleConf.enableEasierTitleMusicBoxRecipes) {return;}
 		{ // Music Box (Title)

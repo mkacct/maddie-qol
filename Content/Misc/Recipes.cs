@@ -6,7 +6,7 @@ using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.Misc;
 
-public class MiscRecipes : ModSystem {
+public sealed class MiscRecipes : ModSystem {
 	public override void AddRecipes() {
 		AddDirtBlockRecipe();
 		AddPwnhammerRecipe();

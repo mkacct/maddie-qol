@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace MaddieQoL.Content.MusicBoxes.Items;
 
-public class SilenceBox : ModItem {
+public sealed class SilenceBox : ModItem {
 	public override LocalizedText Tooltip => LocalizedText.Empty;
 
 	public override void SetStaticDefaults() {

@@ -6,7 +6,7 @@ using MaddieQoL.Util;
 
 namespace MaddieQoL.Common;
 
-public class PacketHandling : ModSystem {
+public sealed class PacketHandling : ModSystem {
 	// All packet handlers must be registered here!
 	private static readonly IList<IPacketHandler> PacketHandlers = [
 		Content.Misc.Items.ActivationRod.ActivationPacketHandler

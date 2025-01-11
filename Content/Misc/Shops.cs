@@ -6,7 +6,7 @@ using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.Misc;
 
-public class MiscShops : GlobalNPC {
+public sealed class MiscShops : GlobalNPC {
 	public override void ModifyShop(NPCShop shop) {
 		switch (shop.NpcType) {
 			case NPCID.Merchant:
