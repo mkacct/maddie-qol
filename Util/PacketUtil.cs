@@ -11,7 +11,7 @@ namespace MaddieQoL.Util;
 /// Creates and dispatches packets for a mod.
 /// Create only one of these, and put it in a static property.
 /// </summary>
-public sealed class PacketDispatcher {
+public class PacketDispatcher {
 	private readonly Mod _mod;
 
 	private readonly IDictionary<int, IPacketHandler> _packetIndicesToHandlers = new Dictionary<int, IPacketHandler>();
@@ -75,7 +75,7 @@ public interface IPacketHandler {
 /// <typeparam name="D">The packet data class (must implement IPacketData and have a no-argument constructor)</typeparam>
 /// <param name="serverHandler">Called when a packet is received on the server (from the client)</param>
 /// <param name="clientHandler">Called when a packet is received on the client (from the server)</param>
-public sealed class PacketHandler<D>(
+public class PacketHandler<D>(
 	Action<D, int> serverHandler = null,
 	Action<D> clientHandler = null
 ) : IPacketHandler where D : IPacketData, new() {
