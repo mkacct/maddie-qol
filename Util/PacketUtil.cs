@@ -115,9 +115,7 @@ public sealed class PacketHandler<D>(
 	/// </summary>
 	/// <param name="reader">The binary reader, after reading the packet handler index</param>
 	/// <param name="srcPlayerId">ID of the client sending the request (only used on server)</param>
-	/// <exception cref="NotSupportedException">
-	/// If no handler is implemented for the receiving side
-	/// </exception>
+	/// <exception cref="NotSupportedException">If no handler is implemented for the receiving side</exception>
 	public void HandlePacket(BinaryReader reader, int srcPlayerId) {
 		D data = new();
 		data.ReadFrom(reader);
