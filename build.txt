@@ -1,6 +1,6 @@
 displayName = Maddie's Completeness Mod
 author = MK
-version = 0.4.3
+version = 0.5
 homepage = https://github.com/mkacct/maddie-qol
 includeSource = true
 buildIgnore = .gitignore, .vscode/*, README.md, *.aseprite

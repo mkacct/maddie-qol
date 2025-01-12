@@ -4,6 +4,11 @@ using Terraria;
 namespace MaddieQoL.Common;
 
 public static class Conditions {
+	public static Condition InTown => new(
+		ThisMod.GetLocalization($"{nameof(Conditions)}.{nameof(InTown)}"),
+		() => {return Main.LocalPlayer.townNPCs >= 3f;}
+	);
+
 	public static Condition BiomeTorchSwapEnabled => new(
 		ThisMod.GetLocalization($"{nameof(Conditions)}.{nameof(BiomeTorchSwapEnabled)}"),
 		() => {return Main.LocalPlayer.UsingBiomeTorches;}

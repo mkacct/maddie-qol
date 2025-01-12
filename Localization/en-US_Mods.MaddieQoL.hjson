@@ -354,6 +354,7 @@ RecipeGroups: {
 }
 
 Conditions: {
+	InTown: In a Town
 	BiomeTorchSwapEnabled: When biome torch swap is enabled
 	PlayerHasPickaxePower: When the player has at least {0}% pickaxe power
 }
