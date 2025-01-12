@@ -9,7 +9,8 @@ namespace MaddieQoL.Common;
 public sealed class PacketHandling : ModSystem {
 	// All packet handlers must be registered here!
 	private static readonly IList<IPacketHandler> PacketHandlers = [
-		Content.Misc.Items.ActivationRod.ActivationPacketHandler
+		Content.Misc.Items.ActivationRod.ActivationPacketHandler,
+		Content.Misc.Items.CurfewBell.CurfewPacketHandler
 	];
 
 	public static PacketDispatcher PacketDispatcher {get; private set;}

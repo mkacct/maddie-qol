@@ -322,6 +322,23 @@ Items: {
 			'''
 	}
 
+	CurfewBell: {
+		DisplayName: Curfew Bell
+		Tooltip:
+			'''
+			[c/646464:Sends all villagers home]
+			[c/646464:Can be used once per day]
+			{$Common.ItemDisabled}
+			'''
+		TooltipWhenEnabled:
+			'''
+			Sends all villagers home
+			Can be used once per day
+			'''
+		ActivationText: The villagers go to their rooms...
+		TimeoutErrorText: It is too soon to order curfew again
+	}
+
 	LightGreenSolution: {
 		DisplayName: Light Green Solution
 		Tooltip:
@@ -403,6 +420,16 @@ Configs: {
 				Allows the crafting and use of mechanisms
 				capable of endlessly creating/removing liquids
 				(If disabled, existing sources & drains will not function)
+				'''
+		}
+
+		enableCurfewBell: {
+			Label: Enable Curfew Bell
+			Tooltip:
+				'''
+				Allows the purchase and use of the Curfew Bell,
+				which sends all town NPCs to their homes upon use
+				(If disabled, any existing Curfew Bell cannot be used)
 				'''
 		}
 

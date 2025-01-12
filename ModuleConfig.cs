@@ -29,6 +29,11 @@ public sealed class ModuleConfig : ModConfig {
 	// Other Items
 	[Header("OtherItems")]
 
+	// Enable Curfew Bell
+	[DefaultValue(true)]
+	[ReloadRequired]
+	public bool enableCurfewBell;
+
 	// Enable Purification-Only Solution
 	[DefaultValue(true)]
 	[ReloadRequired]
