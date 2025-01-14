@@ -463,8 +463,12 @@ Configs: {
 		}
 
 		enableDungeonItemRenewability: {
-			Label: Enable Dungeon Item Recipes
-			Tooltip: Adds crafting recipes for additional Dungeon placeable items
+			Label: Enable Dungeon Item Renewability
+			Tooltip:
+				'''
+				Dungeon placeable items will be renewable through crafting
+				(Also the Water Bolt will be renewable through fishing)
+				'''
 		}
 
 		enableTrapRecipes: {

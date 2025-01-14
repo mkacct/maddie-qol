@@ -52,7 +52,7 @@ public sealed class ModuleConfig : ModConfig {
 	[ReloadRequired]
 	public bool enableLihzahrdItemRenewability;
 
-	// Enable Dungeon Item Recipes
+	// Enable Dungeon Item Renewability
 	[DefaultValue(true)]
 	[ReloadRequired]
 	public bool enableDungeonItemRenewability;

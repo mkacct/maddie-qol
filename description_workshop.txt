@@ -38,7 +38,7 @@ The mod consists of the following modules (many of which can be enabled/disabled
 	[*][b]Missing Furniture Recipes[/b]: Adds missing recipes for Dungeon and Obsidian furniture.
 	[*][b]Torch Deswapping[/b]: Biome torches can be crafted back into regular torches after earning the Torch God's Favor.
 	[*][b]Lihzahrd Item Renewability[/b]: Lihzahrd placeable items can be obtained by shopping from NPCs in the Jungle after defeating Golem.
-	[*][b]Dungeon Item Recipes[/b]: Additional Dungeon placeable items are craftable.
+	[*][b]Dungeon Item Renewability[/b]: Additional Dungeon placeable items are craftable.
 	[*][b]Trap Recipes[/b]: All traps are craftable in a graveyard.
 	[*][b]Chest Recipes[/b]: All otherwise non-renewable chests are craftable.
 	[*][b]Vase Recipes[/b]: Dungeon and Obsidian Vases are craftable.

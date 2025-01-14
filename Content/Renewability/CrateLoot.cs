@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using MaddieQoL.Common;
+using Terraria.GameContent.ItemDropRules;
 
 namespace MaddieQoL.Content.Renewability;
 
@@ -31,24 +32,45 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 	}
 
 	private static void ModifyDesertCratesLoot(ItemLoot itemLoot) {
-		if (!ModuleConf.enableDecorativeBannerRenewability) {return;}
-		itemLoot.Add(ItemDropRules.OneStackFromOptions(7, 1, MaxBanners, [
-			ItemID.AnkhBanner,
-			ItemID.SnakeBanner,
-			ItemID.OmegaBanner
-		]));
+		AddPyramidBanners(itemLoot);
 	}
 
 	private static void ModifySkyCratesLoot(ItemLoot itemLoot) {
-		if (!ModuleConf.enableDecorativeBannerRenewability) {return;}
-		itemLoot.Add(ItemDropRules.OneStackFromOptions(4, 1, MaxBanners, [
-			ItemID.WorldBanner,
-			ItemID.SunBanner,
-			ItemID.GravityBanner
-		]));
+		AddFloatingIslandBanners(itemLoot);
 	}
 
 	private static void ModifyDungeonCratesLoot(ItemLoot itemLoot) {
+		DungeonCratesAddWaterBolt(itemLoot);
+		AddFactionFlags(itemLoot);
+	}
+
+	private static void ModifyLavaCratesLoot(ItemLoot itemLoot) {
+		AddHellBanners(itemLoot);
+	}
+
+	private static void DungeonCratesAddWaterBolt(ItemLoot itemLoot) {
+		if (!ModuleConf.enableDungeonItemRenewability) {return;}
+		IItemDropRule bookRule = DungeonCratesFindBookRule(itemLoot);
+		if (bookRule == null) {return;}
+		bookRule.OnSuccess(ItemDropRule.NotScalingWithLuck(ItemID.WaterBolt, 6));
+	}
+
+	private static IItemDropRule DungeonCratesFindBookRule(ItemLoot itemLoot) {
+		foreach (IItemDropRule rule in itemLoot.Get(false)) {
+			if (rule is AlwaysAtleastOneSuccessDropRule aalosRule) {
+				foreach (IItemDropRule subRule in aalosRule.rules) {
+					if (subRule is CommonDropNotScalingWithLuck commonNswlRule) {
+						if (commonNswlRule.itemId == ItemID.Book) {
+							return commonNswlRule;
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	private static void AddFactionFlags(ItemLoot itemLoot) {
 		if (!ModuleConf.enableDecorativeBannerRenewability) {return;}
 		itemLoot.Add(ItemDropRules.OneStackFromOptions(2, 1, MaxBanners, [
 			ItemID.MarchingBonesBanner,
@@ -60,7 +82,16 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 		]));
 	}
 
-	private static void ModifyLavaCratesLoot(ItemLoot itemLoot) {
+	private static void AddFloatingIslandBanners(ItemLoot itemLoot) {
+		if (!ModuleConf.enableDecorativeBannerRenewability) {return;}
+		itemLoot.Add(ItemDropRules.OneStackFromOptions(4, 1, MaxBanners, [
+			ItemID.WorldBanner,
+			ItemID.SunBanner,
+			ItemID.GravityBanner
+		]));
+	}
+
+	private static void AddHellBanners(ItemLoot itemLoot) {
 		if (!ModuleConf.enableDecorativeBannerRenewability) {return;}
 		itemLoot.Add(ItemDropRules.OneStackFromOptions(2, 1, MaxBanners, [
 			ItemID.HellboundBanner,
@@ -69,6 +100,15 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 			ItemID.LostHopesofManBanner,
 			ItemID.ObsidianWatcherBanner,
 			ItemID.LavaEruptsBanner
+		]));
+	}
+
+	private static void AddPyramidBanners(ItemLoot itemLoot) {
+		if (!ModuleConf.enableDecorativeBannerRenewability) {return;}
+		itemLoot.Add(ItemDropRules.OneStackFromOptions(7, 1, MaxBanners, [
+			ItemID.AnkhBanner,
+			ItemID.SnakeBanner,
+			ItemID.OmegaBanner
 		]));
 	}
 }
