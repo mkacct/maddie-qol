@@ -18,7 +18,7 @@ public static class RecipeExtensions {
 	}
 
 	public static Recipe RegisterUsing(this Recipe recipe, RecipeOrderedRegisterer registerer) {
-		registerer.RegisterRecipe(recipe);
+		registerer.InternalRegisterRecipe(recipe);
 		return recipe;
 	}
 
@@ -59,7 +59,7 @@ public class RecipeOrderedRegisterer {
 	/// <remarks>Prefer extension method Recipe.RegisterUsing() over calling this directly.</remarks>
 	/// <param name="recipe">Should not yet be sorted</param>
 	/// <exception cref="InvalidOperationException">If there is no basis for sorting yet</exception>
-	internal void RegisterRecipe(Recipe recipe) {
+	internal void InternalRegisterRecipe(Recipe recipe) {
 		if (this.lastRecipe != null) {
 			recipe.SortAfter(lastRecipe);
 			recipe.Register();
