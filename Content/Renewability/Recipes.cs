@@ -12,7 +12,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 	public override void SetStaticDefaults() {
 		AddGoldChestShimmer();
 		AddReverseShimmers();
-		AddExtraShimmers();
+		AddDowngradeShimmers();
 	}
 
 	public override void AddRecipes() {
@@ -611,11 +611,8 @@ public sealed class RenewabilityRecipes : ModSystem {
 		ItemID.Sets.ShimmerTransformToItem[ItemID.CosmicEmberBrick] = ItemID.LunarBrick;
 	}
 
-	private static void AddExtraShimmers() {
+	private static void AddDowngradeShimmers() {
 		ItemID.Sets.ShimmerTransformToItem[ItemID.HelFire] = ItemID.Cascade;
 		ItemID.Sets.ShimmerTransformToItem[ItemID.ZapinatorOrange] = ItemID.ZapinatorGray;
-
-		ItemID.Sets.ShimmerTransformToItem[ItemID.SunflowerMinecart] = ItemID.LadybugMinecart;
-		ItemID.Sets.ShimmerTransformToItem[ItemID.LadybugMinecart] = ItemID.SunflowerMinecart;
 	}
 }
