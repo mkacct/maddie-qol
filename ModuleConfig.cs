@@ -101,6 +101,11 @@ public sealed class ModuleConfig : ModConfig {
 	[DefaultValue(true)]
 	public bool enableLihzahrdDoorLock;
 
+	// Enable Flying Carpet Renewability
+	[DefaultValue(true)]
+	[ReloadRequired]
+	public bool enableFlyingCarpetRenewability;
+
 	// Enable Encumbering Stone Recipe
 	[DefaultValue(true)]
 	[ReloadRequired]

@@ -48,6 +48,7 @@ The mod consists of the following modules (many of which can be enabled/disabled
 	[*][b]Decorative Banner Renewability[/b]: All otherwise non-renewable decorative banners can be found in fishing crates. (Disabled by default) (Module suggested by TOMKA)
 	[*][b]Add Pots to Rubblemaker[/b]: Integrates unused vanilla code allowing pots to be placed by the Rubblemaker. (Disabled by default)
 	[*][b]Lihzahrd Door Lock[/b]: The Chest Lock also works on Lihzahrd Doors (after defeating Plantera).
+	[*][b]Flying Carpet Renewability[/b]: The Flying Carpet can be found in fishing crates.
 	[*][b]Encumbering Stone Recipe[/b]: The Encumbering Stone is craftable.
 	[*][b]Pwnhammer Recipe[/b]: The Pwnhammer is craftable from Hallowed Bars.
 	[*][b]Hellforge Recipe[/b]: The Hellforge is craftable, albeit requiring Hellstone Bars so as not to break progression.

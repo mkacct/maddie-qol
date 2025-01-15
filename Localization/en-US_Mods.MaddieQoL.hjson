@@ -537,6 +537,11 @@ Configs: {
 				'''
 		}
 
+		enableFlyingCarpetRenewability: {
+			Label: Enable Flying Carpet Renewability
+			Tooltip: The Flying Carpet will be renewable through fishing
+		}
+
 		enableEncumberingStoneRecipe: {
 			Label: Enable Encumbering Stone Recipe
 			Tooltip: Adds a crafting recipe for the Encumbering Stone

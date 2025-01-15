@@ -33,6 +33,7 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 	}
 
 	private static void ModifyDesertCratesLoot(ItemLoot itemLoot) {
+		DesertCratesAddFlyingCarpet(itemLoot);
 		AddPyramidBanners(itemLoot);
 	}
 
@@ -65,6 +66,34 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 				foreach (IItemDropRule subRule in aalosRule.rules) {
 					if (subRule is CommonDropNotScalingWithLuck commonNswlRule) {
 						if (commonNswlRule.itemId == ItemID.Book) {
+							return commonNswlRule;
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	private static void DesertCratesAddFlyingCarpet(ItemLoot itemLoot) {
+		if (!ModuleConf.enableFlyingCarpetRenewability) {return;}
+		CommonDropNotScalingWithLuck sandstormBottleRule = DesertCratesFindSandstormBottleRule(itemLoot);
+		if (sandstormBottleRule == null) {return;}
+		if (sandstormBottleRule.HasMatchingChainedRule((rule) => {
+			return (rule is CommonDropNotScalingWithLuck commonNswlRule) && (commonNswlRule.itemId == ItemID.FlyingCarpet);
+		})) {return;}
+		int num = sandstormBottleRule.chanceNumerator;
+		int den = sandstormBottleRule.chanceDenominator - num;
+		sandstormBottleRule.OnFailedRoll(ItemDropRule.NotScalingWithLuckWithNumerator(ItemID.FlyingCarpet, den, num));
+		// due to probability shenanigans, the flying carpet should now have the same chance as the sandstorm bottle
+	}
+
+	private static CommonDropNotScalingWithLuck DesertCratesFindSandstormBottleRule(ItemLoot itemLoot) {
+		foreach (IItemDropRule rule in itemLoot.Get(false)) {
+			if (rule is AlwaysAtleastOneSuccessDropRule aalosRule) {
+				foreach (IItemDropRule subRule in aalosRule.rules) {
+					if (subRule is CommonDropNotScalingWithLuck commonNswlRule) {
+						if (commonNswlRule.itemId == ItemID.SandstorminaBottle) {
 							return commonNswlRule;
 						}
 					}
