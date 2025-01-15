@@ -55,7 +55,7 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 		bookRule.OnSuccess(ItemDropRule.NotScalingWithLuck(ItemID.WaterBolt, 6));
 	}
 
-	private static IItemDropRule DungeonCratesFindBookRule(ItemLoot itemLoot) {
+	private static CommonDropNotScalingWithLuck DungeonCratesFindBookRule(ItemLoot itemLoot) {
 		foreach (IItemDropRule rule in itemLoot.Get(false)) {
 			if (rule is AlwaysAtleastOneSuccessDropRule aalosRule) {
 				foreach (IItemDropRule subRule in aalosRule.rules) {
@@ -105,7 +105,7 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 
 	private static void AddPyramidBanners(ItemLoot itemLoot) {
 		if (!ModuleConf.enableDecorativeBannerRenewability) {return;}
-		itemLoot.Add(ItemDropRules.OneStackFromOptions(7, 1, MaxBanners, [
+		itemLoot.Add(ItemDropRules.OneStackFromOptionsWithNumerator(35, 4, 1, MaxBanners, [
 			ItemID.AnkhBanner,
 			ItemID.SnakeBanner,
 			ItemID.OmegaBanner
