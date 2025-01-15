@@ -609,6 +609,8 @@ public sealed class RenewabilityRecipes : ModSystem {
 		ItemID.Sets.ShimmerTransformToItem[ItemID.StarRoyaleBrick] = ItemID.LunarBrick;
 		ItemID.Sets.ShimmerTransformToItem[ItemID.CryocoreBrick] = ItemID.LunarBrick;
 		ItemID.Sets.ShimmerTransformToItem[ItemID.CosmicEmberBrick] = ItemID.LunarBrick;
+
+		ItemID.Sets.ShimmerTransformToItem[ItemID.Trident] = ItemID.Spear;
 	}
 
 	private static void AddDowngradeShimmers() {
