@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using MaddieQoL.Common;
 using Terraria.GameContent.ItemDropRules;
+using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.Renewability;
 
@@ -52,6 +53,9 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 		if (!ModuleConf.enableDungeonItemRenewability) {return;}
 		IItemDropRule bookRule = DungeonCratesFindBookRule(itemLoot);
 		if (bookRule == null) {return;}
+		if (bookRule.HasMatchingChainedRule((rule) => {
+			return (rule is CommonDropNotScalingWithLuck commonNswlRule) && (commonNswlRule.itemId == ItemID.WaterBolt);
+		})) {return;}
 		bookRule.OnSuccess(ItemDropRule.NotScalingWithLuck(ItemID.WaterBolt, 6));
 	}
 
