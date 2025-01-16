@@ -106,7 +106,7 @@ public sealed class ModuleConfig : ModConfig {
 	[DefaultValue(true)]
 	public bool enableLihzahrdDoorLock;
 
-	// Enable Flying Carpet Renewability
+	// Enable Flying Carpet Obtainability Enhancement
 	[DefaultValue(true)]
 	[ReloadRequired]
 	public bool enableFlyingCarpetRenewability;

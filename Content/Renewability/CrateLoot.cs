@@ -57,7 +57,8 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 		if (bookRule.HasMatchingChainedRule((rule) => {
 			return (rule is CommonDropNotScalingWithLuck commonNswlRule) && (commonNswlRule.itemId == ItemID.WaterBolt);
 		})) {return;}
-		bookRule.OnSuccess(ItemDropRule.NotScalingWithLuck(ItemID.WaterBolt, 6));
+		bookRule.OnSuccess(ItemDropRule.NotScalingWithLuckWithNumerator(ItemID.WaterBolt, 10000, 1829));
+		// overall chance of water bolt is 9.15%
 	}
 
 	private static CommonDropNotScalingWithLuck DungeonCratesFindBookRule(ItemLoot itemLoot) {

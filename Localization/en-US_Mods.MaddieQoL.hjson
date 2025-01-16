@@ -373,7 +373,6 @@ RecipeGroups: {
 Conditions: {
 	InTown: In a Town
 	BiomeTorchSwapEnabled: When biome torch swap is enabled
-	AtLeastXTownNPCsPresent: When at least {0} Town NPCs are present
 	PlayerHasPickaxePower: When the player has at least {0}% pickaxe power
 }
 
@@ -548,8 +547,8 @@ Configs: {
 		}
 
 		enableFlyingCarpetRenewability: {
-			Label: Enable Flying Carpet Renewability
-			Tooltip: The Flying Carpet will be renewable through fishing
+			Label: Enable Flying Carpet Obtainability Enhancement
+			Tooltip: The Flying Carpet will be obtainable through fishing
 		}
 
 		enableEncumberingStoneRecipe: {

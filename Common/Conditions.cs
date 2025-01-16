@@ -14,19 +14,6 @@ public static class Conditions {
 		() => {return Main.LocalPlayer.UsingBiomeTorches;}
 	);
 
-	public static Condition AtLeastXTownNPCsPresent(int x) {
-		return new Condition(
-			ThisMod.GetLocalization($"{nameof(Conditions)}.{nameof(AtLeastXTownNPCsPresent)}").WithFormatArgs(x),
-			() => {
-				int count = 0;
-				foreach (NPC npc in Main.npc) {
-					if ((npc != null) && npc.active && npc.townNPC) {count++;}
-				}
-				return count >= x;
-			}
-		);
-	}
-
 	public static Condition PlayerHasPickaxePower(int pick) {
 		return new Condition(
 			ThisMod.GetLocalization($"{nameof(Conditions)}.{nameof(PlayerHasPickaxePower)}").WithFormatArgs(pick),

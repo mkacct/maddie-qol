@@ -46,10 +46,10 @@ public sealed class RenewabilityShops : GlobalNPC {
 		if (!ModuleConf.enableStatueRenewability) {return;}
 		shop.Add(new Item(ItemID.KingStatue) {
 			shopCustomPrice = Item.buyPrice(0, 5, 0, 0)
-		}, Conditions.AtLeastXTownNPCsPresent(5), Condition.InGraveyard);
+		}, Condition.InGraveyard);
 		shop.Add(new Item(ItemID.QueenStatue) {
 			shopCustomPrice = Item.buyPrice(0, 5, 0, 0)
-		}, Conditions.AtLeastXTownNPCsPresent(5), Condition.InGraveyard);
+		}, Condition.InGraveyard);
 	}
 
 	private static void ModifyWitchDoctorShop(NPCShop shop) {
