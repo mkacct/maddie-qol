@@ -35,6 +35,7 @@ Vanilla Item Obtainability:
 - Dirt from Mud: Mud blocks can be crafted back into dirt blocks at a furnace.
 - Default Familiar Set: All newly-created characters spawn with the Familiar set in their inventory. (Disabled by default)
 - Decorative Banner Renewability: All otherwise non-renewable decorative banners can be found in fishing crates. (Disabled by default) (Module suggested by TOMKA)
+- Statue Renewability: All otherwise non-renewable statues are craftable or purchasable in a graveyard.
 - Add Pots to Rubblemaker: Integrates unused vanilla code allowing pots to be placed by the Rubblemaker. (Disabled by default)
 - Lihzahrd Door Lock: The Chest Lock also works on Lihzahrd Doors (after defeating Plantera).
 - Flying Carpet Renewability: The Flying Carpet can be found in fishing crates.

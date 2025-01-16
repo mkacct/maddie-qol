@@ -92,6 +92,11 @@ public sealed class ModuleConfig : ModConfig {
 	[ReloadRequired]
 	public bool enableDecorativeBannerRenewability;
 
+	// Enable Statue Renewability
+	[DefaultValue(true)]
+	[ReloadRequired]
+	public bool enableStatueRenewability;
+
 	// Enable Add Pots to Rubblemaker
 	[DefaultValue(false)]
 	[ReloadRequired]

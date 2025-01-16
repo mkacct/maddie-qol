@@ -373,6 +373,7 @@ RecipeGroups: {
 Conditions: {
 	InTown: In a Town
 	BiomeTorchSwapEnabled: When biome torch swap is enabled
+	AtLeastXTownNPCsPresent: When at least {0} Town NPCs are present
 	PlayerHasPickaxePower: When the player has at least {0}% pickaxe power
 }
 
@@ -516,6 +517,15 @@ Configs: {
 		enableDecorativeBannerRenewability: {
 			Label: Enable Decorative Banner Renewability
 			Tooltip: All otherwise non-renewable decorative banners will be renewable through fishing
+		}
+
+		enableStatueRenewability: {
+			Label: Enable Statue Renewability
+			Tooltip:
+				'''
+				All otherwise non-renewable statues will be renewable
+				through crafting or shopping
+				'''
 		}
 
 		enableAddPotsToWand: {

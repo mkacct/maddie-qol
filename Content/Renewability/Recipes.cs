@@ -1,6 +1,7 @@
 using static MaddieQoL.Common.Shorthands;
-using Terraria;
+using System;
 using System.Collections.Generic;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using MaddieQoL.Util;
@@ -23,6 +24,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		AddHellforgeRecipe();
 		AddDungeonFurnitureRecipes();
 		AddLihzahrdFurnitureRecipes();
+		AddStatueRecipes();
 	}
 
 	private static void AddChestRecipes() {
@@ -585,6 +587,119 @@ public sealed class RenewabilityRecipes : ModSystem {
 			recipe.AddTile(TileID.LihzahrdFurnace);
 			recipe.RegisterAfterLastRecipeOf(ItemID.ToiletLihzhard);
 		}
+	}
+
+	private static void AddStatueRecipes() {
+		if (!ModuleConf.enableStatueRenewability) {return;}
+		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.ArmorStatue);
+		AddDecorativeStatueRecipes(registerer);
+		AddStandardStatueRecipe(registerer, ItemID.MushroomStatue, (recipe) => {
+			recipe.AddIngredient(ItemID.GlowingMushroom, 30);
+		});
+		AddLihzahrdDecorativeStatueRecipes(registerer);
+		registerer.SortBeforeFirstRecipeOf(ItemID.FishStatue);
+		AddEnemyStatueRecipes(registerer);
+		registerer.SortAfterLastRecipeOf(ItemID.CockatielStatue);
+		AddDropStatueRecipes(registerer);
+	}
+
+	private static void AddStandardStatueRecipe(RecipeOrderedRegisterer registerer, short statue, Action<Recipe> addSpecialIngredients) {
+		Recipe recipe = Recipe.Create(statue);
+		recipe.AddIngredient(ItemID.StoneBlock, 50);
+		addSpecialIngredients(recipe);
+		recipe.AddTile(TileID.HeavyWorkBench).AddCondition(Condition.InGraveyard);
+		recipe.AddCustomShimmerResult(ItemID.StoneBlock, 50).RegisterUsing(registerer);
+	}
+
+	private static void AddDecorativeStatueRecipes(RecipeOrderedRegisterer registerer) {
+		foreach (short statue in new short[] {
+			ItemID.AnvilStatue,
+			ItemID.AxeStatue,
+			ItemID.BoomerangStatue,
+			ItemID.BootStatue,
+			ItemID.BowStatue,
+			ItemID.CrossStatue,
+			ItemID.GargoyleStatue,
+			ItemID.GloomStatue,
+			ItemID.HammerStatue,
+			ItemID.PickaxeStatue,
+			ItemID.PillarStatue,
+			ItemID.PotStatue,
+			ItemID.PotionStatue,
+			ItemID.ReaperStatue,
+			ItemID.ShieldStatue,
+			ItemID.SpearStatue,
+			ItemID.SunflowerStatue,
+			ItemID.SwordStatue,
+			ItemID.TreeStatue,
+			ItemID.WomanStatue
+		}) {
+			Recipe recipe = Recipe.Create(statue);
+			recipe.AddIngredient(ItemID.StoneBlock, 50);
+			recipe.AddTile(TileID.HeavyWorkBench).AddCondition(Condition.InGraveyard);
+			recipe.RegisterUsing(registerer);
+		}
+	}
+
+	private static void AddLihzahrdDecorativeStatueRecipes(RecipeOrderedRegisterer registerer) {
+		foreach (short statue in new short[] {
+			ItemID.LihzahrdStatue,
+			ItemID.LihzahrdGuardianStatue,
+			ItemID.LihzahrdWatcherStatue
+		}) {
+			Recipe recipe = Recipe.Create(statue);
+			recipe.AddIngredient(ItemID.LihzahrdBrick, 50);
+			recipe.AddTile(TileID.LihzahrdFurnace).AddCondition(Condition.InGraveyard);
+			recipe.RegisterUsing(registerer);
+		}
+	}
+
+	private static void AddEnemyStatueRecipes(RecipeOrderedRegisterer registerer) {
+		foreach (KeyValuePair<short, short> pair in new KeyValuePair<short, short>[] {
+			new(ItemID.ZombieArmStatue, ItemID.ZombieBanner),
+			new(ItemID.BatStatue, ItemID.BatBanner),
+			new(ItemID.BloodZombieStatue, ItemID.BloodZombieBanner),
+			new(ItemID.BoneSkeletonStatue, ItemID.SkeletonBanner),
+			new(ItemID.ChestStatue, ItemID.MimicBanner),
+			new(ItemID.CorruptStatue, ItemID.EaterofSoulsBanner),
+			new(ItemID.CrabStatue, ItemID.CrabBanner),
+			new(ItemID.DripplerStatue, ItemID.DripplerBanner),
+			new(ItemID.EyeballStatue, ItemID.DemonEyeBanner),
+			new(ItemID.GoblinStatue, ItemID.GoblinScoutBanner),
+			new(ItemID.GraniteGolemStatue, ItemID.GraniteGolemBanner),
+			new(ItemID.HarpyStatue, ItemID.HarpyBanner),
+			new(ItemID.HopliteStatue, ItemID.GreekSkeletonBanner),
+			new(ItemID.HornetStatue, ItemID.HornetBanner),
+			new(ItemID.ImpStatue, ItemID.FireImpBanner),
+			new(ItemID.JellyfishStatue, ItemID.JellyfishBanner),
+			new(ItemID.MedusaStatue, ItemID.MedusaBanner),
+			new(ItemID.PigronStatue, ItemID.PigronBanner),
+			new(ItemID.PiranhaStatue, ItemID.PiranhaBanner),
+			new(ItemID.SharkStatue, ItemID.SharkBanner),
+			new(ItemID.SkeletonStatue, ItemID.SkeletonBanner),
+			new(ItemID.SlimeStatue, ItemID.SlimeBanner),
+			new(ItemID.UndeadVikingStatue, ItemID.UndeadVikingBanner),
+			new(ItemID.UnicornStatue, ItemID.UnicornBanner),
+			new(ItemID.WallCreeperStatue, ItemID.SpiderBanner),
+			new(ItemID.WraithStatue, ItemID.WraithBanner),
+		}) {
+			short statue = pair.Key, banner = pair.Value;
+			AddStandardStatueRecipe(registerer, statue, (recipe) => {
+				recipe.AddIngredient(banner);
+			});
+		}
+	}
+
+	private static void AddDropStatueRecipes(RecipeOrderedRegisterer registerer) {
+		AddStandardStatueRecipe(registerer, ItemID.HeartStatue, (recipe) => {
+			recipe.AddIngredient(ItemID.LifeCrystal, 5);
+		});
+		AddStandardStatueRecipe(registerer, ItemID.StarStatue, (recipe) => {
+			recipe.AddIngredient(ItemID.ManaCrystal, 5);
+		});
+		AddStandardStatueRecipe(registerer, ItemID.BombStatue, (recipe) => {
+			recipe.AddIngredient(ItemID.Bomb, 5);
+		});
 	}
 
 	private static void AddReverseShimmers() {
