@@ -4,7 +4,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 using MaddieQoL.Util;
-using MaddieQoL.Common;
 
 namespace MaddieQoL.Content.Misc.Items;
 
