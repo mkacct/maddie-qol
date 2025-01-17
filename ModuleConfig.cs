@@ -111,6 +111,11 @@ public sealed class ModuleConfig : ModConfig {
 	[ReloadRequired]
 	public bool enableFlyingCarpetRenewability;
 
+	// Enable Early-Game Treasure Renewability
+	[DefaultValue(true)]
+	[ReloadRequired]
+	public bool enableGoldChestItemRenewability;
+
 	// Enable Encumbering Stone Recipe
 	[DefaultValue(true)]
 	[ReloadRequired]

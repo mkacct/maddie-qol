@@ -50,6 +50,7 @@ The mod consists of the following modules (many of which can be enabled/disabled
 	[*][b]Add Pots to Rubblemaker[/b]: Integrates unused vanilla code allowing pots to be placed by the Rubblemaker. (Disabled by default)
 	[*][b]Lihzahrd Door Lock[/b]: The Chest Lock also works on Lihzahrd Doors (after defeating Plantera).
 	[*][b]Flying Carpet Obtainability Enhancement[/b]: The Flying Carpet can be found in fishing crates.
+	[*][b]Early-Game Treasure Renewability[/b]: The Shoe Spikes, Flare Gun, Band of Regeneration, and Cloud in a Bottle are obtainable by alternative means.
 	[*][b]Miscellaneous Recipes[/b]: The Encumbering Stone, Pwnhammer, and Hellforge are craftable.
 	[*][b]Additional Shimmer Transmutations[/b]: A few minor Shimmer transmutations are added; check the TCF post for details.
 	[*][b]No False Advertising[/b]: The Merchant will sell all items that he claims to sell, including dirt blocks. (Disabled by default since this module was created as a joke.)

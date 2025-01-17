@@ -27,6 +27,9 @@ public sealed class RenewabilityShops : GlobalNPC {
 			case NPCID.Steampunker:
 				ModifySteampunkerShop(shop);
 				break;
+			case NPCID.SkeletonMerchant:
+				ModifySkeletonMerchantShop(shop);
+				break;
 		}
 	}
 
@@ -68,5 +71,10 @@ public sealed class RenewabilityShops : GlobalNPC {
 	private static void ModifySteampunkerShop(NPCShop shop) {
 		if (!ModuleConf.enableLihzahrdItemRenewability) {return;}
 		shop.InsertBefore(ItemID.SteampunkBoiler, ItemID.LihzahrdFurnace, Condition.InJungle, Condition.DownedGolem);
+	}
+
+	private static void ModifySkeletonMerchantShop(NPCShop shop) {
+		if (!ModuleConf.enableGoldChestItemRenewability) {return;}
+		shop.InsertBefore(ItemID.StrangeBrew, ItemID.FlareGun, Condition.MoonPhaseFull);
 	}
 }

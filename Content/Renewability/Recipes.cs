@@ -12,6 +12,7 @@ namespace MaddieQoL.Content.Renewability;
 public sealed class RenewabilityRecipes : ModSystem {
 	public override void SetStaticDefaults() {
 		AddGoldChestShimmer();
+		AddEarlyGameTreasureShimmers();
 		AddReverseShimmers();
 		AddDowngradeShimmers();
 	}
@@ -700,6 +701,17 @@ public sealed class RenewabilityRecipes : ModSystem {
 		AddStandardStatueRecipe(registerer, ItemID.BombStatue, (recipe) => {
 			recipe.AddIngredient(ItemID.Bomb, 5);
 		});
+	}
+
+	private static void AddEarlyGameTreasureShimmers() {
+		if (!ModuleConf.enableGoldChestItemRenewability) {return;}
+
+		ItemID.Sets.ShimmerTransformToItem[ItemID.BandofStarpower] = ItemID.BandofRegeneration;
+
+		ItemID.Sets.ShimmerTransformToItem[ItemID.ClimbingClaws] = ItemID.ShoeSpikes;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.ShoeSpikes] = ItemID.ClimbingClaws;
+
+		ItemID.Sets.ShimmerTransformToItem[ItemID.TsunamiInABottle] = ItemID.CloudinaBottle;
 	}
 
 	private static void AddReverseShimmers() {

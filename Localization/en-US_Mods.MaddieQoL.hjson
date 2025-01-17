@@ -551,6 +551,15 @@ Configs: {
 			Tooltip: The Flying Carpet will be obtainable through fishing
 		}
 
+		enableGoldChestItemRenewability: {
+			Label: Enable Early-Game Treasure Renewability
+			Tooltip:
+				'''
+				The Shoe Spikes, Flare Gun, Band of Regeneration, and Cloud in a Bottle
+				will be obtainable by alternative means
+				'''
+		}
+
 		enableEncumberingStoneRecipe: {
 			Label: Enable Encumbering Stone Recipe
 			Tooltip: Adds a crafting recipe for the Encumbering Stone
