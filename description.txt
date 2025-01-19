@@ -20,7 +20,7 @@ Wiring:
 
 Other Items:
 - Curfew Bell: Teleports all town NPCs to their houses, usable once per day. Sold by the Merchant in a town.
-- Purification-Only Solution: The Steampunker sells Light Green Solution, which is the same as Green Solution except it leaves Glowing Mushroom biomes alone.
+- Purification-Only Solution: Identical to Green Solution except that it leaves Glowing Mushroom biomes alone. Sold by the Steampunker.
 - Music Box (Silence): Suppresses the game's music. Sold by the Wizard in a graveyard.
 
 Vanilla Item Obtainability:
