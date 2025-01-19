@@ -33,6 +33,11 @@ The mod consists of the following modules (many of which can be enabled/disabled
 	[*][b]Music Box (Silence)[/b]: Suppresses the game's music. Sold by the Wizard in a graveyard.
 [/list]
 
+[h3]Miscellaneous Enhancements[/h3]
+[list]
+	[*][b]Buff Furniture Auto-Activation[/b]: When in interaction range of furniture granting infinite-duration buffs (ex. Crystal Ball), they will be automatically applied without you needing to right-click the furniture.
+[/list]
+
 [h3]Vanilla Item Obtainability[/h3]
 [list]
 	[*][b]Missing Furniture Recipes[/b]: Adds missing recipes for Dungeon and Obsidian furniture.

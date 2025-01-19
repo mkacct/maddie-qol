@@ -23,6 +23,9 @@ Other Items:
 - Purification-Only Solution: Identical to Green Solution except that it leaves Glowing Mushroom biomes alone. Sold by the Steampunker.
 - Music Box (Silence): Suppresses the game's music. Sold by the Wizard in a graveyard.
 
+Miscellaneous Enhancements:
+- Buff Furniture Auto-Activation: When in interaction range of furniture granting infinite-duration buffs (ex. Crystal Ball), they will be automatically applied without you needing to right-click the furniture.
+
 Vanilla Item Obtainability:
 - Missing Furniture Recipes: Adds missing recipes for Dungeon and Obsidian furniture.
 - Torch Deswapping: Biome torches can be crafted back into regular torches after earning the Torch God's Favor.

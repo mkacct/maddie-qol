@@ -390,6 +390,7 @@ Configs: {
 			Teleportation: Teleportation
 			LiquidManipulation: Liquid Manipulation
 			OtherItems: Other Items
+			MiscEnhancements: Miscellaneous Enhancements
 			VanillaItemObtainability: Vanilla Item Obtainability
 		}
 
@@ -441,6 +442,16 @@ Configs: {
 				which removes Corruption, Crimson, and Hallow
 				but does not convert Glowing Mushroom biome to Jungle
 				(If disabled, existing Light Green Solution will not work)
+				'''
+		}
+
+		enableBuffFurnitureAutoActivation: {
+			Label: Enable Buff Furniture Auto-Activation
+			Tooltip:
+				'''
+				Infinite-duration buffs granted by furniture
+				will be applied when in interaction range of the furniture
+				without having to right-click it
 				'''
 		}
 

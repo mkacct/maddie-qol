@@ -39,6 +39,13 @@ public sealed class ModuleConfig : ModConfig {
 	[ReloadRequired]
 	public bool enablePurificationOnlySolution;
 
+	// Miscellanous Enhancements
+	[Header("MiscEnhancements")]
+
+	// Enable Buff Furniture Auto-Activation
+	[DefaultValue(true)]
+	public bool enableBuffFurnitureAutoActivation;
+
 	// Vanilla Item Obtainability
 	[Header("VanillaItemObtainability")]
 
