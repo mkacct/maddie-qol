@@ -55,7 +55,7 @@ public sealed class RenewabilityChestLockOverrider : GlobalItem {
 			if (!TileIsClosedDoor(targetTile)) {return false;}
 			if (TileObjectData.GetTileStyle(targetTile) != LihzahrdDoorClosedUnlockedSubId) {return false;}
 		} // targetTile is now the top tile of the closed unlocked door
-		SoundEngine.PlaySound(SoundID.Unlock, new Vector2(x * 16, y * 16 + 16));
+		SoundEngine.PlaySound(SoundID.Unlock, new Vector2(16*x, 16*y + 16));
 		for (int i = 0; i < DoorHeightTiles; i++) {
 			Tile tile = Framing.GetTileSafely(x, y + i);
 			tile.TileFrameY = (short)(LihzahrdDoorClosedLockedFrameY + (DoorTilesheetCellSize * i));

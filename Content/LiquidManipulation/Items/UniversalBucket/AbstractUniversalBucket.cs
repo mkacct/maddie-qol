@@ -47,7 +47,7 @@ public abstract class AbstractUniversalBucket : AbstractSwappableItem {
 		if (tile.LiquidAmount >= 200) {return false;}
 		if (tile.HasUnactuatedTile && Main.tileSolid[tile.TileType] && !Main.tileSolidTop[tile.TileType] && (tile.TileType != TileID.Grate)) {return false;}
 		if ((tile.LiquidAmount == 0) || (tile.LiquidType == this.LiquidType.Value)) {
-			SoundEngine.PlaySound(SoundID.SplashWeak, new Vector2(player.Center.X, player.Center.Y));
+			SoundEngine.PlaySound(SoundID.SplashWeak, player.Center);
 			tile.LiquidType = this.LiquidType.Value;
 			tile.LiquidAmount = byte.MaxValue;
 			WorldGen.SquareTileFrame(Player.tileTargetX, Player.tileTargetY);

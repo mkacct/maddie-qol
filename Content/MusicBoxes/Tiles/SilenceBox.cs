@@ -51,7 +51,7 @@ public sealed class SilenceBox : ModTile {
 		int drawYOffset = TileObjectData.GetTileData(tile).DrawYOffset;
 		spriteBatch.Draw(
 			GlowTexture.Value,
-			TileUtil.TileDrawPosition(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y + drawYOffset),
+			TileUtil.TileDrawPosition(16*i - (int)Main.screenPosition.X, 16*j - (int)Main.screenPosition.Y + drawYOffset),
 			new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, 16),
 			Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f
 		);
