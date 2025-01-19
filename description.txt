@@ -38,6 +38,7 @@ Vanilla Item Obtainability:
 - Statue Renewability: All otherwise non-renewable statues are craftable or purchasable in a graveyard.
 - Add Pots to Rubblemaker: Integrates unused vanilla code allowing pots to be placed by the Rubblemaker. (Disabled by default)
 - Lihzahrd Door Lock: The Chest Lock also works on Lihzahrd Doors (after defeating Plantera).
+- Minecart Obtainability Enhancement: All otherwise non-renewable minecarts are obtainable by other means. (Module suggested by TOMKA)
 - Flying Carpet Obtainability Enhancement: The Flying Carpet can be found in fishing crates.
 - Early-Game Treasure Renewability: The Shoe Spikes, Flare Gun, Band of Regeneration, and Cloud in a Bottle are obtainable by alternative means.
 - Miscellaneous Recipes: The Encumbering Stone, Pwnhammer, and Hellforge are craftable.

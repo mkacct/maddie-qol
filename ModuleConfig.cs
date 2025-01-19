@@ -106,6 +106,11 @@ public sealed class ModuleConfig : ModConfig {
 	[DefaultValue(true)]
 	public bool enableLihzahrdDoorLock;
 
+	// Enable Minecart Obtainability Enhancement
+	[DefaultValue(true)]
+	[ReloadRequired]
+	public bool enableMinecartRenewability;
+
 	// Enable Flying Carpet Obtainability Enhancement
 	[DefaultValue(true)]
 	[ReloadRequired]
