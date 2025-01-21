@@ -29,7 +29,7 @@ public sealed class RecipeGroups : ModSystem {
 	public override void AddRecipeGroups() {
 		{
 			RecipeGroup group = new(
-				() => {return ShellphoneRecipeGroupName.Value;},
+				() => ShellphoneRecipeGroupName.Value,
 				[
 					ItemID.ShellphoneDummy,
 					ItemID.Shellphone,
@@ -42,7 +42,7 @@ public sealed class RecipeGroups : ModSystem {
 		}
 		{
 			RecipeGroup group = new(
-				() => {return UniversalBucketRecipeGroupName.Value;},
+				() => UniversalBucketRecipeGroupName.Value,
 				[
 					ModContent.ItemType<Content.LiquidManipulation.Items.UniversalBucket.UniversalBucketDummy>(),
 					ModContent.ItemType<Content.LiquidManipulation.Items.UniversalBucket.UniversalBucketWater>(),
@@ -54,7 +54,7 @@ public sealed class RecipeGroups : ModSystem {
 		}
 		{
 			RecipeGroup group = new(
-				() => {return BiomeTorchRecipeGroupName.Value;},
+				() => BiomeTorchRecipeGroupName.Value,
 				[
 					ItemID.ShimmerTorch,
 					ItemID.DemonTorch,
@@ -72,7 +72,7 @@ public sealed class RecipeGroups : ModSystem {
 		}
 		{
 			RecipeGroup group = new(
-				() => {return BiomeCampfireRecipeGroupName.Value;},
+				() => BiomeCampfireRecipeGroupName.Value,
 				[
 					ItemID.ShimmerCampfire,
 					ItemID.DemonCampfire,
@@ -90,7 +90,7 @@ public sealed class RecipeGroups : ModSystem {
 		}
 		{
 			RecipeGroup group = new(
-				() => {return DungeonBrickRecipeGroupName.Value;},
+				() => DungeonBrickRecipeGroupName.Value,
 				[
 					ItemID.BlueBrick,
 					ItemID.GreenBrick,

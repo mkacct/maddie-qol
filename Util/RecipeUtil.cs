@@ -12,7 +12,7 @@ public static class RecipeExtensions {
 	}
 
 	public static Recipe RegisterAfterLastRecipeOf(this Recipe recipe, short itemId) {
-		recipe.SortAfter(Main.recipe.Last((recipe) => {return recipe.createItem.type == itemId;}));
+		recipe.SortAfter(Main.recipe.Last((recipe) => recipe.createItem.type == itemId));
 		recipe.Register();
 		return recipe;
 	}
