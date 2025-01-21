@@ -11,7 +11,7 @@ public sealed class CurfewTimeoutSystem : ModSystem {
 		this.IsTimeoutActive = false;
 	}
 
-    public override void PreUpdateWorld() {
+	public override void PreUpdateWorld() {
 		if (Main.dayTime && (Main.time == 0)) {
 			this.IsTimeoutActive = false;
 		}
