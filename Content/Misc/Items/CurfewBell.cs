@@ -74,11 +74,11 @@ public sealed class CurfewBell : ModItem {
 	private static void TeleportAllNPCsHome(out ISet<DustCoords> srcCoords, out ISet<DustCoords> destCoords) {
 		srcCoords = new HashSet<DustCoords>();
 		destCoords = new HashSet<DustCoords>();
-		MethodInfo AI_007_TownEntities_TeleportToHome = typeof(NPC).GetMethod("AI_007_TownEntities_TeleportToHome", BindingFlags.NonPublic | BindingFlags.Instance, [typeof(int), typeof(int)]);
+		MethodInfo method_AI_007_TownEntities_TeleportToHome = typeof(NPC).GetMethod("AI_007_TownEntities_TeleportToHome", BindingFlags.NonPublic | BindingFlags.Instance, [typeof(int), typeof(int)]);
 		foreach (NPC npc in Main.npc) {
 			if ((npc != null) && npc.active && npc.townNPC && !npc.homeless) {
 				srcCoords.Add(new(npc.position, npc.width, npc.height));
-				AI_007_TownEntities_TeleportToHome.Invoke(npc, [npc.homeTileX, npc.homeTileY]);
+				method_AI_007_TownEntities_TeleportToHome.Invoke(npc, [npc.homeTileX, npc.homeTileY]);
 				destCoords.Add(new(npc.position, npc.width, npc.height));
 			}
 		}
