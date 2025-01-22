@@ -5,13 +5,13 @@ using Terraria;
 namespace MaddieQoL.Util;
 
 public static class RecipeExtensions {
-	public static Recipe RegisterBeforeFirstRecipeOf(this Recipe recipe, short itemId) {
+	public static Recipe RegisterBeforeFirstRecipeOf(this Recipe recipe, int itemId) {
 		recipe.SortBeforeFirstRecipesOf(itemId);
 		recipe.Register();
 		return recipe;
 	}
 
-	public static Recipe RegisterAfterLastRecipeOf(this Recipe recipe, short itemId) {
+	public static Recipe RegisterAfterLastRecipeOf(this Recipe recipe, int itemId) {
 		recipe.SortAfter(Main.recipe.Last((recipe) => recipe.createItem.type == itemId));
 		recipe.Register();
 		return recipe;
@@ -28,29 +28,29 @@ public static class RecipeExtensions {
 }
 
 public class RecipeOrderedRegisterer {
-	private short lastItemId = -1;
+	private int lastItemId = -1;
 	private bool isBefore = false;
 	private Recipe lastRecipe = null;
 
-	public static RecipeOrderedRegisterer StartingBefore(short itemId) {
+	public static RecipeOrderedRegisterer StartingBefore(int itemId) {
 		RecipeOrderedRegisterer registerer = new();
 		registerer.SortBeforeFirstRecipeOf(itemId);
 		return registerer;
 	}
 
-	public static RecipeOrderedRegisterer StartingAfter(short itemId) {
+	public static RecipeOrderedRegisterer StartingAfter(int itemId) {
 		RecipeOrderedRegisterer registerer = new();
 		registerer.SortAfterLastRecipeOf(itemId);
 		return registerer;
 	}
 
-	public void SortBeforeFirstRecipeOf(short itemId) {
+	public void SortBeforeFirstRecipeOf(int itemId) {
 		this.lastItemId = itemId;
 		this.isBefore = true;
 		this.lastRecipe = null;
 	}
 
-	public void SortAfterLastRecipeOf(short itemId) {
+	public void SortAfterLastRecipeOf(int itemId) {
 		this.lastItemId = itemId;
 		this.isBefore = false;
 		this.lastRecipe = null;

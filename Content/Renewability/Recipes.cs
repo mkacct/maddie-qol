@@ -76,12 +76,12 @@ public sealed class RenewabilityRecipes : ModSystem {
 	private static void AddTrapRecipes() {
 		if (!ModuleConf.enableTrapRecipes) {return;}
 		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.PressureTrack);
-		IList<KeyValuePair<short, int>> poisonItemsAndQtys = [
+		IList<KeyValuePair<int, int>> poisonItemsAndQtys = [
 			new(ItemID.VilePowder, 30),
 			new(ItemID.ViciousPowder, 30),
 			new(ItemID.Stinger, 15),
 		];
-		foreach (KeyValuePair<short, int> entry in poisonItemsAndQtys) { // Dart Trap
+		foreach (KeyValuePair<int, int> entry in poisonItemsAndQtys) { // Dart Trap
 			Recipe recipe = Recipe.Create(ItemID.DartTrap);
 			recipe.AddIngredient(ItemID.StoneBlock, 8);
 			recipe.AddIngredient(entry.Key, entry.Value);
@@ -371,7 +371,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		AddGothicFurnitureRecipes();
 	}
 
-	private static void AddDungeonFurnitureSetRecipes(short brick, short sortBeforeItemId, short[] furnitureItems) {
+	private static void AddDungeonFurnitureSetRecipes(int brick, int sortBeforeItemId, int[] furnitureItems) {
 		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingBefore(sortBeforeItemId);
 		int i = 0;
 		{ // Bathtub
@@ -604,7 +604,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		AddDropStatueRecipes(registerer);
 	}
 
-	private static void AddStandardStatueRecipe(RecipeOrderedRegisterer registerer, short statue, Action<Recipe> addSpecialIngredients) {
+	private static void AddStandardStatueRecipe(RecipeOrderedRegisterer registerer, int statue, Action<Recipe> addSpecialIngredients) {
 		Recipe recipe = Recipe.Create(statue);
 		recipe.AddIngredient(ItemID.StoneBlock, 50);
 		addSpecialIngredients(recipe);
@@ -613,7 +613,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 	}
 
 	private static void AddDecorativeStatueRecipes(RecipeOrderedRegisterer registerer) {
-		foreach (short statue in new short[] {
+		foreach (int statue in new int[] {
 			ItemID.AnvilStatue,
 			ItemID.AxeStatue,
 			ItemID.BoomerangStatue,
@@ -643,7 +643,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 	}
 
 	private static void AddLihzahrdDecorativeStatueRecipes(RecipeOrderedRegisterer registerer) {
-		foreach (short statue in new short[] {
+		foreach (int statue in new int[] {
 			ItemID.LihzahrdStatue,
 			ItemID.LihzahrdGuardianStatue,
 			ItemID.LihzahrdWatcherStatue
@@ -656,7 +656,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 	}
 
 	private static void AddEnemyStatueRecipes(RecipeOrderedRegisterer registerer) {
-		foreach (KeyValuePair<short, short> pair in new KeyValuePair<short, short>[] {
+		foreach (KeyValuePair<int, int> pair in new KeyValuePair<int, int>[] {
 			new(ItemID.ZombieArmStatue, ItemID.ZombieBanner),
 			new(ItemID.BatStatue, ItemID.BatBanner),
 			new(ItemID.BloodZombieStatue, ItemID.BloodZombieBanner),
@@ -684,7 +684,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 			new(ItemID.WallCreeperStatue, ItemID.SpiderBanner),
 			new(ItemID.WraithStatue, ItemID.WraithBanner),
 		}) {
-			short statue = pair.Key, banner = pair.Value;
+			int statue = pair.Key, banner = pair.Value;
 			AddStandardStatueRecipe(registerer, statue, (recipe) => {
 				recipe.AddIngredient(banner);
 			});
