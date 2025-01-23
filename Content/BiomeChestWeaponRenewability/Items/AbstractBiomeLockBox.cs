@@ -23,15 +23,15 @@ public abstract class AbstractBiomeLockBox : ModItem {
 		this.Item.value = Item.buyPrice(0, 2, 0, 0);
 	}
 
-    public override void Load() {
-        ItemUtil.RegisterContainerItemLockHook(this.Item.type, (player) => {
+	public override void Load() {
+		ItemUtil.RegisterContainerItemLockHook(this.Item.type, (player) => {
 			if (!ModuleConf.enableBiomeLockBoxes) {return false;}
 			if (!NPC.downedPlantBoss) {return false;}
 			return player.ConsumeItem(this.ChestKeyItemID, false, true);
 		});
-    }
+	}
 
-    public override bool CanRightClick() {
+	public override bool CanRightClick() {
 		return true;
 	}
 
