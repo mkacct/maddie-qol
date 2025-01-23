@@ -29,6 +29,7 @@ Miscellaneous Enhancements:
 Vanilla Item Obtainability:
 - Missing Furniture Recipes: Adds missing recipes for Dungeon and Obsidian furniture.
 - Torch Deswapping: Biome torches can be crafted back into regular torches after earning the Torch God's Favor.
+- Biome Lock Boxes: Biome chest weapons can also be obtained from craftable biome lock boxes after defeating Plantera.
 - Lihzahrd Item Renewability: Lihzahrd placeable items can be obtained by shopping from NPCs in the Jungle after defeating Golem.
 - Dungeon Item Renewability: Additional Dungeon placeable items are craftable.
 - Trap Recipes: All traps are craftable in a graveyard.

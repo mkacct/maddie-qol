@@ -54,6 +54,11 @@ public sealed class ModuleConfig : ModConfig {
 	[ReloadRequired]
 	public bool enableTorchDeswap;
 
+	// Enable Biome Lock Boxes
+	[DefaultValue(true)]
+	[ReloadRequired]
+	public bool enableBiomeLockBoxes;
+
 	// Enable Lihzahrd Item Renewability
 	[DefaultValue(true)]
 	[ReloadRequired]

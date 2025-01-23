@@ -1,6 +1,8 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.UI;
 
 namespace MaddieQoL.Util;
 
@@ -20,5 +22,14 @@ public static class ItemUtil {
 		if (!player.IsTargetTileInItemRange(thisItem)) {return;}
 		player.cursorItemIconEnabled = true;
 		Main.ItemIconCacheUpdate(thisItem.type);
+	}
+
+	public static void RegisterContainerItemLockHook(int containerItemId, Predicate<Player> tryUnlock) {
+		On_ItemSlot.TryOpenContainer += (On_ItemSlot.orig_TryOpenContainer orig, Item item, Player player) => {
+			if (item.type == containerItemId) {
+				if (!tryUnlock(player)) {return;}
+			}
+			orig(item, player);
+		};
 	}
 }

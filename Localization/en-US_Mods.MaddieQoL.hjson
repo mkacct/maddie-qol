@@ -9,6 +9,7 @@ Common: {
 		'''
 	UniversalBucketDesc: <right> to toggle liquid
 	LiquidSourcesAndDrainsDisabled: "[c/ff1919:Endless liquid sources/drains disabled in mod configuration]"
+	BiomeLockBoxesDisabled: "[c/ff1919:Biome lock boxes disabled in mod configuration]"
 }
 
 Items: {
@@ -357,6 +358,96 @@ Items: {
 	}
 
 	SilenceBox.DisplayName: Music Box (Silence)
+
+	LockBoxJungle: {
+		DisplayName: Jungle Lock Box
+		Tooltip:
+			'''
+			[c/646464:{$CommonItemTooltip.RightClickToOpen}]
+			[c/646464:Requires a Jungle Key]
+			{$Common.BiomeLockBoxesDisabled}
+			'''
+		TooltipWhenEnabled:
+			'''
+			{$CommonItemTooltip.RightClickToOpen}
+			Requires a Jungle Key
+			'''
+	}
+
+	LockBoxCorruption: {
+		DisplayName: Corruption Lock Box
+		Tooltip:
+			'''
+			[c/646464:{$CommonItemTooltip.RightClickToOpen}]
+			[c/646464:Requires a Corruption Key]
+			{$Common.BiomeLockBoxesDisabled}
+			'''
+		TooltipWhenEnabled:
+			'''
+			{$CommonItemTooltip.RightClickToOpen}
+			Requires a Corruption Key
+			'''
+	}
+
+	LockBoxCrimson: {
+		DisplayName: Crimson Lock Box
+		Tooltip:
+			'''
+			[c/646464:{$CommonItemTooltip.RightClickToOpen}]
+			[c/646464:Requires a Crimson Key]
+			{$Common.BiomeLockBoxesDisabled}
+			'''
+		TooltipWhenEnabled:
+			'''
+			{$CommonItemTooltip.RightClickToOpen}
+			Requires a Crimson Key
+			'''
+	}
+
+	LockBoxHallowed: {
+		DisplayName: Hallowed Lock Box
+		Tooltip:
+			'''
+			[c/646464:{$CommonItemTooltip.RightClickToOpen}]
+			[c/646464:Requires a Hallowed Key]
+			{$Common.BiomeLockBoxesDisabled}
+			'''
+		TooltipWhenEnabled:
+			'''
+			{$CommonItemTooltip.RightClickToOpen}
+			Requires a Hallowed Key
+			'''
+	}
+
+	LockBoxIce: {
+		DisplayName: Ice Lock Box
+		Tooltip:
+			'''
+			[c/646464:{$CommonItemTooltip.RightClickToOpen}]
+			[c/646464:Requires a Frozen Key]
+			{$Common.BiomeLockBoxesDisabled}
+			'''
+		TooltipWhenEnabled:
+			'''
+			{$CommonItemTooltip.RightClickToOpen}
+			Requires a Frozen Key
+			'''
+	}
+
+	LockBoxDesert: {
+		DisplayName: Desert Lock Box
+		Tooltip:
+			'''
+			[c/646464:{$CommonItemTooltip.RightClickToOpen}]
+			[c/646464:Requires a Desert Key]
+			{$Common.BiomeLockBoxesDisabled}
+			'''
+		TooltipWhenEnabled:
+			'''
+			{$CommonItemTooltip.RightClickToOpen}
+			Requires a Desert Key
+			'''
+	}
 }
 
 Tiles.Button.MapEntry: Button
@@ -461,6 +552,15 @@ Configs: {
 				'''
 				Biome torches (and campfires) can be crafted back into normal ones
 				(The crafting recipes will only be displayed when biome torch swap is enabled)
+				'''
+		}
+
+		enableBiomeLockBoxes: {
+			Label: Enable Biome Lock Boxes
+			Tooltip:
+				'''
+				Biome chest weapons will be renewable
+				through crafting their respective lock boxes
 				'''
 		}
 
