@@ -13,6 +13,12 @@ public abstract class AbstractBiomeLockBox : ModItem {
 
 	public override void SetStaticDefaults() {
 		this.Item.ResearchUnlockCount = 5;
+
+		ItemUtil.RegisterContainerItemLockHook(this.Item.type, (player) => {
+			if (!ModuleConf.enableBiomeLockBoxes) {return false;}
+			if (!NPC.downedPlantBoss) {return false;}
+			return player.ConsumeItem(this.ChestKeyItemID, false, true);
+		});
 	}
 
 	public override void SetDefaults() {
@@ -21,14 +27,6 @@ public abstract class AbstractBiomeLockBox : ModItem {
 		this.Item.maxStack = Item.CommonMaxStack;
 		this.Item.rare = ItemRarityID.Yellow;
 		this.Item.value = Item.buyPrice(0, 2, 0, 0);
-	}
-
-	public override void Load() {
-		ItemUtil.RegisterContainerItemLockHook(this.Item.type, (player) => {
-			if (!ModuleConf.enableBiomeLockBoxes) {return false;}
-			if (!NPC.downedPlantBoss) {return false;}
-			return player.ConsumeItem(this.ChestKeyItemID, false, true);
-		});
 	}
 
 	public override bool CanRightClick() {
