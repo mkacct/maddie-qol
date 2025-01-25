@@ -10,6 +10,7 @@ public sealed class MiscRecipes : ModSystem {
 	public override void AddRecipes() {
 		AddDirtBlockRecipe();
 		AddPwnhammerRecipe();
+		AddConveyerBeltRecipes();
 	}
 
 	public override void PostAddRecipes() {
@@ -30,6 +31,20 @@ public sealed class MiscRecipes : ModSystem {
 		recipe.AddIngredient(ItemID.HallowedBar, 18);
 		recipe.AddTile(TileID.MythrilAnvil);
 		recipe.DisableDecraft().RegisterAfterLastRecipeOf(ItemID.PickaxeAxe);
+	}
+
+	private static void AddConveyerBeltRecipes() {
+		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingBefore(ItemID.LogicSensor_Water);
+		{
+			Recipe recipe = Recipe.Create(ItemID.ConveyorBeltRight);
+			recipe.AddIngredient(ItemID.ConveyorBeltLeft);
+			recipe.DisableDecraft().RegisterUsing(registerer);
+		}
+		{
+			Recipe recipe = Recipe.Create(ItemID.ConveyorBeltLeft);
+			recipe.AddIngredient(ItemID.ConveyorBeltRight);
+			recipe.DisableDecraft().RegisterUsing(registerer);
+		}
 	}
 
 	private static void AddCopperArmorShimmerExceptions() {
