@@ -14,6 +14,9 @@ public sealed class MiscShops : GlobalNPC {
 			case NPCID.Mechanic:
 				ModifyMechanicShop(shop);
 				break;
+			case NPCID.Steampunker:
+				ModifySteampunkerShop(shop);
+				break;
 		}
 	}
 
@@ -24,5 +27,9 @@ public sealed class MiscShops : GlobalNPC {
 
 	private static void ModifyMechanicShop(NPCShop shop) {
 		shop.InsertAfter(ItemID.Switch, ModContent.ItemType<Items.Button>());
+	}
+
+	private static void ModifySteampunkerShop(NPCShop shop) {
+		shop.InsertAfter(ItemID.LogicGateLamp_Faulty, ModContent.ItemType<Items.Diode>());
 	}
 }

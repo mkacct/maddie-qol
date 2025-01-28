@@ -313,6 +313,7 @@ Items: {
 	}
 
 	Button.DisplayName: Button
+	Diode.DisplayName: Diode
 
 	ActivationRod: {
 		DisplayName: Signal Generator
@@ -450,7 +451,11 @@ Items: {
 	}
 }
 
-Tiles.Button.MapEntry: Button
+Tiles: {
+	Button.MapEntry: Button
+	Diode.MapEntry: Diode
+}
+
 Projectiles.LightGreenSolutionProjectile.DisplayName: Exclusive Pure Spray
 
 RecipeGroups: {
