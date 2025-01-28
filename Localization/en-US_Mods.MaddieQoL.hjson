@@ -657,6 +657,11 @@ Configs: {
 				'''
 		}
 
+		enableMinecartRenewability: {
+			Label: Enable Minecart Obtainability Enhancement
+			Tooltip: Adds alternative methods for obtaining non-renewable minecarts
+		}
+
 		enableFlyingCarpetRenewability: {
 			Label: Enable Flying Carpet Obtainability Enhancement
 			Tooltip: The Flying Carpet will be obtainable through fishing

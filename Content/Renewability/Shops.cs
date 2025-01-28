@@ -18,6 +18,9 @@ public sealed class RenewabilityShops : GlobalNPC {
 			case NPCID.BestiaryGirl:
 				ModifyZoologistShop(shop);
 				break;
+			case NPCID.Dryad:
+				ModifyDryadShop(shop);
+				break;
 			case NPCID.WitchDoctor:
 				ModifyWitchDoctorShop(shop);
 				break;
@@ -26,6 +29,9 @@ public sealed class RenewabilityShops : GlobalNPC {
 				break;
 			case NPCID.Steampunker:
 				ModifySteampunkerShop(shop);
+				break;
+			case NPCID.Truffle:
+				ModifyTruffleShop(shop);
 				break;
 			case NPCID.SkeletonMerchant:
 				ModifySkeletonMerchantShop(shop);
@@ -55,6 +61,16 @@ public sealed class RenewabilityShops : GlobalNPC {
 		}, Condition.InGraveyard);
 	}
 
+	private static void ModifyDryadShop(NPCShop shop) {
+		if (!ModuleConf.enableMinecartRenewability) {return;}
+		shop.Add(new Item(ItemID.SunflowerMinecart) {
+			shopCustomPrice = Item.buyPrice(0, 10, 0, 0)
+		}, Condition.MoonPhasesEvenQuarters);
+		shop.Add(new Item(ItemID.LadybugMinecart) {
+			shopCustomPrice = Item.buyPrice(0, 10, 0, 0)
+		}, Condition.MoonPhasesOddQuarters);
+	}
+
 	private static void ModifyWitchDoctorShop(NPCShop shop) {
 		// TODO: reassess after 1.4.5
 		// if (!ModuleConf.enableLihzahrdItemRenewability) {return;}
@@ -71,6 +87,13 @@ public sealed class RenewabilityShops : GlobalNPC {
 	private static void ModifySteampunkerShop(NPCShop shop) {
 		if (!ModuleConf.enableLihzahrdItemRenewability) {return;}
 		shop.InsertBefore(ItemID.SteampunkBoiler, ItemID.LihzahrdFurnace, Condition.InJungle, Condition.DownedGolem);
+	}
+
+	private static void ModifyTruffleShop(NPCShop shop) {
+		if (!ModuleConf.enableMinecartRenewability) {return;}
+		shop.InsertBefore(ItemID.Autohammer, new Item(ItemID.ShroomMinecart) {
+			shopCustomPrice = Item.buyPrice(0, 10, 0, 0)
+		});
 	}
 
 	private static void ModifySkeletonMerchantShop(NPCShop shop) {

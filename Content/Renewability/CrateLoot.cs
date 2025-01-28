@@ -17,6 +17,10 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 			case ItemID.OasisCrateHard:
 				ModifyDesertCratesLoot(itemLoot);
 				break;
+			case ItemID.JungleFishingCrate:
+			case ItemID.JungleFishingCrateHard:
+				ModifyJungleCratesLoot(itemLoot);
+				break;
 			case ItemID.FloatingIslandFishingCrate:
 			case ItemID.FloatingIslandFishingCrateHard:
 				ModifySkyCratesLoot(itemLoot);
@@ -35,6 +39,11 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 	private static void ModifyDesertCratesLoot(ItemLoot itemLoot) {
 		DesertCratesAddFlyingCarpet(itemLoot);
 		AddPyramidBanners(itemLoot);
+		AddDesertMinecart(itemLoot);
+	}
+
+	private static void ModifyJungleCratesLoot(ItemLoot itemLoot) {
+		AddBeeMinecart(itemLoot);
 	}
 
 	private static void ModifySkyCratesLoot(ItemLoot itemLoot) {
@@ -144,5 +153,15 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 			ItemID.SnakeBanner,
 			ItemID.OmegaBanner
 		]));
+	}
+
+	private static void AddDesertMinecart(ItemLoot itemLoot) {
+		if (!ModuleConf.enableMinecartRenewability) {return;}
+		itemLoot.Add(ItemDropRule.NotScalingWithLuck(ItemID.DesertMinecart, 30));
+	}
+
+	private static void AddBeeMinecart(ItemLoot itemLoot) {
+		if (!ModuleConf.enableMinecartRenewability) {return;}
+		itemLoot.Add(ItemDropRule.NotScalingWithLuck(ItemID.BeeMinecart, 20));
 	}
 }
