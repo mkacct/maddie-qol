@@ -77,9 +77,9 @@ public sealed class RenewabilityRecipes : ModSystem {
 		if (!ModuleConf.enableTrapRecipes) {return;}
 		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.PressureTrack);
 		IList<KeyValuePair<int, int>> poisonItemsAndQtys = [
-			new(ItemID.VilePowder, 30),
-			new(ItemID.ViciousPowder, 30),
-			new(ItemID.Stinger, 15),
+			new(ItemID.VilePowder, 10),
+			new(ItemID.ViciousPowder, 10),
+			new(ItemID.Stinger, 5),
 		];
 		foreach (KeyValuePair<int, int> entry in poisonItemsAndQtys) { // Dart Trap
 			Recipe recipe = Recipe.Create(ItemID.DartTrap);
@@ -92,7 +92,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		{ // Geyser
 			Recipe recipe = Recipe.Create(ItemID.GeyserTrap);
 			recipe.AddIngredient(ItemID.StoneBlock, 8);
-			recipe.AddIngredient(ItemID.Gel, 30);
+			recipe.AddIngredient(ItemID.Gel, 10);
 			recipe.AddTile(TileID.HeavyWorkBench).AddCondition(Condition.NearLava, Condition.InGraveyard);
 			recipe.DisableDecraft().RegisterUsing(registerer);
 		}
@@ -121,7 +121,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		{ // Super Dart Trap
 			Recipe recipe = Recipe.Create(ItemID.SuperDartTrap);
 			recipe.AddIngredient(ItemID.LihzahrdBrick, 8);
-			recipe.AddIngredient(ItemID.Stinger, 15);
+			recipe.AddIngredient(ItemID.Stinger, 5);
 			recipe.AddIngredient(ItemID.Wire);
 			recipe.AddTile(TileID.LihzahrdFurnace).AddCondition(Condition.InGraveyard);
 			recipe.DisableDecraft().RegisterUsing(registerer);
@@ -129,7 +129,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		{ // Spiky Ball Trap
 			Recipe recipe = Recipe.Create(ItemID.SpikyBallTrap);
 			recipe.AddIngredient(ItemID.LihzahrdBrick, 8);
-			recipe.AddRecipeGroup(RecipeGroupID.Wood, 30);
+			recipe.AddRecipeGroup(RecipeGroupID.Wood, 20);
 			recipe.AddIngredient(ItemID.Wire);
 			recipe.AddTile(TileID.LihzahrdFurnace).AddCondition(Condition.InGraveyard);
 			recipe.DisableDecraft().RegisterUsing(registerer);
@@ -146,7 +146,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		{ // Flame Trap
 			Recipe recipe = Recipe.Create(ItemID.FlameTrap);
 			recipe.AddIngredient(ItemID.LihzahrdBrick, 8);
-			recipe.AddIngredient(ItemID.Gel, 30);
+			recipe.AddIngredient(ItemID.Gel, 10);
 			recipe.AddIngredient(ItemID.Wire);
 			recipe.AddTile(TileID.LihzahrdFurnace).AddCondition(Condition.InGraveyard);
 			recipe.DisableDecraft().RegisterUsing(registerer);
