@@ -753,7 +753,11 @@ Configs: {
 
 	BuffFurnitureAutoActivationPrefs: {
 		Tooltip: ""
-		Headers.Vanilla: Vanilla
+
+		Headers: {
+			Vanilla: Vanilla
+			ThoriumMod: Thorium Mod
+		}
 
 		enableForCrystalBall: {
 			Label: Enable For Crystal Ball
@@ -777,6 +781,21 @@ Configs: {
 
 		enableForWarTable: {
 			Label: Enable For War Table
+			Tooltip: ""
+		}
+
+		enableForAltar: {
+			Label: Enable For Altar
+			Tooltip: ""
+		}
+
+		enableForConductorsStand: {
+			Label: Enable For Conductor's Stand
+			Tooltip: ""
+		}
+
+		enableForNinjaRack: {
+			Label: Enable For Ninja Rack
 			Tooltip: ""
 		}
 	}

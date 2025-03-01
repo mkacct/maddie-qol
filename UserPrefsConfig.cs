@@ -65,12 +65,31 @@ public sealed class BuffFurnitureAutoActivationPrefs {
 	[DefaultValue(true)]
 	public bool enableForWarTable;
 
+	// Thorium Mod
+	[Header("ThoriumMod")]
+
+	// Enable for Altar
+	[DefaultValue(true)]
+	public bool enableForAltar;
+
+	// Enable for Conductor's Stand
+	[DefaultValue(true)]
+	public bool enableForConductorsStand;
+
+	// Enable for Ninja Rack
+	[DefaultValue(true)]
+	public bool enableForNinjaRack;
+
 	public BuffFurnitureAutoActivationPrefs() {
 		this.enableForCrystalBall = true;
 		this.enableForAmmoBox = true;
 		this.enableForBewitchingTable = true;
 		this.enableForSharpeningStation = true;
 		this.enableForWarTable = true;
+
+		this.enableForAltar = true;
+		this.enableForConductorsStand = true;
+		this.enableForNinjaRack = true;
 	}
 }
 

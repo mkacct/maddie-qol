@@ -4,3 +4,4 @@ version = 0.7
 homepage = https://github.com/mkacct/maddie-qol
 includeSource = true
 buildIgnore = .gitignore, .vscode/*, README.md, *.aseprite
+sortAfter = ThoriumMod

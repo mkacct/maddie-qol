@@ -27,6 +27,27 @@ public sealed class BuffFurnitureAutoActivator : ModSystem {
 		new(TileID.WarTable, BuffID.WarTable, SoundID.Item4, (prefs) => prefs.enableForWarTable),
 	}; // cake is limited duration, so it is omitted
 
+	private static void TryAddModFurniture(
+		Mod mod,
+		string tileName,
+		string buffName,
+		SoundStyle soundStyle,
+		Func<BuffFurnitureAutoActivationPrefs, bool> checkEnabled
+	) {
+		if (mod.TryFind(tileName, out ModTile tile) && mod.TryFind(buffName, out ModBuff buff)) {
+			FurnitureInfiniteBuffs.Add(new TileBuffData(
+				tile.Type,
+				buff.Type,
+				soundStyle,
+				checkEnabled
+			));
+		}
+	}
+
+	public override void SetStaticDefaults() {
+		TryAddThoriumModContent();
+	}
+
 	public override void PostUpdatePlayers() {
 		if (Main.netMode == NetmodeID.Server) {return;}
 		if (!ModuleConf.enableBuffFurnitureAutoActivation) {return;}
@@ -42,6 +63,14 @@ public sealed class BuffFurnitureAutoActivator : ModSystem {
 				player.AddBuff(data.BuffID, BuffTimeInfinite, false);
 				SoundEngine.PlaySound(data.SoundStyle, player.Center);
 			}
+		}
+	}
+
+	private static void TryAddThoriumModContent() {
+		if (ModLoader.TryGetMod("ThoriumMod", out Mod thoriumMod)) {
+			TryAddModFurniture(thoriumMod, "Altar", "AltarBuff", SoundID.Item29, (prefs) => prefs.enableForAltar);
+			TryAddModFurniture(thoriumMod, "ConductorsStand", "ConductorsStandBuff", SoundID.Item29, (prefs) => prefs.enableForConductorsStand);
+			TryAddModFurniture(thoriumMod, "NinjaRack", "NinjaBuff", SoundID.Item37, (prefs) => prefs.enableForNinjaRack);
 		}
 	}
 }
