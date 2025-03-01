@@ -12,17 +12,16 @@ public sealed class TorchDeswapRecipes : ModSystem {
 	private bool _wasUsingBiomeTorches = false;
 
 	public override void AddRecipes() {
-		if (!ModuleConf.enableTorchDeswap) {return;}
 		{ // Torch
 			Recipe recipe = Recipe.Create(ItemID.Torch);
 			recipe.AddRecipeGroup(RecipeGroups.BiomeTorchRecipeGroup);
-			recipe.AddCondition(Conditions.BiomeTorchSwapEnabled);
+			recipe.AddCondition(Conditions.TorchDeswapAllowed);
 			recipe.DisableDecraft().RegisterAfterLastRecipeOf(ItemID.Torch);
 		}
 		{ // Campfire
 			Recipe recipe = Recipe.Create(ItemID.Campfire);
 			recipe.AddRecipeGroup(RecipeGroups.BiomeCampfireRecipeGroup);
-			recipe.AddCondition(Conditions.BiomeTorchSwapEnabled);
+			recipe.AddCondition(Conditions.TorchDeswapAllowed);
 			recipe.DisableDecraft().RegisterAfterLastRecipeOf(ItemID.Campfire);
 		}
 	}

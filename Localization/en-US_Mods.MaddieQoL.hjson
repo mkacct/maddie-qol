@@ -10,6 +10,11 @@ Common: {
 	UniversalBucketDesc: <right> to toggle liquid
 	LiquidSourcesAndDrainsDisabled: "[c/ff1919:Endless liquid sources/drains disabled in mod configuration]"
 	BiomeLockBoxesDisabled: "[c/ff1919:Biome lock boxes disabled in mod configuration]"
+	ClientSettingNote:
+		'''
+		[c/fff014:(To disable the feature for yourself only,]
+		[c/fff014:edit the "User Preferences" configuration instead)]
+		'''
 }
 
 Items: {
@@ -463,7 +468,7 @@ RecipeGroups: {
 
 Conditions: {
 	InTown: In a Town
-	BiomeTorchSwapEnabled: When biome torch swap is enabled
+	TorchDeswapAllowed: Condition depends on mod configuration
 	PlayerHasPickaxePower: When the player has at least {0}% pickaxe power
 }
 
@@ -475,7 +480,7 @@ Misc: {
 
 Configs: {
 	ModuleConfig: {
-		DisplayName: Modules
+		DisplayName: Server Modules
 
 		Headers: {
 			Teleportation: Teleportation
@@ -492,16 +497,6 @@ Configs: {
 				Allows the crafting and use of items
 				allowing unlimited use of the Potion of Return's effect
 				(If disabled, existing return tools will function as recall tools)
-				'''
-		}
-
-		enableRecallItemSwitchAway: {
-			Label: Enable Teleport Item Scroll-Away
-			Tooltip:
-				'''
-				When you teleport using a potion, mirror, or phone,
-				your hotbar will scroll to its first item so you don't accidentally teleport again
-				(If the inventory is open, it won't scroll away until you close the inventory)
 				'''
 		}
 
@@ -543,6 +538,7 @@ Configs: {
 				Infinite-duration buffs granted by furniture
 				will be applied when in interaction range of the furniture
 				without having to right-click it
+				{$Common.ClientSettingNote}
 				'''
 		}
 
@@ -551,7 +547,8 @@ Configs: {
 			Tooltip:
 				'''
 				Biome torches (and campfires) can be crafted back into normal ones
-				(The crafting recipes will only be displayed when biome torch swap is enabled)
+				once the Torch God's Favor has been earned
+				{$Common.ClientSettingNote}
 				'''
 		}
 
@@ -619,8 +616,9 @@ Configs: {
 			Label: Enable Default Familiar Set
 			Tooltip:
 				'''
-				All newly-created characters will spawn with the Familiar set in their inventory
-				(Also makes the Familiar set have no value)
+				[c/fff014:This only affects mediumcore death]
+				[c/fff014:To actually control this feature,]
+				[c/fff014:edit the "User Preferences" configuration instead]
 				'''
 		}
 
@@ -642,9 +640,8 @@ Configs: {
 			Label: Enable Add Pots to Rubblemaker
 			Tooltip:
 				'''
-				Integrates the vanilla code to add pots to the set of
-				objects creatable using the Rubblemaker (Medium)
-				(Pots will drop nothing, not even the item used to place them)
+				{$Configs.UserPrefsConfig.enableAddPotsToWand.Tooltip}
+				{$Common.ClientSettingNote}
 				'''
 		}
 
@@ -703,5 +700,91 @@ Configs: {
 				(Also the Traveling Merchant will sell the Angel Statue)
 				'''
 		}
+	}
+
+	UserPrefsConfig: {
+		DisplayName: User Preferences
+
+		Headers: {
+			Teleportation: "{$Configs.ModuleConfig.Headers.Teleportation}"
+			MiscEnhancements: "{$Configs.ModuleConfig.Headers.MiscEnhancements}"
+			VanillaItemObtainability: "{$Configs.ModuleConfig.Headers.VanillaItemObtainability}"
+		}
+
+		enableRecallItemSwitchAway: {
+			Label: Enable Teleport Item Scroll-Away
+			Tooltip:
+				'''
+				When you teleport using a potion, mirror, or phone,
+				your hotbar will scroll to its first item so you don't accidentally teleport again
+				(If the inventory is open, it won't scroll away until you close the inventory)
+				'''
+		}
+
+		buffFurnitureAutoActivationPrefs: {
+			Label: Buff Furniture Auto-Activation Preferences
+			Tooltip: Customize which buff furniture will be auto-activated
+		}
+
+		showTorchDeswapRecipes: {
+			Label: Show Torch Deswapping Recipes
+			Tooltip:
+				'''
+				Regardless of this setting, you cannot deswap torches
+				until you have earned the Torch God's Favor
+				'''
+		}
+
+		enableDefaultFamiliarSet: {
+			Label: Enable Default Familiar Set
+			Tooltip: All newly-created characters will spawn with the Familiar set in their inventory
+		}
+
+		enableAddPotsToWand: {
+			Label: Enable Add Pots to Rubblemaker
+			Tooltip:
+				'''
+				Integrates the vanilla code to add pots to the set of
+				objects creatable using the Rubblemaker (Medium)
+				(Pots will drop nothing, not even the item used to place them)
+				'''
+		}
+	}
+
+	BuffFurnitureAutoActivationPrefs: {
+		Tooltip: ""
+		Headers.Vanilla: Vanilla
+
+		enableForCrystalBall: {
+			Label: Enable For Crystal Ball
+			Tooltip: ""
+		}
+
+		enableForAmmoBox: {
+			Label: Enable For Ammo Box
+			Tooltip: ""
+		}
+
+		enableForBewitchingTable: {
+			Label: Enable For Bewitching Table
+			Tooltip: ""
+		}
+
+		enableForSharpeningStation: {
+			Label: Enable For Sharpening Station
+			Tooltip: ""
+		}
+
+		enableForWarTable: {
+			Label: Enable For War Table
+			Tooltip: ""
+		}
+	}
+
+	TorchDeswapDisplayMode: {
+		Tooltip: ""
+		Never.Label: Never
+		WhenBiomeTorchSwapEnabled.Label: When biome torch swap on
+		Always.Label: Always
 	}
 }

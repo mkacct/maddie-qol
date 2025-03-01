@@ -30,7 +30,7 @@ public sealed class MirrorSwitchAway : GlobalItem {
 	}
 
 	public override void UseStyle(Item item, Player player, Rectangle heldItemFrame) {
-		if (!ModuleConf.enableRecallItemSwitchAway) {return;}
+		if (!UserConf.enableRecallItemSwitchAway) {return;}
 		if (AllTeleportOnUseItems.Contains(item.type) && (player.itemTime == player.itemTimeMax / 2)) {
 			if ((player.selectedItem > 0) && (player.selectedItem <= 9)) {
 				player.HotbarOffset = -player.selectedItem;

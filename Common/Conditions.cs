@@ -9,9 +9,18 @@ public static class Conditions {
 		() => Main.LocalPlayer.townNPCs >= 3f
 	);
 
-	public static Condition BiomeTorchSwapEnabled => new(
-		ThisMod.GetLocalization($"{nameof(Conditions)}.{nameof(BiomeTorchSwapEnabled)}"),
-		() => Main.LocalPlayer.UsingBiomeTorches
+	public static Condition TorchDeswapAllowed => new(
+		ThisMod.GetLocalization($"{nameof(Conditions)}.{nameof(TorchDeswapAllowed)}"),
+		() => {
+			if (!ModuleConf.enableTorchDeswap) {return false;}
+			if (!Main.LocalPlayer.unlockedBiomeTorches) {return false;}
+			return UserConf.showTorchDeswapRecipes switch {
+				TorchDeswapDisplayMode.Never => false,
+				TorchDeswapDisplayMode.WhenBiomeTorchSwapEnabled => Main.LocalPlayer.UsingBiomeTorches,
+				TorchDeswapDisplayMode.Always => true,
+				_ => false,// should never happen
+			};
+		}
 	);
 
 	public static Condition PlayerHasPickaxePower(int pick) {

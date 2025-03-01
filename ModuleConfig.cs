@@ -14,10 +14,6 @@ public sealed class ModuleConfig : ModConfig {
 	[ReloadRequired]
 	public bool enableReturnTools;
 
-	// Enable Teleport Item Scroll-Away
-	[DefaultValue(false)]
-	public bool enableRecallItemSwitchAway;
-
 	// Liquid Manipulation
 	[Header("LiquidManipulation")]
 
@@ -51,7 +47,6 @@ public sealed class ModuleConfig : ModConfig {
 
 	// Enable Torch Deswapping
 	[DefaultValue(true)]
-	[ReloadRequired]
 	public bool enableTorchDeswap;
 
 	// Enable Biome Lock Boxes
@@ -95,8 +90,7 @@ public sealed class ModuleConfig : ModConfig {
 	public bool enableDirtFromMud;
 
 	// Enable Default Familiar Set
-	[DefaultValue(false)]
-	[ReloadRequired]
+	[DefaultValue(true)]
 	public bool enableDefaultFamiliarSet;
 
 	// Enable Decorative Banner Renewability
