@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -27,77 +28,86 @@ public sealed class RecipeGroups : ModSystem {
 	}
 
 	public override void AddRecipeGroups() {
-		{
-			RecipeGroup group = new(
-				() => ShellphoneRecipeGroupName.Value,
-				[
-					ItemID.ShellphoneDummy,
-					ItemID.Shellphone,
-					ItemID.ShellphoneOcean,
-					ItemID.ShellphoneHell,
-					ItemID.ShellphoneSpawn
-				]
-			);
-			RecipeGroup.RegisterGroup(ShellphoneRecipeGroup, group);
+		RegisterRecipeGroup(ShellphoneRecipeGroup, ShellphoneRecipeGroupName, GetShellphoneRecipeGroupItems());
+		RegisterRecipeGroup(UniversalBucketRecipeGroup, UniversalBucketRecipeGroupName, GetUniversalBucketRecipeGroupItems());
+		RegisterRecipeGroup(BiomeTorchRecipeGroup, BiomeTorchRecipeGroupName, GetBiomeTorchRecipeGroupItems());
+		RegisterRecipeGroup(BiomeCampfireRecipeGroup, BiomeCampfireRecipeGroupName, GetBiomeCampfireRecipeGroupItems());
+		RegisterRecipeGroup(DungeonBrickRecipeGroup, DungeonBrickRecipeGroupName, GetDungeonBrickRecipeGroupItems());
+	}
+
+	private static void RegisterRecipeGroup(string name, LocalizedText displayName, IList<int> validItems) {
+		RecipeGroup group = new(() => displayName.Value, [..validItems]);
+		RecipeGroup.RegisterGroup(name, group);
+	}
+
+	private static IList<int> GetShellphoneRecipeGroupItems() {
+		return [
+			ItemID.ShellphoneDummy,
+			ItemID.Shellphone,
+			ItemID.ShellphoneOcean,
+			ItemID.ShellphoneHell,
+			ItemID.ShellphoneSpawn
+		];
+	}
+
+	private static IList<int> GetUniversalBucketRecipeGroupItems() {
+		return [
+			ModContent.ItemType<Content.LiquidManipulation.Items.UniversalBucket.UniversalBucketDummy>(),
+			ModContent.ItemType<Content.LiquidManipulation.Items.UniversalBucket.UniversalBucketWater>(),
+			ModContent.ItemType<Content.LiquidManipulation.Items.UniversalBucket.UniversalBucketLava>(),
+			ModContent.ItemType<Content.LiquidManipulation.Items.UniversalBucket.UniversalBucketHoney>()
+		];
+	}
+
+	private static IList<int> GetBiomeTorchRecipeGroupItems() {
+		List<int> items = [
+			ItemID.ShimmerTorch,
+			ItemID.DemonTorch,
+			ItemID.BoneTorch,
+			ItemID.HallowedTorch,
+			ItemID.CorruptTorch,
+			ItemID.CrimsonTorch,
+			ItemID.IceTorch,
+			ItemID.MushroomTorch,
+			ItemID.JungleTorch,
+			ItemID.DesertTorch
+		];
+		if (ModLoader.TryGetMod("ThoriumMod", out Mod thoriumMod)) {
+			TryAddModItemToList(items, thoriumMod, "DeeplightTorch");
 		}
-		{
-			RecipeGroup group = new(
-				() => UniversalBucketRecipeGroupName.Value,
-				[
-					ModContent.ItemType<Content.LiquidManipulation.Items.UniversalBucket.UniversalBucketDummy>(),
-					ModContent.ItemType<Content.LiquidManipulation.Items.UniversalBucket.UniversalBucketWater>(),
-					ModContent.ItemType<Content.LiquidManipulation.Items.UniversalBucket.UniversalBucketLava>(),
-					ModContent.ItemType<Content.LiquidManipulation.Items.UniversalBucket.UniversalBucketHoney>()
-				]
-			);
-			RecipeGroup.RegisterGroup(UniversalBucketRecipeGroup, group);
+		return items;
+	}
+
+	private static IList<int> GetBiomeCampfireRecipeGroupItems() {
+		List<int> items = [
+			ItemID.ShimmerCampfire,
+			ItemID.DemonCampfire,
+			ItemID.BoneCampfire,
+			ItemID.HallowedCampfire,
+			ItemID.CorruptCampfire,
+			ItemID.CrimsonCampfire,
+			ItemID.FrozenCampfire,
+			ItemID.MushroomCampfire,
+			ItemID.JungleCampfire,
+			ItemID.DesertCampfire
+		];
+		if (ModLoader.TryGetMod("ThoriumMod", out Mod thoriumMod)) {
+			TryAddModItemToList(items, thoriumMod, "DeeplightCampfire");
 		}
-		{
-			RecipeGroup group = new(
-				() => BiomeTorchRecipeGroupName.Value,
-				[
-					ItemID.ShimmerTorch,
-					ItemID.DemonTorch,
-					ItemID.BoneTorch,
-					ItemID.HallowedTorch,
-					ItemID.CorruptTorch,
-					ItemID.CrimsonTorch,
-					ItemID.IceTorch,
-					ItemID.MushroomTorch,
-					ItemID.JungleTorch,
-					ItemID.DesertTorch
-				]
-			);
-			RecipeGroup.RegisterGroup(BiomeTorchRecipeGroup, group);
-		}
-		{
-			RecipeGroup group = new(
-				() => BiomeCampfireRecipeGroupName.Value,
-				[
-					ItemID.ShimmerCampfire,
-					ItemID.DemonCampfire,
-					ItemID.BoneCampfire,
-					ItemID.HallowedCampfire,
-					ItemID.CorruptCampfire,
-					ItemID.CrimsonCampfire,
-					ItemID.FrozenCampfire,
-					ItemID.MushroomCampfire,
-					ItemID.JungleCampfire,
-					ItemID.DesertCampfire
-				]
-			);
-			RecipeGroup.RegisterGroup(BiomeCampfireRecipeGroup, group);
-		}
-		{
-			RecipeGroup group = new(
-				() => DungeonBrickRecipeGroupName.Value,
-				[
-					ItemID.BlueBrick,
-					ItemID.GreenBrick,
-					ItemID.PinkBrick
-				]
-			);
-			RecipeGroup.RegisterGroup(DungeonBrickRecipeGroup, group);
+		return items;
+	}
+
+	private static IList<int> GetDungeonBrickRecipeGroupItems() {
+		return [
+			ItemID.BlueBrick,
+			ItemID.GreenBrick,
+			ItemID.PinkBrick
+		];
+	}
+
+	private static void TryAddModItemToList(IList<int> list, Mod mod, string itemName) {
+		if (mod.TryFind(itemName, out ModItem item)) {
+			list.Add(item.Type);
 		}
 	}
 }

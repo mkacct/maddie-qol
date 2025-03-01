@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace MaddieQoL.Content.Renewability;
 
-public sealed class TeamBlockRenewability : GlobalItem {
+public sealed class RenewabilityTeamBlocks : GlobalItem {
 	private static readonly IList<KeyValuePair<int, int>> BlocksToPlatforms = [
 		new(ItemID.TeamBlockRed, ItemID.TeamBlockRedPlatform),
 		new(ItemID.TeamBlockGreen, ItemID.TeamBlockGreenPlatform),
@@ -17,11 +17,15 @@ public sealed class TeamBlockRenewability : GlobalItem {
 
 	private static readonly ISet<int> Platforms;
 
-	static TeamBlockRenewability() {
+	static RenewabilityTeamBlocks() {
 		Platforms = new HashSet<int>();
 		foreach (KeyValuePair<int, int> pair in BlocksToPlatforms) {
 			Platforms.Add(pair.Value);
 		}
+	}
+
+	public override void SetStaticDefaults() {
+		AddShimmers();
 	}
 
 	public override void AddRecipes() {
@@ -41,9 +45,18 @@ public sealed class TeamBlockRenewability : GlobalItem {
 		}
 	}
 
-    public override void SetDefaults(Item item) {
+	public override void SetDefaults(Item item) {
 		if (Platforms.Contains(item.type)) {
 			item.value /= 2;
 		}
-    }
+	}
+
+	private static void AddShimmers() {
+		ItemID.Sets.ShimmerTransformToItem[ItemID.TeamBlockWhite] = ItemID.TeamBlockRed;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.TeamBlockRed] = ItemID.TeamBlockGreen;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.TeamBlockGreen] = ItemID.TeamBlockBlue;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.TeamBlockBlue] = ItemID.TeamBlockYellow;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.TeamBlockYellow] = ItemID.TeamBlockPink;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.TeamBlockPink] = ItemID.TeamBlockWhite;
+	}
 }

@@ -7,4 +7,5 @@ public static class Shorthands {
 
 	public static Mod ThisMod => ModContent.GetInstance<MaddieQoL>();
 	public static ModuleConfig ModuleConf => ModContent.GetInstance<ModuleConfig>();
+	public static UserPrefsConfig UserConf => ModContent.GetInstance<UserPrefsConfig>();
 }
