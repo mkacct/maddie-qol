@@ -1,11 +1,7 @@
-using System.Collections.Generic;
-using System.Reflection;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Chat;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
