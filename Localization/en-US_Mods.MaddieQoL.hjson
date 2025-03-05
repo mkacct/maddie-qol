@@ -320,6 +320,11 @@ Items: {
 	Button.DisplayName: Button
 	Diode.DisplayName: Diode
 
+	ClockGenerator: {
+		DisplayName: Clock Generator
+		Tooltip: ""
+	}
+
 	ActivationRod: {
 		DisplayName: Signal Generator
 		Tooltip:
@@ -458,6 +463,7 @@ Items: {
 
 Tiles: {
 	Button.MapEntry: Button
+	ClockGenerator.MapEntry: Clock Generator
 	Diode.MapEntry: Diode
 }
 
@@ -490,6 +496,7 @@ Configs: {
 		Headers: {
 			Teleportation: Teleportation
 			LiquidManipulation: Liquid Manipulation
+			Wiring: Wiring
 			OtherItems: Other Items
 			MiscEnhancements: Miscellaneous Enhancements
 			VanillaItemObtainability: Vanilla Item Obtainability
@@ -512,6 +519,15 @@ Configs: {
 				Allows the crafting and use of mechanisms
 				capable of endlessly creating/removing liquids
 				(If disabled, existing sources & drains will not function)
+				'''
+		}
+
+		enableClockGenerator: {
+			Label: Enable Clock Generator
+			Tooltip:
+				'''
+				Allows the purchase (post-Moon Lord) and use of the Clock Generator,
+				which activates connected mechanisms every game tick
 				'''
 		}
 

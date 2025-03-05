@@ -22,6 +22,14 @@ public sealed class ModuleConfig : ModConfig {
 	[ReloadRequired]
 	public bool enableLiquidSourcesAndDrains;
 
+	// Wiring
+	[Header("Wiring")]
+
+	// Enable Clock Generator
+	[DefaultValue(true)]
+	[ReloadRequired]
+	public bool enableClockGenerator;
+
 	// Other Items
 	[Header("OtherItems")]
 

@@ -1,4 +1,5 @@
 using static MaddieQoL.Common.Shorthands;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using MaddieQoL.Common;
@@ -28,6 +29,9 @@ public sealed class MiscShops : GlobalNPC {
 
 	private static void ModifyMechanicShop(NPCShop shop) {
 		shop.InsertAfter(ItemID.Switch, ModContent.ItemType<Items.Button>());
+		if (ModuleConf.enableClockGenerator) {
+			shop.InsertAfter(ItemID.TimerOneFourthSecond, ModContent.ItemType<Items.ClockGenerator>(), Condition.DownedMoonLord);
+		}
 	}
 
 	private static void ModifySteampunkerShop(NPCShop shop) {
