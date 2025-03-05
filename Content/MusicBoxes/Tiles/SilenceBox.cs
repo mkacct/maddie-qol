@@ -31,6 +31,8 @@ public sealed class SilenceBox : ModTile {
 		TileObjectData.newTile.StyleLineSkip = 2;
 		TileObjectData.addTile(this.Type);
 
+		this.DustType = -1;
+
 		this.AddMapEntry(new Color(191, 142, 111), Language.GetText("ItemName.MusicBox"));
 	}
 
@@ -55,9 +57,5 @@ public sealed class SilenceBox : ModTile {
 			new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, 16),
 			Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f
 		);
-	}
-
-	public override void NumDust(int i, int j, bool fail, ref int num) {
-		num = 0;
 	}
 }

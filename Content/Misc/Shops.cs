@@ -21,8 +21,9 @@ public sealed class MiscShops : GlobalNPC {
 	}
 
 	private static void ModifyMerchantShop(NPCShop shop) {
-		if (!ModuleConf.enableCurfewBell) {return;}
-		shop.Add<Items.CurfewBell>(Conditions.InTown);
+		if (ModuleConf.enableCurfewBell) {
+			shop.Add<Items.CurfewBell>(Conditions.InTown);
+		}
 	}
 
 	private static void ModifyMechanicShop(NPCShop shop) {
