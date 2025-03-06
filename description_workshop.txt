@@ -62,3 +62,9 @@ The mod consists of the following modules (many of which can be enabled/disabled
 	[*][b]Additional Shimmer Transmutations[/b]: A few minor Shimmer transmutations are added; check the TCF post for details.
 	[*][b]No False Advertising[/b]: The Merchant will sell all items that he claims to sell, including dirt blocks. (Disabled by default since this module was created as a joke.)
 [/list]
+
+[h3]Cross-mod compatibility[/h3]
+The following mods are explicitly compatible with this mod:
+[list]
+	[*][b]Thorium Mod[/b]: Buff Furniture Auto-Activation supports Thorium Mod buff stations, and Torch Deswapping supports Deeplight Torch.
+[/list]

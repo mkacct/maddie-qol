@@ -48,3 +48,7 @@ Vanilla Item Obtainability:
 - Miscellaneous Recipes: The Encumbering Stone, Pwnhammer, and Hellforge are craftable.
 - Additional Shimmer Transmutations: A few minor Shimmer transmutations are added; check the TCF post for details.
 - No False Advertising: The Merchant will sell all items that he claims to sell, including dirt blocks. (Disabled by default since this module was created as a joke.)
+
+Cross-mod compatibility:
+The following mods are explicitly compatible with this mod:
+- Thorium Mod: Buff Furniture Auto-Activation supports Thorium Mod buff stations, and Torch Deswapping supports Deeplight Torch.
