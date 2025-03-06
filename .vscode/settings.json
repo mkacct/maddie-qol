@@ -1,4 +1,7 @@
 {
+	"files.associations": {
+		"build.txt": "other"
+	},
 	"files.exclude": {
 		"**/*.aseprite": true
 	}
