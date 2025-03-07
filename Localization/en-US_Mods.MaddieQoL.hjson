@@ -759,43 +759,48 @@ Configs: {
 			ThoriumMod: Thorium Mod
 		}
 
+		masterEnable: {
+			Label: Enable Module
+			Tooltip: If disabled, all of the following options will be ignored
+		}
+
 		enableForCrystalBall: {
-			Label: Enable For Crystal Ball
+			Label: Enable for Crystal Ball
 			Tooltip: ""
 		}
 
 		enableForAmmoBox: {
-			Label: Enable For Ammo Box
+			Label: Enable for Ammo Box
 			Tooltip: ""
 		}
 
 		enableForBewitchingTable: {
-			Label: Enable For Bewitching Table
+			Label: Enable for Bewitching Table
 			Tooltip: ""
 		}
 
 		enableForSharpeningStation: {
-			Label: Enable For Sharpening Station
+			Label: Enable for Sharpening Station
 			Tooltip: ""
 		}
 
 		enableForWarTable: {
-			Label: Enable For War Table
+			Label: Enable for War Table
 			Tooltip: ""
 		}
 
 		enableForAltar: {
-			Label: Enable For Altar
+			Label: Enable for Altar
 			Tooltip: ""
 		}
 
 		enableForConductorsStand: {
-			Label: Enable For Conductor's Stand
+			Label: Enable for Conductor's Stand
 			Tooltip: ""
 		}
 
 		enableForNinjaRack: {
-			Label: Enable For Ninja Rack
+			Label: Enable for Ninja Rack
 			Tooltip: ""
 		}
 	}

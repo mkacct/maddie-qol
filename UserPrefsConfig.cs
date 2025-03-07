@@ -42,6 +42,9 @@ public sealed class UserPrefsConfig : ModConfig {
 }
 
 public sealed class BuffFurnitureAutoActivationPrefs {
+	[DefaultValue(true)]
+	public bool masterEnable;
+
 	// Vanilla
 	[Header("Vanilla")]
 

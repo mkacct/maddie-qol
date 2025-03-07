@@ -56,6 +56,7 @@ public sealed class BuffFurnitureAutoActivator : ModSystem {
 	}
 
 	private static void ClientCheckBuffFurniture(Player player) {
+		if (!UserConf.buffFurnitureAutoActivationPrefs.masterEnable) {return;}
 		foreach (TileBuffData data in FurnitureInfiniteBuffs) {
 			if (!data.CheckEnabled(UserConf.buffFurnitureAutoActivationPrefs)) {continue;}
 			if (player.HasBuff(data.BuffID)) {continue;}
