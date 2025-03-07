@@ -58,7 +58,8 @@ The mod consists of the following modules (many of which can be enabled/disabled
 	[*][b]Minecart Obtainability Enhancement[/b]: All otherwise non-renewable minecarts are obtainable by other means. (Module suggested by TOMKA)
 	[*][b]Flying Carpet Obtainability Enhancement[/b]: The Flying Carpet can be found in fishing crates.
 	[*][b]Early-Game Treasure Renewability[/b]: The Shoe Spikes, Flare Gun, Band of Regeneration, and Cloud in a Bottle are obtainable by alternative means.
-	[*][b]Miscellaneous Recipes[/b]: The Encumbering Stone, Pwnhammer, and Hellforge are craftable.
+	[*][b]Team Blocks/Platforms Obtainability Enahncement[/b]: Team Platforms are craftable, and Team Blocks can be Shimmer transmuted into each other. (Module suggested by krunkanader and Airarret)
+	[*][b]Miscellaneous Recipes[/b]: The Encumbering Stone, Pwnhammer, Hellforge, and Conveyer Belts (from each other) are craftable.
 	[*][b]Additional Shimmer Transmutations[/b]: A few minor Shimmer transmutations are added; check the TCF post for details.
 	[*][b]No False Advertising[/b]: The Merchant will sell all items that he claims to sell, including dirt blocks. (Disabled by default since this module was created as a joke.)
 [/list]

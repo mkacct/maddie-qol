@@ -45,7 +45,8 @@ Vanilla Item Obtainability:
 - Minecart Obtainability Enhancement: All otherwise non-renewable minecarts are obtainable by other means. (Module suggested by TOMKA)
 - Flying Carpet Obtainability Enhancement: The Flying Carpet can be found in fishing crates.
 - Early-Game Treasure Renewability: The Shoe Spikes, Flare Gun, Band of Regeneration, and Cloud in a Bottle are obtainable by alternative means.
-- Miscellaneous Recipes: The Encumbering Stone, Pwnhammer, and Hellforge are craftable.
+- Team Blocks/Platforms Obtainability Enahncement: Team Platforms are craftable, and Team Blocks can be Shimmer transmuted into each other. (Module suggested by krunkanader and Airarret)
+- Miscellaneous Recipes: The Encumbering Stone, Pwnhammer, Hellforge, and Conveyer Belts (from each other) are craftable.
 - Additional Shimmer Transmutations: A few minor Shimmer transmutations are added; check the TCF post for details.
 - No False Advertising: The Merchant will sell all items that he claims to sell, including dirt blocks. (Disabled by default since this module was created as a joke.)
 
