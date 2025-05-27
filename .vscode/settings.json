@@ -4,5 +4,17 @@
 	},
 	"files.exclude": {
 		"**/*.aseprite": true
+	},
+	"material-icon-theme.files.associations": {
+		"*.ogg": "audio",
+		"build.txt": "settings",
+		"icon_small.png": "favicon",
+		"icon.png": "favicon"
+	},
+	"material-icon-theme.folders.associations": {
+		"bin": "dist",
+		"Localization": "i18n",
+		"obj": "dist",
+		"Properties": "config"
 	}
 }
