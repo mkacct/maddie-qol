@@ -75,7 +75,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 
 	static void AddTrapRecipes() {
 		if (!ModuleConf.enableTrapRecipes) {return;}
-		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.PressureTrack);
+		RecipeOrderedRegistrar registrar = RecipeOrderedRegistrar.StartingAfter(ItemID.PressureTrack);
 		IList<KeyValuePair<int, int>> poisonItemsAndQtys = [
 			new(ItemID.VilePowder, 10),
 			new(ItemID.ViciousPowder, 10),
@@ -87,36 +87,36 @@ public sealed class RenewabilityRecipes : ModSystem {
 			recipe.AddIngredient(entry.Key, entry.Value);
 			recipe.AddIngredient(ItemID.Wire);
 			recipe.AddTile(TileID.HeavyWorkBench).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 		{ // Geyser
 			Recipe recipe = Recipe.Create(ItemID.GeyserTrap);
 			recipe.AddIngredient(ItemID.StoneBlock, 8);
 			recipe.AddIngredient(ItemID.Gel, 10);
 			recipe.AddTile(TileID.HeavyWorkBench).AddCondition(Condition.NearLava, Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
-		AddDungeonTrapRecipes(registerer);
-		AddLihzahrdTrapRecipes(registerer);
+		AddDungeonTrapRecipes(registrar);
+		AddLihzahrdTrapRecipes(registrar);
 	}
 
-	static void AddDungeonTrapRecipes(RecipeOrderedRegisterer registerer) {
+	static void AddDungeonTrapRecipes(RecipeOrderedRegistrar registrar) {
 		if (!ModuleConf.enableDungeonItemRenewability) {return;}
 		{ // Spike
 			Recipe recipe = Recipe.Create(ItemID.Spike);
 			recipe.AddRecipeGroup(RecipeGroupID.IronBar);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 	}
 
-	static void AddLihzahrdTrapRecipes(RecipeOrderedRegisterer registerer) {
+	static void AddLihzahrdTrapRecipes(RecipeOrderedRegistrar registrar) {
 		if (!ModuleConf.enableLihzahrdItemRenewability) {return;}
 		{ // Wooden Spike
 			Recipe recipe = Recipe.Create(ItemID.WoodenSpike);
 			recipe.AddRecipeGroup(RecipeGroupID.Wood, 4);
 			recipe.AddTile(TileID.LihzahrdFurnace).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 		{ // Super Dart Trap
 			Recipe recipe = Recipe.Create(ItemID.SuperDartTrap);
@@ -124,7 +124,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 			recipe.AddIngredient(ItemID.Stinger, 5);
 			recipe.AddIngredient(ItemID.Wire);
 			recipe.AddTile(TileID.LihzahrdFurnace).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 		{ // Spiky Ball Trap
 			Recipe recipe = Recipe.Create(ItemID.SpikyBallTrap);
@@ -132,7 +132,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 			recipe.AddRecipeGroup(RecipeGroupID.Wood, 20);
 			recipe.AddIngredient(ItemID.Wire);
 			recipe.AddTile(TileID.LihzahrdFurnace).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 		{ // Spear Trap
 			Recipe recipe = Recipe.Create(ItemID.SpearTrap);
@@ -141,7 +141,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 			recipe.AddIngredient(ItemID.StoneBlock, 4);
 			recipe.AddIngredient(ItemID.Wire);
 			recipe.AddTile(TileID.LihzahrdFurnace).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 		{ // Flame Trap
 			Recipe recipe = Recipe.Create(ItemID.FlameTrap);
@@ -149,7 +149,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 			recipe.AddIngredient(ItemID.Gel, 10);
 			recipe.AddIngredient(ItemID.Wire);
 			recipe.AddTile(TileID.LihzahrdFurnace).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 	}
 
@@ -162,13 +162,13 @@ public sealed class RenewabilityRecipes : ModSystem {
 	}
 
 	static void AddObsidianFurnitureRecipes() {
-		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingBefore(ItemID.ObsidianChest);
+		RecipeOrderedRegistrar registrar = RecipeOrderedRegistrar.StartingBefore(ItemID.ObsidianChest);
 		{ // Obsidian Bathtub
 			Recipe recipe = Recipe.Create(ItemID.ObsidianBathtub);
 			recipe.AddIngredient(ItemID.Obsidian, 12);
 			recipe.AddIngredient(ItemID.Hellstone, 2);
 			recipe.AddTile(TileID.Sawmill);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Obsidian Bed
 			Recipe recipe = Recipe.Create(ItemID.ObsidianBed);
@@ -176,7 +176,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 			recipe.AddIngredient(ItemID.Hellstone, 2);
 			recipe.AddIngredient(ItemID.Silk, 5);
 			recipe.AddTile(TileID.Sawmill);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Obsidian Bookcase
 			Recipe recipe = Recipe.Create(ItemID.ObsidianBookcase);
@@ -184,35 +184,35 @@ public sealed class RenewabilityRecipes : ModSystem {
 			recipe.AddIngredient(ItemID.Hellstone, 2);
 			recipe.AddIngredient(ItemID.Book, 10);
 			recipe.AddTile(TileID.Sawmill);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Obsidian Dresser
 			Recipe recipe = Recipe.Create(ItemID.ObsidianDresser);
 			recipe.AddIngredient(ItemID.Obsidian, 14);
 			recipe.AddIngredient(ItemID.Hellstone, 2);
 			recipe.AddTile(TileID.Sawmill);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Obsidian Candelabra
 			Recipe recipe = Recipe.Create(ItemID.ObsidianCandelabra);
 			recipe.AddIngredient(ItemID.Obsidian, 5);
 			recipe.AddIngredient(ItemID.DemonTorch, 3);
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Obsidian Candle
 			Recipe recipe = Recipe.Create(ItemID.ObsidianCandle);
 			recipe.AddIngredient(ItemID.Obsidian, 4);
 			recipe.AddIngredient(ItemID.DemonTorch);
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Obsidian Chair
 			Recipe recipe = Recipe.Create(ItemID.ObsidianChair);
 			recipe.AddIngredient(ItemID.Obsidian, 2);
 			recipe.AddIngredient(ItemID.Hellstone, 2);
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Obsidian Chanedlier
 			Recipe recipe = Recipe.Create(ItemID.ObsidianChandelier);
@@ -220,9 +220,9 @@ public sealed class RenewabilityRecipes : ModSystem {
 			recipe.AddIngredient(ItemID.DemonTorch, 4);
 			recipe.AddIngredient(ItemID.Chain);
 			recipe.AddTile(TileID.Anvils);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
-		registerer.SortAfterLastRecipeOf(ItemID.ObsidianChest);
+		registrar.SortAfterLastRecipeOf(ItemID.ObsidianChest);
 		{ // Obsidian Clock
 			Recipe recipe = Recipe.Create(ItemID.ObsidianClock);
 			recipe.AddRecipeGroup(RecipeGroupID.IronBar, 3);
@@ -230,28 +230,28 @@ public sealed class RenewabilityRecipes : ModSystem {
 			recipe.AddIngredient(ItemID.Obsidian, 8);
 			recipe.AddIngredient(ItemID.Hellstone, 2);
 			recipe.AddTile(TileID.Sawmill);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Obsidian Door
 			Recipe recipe = Recipe.Create(ItemID.ObsidianDoor);
 			recipe.AddIngredient(ItemID.Obsidian, 4);
 			recipe.AddIngredient(ItemID.Hellstone, 2);
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Obsidian Lamp
 			Recipe recipe = Recipe.Create(ItemID.ObsidianLamp);
 			recipe.AddIngredient(ItemID.DemonTorch);
 			recipe.AddIngredient(ItemID.Obsidian, 4);
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Obsidian Lantern
 			Recipe recipe = Recipe.Create(ItemID.ObsidianLantern);
 			recipe.AddIngredient(ItemID.Obsidian, 6);
 			recipe.AddIngredient(ItemID.DemonTorch);
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Obsidian Piano
 			Recipe recipe = Recipe.Create(ItemID.ObsidianPiano);
@@ -260,37 +260,37 @@ public sealed class RenewabilityRecipes : ModSystem {
 			recipe.AddIngredient(ItemID.Hellstone, 2);
 			recipe.AddIngredient(ItemID.Book);
 			recipe.AddTile(TileID.Sawmill);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
-		registerer.SortAfterLastRecipeOf(ItemID.ObsidianSink);
+		registrar.SortAfterLastRecipeOf(ItemID.ObsidianSink);
 		{ // Obsidian Sofa
 			Recipe recipe = Recipe.Create(ItemID.ObsidianSofa);
 			recipe.AddIngredient(ItemID.Obsidian, 3);
 			recipe.AddIngredient(ItemID.Hellstone, 2);
 			recipe.AddIngredient(ItemID.Silk, 2);
 			recipe.AddTile(TileID.Sawmill);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Obsidian Table
 			Recipe recipe = Recipe.Create(ItemID.ObsidianTable);
 			recipe.AddIngredient(ItemID.Obsidian, 6);
 			recipe.AddIngredient(ItemID.Hellstone, 2);
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
-		registerer.SortAfterLastRecipeOf(ItemID.ToiletObsidian);
+		registrar.SortAfterLastRecipeOf(ItemID.ToiletObsidian);
 		{ // Obsidian Work Bench
 			Recipe recipe = Recipe.Create(ItemID.ObsidianWorkBench);
 			recipe.AddIngredient(ItemID.Obsidian, 8);
 			recipe.AddIngredient(ItemID.Hellstone, 2);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		if (ModuleConf.enableVaseRecipes) { // Obsidian Vase
 			Recipe recipe = Recipe.Create(ItemID.ObsidianVase);
 			recipe.AddIngredient(ItemID.Obsidian, 10);
 			recipe.AddIngredient(ItemID.Hellstone, 2);
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 	}
 
@@ -372,47 +372,47 @@ public sealed class RenewabilityRecipes : ModSystem {
 	}
 
 	static void AddDungeonFurnitureSetRecipes(int brick, int sortBeforeItemId, int[] furnitureItems) {
-		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingBefore(sortBeforeItemId);
+		RecipeOrderedRegistrar registrar = RecipeOrderedRegistrar.StartingBefore(sortBeforeItemId);
 		int i = 0;
 		{ // Bathtub
 			Recipe recipe = Recipe.Create(furnitureItems[i++]);
 			recipe.AddIngredient(brick, 14);
 			recipe.AddTile(TileID.Sawmill);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Bed
 			Recipe recipe = Recipe.Create(furnitureItems[i++]);
 			recipe.AddIngredient(brick, 15);
 			recipe.AddIngredient(ItemID.Silk, 5);
 			recipe.AddTile(TileID.Sawmill);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Bookcase
 			Recipe recipe = Recipe.Create(furnitureItems[i++]);
 			recipe.AddIngredient(brick, 20);
 			recipe.AddIngredient(ItemID.Book, 10);
 			recipe.AddTile(TileID.Sawmill);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Candelabra
 			Recipe recipe = Recipe.Create(furnitureItems[i++]);
 			recipe.AddIngredient(brick, 5);
 			recipe.AddIngredient(ItemID.BoneTorch, 3);
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Candle
 			Recipe recipe = Recipe.Create(furnitureItems[i++]);
 			recipe.AddIngredient(brick, 4);
 			recipe.AddIngredient(ItemID.BoneTorch);
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Chair
 			Recipe recipe = Recipe.Create(furnitureItems[i++]);
 			recipe.AddIngredient(brick, 4);
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Chandelier
 			Recipe recipe = Recipe.Create(furnitureItems[i++]);
@@ -420,36 +420,36 @@ public sealed class RenewabilityRecipes : ModSystem {
 			recipe.AddIngredient(ItemID.BoneTorch, 4);
 			recipe.AddIngredient(ItemID.Chain);
 			recipe.AddTile(TileID.Anvils);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		// Skip: Chest
-		registerer.SortAfterLastRecipeOf(furnitureItems[i++]);
+		registrar.SortAfterLastRecipeOf(furnitureItems[i++]);
 		{ // Clock
 			Recipe recipe = Recipe.Create(furnitureItems[i++]);
 			recipe.AddRecipeGroup(RecipeGroupID.IronBar, 3);
 			recipe.AddIngredient(ItemID.Glass, 6);
 			recipe.AddIngredient(brick, 10);
 			recipe.AddTile(TileID.Sawmill);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Door
 			Recipe recipe = Recipe.Create(furnitureItems[i++]);
 			recipe.AddIngredient(brick, 6);
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Dresser
 			Recipe recipe = Recipe.Create(furnitureItems[i++]);
 			recipe.AddIngredient(brick, 16);
 			recipe.AddTile(TileID.Sawmill);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Lamp
 			Recipe recipe = Recipe.Create(furnitureItems[i++]);
 			recipe.AddIngredient(ItemID.BoneTorch);
 			recipe.AddIngredient(brick, 3);
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Piano
 			Recipe recipe = Recipe.Create(furnitureItems[i++]);
@@ -457,89 +457,89 @@ public sealed class RenewabilityRecipes : ModSystem {
 			recipe.AddIngredient(brick, 15);
 			recipe.AddIngredient(ItemID.Book);
 			recipe.AddTile(TileID.Sawmill);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		// Skip: Sink
-		registerer.SortAfterLastRecipeOf(furnitureItems[i++]);
+		registrar.SortAfterLastRecipeOf(furnitureItems[i++]);
 		{ // Sofa
 			Recipe recipe = Recipe.Create(furnitureItems[i++]);
 			recipe.AddIngredient(brick, 5);
 			recipe.AddIngredient(ItemID.Silk, 2);
 			recipe.AddTile(TileID.Sawmill);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Table
 			Recipe recipe = Recipe.Create(furnitureItems[i++]);
 			recipe.AddIngredient(brick, 8);
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		// Skip: Toilet
-		registerer.SortAfterLastRecipeOf(furnitureItems[i++]);
+		registrar.SortAfterLastRecipeOf(furnitureItems[i++]);
 		if (ModuleConf.enableVaseRecipes) { // Vase
 			Recipe recipe = Recipe.Create(furnitureItems[i++]);
 			recipe.AddIngredient(brick, 12);
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		} else {i++;}
 		{ // Work Bench
 			Recipe recipe = Recipe.Create(furnitureItems[i++]);
 			recipe.AddIngredient(brick, 10);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 	}
 
 	static void AddDungeonMiscFurnitureRecipes() {
 		if (!ModuleConf.enableDungeonItemRenewability) {return;}
-		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingBefore(ItemID.PinkDungeonBathtub);
+		RecipeOrderedRegistrar registrar = RecipeOrderedRegistrar.StartingBefore(ItemID.PinkDungeonBathtub);
 		{ // Dungeon Door
 			Recipe recipe = Recipe.Create(ItemID.DungeonDoor);
 			recipe.AddRecipeGroup(RecipeGroupID.Wood, 6);
 			recipe.AddRecipeGroup(RecipeGroupID.IronBar, 1);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 		{ // Chain Lantern
 			Recipe recipe = Recipe.Create(ItemID.ChainLantern);
 			recipe.AddIngredient(ItemID.Chain, 6);
 			recipe.AddIngredient(ItemID.Torch);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 		{ // Brass Lantern
 			Recipe recipe = Recipe.Create(ItemID.BrassLantern);
 			recipe.AddIngredient(ItemID.CopperBrick, 6);
 			recipe.AddIngredient(ItemID.Torch);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 		{ // Caged Lantern
 			Recipe recipe = Recipe.Create(ItemID.CagedLantern);
 			recipe.AddIngredient(ItemID.TinBrick, 6);
 			recipe.AddIngredient(ItemID.Torch);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 		{ // Carriage Lantern
 			Recipe recipe = Recipe.Create(ItemID.CarriageLantern);
 			recipe.AddIngredient(ItemID.LeadBrick, 6);
 			recipe.AddIngredient(ItemID.Torch);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 		{ // Alchemy Lantern
 			Recipe recipe = Recipe.Create(ItemID.AlchemyLantern);
 			recipe.AddIngredient(ItemID.Glass, 6);
 			recipe.AddIngredient(ItemID.ShinePotion);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 		{ // Diabolist Lamp
 			Recipe recipe = Recipe.Create(ItemID.DiablostLamp);
 			recipe.AddIngredient(ItemID.Silk, 3);
 			recipe.AddIngredient(ItemID.Torch);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 		{ // Oil Rag Sconce
 			Recipe recipe = Recipe.Create(ItemID.OilRagSconse);
@@ -547,37 +547,37 @@ public sealed class RenewabilityRecipes : ModSystem {
 			recipe.AddIngredient(ItemID.Silk);
 			recipe.AddIngredient(ItemID.Torch);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 	}
 
 	static void AddGothicFurnitureRecipes() {
 		if (!ModuleConf.enableDungeonItemRenewability) {return;}
-		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.GreenDungeonWorkBench);
+		RecipeOrderedRegistrar registrar = RecipeOrderedRegistrar.StartingAfter(ItemID.GreenDungeonWorkBench);
 		{ // Gothic Bookcase
 			Recipe recipe = Recipe.Create(ItemID.GothicBookcase);
 			recipe.AddRecipeGroup(RecipeGroups.DungeonBrickRecipeGroup, 20);
 			recipe.AddIngredient(ItemID.Book, 10);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 		{ // Gothic Chair
 			Recipe recipe = Recipe.Create(ItemID.GothicChair);
 			recipe.AddRecipeGroup(RecipeGroups.DungeonBrickRecipeGroup, 4);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 		{ // Gothic Table
 			Recipe recipe = Recipe.Create(ItemID.GothicTable);
 			recipe.AddRecipeGroup(RecipeGroups.DungeonBrickRecipeGroup, 8);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 		{ // Gothic Work Bench
 			Recipe recipe = Recipe.Create(ItemID.GothicWorkBench);
 			recipe.AddRecipeGroup(RecipeGroups.DungeonBrickRecipeGroup, 10);
 			recipe.AddTile(TileID.BoneWelder).AddCondition(Condition.InGraveyard);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 	}
 
@@ -592,27 +592,27 @@ public sealed class RenewabilityRecipes : ModSystem {
 
 	static void AddStatueRecipes() {
 		if (!ModuleConf.enableStatueRenewability) {return;}
-		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.ArmorStatue);
-		AddDecorativeStatueRecipes(registerer);
-		AddStandardStatueRecipe(registerer, ItemID.MushroomStatue, (recipe) => {
+		RecipeOrderedRegistrar registrar = RecipeOrderedRegistrar.StartingAfter(ItemID.ArmorStatue);
+		AddDecorativeStatueRecipes(registrar);
+		AddStandardStatueRecipe(registrar, ItemID.MushroomStatue, (recipe) => {
 			recipe.AddIngredient(ItemID.GlowingMushroom, 30);
 		});
-		AddLihzahrdDecorativeStatueRecipes(registerer);
-		registerer.SortBeforeFirstRecipeOf(ItemID.FishStatue);
-		AddEnemyStatueRecipes(registerer);
-		registerer.SortAfterLastRecipeOf(ItemID.CockatielStatue);
-		AddDropStatueRecipes(registerer);
+		AddLihzahrdDecorativeStatueRecipes(registrar);
+		registrar.SortBeforeFirstRecipeOf(ItemID.FishStatue);
+		AddEnemyStatueRecipes(registrar);
+		registrar.SortAfterLastRecipeOf(ItemID.CockatielStatue);
+		AddDropStatueRecipes(registrar);
 	}
 
-	static void AddStandardStatueRecipe(RecipeOrderedRegisterer registerer, int statue, Action<Recipe> addSpecialIngredients) {
+	static void AddStandardStatueRecipe(RecipeOrderedRegistrar registrar, int statue, Action<Recipe> addSpecialIngredients) {
 		Recipe recipe = Recipe.Create(statue);
 		recipe.AddIngredient(ItemID.StoneBlock, 50);
 		addSpecialIngredients(recipe);
 		recipe.AddTile(TileID.HeavyWorkBench).AddCondition(Condition.InGraveyard);
-		recipe.AddCustomShimmerResult(ItemID.StoneBlock, 50).RegisterUsing(registerer);
+		recipe.AddCustomShimmerResult(ItemID.StoneBlock, 50).RegisterUsing(registrar);
 	}
 
-	static void AddDecorativeStatueRecipes(RecipeOrderedRegisterer registerer) {
+	static void AddDecorativeStatueRecipes(RecipeOrderedRegistrar registrar) {
 		foreach (int statue in new int[] {
 			ItemID.AnvilStatue,
 			ItemID.AxeStatue,
@@ -638,11 +638,11 @@ public sealed class RenewabilityRecipes : ModSystem {
 			Recipe recipe = Recipe.Create(statue);
 			recipe.AddIngredient(ItemID.StoneBlock, 50);
 			recipe.AddTile(TileID.HeavyWorkBench).AddCondition(Condition.InGraveyard);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 	}
 
-	static void AddLihzahrdDecorativeStatueRecipes(RecipeOrderedRegisterer registerer) {
+	static void AddLihzahrdDecorativeStatueRecipes(RecipeOrderedRegistrar registrar) {
 		foreach (int statue in new int[] {
 			ItemID.LihzahrdStatue,
 			ItemID.LihzahrdGuardianStatue,
@@ -651,11 +651,11 @@ public sealed class RenewabilityRecipes : ModSystem {
 			Recipe recipe = Recipe.Create(statue);
 			recipe.AddIngredient(ItemID.LihzahrdBrick, 50);
 			recipe.AddTile(TileID.LihzahrdFurnace).AddCondition(Condition.InGraveyard);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 	}
 
-	static void AddEnemyStatueRecipes(RecipeOrderedRegisterer registerer) {
+	static void AddEnemyStatueRecipes(RecipeOrderedRegistrar registrar) {
 		foreach (KeyValuePair<int, int> pair in new KeyValuePair<int, int>[] {
 			new(ItemID.ZombieArmStatue, ItemID.ZombieBanner),
 			new(ItemID.BatStatue, ItemID.BatBanner),
@@ -685,20 +685,20 @@ public sealed class RenewabilityRecipes : ModSystem {
 			new(ItemID.WraithStatue, ItemID.WraithBanner),
 		}) {
 			int statue = pair.Key, banner = pair.Value;
-			AddStandardStatueRecipe(registerer, statue, (recipe) => {
+			AddStandardStatueRecipe(registrar, statue, (recipe) => {
 				recipe.AddIngredient(banner);
 			});
 		}
 	}
 
-	static void AddDropStatueRecipes(RecipeOrderedRegisterer registerer) {
-		AddStandardStatueRecipe(registerer, ItemID.HeartStatue, (recipe) => {
+	static void AddDropStatueRecipes(RecipeOrderedRegistrar registrar) {
+		AddStandardStatueRecipe(registrar, ItemID.HeartStatue, (recipe) => {
 			recipe.AddIngredient(ItemID.LifeCrystal, 5);
 		});
-		AddStandardStatueRecipe(registerer, ItemID.StarStatue, (recipe) => {
+		AddStandardStatueRecipe(registrar, ItemID.StarStatue, (recipe) => {
 			recipe.AddIngredient(ItemID.ManaCrystal, 5);
 		});
-		AddStandardStatueRecipe(registerer, ItemID.BombStatue, (recipe) => {
+		AddStandardStatueRecipe(registrar, ItemID.BombStatue, (recipe) => {
 			recipe.AddIngredient(ItemID.Bomb, 5);
 		});
 	}

@@ -21,21 +21,21 @@ public sealed class ShellphonePlusDummy : AbstractShellphonePlus {
 
 	public override void AddRecipes() {
 		if (!ModuleConf.enableReturnTools) {return;}
-		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.ShellphoneDummy);
+		RecipeOrderedRegistrar registrar = RecipeOrderedRegistrar.StartingAfter(ItemID.ShellphoneDummy);
 		{
 			Recipe recipe = this.CreateRecipe();
 			recipe.AddIngredient<CellPhonePlus>();
 			recipe.AddIngredient(ItemID.MagicConch);
 			recipe.AddIngredient(ItemID.DemonConch);
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{
 			Recipe recipe = this.CreateRecipe();
 			recipe.AddRecipeGroup(RecipeGroups.ShellphoneRecipeGroup);
 			recipe.AddIngredient<ReturnMirror>();
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 	}
 

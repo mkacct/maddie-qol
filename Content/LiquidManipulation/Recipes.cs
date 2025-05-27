@@ -14,62 +14,62 @@ public sealed class LiquidManipulationRecipes : ModSystem {
 
 	static void AddSourceAndDrainRecipes() {
 		if (!ModuleConf.enableLiquidSourcesAndDrains) {return;}
-		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.OutletPump);
+		RecipeOrderedRegistrar registrar = RecipeOrderedRegistrar.StartingAfter(ItemID.OutletPump);
 		{ // Endless Water Source
 			Recipe recipe = Recipe.Create(ModContent.ItemType<WaterSource>());
 			recipe.AddIngredient(ItemID.OutletPump);
 			recipe.AddIngredient(ItemID.BottomlessBucket);
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Endless Lava Source
 			Recipe recipe = Recipe.Create(ModContent.ItemType<LavaSource>());
 			recipe.AddIngredient(ItemID.OutletPump);
 			recipe.AddIngredient(ItemID.BottomlessLavaBucket);
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Endless Honey Source
 			Recipe recipe = Recipe.Create(ModContent.ItemType<HoneySource>());
 			recipe.AddIngredient(ItemID.OutletPump);
 			recipe.AddIngredient(ItemID.BottomlessHoneyBucket);
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Endless Shimmer Source
 			Recipe recipe = Recipe.Create(ModContent.ItemType<ShimmerSource>());
 			recipe.AddIngredient(ItemID.OutletPump);
 			recipe.AddIngredient(ItemID.BottomlessShimmerBucket);
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Endless Water Drain
 			Recipe recipe = Recipe.Create(ModContent.ItemType<WaterDrain>());
 			recipe.AddIngredient(ItemID.InletPump);
 			recipe.AddIngredient(ItemID.SuperAbsorbantSponge);
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Endless Lava Drain
 			Recipe recipe = Recipe.Create(ModContent.ItemType<LavaDrain>());
 			recipe.AddIngredient(ItemID.InletPump);
 			recipe.AddIngredient(ItemID.LavaAbsorbantSponge);
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Endless Honey Drain
 			Recipe recipe = Recipe.Create(ModContent.ItemType<HoneyDrain>());
 			recipe.AddIngredient(ItemID.InletPump);
 			recipe.AddIngredient(ItemID.HoneyAbsorbantSponge);
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Universal Endless Drain
 			Recipe recipe = Recipe.Create(ModContent.ItemType<UniversalDrain>());
 			recipe.AddIngredient(ItemID.InletPump);
 			recipe.AddIngredient(ItemID.UltraAbsorbantSponge);
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{ // Universal Endless Drain
 			Recipe recipe = Recipe.Create(ModContent.ItemType<UniversalDrain>());
@@ -77,7 +77,7 @@ public sealed class LiquidManipulationRecipes : ModSystem {
 			recipe.AddIngredient<LavaDrain>();
 			recipe.AddIngredient<HoneyDrain>();
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 	}
 }

@@ -17,8 +17,8 @@ public static class RecipeExtensions {
 		return recipe;
 	}
 
-	public static Recipe RegisterUsing(this Recipe recipe, RecipeOrderedRegisterer registerer) {
-		registerer.InternalRegisterRecipe(recipe);
+	public static Recipe RegisterUsing(this Recipe recipe, RecipeOrderedRegistrar registrar) {
+		registrar.InternalRegisterRecipe(recipe);
 		return recipe;
 	}
 
@@ -27,21 +27,21 @@ public static class RecipeExtensions {
 	}
 }
 
-public class RecipeOrderedRegisterer {
+public class RecipeOrderedRegistrar {
 	int lastItemId = -1;
 	bool isBefore = false;
 	Recipe lastRecipe = null;
 
-	public static RecipeOrderedRegisterer StartingBefore(int itemId) {
-		RecipeOrderedRegisterer registerer = new();
-		registerer.SortBeforeFirstRecipeOf(itemId);
-		return registerer;
+	public static RecipeOrderedRegistrar StartingBefore(int itemId) {
+		RecipeOrderedRegistrar registrar = new();
+		registrar.SortBeforeFirstRecipeOf(itemId);
+		return registrar;
 	}
 
-	public static RecipeOrderedRegisterer StartingAfter(int itemId) {
-		RecipeOrderedRegisterer registerer = new();
-		registerer.SortAfterLastRecipeOf(itemId);
-		return registerer;
+	public static RecipeOrderedRegistrar StartingAfter(int itemId) {
+		RecipeOrderedRegistrar registrar = new();
+		registrar.SortAfterLastRecipeOf(itemId);
+		return registrar;
 	}
 
 	public void SortBeforeFirstRecipeOf(int itemId) {

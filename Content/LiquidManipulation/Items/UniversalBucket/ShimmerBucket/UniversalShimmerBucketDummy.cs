@@ -8,7 +8,7 @@ namespace MaddieQoL.Content.LiquidManipulation.Items.UniversalBucket.ShimmerBuck
 
 public sealed class UniversalShimmerBucketDummy : AbstractUniversalShimmerBucket {
 	public override void AddRecipes() {
-		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.BottomlessShimmerBucket);
+		RecipeOrderedRegistrar registrar = RecipeOrderedRegistrar.StartingAfter(ItemID.BottomlessShimmerBucket);
 		{
 			Recipe recipe = this.CreateRecipe();
 			recipe.AddIngredient(ItemID.BottomlessBucket);
@@ -16,14 +16,14 @@ public sealed class UniversalShimmerBucketDummy : AbstractUniversalShimmerBucket
 			recipe.AddIngredient(ItemID.BottomlessHoneyBucket);
 			recipe.AddIngredient(ItemID.BottomlessShimmerBucket);
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 		{
 			Recipe recipe = this.CreateRecipe();
 			recipe.AddRecipeGroup(RecipeGroups.UniversalBucketRecipeGroup);
 			recipe.AddIngredient(ItemID.BottomlessShimmerBucket);
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 	}
 

@@ -29,18 +29,18 @@ public sealed class RenewabilityTeamBlocks : GlobalItem {
 	}
 
 	public override void AddRecipes() {
-		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingBefore(ItemID.WoodShelf);
+		RecipeOrderedRegistrar registrar = RecipeOrderedRegistrar.StartingBefore(ItemID.WoodShelf);
 		foreach (KeyValuePair<int, int> pair in BlocksToPlatforms) {
 			int block = pair.Key, platform = pair.Value;
 			{
 				Recipe recipe = Recipe.Create(platform, 2);
 				recipe.AddIngredient(block);
-				recipe.RegisterUsing(registerer);
+				recipe.RegisterUsing(registrar);
 			}
 			{
 				Recipe recipe = Recipe.Create(block);
 				recipe.AddIngredient(platform, 2);
-				recipe.DisableDecraft().RegisterUsing(registerer);
+				recipe.DisableDecraft().RegisterUsing(registrar);
 			}
 		}
 	}

@@ -34,16 +34,16 @@ public sealed class MiscRecipes : ModSystem {
 	}
 
 	static void AddConveyerBeltRecipes() {
-		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingBefore(ItemID.LogicSensor_Water);
+		RecipeOrderedRegistrar registrar = RecipeOrderedRegistrar.StartingBefore(ItemID.LogicSensor_Water);
 		{
 			Recipe recipe = Recipe.Create(ItemID.ConveyorBeltRight);
 			recipe.AddIngredient(ItemID.ConveyorBeltLeft);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 		{
 			Recipe recipe = Recipe.Create(ItemID.ConveyorBeltLeft);
 			recipe.AddIngredient(ItemID.ConveyorBeltRight);
-			recipe.DisableDecraft().RegisterUsing(registerer);
+			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 	}
 

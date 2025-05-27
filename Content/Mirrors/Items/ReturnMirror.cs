@@ -35,7 +35,7 @@ public sealed class ReturnMirror : ModItem {
 
 	public override void AddRecipes() {
 		if (!ModuleConf.enableReturnTools) {return;}
-		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.MagicMirror);
+		RecipeOrderedRegistrar registrar = RecipeOrderedRegistrar.StartingAfter(ItemID.MagicMirror);
 		int[] mirrors = [
 			ItemID.MagicMirror,
 			ItemID.IceMirror
@@ -48,7 +48,7 @@ public sealed class ReturnMirror : ModItem {
 			recipe.AddIngredient(ItemID.SoulofNight, 8);
 			recipe.AddIngredient(ItemID.SoulofSight, 15);
 			recipe.AddTile(TileID.AdamantiteForge);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 	}
 }

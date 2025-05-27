@@ -45,7 +45,7 @@ public sealed class CellPhonePlus : ModItem {
 
 	public override void AddRecipes() {
 		if (!ModuleConf.enableReturnTools) {return;}
-		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.CellPhone);
+		RecipeOrderedRegistrar registrar = RecipeOrderedRegistrar.StartingAfter(ItemID.CellPhone);
 		int[] devices = [
 			ItemID.PDA,
 			ItemID.CellPhone
@@ -55,7 +55,7 @@ public sealed class CellPhonePlus : ModItem {
 			recipe.AddIngredient(device);
 			recipe.AddIngredient<ReturnMirror>();
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.RegisterUsing(registerer);
+			recipe.RegisterUsing(registrar);
 		}
 	}
 }
