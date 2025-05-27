@@ -33,7 +33,7 @@ public abstract class AbstractSolutionItem : ModItem {
 public abstract class AbstractSolutionProjectile : ModProjectile {
 	protected abstract int SprayDustID {get;}
 
-	private ref float Progress => ref Projectile.ai[0];
+	ref float Progress => ref Projectile.ai[0];
 
 	public override void SetDefaults() {
 		this.Projectile.DefaultToSpray();
@@ -78,7 +78,7 @@ public abstract class AbstractSolutionProjectile : ModProjectile {
 		this.Projectile.rotation += 0.3f * this.Projectile.direction;
 	}
 
-	private void Convert(int i, int j, int size = 4) {
+	void Convert(int i, int j, int size = 4) {
 		for (int k = i - size; k <= i + size; k++) {
 			for (int l = j - size; l <= j + size; l++) {
 				if (WorldGen.InWorld(k, l, 1) && Math.Abs(k - i) + Math.Abs(l - j) < Math.Sqrt((size * size) + (size * size))) {
@@ -97,7 +97,7 @@ public abstract class AbstractSolutionProjectile : ModProjectile {
 		this.TryConvertTileLayer(x, y);
 	}
 
-	private void TryConvertTileLayer(int x, int y) {
+	void TryConvertTileLayer(int x, int y) {
 		Tile tile = Framing.GetTileSafely(x, y);
 		if (!tile.HasTile) {return;}
 		TileConversion? tileConversion = this.GetResultTile(tile.TileType, y);
@@ -116,7 +116,7 @@ public abstract class AbstractSolutionProjectile : ModProjectile {
 		}
 	}
 
-	private void TryConvertWallLayer(int x, int y) {
+	void TryConvertWallLayer(int x, int y) {
 		Tile tile = Framing.GetTileSafely(x, y);
 		if (tile.WallType == WallID.None) {return;}
 		WallConversion? wallConversion = this.GetResultWall(tile.WallType, y);

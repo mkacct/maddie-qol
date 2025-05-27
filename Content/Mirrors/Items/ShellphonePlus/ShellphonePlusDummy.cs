@@ -10,7 +10,7 @@ using MaddieQoL.Common;
 namespace MaddieQoL.Content.Mirrors.Items.ShellphonePlus;
 
 public sealed class ShellphonePlusDummy : AbstractShellphonePlus {
-	private static LocalizedText TooltipWhenEnabled {get; set;}
+	static LocalizedText TooltipWhenEnabled {get; set;}
 
 	public override LocalizedText Tooltip => ModuleConf.enableReturnTools ? TooltipWhenEnabled : base.Tooltip;
 

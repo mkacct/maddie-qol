@@ -11,13 +11,13 @@ using Terraria.Localization;
 namespace MaddieQoL.Content.Renewability;
 
 public sealed class RenewabilityChestLockOverrider : GlobalItem {
-	private const int DoorHeightTiles = 3, DoorTilesheetCellSize = 18;
-	private const int LihzahrdDoorClosedLockedSubId = 11, LihzahrdDoorClosedUnlockedSubId = 12;
+	const int DoorHeightTiles = 3, DoorTilesheetCellSize = 18;
+	const int LihzahrdDoorClosedLockedSubId = 11, LihzahrdDoorClosedUnlockedSubId = 12;
 
-	private static int LihzahrdDoorClosedLockedFrameY => LihzahrdDoorClosedLockedSubId * DoorHeightTiles * DoorTilesheetCellSize;
-	private static int LihzahrdDoorClosedUnlockedFrameY => LihzahrdDoorClosedUnlockedSubId * DoorHeightTiles * DoorTilesheetCellSize;
+	static int LihzahrdDoorClosedLockedFrameY => LihzahrdDoorClosedLockedSubId * DoorHeightTiles * DoorTilesheetCellSize;
+	static int LihzahrdDoorClosedUnlockedFrameY => LihzahrdDoorClosedUnlockedSubId * DoorHeightTiles * DoorTilesheetCellSize;
 
-	private static LocalizedText ChestLockAddlTooltip {get; set;}
+	static LocalizedText ChestLockAddlTooltip {get; set;}
 
 	public override void SetStaticDefaults() {
 		ChestLockAddlTooltip = this.Mod.GetLocalization($"{LangMisc}.{nameof(ChestLockAddlTooltip)}");
@@ -32,7 +32,7 @@ public sealed class RenewabilityChestLockOverrider : GlobalItem {
 		};
 	}
 
-	private static void TryUseLockOnDoor(Player player) {
+	static void TryUseLockOnDoor(Player player) {
 		Item item = player.inventory[player.selectedItem];
 		if (!((item.type == ItemID.ChestLock) && (item.stack > 0))) {return;}
 		if (!(player.IsTargetTileInItemRange(item) && player.ItemTimeIsZero && player.ItemAnimationActive && player.controlUseItem)) {return;}
@@ -44,7 +44,7 @@ public sealed class RenewabilityChestLockOverrider : GlobalItem {
 		}
 	}
 
-	private static bool LockDoor(int x, int y) {
+	static bool LockDoor(int x, int y) {
 		Tile targetTile = Framing.GetTileSafely(x, y);
 		if (!TileIsClosedDoor(targetTile)) {return false;}
 		if (TileObjectData.GetTileStyle(targetTile) != LihzahrdDoorClosedUnlockedSubId) {return false;}
@@ -63,11 +63,11 @@ public sealed class RenewabilityChestLockOverrider : GlobalItem {
 		return true;
 	}
 
-	private static bool TileIsClosedDoor(Tile tile) {
+	static bool TileIsClosedDoor(Tile tile) {
 		return tile.HasTile && (tile.TileType == TileID.ClosedDoor);
 	}
 
-	private static void ConsumeOneOfItem(Player player) {
+	static void ConsumeOneOfItem(Player player) {
 		player.inventory[player.selectedItem].stack--;
 		if (player.inventory[player.selectedItem].stack <= 0) {
 			player.inventory[player.selectedItem] = new Item();

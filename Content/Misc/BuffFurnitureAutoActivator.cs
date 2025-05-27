@@ -10,16 +10,16 @@ using System;
 namespace MaddieQoL.Content.Misc;
 
 public sealed class BuffFurnitureAutoActivator : ModSystem {
-	private const int BuffTimeInfinite = 108000;
+	const int BuffTimeInfinite = 108000;
 
-	private readonly record struct TileBuffData(
+	readonly record struct TileBuffData(
 		ushort TileID,
 		int BuffID,
 		SoundStyle SoundStyle,
 		Func<BuffFurnitureAutoActivationPrefs, bool> CheckEnabled
 	);
 
-	private static readonly ISet<TileBuffData> FurnitureInfiniteBuffs = new HashSet<TileBuffData> {
+	static readonly ISet<TileBuffData> FurnitureInfiniteBuffs = new HashSet<TileBuffData> {
 		new(TileID.CrystalBall, BuffID.Clairvoyance, SoundID.Item4, (prefs) => prefs.enableForCrystalBall),
 		new(TileID.AmmoBox, BuffID.AmmoBox, SoundID.Item149, (prefs) => prefs.enableForAmmoBox),
 		new(TileID.BewitchingTable, BuffID.Bewitched, SoundID.Item4, (prefs) => prefs.enableForBewitchingTable),
@@ -27,7 +27,7 @@ public sealed class BuffFurnitureAutoActivator : ModSystem {
 		new(TileID.WarTable, BuffID.WarTable, SoundID.Item4, (prefs) => prefs.enableForWarTable),
 	}; // cake is limited duration, so it is omitted
 
-	private static void TryAddModFurniture(
+	static void TryAddModFurniture(
 		Mod mod,
 		string tileName,
 		string buffName,
@@ -55,7 +55,7 @@ public sealed class BuffFurnitureAutoActivator : ModSystem {
 		ClientCheckBuffFurniture(Main.LocalPlayer);
 	}
 
-	private static void ClientCheckBuffFurniture(Player player) {
+	static void ClientCheckBuffFurniture(Player player) {
 		if (!UserConf.buffFurnitureAutoActivationPrefs.masterEnable) {return;}
 		foreach (TileBuffData data in FurnitureInfiniteBuffs) {
 			if (!data.CheckEnabled(UserConf.buffFurnitureAutoActivationPrefs)) {continue;}
@@ -67,7 +67,7 @@ public sealed class BuffFurnitureAutoActivator : ModSystem {
 		}
 	}
 
-	private static void TryAddThoriumModContent() {
+	static void TryAddThoriumModContent() {
 		if (ModLoader.TryGetMod("ThoriumMod", out Mod thoriumMod)) {
 			TryAddModFurniture(thoriumMod, "Altar", "AltarBuff", SoundID.Item29, (prefs) => prefs.enableForAltar);
 			TryAddModFurniture(thoriumMod, "ConductorsStand", "ConductorsStandBuff", SoundID.Item29, (prefs) => prefs.enableForConductorsStand);

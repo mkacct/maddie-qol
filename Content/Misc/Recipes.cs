@@ -17,7 +17,7 @@ public sealed class MiscRecipes : ModSystem {
 		AddCopperArmorShimmerExceptions();
 	}
 
-	private static void AddDirtBlockRecipe() {
+	static void AddDirtBlockRecipe() {
 		if (!ModuleConf.enableDirtFromMud) {return;}
 		Recipe recipe = Recipe.Create(ItemID.DirtBlock);
 		recipe.AddIngredient(ItemID.MudBlock);
@@ -25,7 +25,7 @@ public sealed class MiscRecipes : ModSystem {
 		recipe.DisableDecraft().RegisterAfterLastRecipeOf(ItemID.MudBlock);
 	}
 
-	private static void AddPwnhammerRecipe() {
+	static void AddPwnhammerRecipe() {
 		if (!ModuleConf.enablePwnhammerRecipe) {return;}
 		Recipe recipe = Recipe.Create(ItemID.Pwnhammer);
 		recipe.AddIngredient(ItemID.HallowedBar, 18);
@@ -33,7 +33,7 @@ public sealed class MiscRecipes : ModSystem {
 		recipe.DisableDecraft().RegisterAfterLastRecipeOf(ItemID.PickaxeAxe);
 	}
 
-	private static void AddConveyerBeltRecipes() {
+	static void AddConveyerBeltRecipes() {
 		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingBefore(ItemID.LogicSensor_Water);
 		{
 			Recipe recipe = Recipe.Create(ItemID.ConveyorBeltRight);
@@ -47,7 +47,7 @@ public sealed class MiscRecipes : ModSystem {
 		}
 	}
 
-	private static void AddCopperArmorShimmerExceptions() {
+	static void AddCopperArmorShimmerExceptions() {
 		if (!ModuleConf.enableMerchantShopPerDialogue) {return;}
 		int[] copperArmors = [ItemID.CopperHelmet, ItemID.CopperChainmail, ItemID.CopperGreaves];
 		foreach (Recipe recipe in Main.recipe) {

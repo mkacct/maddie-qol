@@ -12,10 +12,10 @@ namespace MaddieQoL.Util;
 /// Create only one of these, and put it in a static property.
 /// </summary>
 public class PacketDispatcher {
-	private readonly Mod _mod;
+	readonly Mod _mod;
 
-	private readonly IDictionary<int, IPacketHandler> _packetIndicesToHandlers = new Dictionary<int, IPacketHandler>();
-	private readonly IDictionary<IPacketHandler, int> _packetHandlersToIndices = new Dictionary<IPacketHandler, int>();
+	readonly IDictionary<int, IPacketHandler> _packetIndicesToHandlers = new Dictionary<int, IPacketHandler>();
+	readonly IDictionary<IPacketHandler, int> _packetHandlersToIndices = new Dictionary<IPacketHandler, int>();
 
 	/// <summary>
 	/// Construct a new packet dispatcher.
@@ -79,7 +79,7 @@ public class PacketHandler<D>(
 	Action<D, int> serverHandler = null,
 	Action<D> clientHandler = null
 ) : IPacketHandler where D : IPacketData, new() {
-	private PacketDispatcher _dispatcher = null;
+	PacketDispatcher _dispatcher = null;
 
 	/// <summary>
 	/// Assign the dispatcher for this packet handler.

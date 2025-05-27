@@ -28,9 +28,9 @@ public static class RecipeExtensions {
 }
 
 public class RecipeOrderedRegisterer {
-	private int lastItemId = -1;
-	private bool isBefore = false;
-	private Recipe lastRecipe = null;
+	int lastItemId = -1;
+	bool isBefore = false;
+	Recipe lastRecipe = null;
 
 	public static RecipeOrderedRegisterer StartingBefore(int itemId) {
 		RecipeOrderedRegisterer registerer = new();

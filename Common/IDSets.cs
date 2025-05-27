@@ -36,7 +36,7 @@ public sealed class IDSets : ModSystem {
 		SuppressCampfireMaterialTooltips();
 	}
 
-	private static void SuppressCampfireMaterialTooltips() {
+	static void SuppressCampfireMaterialTooltips() {
 		foreach (int campfire in CampfireItemIDs) {
 			ItemID.Sets.IsAMaterial[campfire] = false;
 		}

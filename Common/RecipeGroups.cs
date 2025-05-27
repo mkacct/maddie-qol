@@ -13,11 +13,11 @@ public sealed class RecipeGroups : ModSystem {
 	public const string BiomeCampfireRecipeGroup = $"{nameof(MaddieQoL)}:BiomeCampfire";
 	public const string DungeonBrickRecipeGroup = nameof(ItemID.BlueBrick);
 
-	private static LocalizedText ShellphoneRecipeGroupName {get; set;}
-	private static LocalizedText UniversalBucketRecipeGroupName {get; set;}
-	private static LocalizedText BiomeTorchRecipeGroupName {get; set;}
-	private static LocalizedText BiomeCampfireRecipeGroupName {get; set;}
-	private static LocalizedText DungeonBrickRecipeGroupName {get; set;}
+	static LocalizedText ShellphoneRecipeGroupName {get; set;}
+	static LocalizedText UniversalBucketRecipeGroupName {get; set;}
+	static LocalizedText BiomeTorchRecipeGroupName {get; set;}
+	static LocalizedText BiomeCampfireRecipeGroupName {get; set;}
+	static LocalizedText DungeonBrickRecipeGroupName {get; set;}
 
 	public override void SetStaticDefaults() {
 		ShellphoneRecipeGroupName = this.Mod.GetLocalization($"{nameof(RecipeGroups)}.{nameof(ShellphoneRecipeGroupName)}");
@@ -35,12 +35,12 @@ public sealed class RecipeGroups : ModSystem {
 		RegisterRecipeGroup(DungeonBrickRecipeGroup, DungeonBrickRecipeGroupName, GetDungeonBrickRecipeGroupItems());
 	}
 
-	private static void RegisterRecipeGroup(string name, LocalizedText displayName, IList<int> validItems) {
+	static void RegisterRecipeGroup(string name, LocalizedText displayName, IList<int> validItems) {
 		RecipeGroup group = new(() => displayName.Value, [..validItems]);
 		RecipeGroup.RegisterGroup(name, group);
 	}
 
-	private static IList<int> GetShellphoneRecipeGroupItems() {
+	static IList<int> GetShellphoneRecipeGroupItems() {
 		return [
 			ItemID.ShellphoneDummy,
 			ItemID.Shellphone,
@@ -50,7 +50,7 @@ public sealed class RecipeGroups : ModSystem {
 		];
 	}
 
-	private static IList<int> GetUniversalBucketRecipeGroupItems() {
+	static IList<int> GetUniversalBucketRecipeGroupItems() {
 		return [
 			ModContent.ItemType<Content.LiquidManipulation.Items.UniversalBucket.UniversalBucketDummy>(),
 			ModContent.ItemType<Content.LiquidManipulation.Items.UniversalBucket.UniversalBucketWater>(),
@@ -59,7 +59,7 @@ public sealed class RecipeGroups : ModSystem {
 		];
 	}
 
-	private static IList<int> GetBiomeTorchRecipeGroupItems() {
+	static IList<int> GetBiomeTorchRecipeGroupItems() {
 		List<int> items = [
 			ItemID.ShimmerTorch,
 			ItemID.DemonTorch,
@@ -78,7 +78,7 @@ public sealed class RecipeGroups : ModSystem {
 		return items;
 	}
 
-	private static IList<int> GetBiomeCampfireRecipeGroupItems() {
+	static IList<int> GetBiomeCampfireRecipeGroupItems() {
 		List<int> items = [
 			ItemID.ShimmerCampfire,
 			ItemID.DemonCampfire,
@@ -97,7 +97,7 @@ public sealed class RecipeGroups : ModSystem {
 		return items;
 	}
 
-	private static IList<int> GetDungeonBrickRecipeGroupItems() {
+	static IList<int> GetDungeonBrickRecipeGroupItems() {
 		return [
 			ItemID.BlueBrick,
 			ItemID.GreenBrick,
@@ -105,7 +105,7 @@ public sealed class RecipeGroups : ModSystem {
 		];
 	}
 
-	private static void TryAddModItemToList(IList<int> list, Mod mod, string itemName) {
+	static void TryAddModItemToList(IList<int> list, Mod mod, string itemName) {
 		if (mod.TryFind(itemName, out ModItem item)) {
 			list.Add(item.Type);
 		}

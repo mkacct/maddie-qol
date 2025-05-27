@@ -54,7 +54,7 @@ public sealed class Button : ModTile {
 		};
 	}
 
-	private static bool OverrideHitSwitch(int i, int j) {
+	static bool OverrideHitSwitch(int i, int j) {
 		if (!WorldGen.InWorld(i, j) || Main.tile[i, j] == null) {return false;}
 		if (Main.tile[i, j].TileType == ModContent.TileType<Button>()) {
 			SoundEngine.PlaySound(SoundID.Mech, new Vector2(i*16, j*16));

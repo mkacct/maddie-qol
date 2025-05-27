@@ -17,13 +17,13 @@ public sealed class MiscShops : GlobalNPC {
 		}
 	}
 
-	private static void ModifyMerchantShop(NPCShop shop) {
+	static void ModifyMerchantShop(NPCShop shop) {
 		if (ModuleConf.enableCurfewBell) {
 			shop.Add<Items.CurfewBell>(Conditions.InTown);
 		}
 	}
 
-	private static void ModifyMechanicShop(NPCShop shop) {
+	static void ModifyMechanicShop(NPCShop shop) {
 		shop.InsertAfter(ItemID.Switch, ModContent.ItemType<Items.Button>());
 	}
 }

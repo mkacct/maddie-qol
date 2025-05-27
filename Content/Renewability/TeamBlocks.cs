@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 namespace MaddieQoL.Content.Renewability;
 
 public sealed class RenewabilityTeamBlocks : GlobalItem {
-	private static readonly IList<KeyValuePair<int, int>> BlocksToPlatforms = [
+	static readonly IList<KeyValuePair<int, int>> BlocksToPlatforms = [
 		new(ItemID.TeamBlockRed, ItemID.TeamBlockRedPlatform),
 		new(ItemID.TeamBlockGreen, ItemID.TeamBlockGreenPlatform),
 		new(ItemID.TeamBlockBlue, ItemID.TeamBlockBluePlatform),
@@ -15,7 +15,7 @@ public sealed class RenewabilityTeamBlocks : GlobalItem {
 		new(ItemID.TeamBlockPink, ItemID.TeamBlockPinkPlatform)
 	];
 
-	private static readonly ISet<int> Platforms;
+	static readonly ISet<int> Platforms;
 
 	static RenewabilityTeamBlocks() {
 		Platforms = new HashSet<int>();
@@ -51,7 +51,7 @@ public sealed class RenewabilityTeamBlocks : GlobalItem {
 		}
 	}
 
-	private static void AddShimmers() {
+	static void AddShimmers() {
 		ItemID.Sets.ShimmerTransformToItem[ItemID.TeamBlockWhite] = ItemID.TeamBlockRed;
 		ItemID.Sets.ShimmerTransformToItem[ItemID.TeamBlockRed] = ItemID.TeamBlockGreen;
 		ItemID.Sets.ShimmerTransformToItem[ItemID.TeamBlockGreen] = ItemID.TeamBlockBlue;

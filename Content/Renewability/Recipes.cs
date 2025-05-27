@@ -28,7 +28,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		AddStatueRecipes();
 	}
 
-	private static void AddChestRecipes() {
+	static void AddChestRecipes() {
 		if (!ModuleConf.enableChestRecipes) {return;}
 		{ // Gold Chest
 			Recipe recipe = Recipe.Create(ItemID.GoldChest);
@@ -68,12 +68,12 @@ public sealed class RenewabilityRecipes : ModSystem {
 		}
 	}
 
-	private static void AddGoldChestShimmer() {
+	static void AddGoldChestShimmer() {
 		if (!ModuleConf.enableTrapRecipes) {return;}
 		ItemID.Sets.ShimmerTransformToItem[ItemID.GoldChest] = ItemID.DeadMansChest;
 	}
 
-	private static void AddTrapRecipes() {
+	static void AddTrapRecipes() {
 		if (!ModuleConf.enableTrapRecipes) {return;}
 		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.PressureTrack);
 		IList<KeyValuePair<int, int>> poisonItemsAndQtys = [
@@ -100,7 +100,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		AddLihzahrdTrapRecipes(registerer);
 	}
 
-	private static void AddDungeonTrapRecipes(RecipeOrderedRegisterer registerer) {
+	static void AddDungeonTrapRecipes(RecipeOrderedRegisterer registerer) {
 		if (!ModuleConf.enableDungeonItemRenewability) {return;}
 		{ // Spike
 			Recipe recipe = Recipe.Create(ItemID.Spike);
@@ -110,7 +110,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		}
 	}
 
-	private static void AddLihzahrdTrapRecipes(RecipeOrderedRegisterer registerer) {
+	static void AddLihzahrdTrapRecipes(RecipeOrderedRegisterer registerer) {
 		if (!ModuleConf.enableLihzahrdItemRenewability) {return;}
 		{ // Wooden Spike
 			Recipe recipe = Recipe.Create(ItemID.WoodenSpike);
@@ -153,7 +153,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		}
 	}
 
-	private static void AddEncumberingStoneRecipe() {
+	static void AddEncumberingStoneRecipe() {
 		if (!ModuleConf.enableEncumberingStoneRecipe) {return;}
 		Recipe recipe = Recipe.Create(ItemID.EncumberingStone);
 		recipe.AddIngredient(ItemID.StoneBlock, 100);
@@ -161,7 +161,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		recipe.DisableDecraft().RegisterBeforeFirstRecipeOf(ItemID.PanicNecklace);
 	}
 
-	private static void AddObsidianFurnitureRecipes() {
+	static void AddObsidianFurnitureRecipes() {
 		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingBefore(ItemID.ObsidianChest);
 		{ // Obsidian Bathtub
 			Recipe recipe = Recipe.Create(ItemID.ObsidianBathtub);
@@ -294,7 +294,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		}
 	}
 
-	private static void AddHellforgeRecipe() {
+	static void AddHellforgeRecipe() {
 		if (!ModuleConf.enableHellforgeRecipe) {return;}
 		Recipe recipe = Recipe.Create(ItemID.Hellforge);
 		recipe.AddIngredient(ItemID.Furnace);
@@ -303,7 +303,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		recipe.DisableDecraft().RegisterAfterLastRecipeOf(ItemID.FireproofBugNet);
 	}
 
-	private static void AddDungeonFurnitureRecipes() {
+	static void AddDungeonFurnitureRecipes() {
 		AddDungeonFurnitureSetRecipes(ItemID.BlueBrick, ItemID.BlueDungeonChest, [
 			ItemID.BlueDungeonBathtub,
 			ItemID.BlueDungeonBed,
@@ -371,7 +371,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		AddGothicFurnitureRecipes();
 	}
 
-	private static void AddDungeonFurnitureSetRecipes(int brick, int sortBeforeItemId, int[] furnitureItems) {
+	static void AddDungeonFurnitureSetRecipes(int brick, int sortBeforeItemId, int[] furnitureItems) {
 		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingBefore(sortBeforeItemId);
 		int i = 0;
 		{ // Bathtub
@@ -489,7 +489,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		}
 	}
 
-	private static void AddDungeonMiscFurnitureRecipes() {
+	static void AddDungeonMiscFurnitureRecipes() {
 		if (!ModuleConf.enableDungeonItemRenewability) {return;}
 		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingBefore(ItemID.PinkDungeonBathtub);
 		{ // Dungeon Door
@@ -551,7 +551,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		}
 	}
 
-	private static void AddGothicFurnitureRecipes() {
+	static void AddGothicFurnitureRecipes() {
 		if (!ModuleConf.enableDungeonItemRenewability) {return;}
 		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.GreenDungeonWorkBench);
 		{ // Gothic Bookcase
@@ -581,7 +581,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		}
 	}
 
-	private static void AddLihzahrdFurnitureRecipes() {
+	static void AddLihzahrdFurnitureRecipes() {
 		{ // Lihzahrd Work Bench
 			Recipe recipe = Recipe.Create(ItemID.LihzahrdWorkBench);
 			recipe.AddIngredient(ItemID.LihzahrdBrick, 10);
@@ -590,7 +590,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		}
 	}
 
-	private static void AddStatueRecipes() {
+	static void AddStatueRecipes() {
 		if (!ModuleConf.enableStatueRenewability) {return;}
 		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.ArmorStatue);
 		AddDecorativeStatueRecipes(registerer);
@@ -604,7 +604,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		AddDropStatueRecipes(registerer);
 	}
 
-	private static void AddStandardStatueRecipe(RecipeOrderedRegisterer registerer, int statue, Action<Recipe> addSpecialIngredients) {
+	static void AddStandardStatueRecipe(RecipeOrderedRegisterer registerer, int statue, Action<Recipe> addSpecialIngredients) {
 		Recipe recipe = Recipe.Create(statue);
 		recipe.AddIngredient(ItemID.StoneBlock, 50);
 		addSpecialIngredients(recipe);
@@ -612,7 +612,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		recipe.AddCustomShimmerResult(ItemID.StoneBlock, 50).RegisterUsing(registerer);
 	}
 
-	private static void AddDecorativeStatueRecipes(RecipeOrderedRegisterer registerer) {
+	static void AddDecorativeStatueRecipes(RecipeOrderedRegisterer registerer) {
 		foreach (int statue in new int[] {
 			ItemID.AnvilStatue,
 			ItemID.AxeStatue,
@@ -642,7 +642,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		}
 	}
 
-	private static void AddLihzahrdDecorativeStatueRecipes(RecipeOrderedRegisterer registerer) {
+	static void AddLihzahrdDecorativeStatueRecipes(RecipeOrderedRegisterer registerer) {
 		foreach (int statue in new int[] {
 			ItemID.LihzahrdStatue,
 			ItemID.LihzahrdGuardianStatue,
@@ -655,7 +655,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		}
 	}
 
-	private static void AddEnemyStatueRecipes(RecipeOrderedRegisterer registerer) {
+	static void AddEnemyStatueRecipes(RecipeOrderedRegisterer registerer) {
 		foreach (KeyValuePair<int, int> pair in new KeyValuePair<int, int>[] {
 			new(ItemID.ZombieArmStatue, ItemID.ZombieBanner),
 			new(ItemID.BatStatue, ItemID.BatBanner),
@@ -691,7 +691,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		}
 	}
 
-	private static void AddDropStatueRecipes(RecipeOrderedRegisterer registerer) {
+	static void AddDropStatueRecipes(RecipeOrderedRegisterer registerer) {
 		AddStandardStatueRecipe(registerer, ItemID.HeartStatue, (recipe) => {
 			recipe.AddIngredient(ItemID.LifeCrystal, 5);
 		});
@@ -703,7 +703,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		});
 	}
 
-	private static void AddEarlyGameTreasureShimmers() {
+	static void AddEarlyGameTreasureShimmers() {
 		if (!ModuleConf.enableGoldChestItemRenewability) {return;}
 
 		ItemID.Sets.ShimmerTransformToItem[ItemID.BandofStarpower] = ItemID.BandofRegeneration;
@@ -714,7 +714,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		ItemID.Sets.ShimmerTransformToItem[ItemID.TsunamiInABottle] = ItemID.CloudinaBottle;
 	}
 
-	private static void AddReverseShimmers() {
+	static void AddReverseShimmers() {
 		ItemID.Sets.ShimmerTransformToItem[ItemID.Moondial] = ItemID.Sundial;
 
 		ItemID.Sets.ShimmerTransformToItem[ItemID.AncientCopperBrick] = ItemID.CopperBrick;
@@ -740,7 +740,7 @@ public sealed class RenewabilityRecipes : ModSystem {
 		ItemID.Sets.ShimmerTransformToItem[ItemID.Trident] = ItemID.Spear;
 	}
 
-	private static void AddDowngradeShimmers() {
+	static void AddDowngradeShimmers() {
 		ItemID.Sets.ShimmerTransformToItem[ItemID.HelFire] = ItemID.Cascade;
 		ItemID.Sets.ShimmerTransformToItem[ItemID.ZapinatorOrange] = ItemID.ZapinatorGray;
 	}

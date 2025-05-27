@@ -5,7 +5,7 @@ using Terraria.ID;
 
 namespace MaddieQoL.Content.Mirrors;
 
-internal static class Styles {
+static class Styles {
 	internal static void UseRecallStyle(Player player, Item item) {
 		UseMirrorStyle(player, item, () => {
 			player.RemoveAllGrapplingHooks();
@@ -103,7 +103,7 @@ internal static class Styles {
 		});
 	}
 
-	private static void UseMirrorStyle(Player player, Item item, Action activate) {
+	static void UseMirrorStyle(Player player, Item item, Action activate) {
 		UseTpStyle(player, item, () => {
 			if (Main.rand.NextBool(2)) {
 				Dust.NewDust(player.position, player.width, player.height, DustID.MagicMirror, 0f, 0f, 150, default, 1.1f);
@@ -119,7 +119,7 @@ internal static class Styles {
 		});
 	}
 
-	private static void UseTpStyle(Player player, Item item, Action makeDust, Action activate) {
+	static void UseTpStyle(Player player, Item item, Action makeDust, Action activate) {
 		if (player.itemTime == 0) {player.ApplyItemTime(item);}
 		makeDust();
 		if (player.itemTime == player.itemTimeMax / 2) {

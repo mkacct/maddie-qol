@@ -27,7 +27,7 @@ public abstract class AbstractSwappableItem : ModItem {
 		return base.CanUseItem(player);
 	}
 
-	private void HandleAltFunction(Player player) {
+	void HandleAltFunction(Player player) {
 		player.releaseUseTile = false;
 		Main.mouseRightRelease = false;
 		SoundEngine.PlaySound(this.AltFunctionSwapSound with {
@@ -57,7 +57,7 @@ public static class SwappableItemUtil {
 		};
 	}
 
-	private static void AddItemResearchOverride(int defaultItemId, int[] otherItemIds) {
+	static void AddItemResearchOverride(int defaultItemId, int[] otherItemIds) {
 		// Using reflection since ContentSamples.AddItemResearchOverride() is private for some reason
 		MethodInfo method_AddItemResearchOverride = typeof(ContentSamples).GetMethod("AddItemResearchOverride", BindingFlags.NonPublic | BindingFlags.Static, [typeof(int), typeof(int[])]);
 		method_AddItemResearchOverride.Invoke(null, [defaultItemId, otherItemIds]);
@@ -71,7 +71,7 @@ public static class SwappableItemUtil {
 		};
 	}
 
-	private static void TryItemSwap(Item item, ISet<int> itemIds, Func<int, int> nextItemIdFunc, SoundStyle swapSound) {
+	static void TryItemSwap(Item item, ISet<int> itemIds, Func<int, int> nextItemIdFunc, SoundStyle swapSound) {
 		if (itemIds.Contains(item.type)) {
 			item.ChangeItemType(nextItemIdFunc(item.type));
 			AfterItemSwap(swapSound);
@@ -80,7 +80,7 @@ public static class SwappableItemUtil {
 
 	// This method replicates the behavior of ItemSlot.AfterItemSwap()
 	// The behavior should be identical (besides the specific sound effect)
-	private static void AfterItemSwap(SoundStyle swapSound) {
+	static void AfterItemSwap(SoundStyle swapSound) {
 		SoundEngine.PlaySound(swapSound with {
 			SoundLimitBehavior = SoundLimitBehavior.ReplaceOldest
 		});

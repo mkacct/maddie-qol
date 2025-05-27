@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 namespace MaddieQoL.Content.Mirrors;
 
 public sealed class MirrorSwitchAway : GlobalItem {
-	private static readonly ISet<int> AllTeleportOnUseItems;
+	static readonly ISet<int> AllTeleportOnUseItems;
 
 	static MirrorSwitchAway() {
 		AllTeleportOnUseItems = new HashSet<int> {

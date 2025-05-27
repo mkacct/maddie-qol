@@ -39,19 +39,19 @@ public sealed class RenewabilityShops : GlobalNPC {
 		}
 	}
 
-	private static void ModifyMerchantShop(NPCShop shop) {
+	static void ModifyMerchantShop(NPCShop shop) {
 		if (!ModuleConf.enableStatueRenewability) {return;}
 		shop.Add(new Item(ItemID.AngelStatue) {
 			shopCustomPrice = Item.buyPrice(0, 5, 0, 0)
 		}, Condition.InGraveyard);
 	}
 
-	private static void ModifyDemolitionistShop(NPCShop shop) {
+	static void ModifyDemolitionistShop(NPCShop shop) {
 		if (!ModuleConf.enableTrapRecipes) {return;}
 		shop.InsertAfter(ItemID.Dynamite, ItemID.Detonator, Condition.NpcIsPresent(NPCID.Mechanic));
 	}
 
-	private static void ModifyZoologistShop(NPCShop shop) {
+	static void ModifyZoologistShop(NPCShop shop) {
 		if (!ModuleConf.enableStatueRenewability) {return;}
 		shop.Add(new Item(ItemID.KingStatue) {
 			shopCustomPrice = Item.buyPrice(0, 5, 0, 0)
@@ -61,7 +61,7 @@ public sealed class RenewabilityShops : GlobalNPC {
 		}, Condition.InGraveyard);
 	}
 
-	private static void ModifyDryadShop(NPCShop shop) {
+	static void ModifyDryadShop(NPCShop shop) {
 		if (!ModuleConf.enableMinecartRenewability) {return;}
 		shop.Add(new Item(ItemID.SunflowerMinecart) {
 			shopCustomPrice = Item.buyPrice(0, 10, 0, 0)
@@ -71,7 +71,7 @@ public sealed class RenewabilityShops : GlobalNPC {
 		}, Condition.MoonPhasesOddQuarters);
 	}
 
-	private static void ModifyWitchDoctorShop(NPCShop shop) {
+	static void ModifyWitchDoctorShop(NPCShop shop) {
 		// TODO: reassess after 1.4.5
 		// if (!ModuleConf.enableLihzahrdItemRenewability) {return;}
 		// shop.Add(new Item(ItemID.LihzahrdBrick) {
@@ -79,24 +79,24 @@ public sealed class RenewabilityShops : GlobalNPC {
 		// }, Condition.InJungle, Condition.DownedGolem, Conditions.PlayerHasPickaxePower(210));
 	}
 
-	private static void ModifyMechanicShop(NPCShop shop) {
+	static void ModifyMechanicShop(NPCShop shop) {
 		if (!ModuleConf.enableLihzahrdItemRenewability) {return;}
 		shop.InsertAfter(ItemID.BluePressurePlate, ItemID.LihzahrdPressurePlate, Condition.InJungle, Condition.DownedGolem);
 	}
 
-	private static void ModifySteampunkerShop(NPCShop shop) {
+	static void ModifySteampunkerShop(NPCShop shop) {
 		if (!ModuleConf.enableLihzahrdItemRenewability) {return;}
 		shop.InsertBefore(ItemID.SteampunkBoiler, ItemID.LihzahrdFurnace, Condition.InJungle, Condition.DownedGolem);
 	}
 
-	private static void ModifyTruffleShop(NPCShop shop) {
+	static void ModifyTruffleShop(NPCShop shop) {
 		if (!ModuleConf.enableMinecartRenewability) {return;}
 		shop.InsertBefore(ItemID.Autohammer, new Item(ItemID.ShroomMinecart) {
 			shopCustomPrice = Item.buyPrice(0, 10, 0, 0)
 		});
 	}
 
-	private static void ModifySkeletonMerchantShop(NPCShop shop) {
+	static void ModifySkeletonMerchantShop(NPCShop shop) {
 		if (!ModuleConf.enableGoldChestItemRenewability) {return;}
 		shop.InsertBefore(ItemID.StrangeBrew, ItemID.FlareGun, Condition.MoonPhaseFull);
 	}

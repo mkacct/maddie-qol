@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 namespace MaddieQoL.Content.BiomeChestWeaponRenewability.Items;
 
 public sealed class LockBoxCrimson : AbstractBiomeLockBox {
-	private static LocalizedText TooltipWhenEnabled {get; set;}
+	static LocalizedText TooltipWhenEnabled {get; set;}
 
 	public override LocalizedText Tooltip => ModuleConf.enableBiomeLockBoxes ? TooltipWhenEnabled : base.Tooltip;
 

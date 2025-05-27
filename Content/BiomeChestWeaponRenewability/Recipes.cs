@@ -32,7 +32,7 @@ public sealed class BiomeChestWeaponRenewabilityRecipes : ModSystem {
 		});
 	}
 
-	private static void AddBiomeLockBoxRecipe(RecipeOrderedRegisterer registerer, int box, Action<Recipe> addSpecialIngredients) {
+	static void AddBiomeLockBoxRecipe(RecipeOrderedRegisterer registerer, int box, Action<Recipe> addSpecialIngredients) {
 		Recipe recipe = Recipe.Create(box);
 		recipe.AddIngredient(ItemID.LockBox);
 		addSpecialIngredients(recipe);

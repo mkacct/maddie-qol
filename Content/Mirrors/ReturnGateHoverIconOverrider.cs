@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 namespace MaddieQoL.Content.Mirrors;
 
 public sealed class MirrorReturnGateHoverIconOverrider : ModSystem {
-	private int gateIcon = -1;
+	int gateIcon = -1;
 
 	internal static void SetGateIcon(int newGateIconId) {
 		ModContent.GetInstance<MirrorReturnGateHoverIconOverrider>().gateIcon = newGateIconId;
@@ -23,7 +23,7 @@ public sealed class MirrorReturnGateHoverIconOverrider : ModSystem {
 		};
 	}
 
-	private bool OverrideGateHoverIcon(Player player) {
+	bool OverrideGateHoverIcon(Player player) {
 		if (this.gateIcon >= 0) {
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;

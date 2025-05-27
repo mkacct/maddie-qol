@@ -11,7 +11,7 @@ namespace MaddieQoL.Content.Mirrors;
 public sealed class MirrorShellphonePlusSystem : ModSystem {
 	internal static readonly int ShellphonePlusDummyItemID = ModContent.ItemType<ShellphonePlusDummy>();
 
-	private static readonly int[] ShellphonePlusItemIDSequence = [
+	static readonly int[] ShellphonePlusItemIDSequence = [
 		ModContent.ItemType<ShellphonePlusReturn>(),
 		ModContent.ItemType<ShellphonePlusHome>(),
 		ModContent.ItemType<ShellphonePlusOcean>(),

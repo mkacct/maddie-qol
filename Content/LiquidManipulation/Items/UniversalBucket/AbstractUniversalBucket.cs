@@ -40,7 +40,7 @@ public abstract class AbstractUniversalBucket : AbstractSwappableItem {
 		return null;
 	}
 
-	private bool ClientPourLiquid(Player player) {
+	bool ClientPourLiquid(Player player) {
 		if (player.noBuilding) {return false;}
 		if (!player.IsTargetTileInItemRange(this.Item)) {return false;}
 		Tile tile = Framing.GetTileSafely(Player.tileTargetX, Player.tileTargetY);

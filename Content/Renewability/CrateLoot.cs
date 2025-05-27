@@ -9,7 +9,7 @@ using MaddieQoL.Util;
 namespace MaddieQoL.Content.Renewability;
 
 public sealed class RenewabilityCrateLoot : GlobalItem {
-	private const int MaxBanners = 2;
+	const int MaxBanners = 2;
 
 	public override void ModifyItemLoot(Item item, ItemLoot itemLoot) {
 		switch (item.type) {
@@ -36,30 +36,30 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 		}
 	}
 
-	private static void ModifyDesertCratesLoot(ItemLoot itemLoot) {
+	static void ModifyDesertCratesLoot(ItemLoot itemLoot) {
 		DesertCratesAddFlyingCarpet(itemLoot);
 		AddPyramidBanners(itemLoot);
 		AddDesertMinecart(itemLoot);
 	}
 
-	private static void ModifyJungleCratesLoot(ItemLoot itemLoot) {
+	static void ModifyJungleCratesLoot(ItemLoot itemLoot) {
 		AddBeeMinecart(itemLoot);
 	}
 
-	private static void ModifySkyCratesLoot(ItemLoot itemLoot) {
+	static void ModifySkyCratesLoot(ItemLoot itemLoot) {
 		AddFloatingIslandBanners(itemLoot);
 	}
 
-	private static void ModifyDungeonCratesLoot(ItemLoot itemLoot) {
+	static void ModifyDungeonCratesLoot(ItemLoot itemLoot) {
 		DungeonCratesAddWaterBolt(itemLoot);
 		AddFactionFlags(itemLoot);
 	}
 
-	private static void ModifyLavaCratesLoot(ItemLoot itemLoot) {
+	static void ModifyLavaCratesLoot(ItemLoot itemLoot) {
 		AddHellBanners(itemLoot);
 	}
 
-	private static void DungeonCratesAddWaterBolt(ItemLoot itemLoot) {
+	static void DungeonCratesAddWaterBolt(ItemLoot itemLoot) {
 		if (!ModuleConf.enableDungeonItemRenewability) {return;}
 		IItemDropRule bookRule = DungeonCratesFindBookRule(itemLoot);
 		if (bookRule == null) {return;}
@@ -70,7 +70,7 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 		// overall chance of water bolt is 9.15%
 	}
 
-	private static CommonDropNotScalingWithLuck DungeonCratesFindBookRule(ItemLoot itemLoot) {
+	static CommonDropNotScalingWithLuck DungeonCratesFindBookRule(ItemLoot itemLoot) {
 		foreach (IItemDropRule rule in itemLoot.Get(false)) {
 			if (rule is AlwaysAtleastOneSuccessDropRule aalosRule) {
 				foreach (IItemDropRule subRule in aalosRule.rules) {
@@ -85,7 +85,7 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 		return null;
 	}
 
-	private static void DesertCratesAddFlyingCarpet(ItemLoot itemLoot) {
+	static void DesertCratesAddFlyingCarpet(ItemLoot itemLoot) {
 		if (!ModuleConf.enableFlyingCarpetRenewability) {return;}
 		CommonDropNotScalingWithLuck sandstormBottleRule = DesertCratesFindSandstormBottleRule(itemLoot);
 		if (sandstormBottleRule == null) {return;}
@@ -98,7 +98,7 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 		// due to probability shenanigans, the flying carpet should now have the same chance as the sandstorm bottle
 	}
 
-	private static CommonDropNotScalingWithLuck DesertCratesFindSandstormBottleRule(ItemLoot itemLoot) {
+	static CommonDropNotScalingWithLuck DesertCratesFindSandstormBottleRule(ItemLoot itemLoot) {
 		foreach (IItemDropRule rule in itemLoot.Get(false)) {
 			if (rule is AlwaysAtleastOneSuccessDropRule aalosRule) {
 				foreach (IItemDropRule subRule in aalosRule.rules) {
@@ -113,7 +113,7 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 		return null;
 	}
 
-	private static void AddFactionFlags(ItemLoot itemLoot) {
+	static void AddFactionFlags(ItemLoot itemLoot) {
 		if (!ModuleConf.enableDecorativeBannerRenewability) {return;}
 		itemLoot.Add(ItemDropRules.OneStackFromOptions(2, 1, MaxBanners, [
 			ItemID.MarchingBonesBanner,
@@ -125,7 +125,7 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 		]));
 	}
 
-	private static void AddFloatingIslandBanners(ItemLoot itemLoot) {
+	static void AddFloatingIslandBanners(ItemLoot itemLoot) {
 		if (!ModuleConf.enableDecorativeBannerRenewability) {return;}
 		itemLoot.Add(ItemDropRules.OneStackFromOptions(4, 1, MaxBanners, [
 			ItemID.WorldBanner,
@@ -134,7 +134,7 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 		]));
 	}
 
-	private static void AddHellBanners(ItemLoot itemLoot) {
+	static void AddHellBanners(ItemLoot itemLoot) {
 		if (!ModuleConf.enableDecorativeBannerRenewability) {return;}
 		itemLoot.Add(ItemDropRules.OneStackFromOptions(2, 1, MaxBanners, [
 			ItemID.HellboundBanner,
@@ -146,7 +146,7 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 		]));
 	}
 
-	private static void AddPyramidBanners(ItemLoot itemLoot) {
+	static void AddPyramidBanners(ItemLoot itemLoot) {
 		if (!ModuleConf.enableDecorativeBannerRenewability) {return;}
 		itemLoot.Add(ItemDropRules.OneStackFromOptionsWithNumerator(35, 4, 1, MaxBanners, [
 			ItemID.AnkhBanner,
@@ -155,12 +155,12 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 		]));
 	}
 
-	private static void AddDesertMinecart(ItemLoot itemLoot) {
+	static void AddDesertMinecart(ItemLoot itemLoot) {
 		if (!ModuleConf.enableMinecartRenewability) {return;}
 		itemLoot.Add(ItemDropRule.NotScalingWithLuck(ItemID.DesertMinecart, 30));
 	}
 
-	private static void AddBeeMinecart(ItemLoot itemLoot) {
+	static void AddBeeMinecart(ItemLoot itemLoot) {
 		if (!ModuleConf.enableMinecartRenewability) {return;}
 		itemLoot.Add(ItemDropRule.NotScalingWithLuck(ItemID.BeeMinecart, 20));
 	}

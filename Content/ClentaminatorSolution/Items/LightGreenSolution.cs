@@ -8,7 +8,7 @@ using Terraria.Localization;
 namespace MaddieQoL.Content.ClentaminatorSolution.Items;
 
 public sealed class LightGreenSolution : AbstractSolutionItem {
-	private static LocalizedText TooltipWhenEnabled {get; set;}
+	static LocalizedText TooltipWhenEnabled {get; set;}
 
 	public override LocalizedText Tooltip => ModuleConf.enablePurificationOnlySolution ? TooltipWhenEnabled : base.Tooltip;
 
@@ -23,7 +23,7 @@ public sealed class LightGreenSolution : AbstractSolutionItem {
 		this.AddShimmers();
 	}
 
-	private void AddShimmers() {
+	void AddShimmers() {
 		if (ModuleConf.enablePurificationOnlySolution) {
 			ItemID.Sets.ShimmerTransformToItem[ItemID.GreenSolution] = this.Type;
 		}

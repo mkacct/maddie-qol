@@ -2,7 +2,7 @@ using Terraria;
 
 namespace MaddieQoL.Content.Mirrors;
 
-internal static class Util {
+static class Util {
 	public static void DisplayEverything(Player player) {
 		player.accWatch = 3;
 		player.accDepthMeter = 1;

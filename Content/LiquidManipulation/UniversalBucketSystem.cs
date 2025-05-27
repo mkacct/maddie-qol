@@ -12,12 +12,12 @@ public sealed class LiquidManipulationUniversalBucketSystem : ModSystem {
 	internal static readonly int UniversalBucketDummyItemID = ModContent.ItemType<UniversalBucketDummy>();
 	internal static readonly int UniversalShimmerBucketDummyItemID = ModContent.ItemType<UniversalShimmerBucketDummy>();
 
-	private static readonly int[] UniversalBucketItemIDSequence = [
+	static readonly int[] UniversalBucketItemIDSequence = [
 		ModContent.ItemType<UniversalBucketWater>(),
 		ModContent.ItemType<UniversalBucketLava>(),
 		ModContent.ItemType<UniversalBucketHoney>()
 	];
-	private static readonly int[] UniversalShimmerBucketItemIDSequence = [
+	static readonly int[] UniversalShimmerBucketItemIDSequence = [
 		ModContent.ItemType<UniversalShimmerBucketWater>(),
 		ModContent.ItemType<UniversalShimmerBucketLava>(),
 		ModContent.ItemType<UniversalShimmerBucketHoney>(),

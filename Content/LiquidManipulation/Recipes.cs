@@ -12,7 +12,7 @@ public sealed class LiquidManipulationRecipes : ModSystem {
 		AddSourceAndDrainRecipes();
 	}
 
-	private static void AddSourceAndDrainRecipes() {
+	static void AddSourceAndDrainRecipes() {
 		if (!ModuleConf.enableLiquidSourcesAndDrains) {return;}
 		RecipeOrderedRegisterer registerer = RecipeOrderedRegisterer.StartingAfter(ItemID.OutletPump);
 		{ // Endless Water Source

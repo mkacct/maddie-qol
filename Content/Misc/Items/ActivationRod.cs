@@ -13,7 +13,7 @@ public sealed class ActivationRod : ModItem {
 		ClientHandleActivationPacket
 	);
 
-	private static readonly SoundStyle SignalSound = SoundID.Item49;
+	static readonly SoundStyle SignalSound = SoundID.Item49;
 
 	public override void SetStaticDefaults() {
 		ItemID.Sets.AlsoABuildingItem[this.Type] = true;
@@ -43,7 +43,7 @@ public sealed class ActivationRod : ModItem {
 		return true;
 	}
 
-	private void ClientUse(Player player) {
+	void ClientUse(Player player) {
 		if (!player.IsTargetTileInItemRange(this.Item)) {return;}
 		if (!player.CanDoWireStuffHere(Player.tileTargetX, Player.tileTargetY)) {return;}
 		Tile tile = Framing.GetTileSafely(Player.tileTargetX, Player.tileTargetY);
@@ -58,20 +58,20 @@ public sealed class ActivationRod : ModItem {
 		}
 	}
 
-	private static bool TileHasWire(Tile tile) {
+	static bool TileHasWire(Tile tile) {
 		return tile.RedWire || tile.GreenWire || tile.BlueWire || tile.YellowWire;
 	}
 
-	private static void EmitSound(int tileTargetX, int tileTargetY) {
+	static void EmitSound(int tileTargetX, int tileTargetY) {
 		SoundEngine.PlaySound(SignalSound, new Vector2(tileTargetX * 16 + 8, tileTargetY * 16 + 8));
 	}
 
-	private static void ServerHandleActivationPacket(PointPacketData data, int srcPlayerId) {
+	static void ServerHandleActivationPacket(PointPacketData data, int srcPlayerId) {
 		Wiring.TripWire(data.Point.X, data.Point.Y, 1, 1);
 		ActivationPacketHandler.Send(new(data.Point));
 	}
 
-	private static void ClientHandleActivationPacket(PointPacketData data) {
+	static void ClientHandleActivationPacket(PointPacketData data) {
 		EmitSound(data.Point.X, data.Point.Y);
 	}
 

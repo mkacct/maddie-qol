@@ -18,11 +18,11 @@ public sealed class CurfewBell : ModItem {
 		clientHandler: ClientHandleCurfewPacket
 	);
 
-	private static readonly SoundStyle ActivateSound = Sounds.DeepBell;
+	static readonly SoundStyle ActivateSound = Sounds.DeepBell;
 
-	private static LocalizedText TooltipWhenEnabled {get; set;}
-	private static LocalizedText ActivationText {get; set;}
-	private static LocalizedText TimeoutErrorText {get; set;}
+	static LocalizedText TooltipWhenEnabled {get; set;}
+	static LocalizedText ActivationText {get; set;}
+	static LocalizedText TimeoutErrorText {get; set;}
 
 	public override LocalizedText Tooltip => ModuleConf.enableCurfewBell ? TooltipWhenEnabled : base.Tooltip;
 
@@ -55,7 +55,7 @@ public sealed class CurfewBell : ModItem {
 		return true;
 	}
 
-	private static void ServerUse(Player player) {
+	static void ServerUse(Player player) {
 		CurfewTimeoutSystem timeoutSystem = ModContent.GetInstance<CurfewTimeoutSystem>();
 		if (timeoutSystem.IsTimeoutActive) {
 			ChatHelper.SendChatMessageToClient(TimeoutErrorText.ToNetworkText(), TextColors.Status, player.whoAmI);
@@ -71,7 +71,7 @@ public sealed class CurfewBell : ModItem {
 		timeoutSystem.IsTimeoutActive = true;
 	}
 
-	private static void TeleportAllNPCsHome(out ISet<DustCoords> srcCoords, out ISet<DustCoords> destCoords) {
+	static void TeleportAllNPCsHome(out ISet<DustCoords> srcCoords, out ISet<DustCoords> destCoords) {
 		srcCoords = new HashSet<DustCoords>();
 		destCoords = new HashSet<DustCoords>();
 		MethodInfo method_AI_007_TownEntities_TeleportToHome = typeof(NPC).GetMethod("AI_007_TownEntities_TeleportToHome", BindingFlags.NonPublic | BindingFlags.Instance, [typeof(int), typeof(int)]);
@@ -97,7 +97,7 @@ public sealed class CurfewBell : ModItem {
 			this.DestCoords = ReadSetOfDustCoords(reader);
 		}
 
-		private static ISet<DustCoords> ReadSetOfDustCoords(BinaryReader reader) {
+		static ISet<DustCoords> ReadSetOfDustCoords(BinaryReader reader) {
 			int count = reader.ReadInt32();
 			HashSet<DustCoords> coords = [];
 			for (int i = 0; i < count; i++) {
@@ -112,7 +112,7 @@ public sealed class CurfewBell : ModItem {
 			WriteSetOfDustCoords(writer, this.DestCoords);
 		}
 
-		private static void WriteSetOfDustCoords(BinaryWriter writer, ISet<DustCoords> coords) {
+		static void WriteSetOfDustCoords(BinaryWriter writer, ISet<DustCoords> coords) {
 			writer.Write(coords.Count);
 			foreach (DustCoords item in coords) {
 				writer.Write(item.Position.X);
@@ -123,16 +123,16 @@ public sealed class CurfewBell : ModItem {
 		}
 	}
 
-	private static void ClientHandleCurfewPacket(CurfewPacketData data) {
+	static void ClientHandleCurfewPacket(CurfewPacketData data) {
 		ClientReactToUse(Main.player[data.ItemUserPlayerID], data.SrcCoords, data.DestCoords);
 	}
 
-	private static void ClientReactToUse(Player itemUser, ISet<DustCoords> srcCoords, ISet<DustCoords> destCoords) {
+	static void ClientReactToUse(Player itemUser, ISet<DustCoords> srcCoords, ISet<DustCoords> destCoords) {
 		SoundEngine.PlaySound(ActivateSound, itemUser.Center);
 		MakeParticles(srcCoords, destCoords);
 	}
 
-	private static void MakeParticles(ISet<DustCoords> srcCoords, ISet<DustCoords> destCoords) {
+	static void MakeParticles(ISet<DustCoords> srcCoords, ISet<DustCoords> destCoords) {
 		foreach (DustCoords src in srcCoords) {
 			MakeDustCloud(src);
 		}
@@ -141,7 +141,7 @@ public sealed class CurfewBell : ModItem {
 		}
 	}
 
-	private static void MakeDustCloud(DustCoords coords) {
+	static void MakeDustCloud(DustCoords coords) {
 		int numDust = coords.Width * coords.Height / 25;
 		for (int i = 0; i < numDust; i++) {
 			Dust.NewDust(coords.Position, coords.Width, coords.Height, DustID.Cloud);

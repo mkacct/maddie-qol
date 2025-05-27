@@ -15,7 +15,7 @@ public sealed class NoFalseAdvertisingShops : GlobalNPC {
 		}
 	}
 
-	private static void ModifyMerchantShop(NPCShop shop) {
+	static void ModifyMerchantShop(NPCShop shop) {
 		if (!ModuleConf.enableMerchantShopPerDialogue) {return;}
 		shop.InsertAfter(ItemID.BugNet, new Item(ItemID.Umbrella) {
 			shopCustomPrice = Item.buyPrice(0, 0, 50, 0)
@@ -36,7 +36,7 @@ public sealed class NoFalseAdvertisingShops : GlobalNPC {
 		}
 	}
 
-	private static void ModifyTravelingMerchantActiveShop(Item[] items) {
+	static void ModifyTravelingMerchantActiveShop(Item[] items) {
 		if (!ModuleConf.enableMerchantShopPerDialogue) {return;}
 		ShopUtil.TryAddItemToActiveShop(items, new Item(ItemID.AngelStatue) {
 			shopCustomPrice = Item.buyPrice(0, 5, 0, 0)

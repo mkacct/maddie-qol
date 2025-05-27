@@ -17,11 +17,11 @@ public sealed class MusicBoxShops : GlobalNPC {
 		}
 	}
 
-	private static void ModifyWizardShop(NPCShop shop) {
+	static void ModifyWizardShop(NPCShop shop) {
 		shop.InsertAfter(ItemID.MusicBox, ModContent.ItemType<Items.SilenceBox>(), Condition.InGraveyard);
 	}
 
-	private static void ModifyPrincessShop(NPCShop shop) {
+	static void ModifyPrincessShop(NPCShop shop) {
 		if (!ModuleConf.enableEasierTitleMusicBoxRecipes) {return;}
 		// MusicBoxTitleAlt is actually Music Box (Journey's Beginning)
 		shop.InsertBefore(ItemID.MusicBoxCredits, ItemID.MusicBoxTitleAlt, Condition.Hardmode);
