@@ -1,7 +1,6 @@
 using static MaddieQoL.Common.Shorthands;
 using static MaddieQoL.Content.Mirrors.MirrorShellphonePlusSystem;
 using System.Collections.Generic;
-using MaddieQoL.Common;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -25,7 +24,7 @@ public sealed class MirrorSwitchAway : GlobalItem {
 			ItemID.MagicConch,
 			ItemID.DemonConch
 		};
-		AllTeleportOnUseItems.UnionWith(IDSets.ShellphoneItemIDs);
+		AllTeleportOnUseItems.UnionWith(Util.ShellphoneItemIDs);
 		AllTeleportOnUseItems.UnionWith(ShellphonePlusItemIDs);
 	}
 
