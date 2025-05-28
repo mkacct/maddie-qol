@@ -1,4 +1,5 @@
 using static MaddieQoL.Common.Shorthands;
+using static MaddieQoL.Util.BiomeConversionUtil;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -20,6 +21,7 @@ public sealed class LightGreenSolution : AbstractSolutionItem {
 		base.SetStaticDefaults();
 		TooltipWhenEnabled = this.GetLocalization(nameof(TooltipWhenEnabled));
 
+		ItemID.Sets.SortingPriorityTerraforming[this.Type] = 98;
 		this.AddShimmers();
 	}
 
@@ -31,79 +33,89 @@ public sealed class LightGreenSolution : AbstractSolutionItem {
 	}
 }
 
-public class LightGreenSolutionProjectile : AbstractSolutionProjectile {
+public sealed class LightGreenSolutionProjectile : AbstractSolutionProjectile {
 	public override string Texture => $"Terraria/Images/Projectile_{ProjectileID.PureSpray}";
 
+	protected override ModBiomeConversion Conversion => ModContent.GetInstance<LightGreenSolutionConversion>();
 	protected override int SprayDustID => DustID.PureSpray;
+}
 
-	// this should replicate the behavior of the vanilla green solution, just without the mushroom grass conversion
+// this should replicate the behavior of the vanilla green solution, just without the mushroom grass conversion
+public sealed class LightGreenSolutionConversion : ModBiomeConversion {
+	public override void PostSetupContent() {
+		for (int tileId = 0; tileId < TileLoader.TileCount; tileId++) {
+			this.TryRegisterTileConversion(tileId);
+		}
+		for (int wallId = 0; wallId < WallLoader.WallCount; wallId++) {
+			this.TryRegisterWallConversion(wallId);
+		}
+	}
 
-	protected override TileConversion? GetResultTile(ushort tileId, int y) {
-		TileConversion? res = null;
+	void TryRegisterTileConversion(int tileId) {
 		if (tileId == TileID.GolfGrassHallowed) {
-			res = new(TileID.GolfGrass);
+			this.RegisterTileConversion(tileId, IndiscriminateTileConversion(TileID.GolfGrass));
 		} else if (TileID.Sets.Conversion.JungleGrass[tileId]) {
-			res = new(TileID.JungleGrass);
+			this.RegisterTileConversion(tileId, IndiscriminateTileConversion(TileID.JungleGrass));
 		} else if (TileID.Sets.Conversion.Grass[tileId] && (tileId != TileID.GolfGrass)) {
-			res = new(TileID.Grass);
+			this.RegisterTileConversion(tileId, IndiscriminateTileConversion(TileID.Grass));
 		} else if (TileID.Sets.Conversion.Stone[tileId]) {
-			res = new(TileID.Stone);
+			this.RegisterTileConversion(tileId, IndiscriminateTileConversion(TileID.Stone));
 		} else if (TileID.Sets.Conversion.Sand[tileId]) {
-			res = new(TileID.Sand);
+			this.RegisterTileConversion(tileId, IndiscriminateTileConversion(TileID.Sand));
 		} else if (TileID.Sets.Conversion.HardenedSand[tileId]) {
-			res = new(TileID.HardenedSand);
+			this.RegisterTileConversion(tileId, IndiscriminateTileConversion(TileID.HardenedSand));
 		} else if (TileID.Sets.Conversion.Sandstone[tileId]) {
-			res = new(TileID.Sandstone);
+			this.RegisterTileConversion(tileId, IndiscriminateTileConversion(TileID.Sandstone));
 		} else if (TileID.Sets.Conversion.Ice[tileId]) {
-			res = new(TileID.IceBlock);
+			this.RegisterTileConversion(tileId, IndiscriminateTileConversion(TileID.IceBlock));
 		} else if (TileID.Sets.Conversion.MushroomGrass[tileId]) {
 			// no change to mushrooms!
 		} else if ((tileId == TileID.CorruptThorns) || (tileId == TileID.CrimsonThorns)) {
-			res = TileConversion.Kill;
+			this.RegisterTileConversion(tileId, KillTileConversion);
 		}
-		return res;
 	}
 
-	protected override WallConversion? GetResultWall(ushort wallId, int y) {
-		WallConversion? res = null;
+	void TryRegisterWallConversion(int wallId) {
 		switch (wallId) {
 			case WallID.CorruptGrassUnsafe:
 			case WallID.HallowedGrassUnsafe:
 			case WallID.CrimsonGrassUnsafe:
-				res = new(Main.rand.NextBool(10) ? WallID.FlowerUnsafe : WallID.GrassUnsafe);
-				break;
+				this.RegisterWallConversion(wallId, (i, j, type, conversionType) => {
+					WorldGen.ConvertWall(i, j, Main.rand.NextBool(10) ? WallID.FlowerUnsafe : WallID.GrassUnsafe);
+					return false;
+				});
+				return;
 		}
 		if (WallID.Sets.Conversion.Stone[wallId]) {
 			switch (wallId) {
 				case WallID.Cave7Echo:
-					res = new(WallID.Cave7Unsafe);
-					break;
+					this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.Cave7Unsafe));
+					return;
 				case WallID.Cave8Echo:
-					res = new(WallID.Cave8Unsafe);
-					break;
+					this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.Cave8Unsafe));
+					return;
 				case WallID.Cave7Unsafe:
 				case WallID.Cave8Unsafe:
 					break;
 				default:
-					res = new(WallID.Stone);
-					break;
-			};
+					this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.Stone));
+					return;
+			}
 		}
 		if (WallID.Sets.Conversion.NewWall1[wallId]) {
-			res = new(WallID.RocksUnsafe1);
+			this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.RocksUnsafe1));
 		} else if (WallID.Sets.Conversion.NewWall2[wallId]) {
-			res = new(WallID.RocksUnsafe2);
+			this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.RocksUnsafe2));
 		} else if (WallID.Sets.Conversion.NewWall3[wallId]) {
-			res = new(WallID.RocksUnsafe3);
+			this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.RocksUnsafe3));
 		} else if (WallID.Sets.Conversion.NewWall4[wallId]) {
-			res = new(WallID.RocksUnsafe4);
+			this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.RocksUnsafe4));
 		} else if (wallId == WallID.MushroomUnsafe) {
 			// no change to mushrooms!
 		} else if (WallID.Sets.Conversion.HardenedSand[wallId]) {
-			res = new(WallID.HardenedSand);
+			this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.HardenedSand));
 		} else if (WallID.Sets.Conversion.Sandstone[wallId]) {
-			res = new(WallID.Sandstone);
+			this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.Sandstone));
 		}
-		return res;
 	}
 }
