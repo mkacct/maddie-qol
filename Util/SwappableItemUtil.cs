@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -53,14 +52,8 @@ public static class SwappableItemUtil {
 		int[] otherItemIds = dummyItemId.HasValue ? itemIdSequence : itemIdSequence[1..];
 		On_ContentSamples.FillResearchItemOverrides += (On_ContentSamples.orig_FillResearchItemOverrides orig) => {
 			orig();
-			AddItemResearchOverride(defaultItemId, otherItemIds);
+			ContentSamples.AddItemResearchOverride(defaultItemId, otherItemIds);
 		};
-	}
-
-	static void AddItemResearchOverride(int defaultItemId, int[] otherItemIds) {
-		// Using reflection since ContentSamples.AddItemResearchOverride() is private for some reason
-		MethodInfo method_AddItemResearchOverride = typeof(ContentSamples).GetMethod("AddItemResearchOverride", BindingFlags.NonPublic | BindingFlags.Static, [typeof(int), typeof(int[])]);
-		method_AddItemResearchOverride.Invoke(null, [defaultItemId, otherItemIds]);
 	}
 
 	public static void RegisterItemSwapHook(ISet<int> itemIds, Func<int, int> nextItemIdFunc, SoundStyle? swapSound = null) {
