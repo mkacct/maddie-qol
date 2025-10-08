@@ -103,30 +103,40 @@ public static class BiomeConversionExtensions {
 	public static void RegisterWallConversion(this ModBiomeConversion modBiomeConversion, int wallId, WallLoader.ConvertWall conversion) {
 		WallLoader.RegisterConversion(wallId, modBiomeConversion.Type, conversion);
 	}
-}
 
-public static class BiomeConversionUtil {
-	public static readonly TileLoader.ConvertTile KillTileConversion = (i, j, _type, _conversionType) => {
-		WorldGen.KillTile(i, j);
-		if (Main.netMode == NetmodeID.MultiplayerClient) {
-			NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 0, i, j);
-		}
-		return false;
-	};
-
-	public static readonly WallLoader.ConvertWall KillWallConversion = IndiscriminateWallConversion(WallID.None);
-
-	public static TileLoader.ConvertTile IndiscriminateTileConversion(int tileId) {
-		return (i, j, _type, _conversionType) => {
-			WorldGen.ConvertTile(i, j, tileId, true);
-			return false;
-		};
+	public static void RegisterSimpleTileConversion(this ModBiomeConversion modBiomeConversion, int tileId, int toTileId, bool registerPurification = true) {
+		TileLoader.RegisterSimpleConversion(tileId, modBiomeConversion.Type, toTileId, registerPurification);
 	}
 
-	public static WallLoader.ConvertWall IndiscriminateWallConversion(int wallId) {
-		return (i, j, _type, _conversionType) => {
-			WorldGen.ConvertWall(i, j, wallId);
+	public static void RegisterSimpleWallConversion(this ModBiomeConversion modBiomeConversion, int wallId, int toWallId, bool registerPurification = true) {
+		WallLoader.RegisterSimpleConversion(wallId, modBiomeConversion.Type, toWallId, registerPurification);
+	}
+
+	public static void RegisterOnlySimpleTileConversion(this ModBiomeConversion modBiomeConversion, int tileId, int toTileId) {
+		modBiomeConversion.RegisterTileConversion(tileId, (i, j, _type, _conversionType) => {
+			WorldGen.ConvertTile(i, j, toTileId, true);
 			return false;
-		};
+		});
+	}
+
+	public static void RegisterOnlySimpleWallConversion(this ModBiomeConversion modBiomeConversion, int wallId, int toWallId) {
+		modBiomeConversion.RegisterWallConversion(wallId, (i, j, _type, _conversionType) => {
+			WorldGen.ConvertWall(i, j, toWallId);
+			return false;
+		});
+	}
+
+	public static void RegisterKillTileConversion(this ModBiomeConversion modBiomeConversion, int tileId) {
+		modBiomeConversion.RegisterTileConversion(tileId, (i, j, _type, _conversionType) => {
+			WorldGen.KillTile(i, j);
+			if (Main.netMode == NetmodeID.MultiplayerClient) {
+				NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 0, i, j);
+			}
+			return false;
+		});
+	}
+
+	public static void RegisterKillWallConversion(this ModBiomeConversion modBiomeConversion, int wallId) {
+		modBiomeConversion.RegisterOnlySimpleWallConversion(wallId, WallID.None);
 	}
 }

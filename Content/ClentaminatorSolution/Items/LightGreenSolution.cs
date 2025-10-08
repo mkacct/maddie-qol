@@ -1,5 +1,4 @@
 using static MaddieQoL.Common.Shorthands;
-using static MaddieQoL.Util.BiomeConversionUtil;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -53,25 +52,25 @@ public sealed class LightGreenSolutionConversion : ModBiomeConversion {
 
 	void TryRegisterTileConversion(int tileId) {
 		if (tileId == TileID.GolfGrassHallowed) {
-			this.RegisterTileConversion(tileId, IndiscriminateTileConversion(TileID.GolfGrass));
+			this.RegisterOnlySimpleTileConversion(tileId, TileID.GolfGrass);
 		} else if (TileID.Sets.Conversion.JungleGrass[tileId]) {
-			this.RegisterTileConversion(tileId, IndiscriminateTileConversion(TileID.JungleGrass));
+			this.RegisterOnlySimpleTileConversion(tileId, TileID.JungleGrass);
 		} else if (TileID.Sets.Conversion.Grass[tileId] && (tileId != TileID.GolfGrass)) {
-			this.RegisterTileConversion(tileId, IndiscriminateTileConversion(TileID.Grass));
+			this.RegisterOnlySimpleTileConversion(tileId, TileID.Grass);
 		} else if (TileID.Sets.Conversion.Stone[tileId]) {
-			this.RegisterTileConversion(tileId, IndiscriminateTileConversion(TileID.Stone));
+			this.RegisterOnlySimpleTileConversion(tileId, TileID.Stone);
 		} else if (TileID.Sets.Conversion.Sand[tileId]) {
-			this.RegisterTileConversion(tileId, IndiscriminateTileConversion(TileID.Sand));
+			this.RegisterOnlySimpleTileConversion(tileId, TileID.Sand);
 		} else if (TileID.Sets.Conversion.HardenedSand[tileId]) {
-			this.RegisterTileConversion(tileId, IndiscriminateTileConversion(TileID.HardenedSand));
+			this.RegisterOnlySimpleTileConversion(tileId, TileID.HardenedSand);
 		} else if (TileID.Sets.Conversion.Sandstone[tileId]) {
-			this.RegisterTileConversion(tileId, IndiscriminateTileConversion(TileID.Sandstone));
+			this.RegisterOnlySimpleTileConversion(tileId, TileID.Sandstone);
 		} else if (TileID.Sets.Conversion.Ice[tileId]) {
-			this.RegisterTileConversion(tileId, IndiscriminateTileConversion(TileID.IceBlock));
+			this.RegisterOnlySimpleTileConversion(tileId, TileID.IceBlock);
 		} else if (TileID.Sets.Conversion.MushroomGrass[tileId]) {
 			// no change to mushrooms!
 		} else if ((tileId == TileID.CorruptThorns) || (tileId == TileID.CrimsonThorns)) {
-			this.RegisterTileConversion(tileId, KillTileConversion);
+			this.RegisterKillTileConversion(tileId);
 		}
 	}
 
@@ -89,33 +88,33 @@ public sealed class LightGreenSolutionConversion : ModBiomeConversion {
 		if (WallID.Sets.Conversion.Stone[wallId]) {
 			switch (wallId) {
 				case WallID.Cave7Echo:
-					this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.Cave7Unsafe));
+					this.RegisterOnlySimpleWallConversion(wallId, WallID.Cave7Unsafe);
 					return;
 				case WallID.Cave8Echo:
-					this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.Cave8Unsafe));
+					this.RegisterOnlySimpleWallConversion(wallId, WallID.Cave8Unsafe);
 					return;
 				case WallID.Cave7Unsafe:
 				case WallID.Cave8Unsafe:
 					break;
 				default:
-					this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.Stone));
+					this.RegisterOnlySimpleWallConversion(wallId, WallID.Stone);
 					return;
 			}
 		}
 		if (WallID.Sets.Conversion.NewWall1[wallId]) {
-			this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.RocksUnsafe1));
+			this.RegisterOnlySimpleWallConversion(wallId, WallID.RocksUnsafe1);
 		} else if (WallID.Sets.Conversion.NewWall2[wallId]) {
-			this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.RocksUnsafe2));
+			this.RegisterOnlySimpleWallConversion(wallId, WallID.RocksUnsafe2);
 		} else if (WallID.Sets.Conversion.NewWall3[wallId]) {
-			this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.RocksUnsafe3));
+			this.RegisterOnlySimpleWallConversion(wallId, WallID.RocksUnsafe3);
 		} else if (WallID.Sets.Conversion.NewWall4[wallId]) {
-			this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.RocksUnsafe4));
+			this.RegisterOnlySimpleWallConversion(wallId, WallID.RocksUnsafe4);
 		} else if (wallId == WallID.MushroomUnsafe) {
 			// no change to mushrooms!
 		} else if (WallID.Sets.Conversion.HardenedSand[wallId]) {
-			this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.HardenedSand));
+			this.RegisterOnlySimpleWallConversion(wallId, WallID.HardenedSand);
 		} else if (WallID.Sets.Conversion.Sandstone[wallId]) {
-			this.RegisterWallConversion(wallId, IndiscriminateWallConversion(WallID.Sandstone));
+			this.RegisterOnlySimpleWallConversion(wallId, WallID.Sandstone);
 		}
 	}
 }
