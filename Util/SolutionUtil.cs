@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 namespace MaddieQoL.Util;
 
 public abstract class AbstractSolutionItem : ModItem {
+
 	protected abstract int SprayProjectileID {get;}
 
 	protected virtual bool IsItemTypeUsableAsAmmo => true;
@@ -25,9 +26,11 @@ public abstract class AbstractSolutionItem : ModItem {
 	public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup) {
 		itemGroup = ContentSamples.CreativeHelper.ItemGroup.Solutions;
 	}
+
 }
 
 public abstract class AbstractSolutionProjectile : ModProjectile {
+
 	protected abstract ModBiomeConversion Conversion {get;}
 	protected abstract int SprayDustID {get;}
 
@@ -43,7 +46,7 @@ public abstract class AbstractSolutionProjectile : ModProjectile {
 		this.Projectile.aiStyle = 0;
 	}
 
-	public override bool? CanDamage() {return false;}
+	public override bool? CanDamage() => false;
 
 	public override void AI() {
 		if (this.Projectile.timeLeft > 133) {
@@ -93,40 +96,56 @@ public abstract class AbstractSolutionProjectile : ModProjectile {
 		this.Progress++;
 		this.Projectile.rotation += 0.3f * this.Projectile.direction;
 	}
+
 }
 
 public static class BiomeConversionExtensions {
-	public static void RegisterTileConversion(this ModBiomeConversion modBiomeConversion, int tileId, TileLoader.ConvertTile conversion) {
+
+	public static void RegisterTileConversion(
+		this ModBiomeConversion modBiomeConversion, int tileId, TileLoader.ConvertTile conversion
+	) {
 		TileLoader.RegisterConversion(tileId, modBiomeConversion.Type, conversion);
 	}
 
-	public static void RegisterWallConversion(this ModBiomeConversion modBiomeConversion, int wallId, WallLoader.ConvertWall conversion) {
+	public static void RegisterWallConversion(
+		this ModBiomeConversion modBiomeConversion, int wallId, WallLoader.ConvertWall conversion
+	) {
 		WallLoader.RegisterConversion(wallId, modBiomeConversion.Type, conversion);
 	}
 
-	public static void RegisterSimpleTileConversion(this ModBiomeConversion modBiomeConversion, int tileId, int toTileId, bool registerPurification = true) {
+	public static void RegisterSimpleTileConversion(
+		this ModBiomeConversion modBiomeConversion, int tileId, int toTileId, bool registerPurification = true
+	) {
 		TileLoader.RegisterSimpleConversion(tileId, modBiomeConversion.Type, toTileId, registerPurification);
 	}
 
-	public static void RegisterSimpleWallConversion(this ModBiomeConversion modBiomeConversion, int wallId, int toWallId, bool registerPurification = true) {
+	public static void RegisterSimpleWallConversion(
+		this ModBiomeConversion modBiomeConversion, int wallId, int toWallId, bool registerPurification = true
+	) {
 		WallLoader.RegisterSimpleConversion(wallId, modBiomeConversion.Type, toWallId, registerPurification);
 	}
 
-	public static void RegisterOnlySimpleTileConversion(this ModBiomeConversion modBiomeConversion, int tileId, int toTileId) {
+	public static void RegisterOnlySimpleTileConversion(
+		this ModBiomeConversion modBiomeConversion, int tileId, int toTileId
+	) {
 		modBiomeConversion.RegisterTileConversion(tileId, (i, j, _type, _conversionType) => {
 			WorldGen.ConvertTile(i, j, toTileId, true);
 			return false;
 		});
 	}
 
-	public static void RegisterOnlySimpleWallConversion(this ModBiomeConversion modBiomeConversion, int wallId, int toWallId) {
+	public static void RegisterOnlySimpleWallConversion(
+		this ModBiomeConversion modBiomeConversion, int wallId, int toWallId
+	) {
 		modBiomeConversion.RegisterWallConversion(wallId, (i, j, _type, _conversionType) => {
 			WorldGen.ConvertWall(i, j, toWallId);
 			return false;
 		});
 	}
 
-	public static void RegisterKillTileConversion(this ModBiomeConversion modBiomeConversion, int tileId) {
+	public static void RegisterKillTileConversion(
+		this ModBiomeConversion modBiomeConversion, int tileId
+	) {
 		modBiomeConversion.RegisterTileConversion(tileId, (i, j, _type, _conversionType) => {
 			WorldGen.KillTile(i, j);
 			if (Main.netMode == NetmodeID.MultiplayerClient) {
@@ -136,7 +155,10 @@ public static class BiomeConversionExtensions {
 		});
 	}
 
-	public static void RegisterKillWallConversion(this ModBiomeConversion modBiomeConversion, int wallId) {
+	public static void RegisterKillWallConversion(
+		this ModBiomeConversion modBiomeConversion, int wallId
+	) {
 		modBiomeConversion.RegisterOnlySimpleWallConversion(wallId, WallID.None);
 	}
+
 }

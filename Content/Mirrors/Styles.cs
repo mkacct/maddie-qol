@@ -6,6 +6,7 @@ using Terraria.ID;
 namespace MaddieQoL.Content.Mirrors;
 
 static class Styles {
+
 	internal static void UseRecallStyle(Player player, Item item) {
 		UseMirrorStyle(player, item, () => {
 			player.RemoveAllGrapplingHooks();
@@ -106,15 +107,24 @@ static class Styles {
 	static void UseMirrorStyle(Player player, Item item, Action activate) {
 		UseTpStyle(player, item, () => {
 			if (Main.rand.NextBool(2)) {
-				Dust.NewDust(player.position, player.width, player.height, DustID.MagicMirror, 0f, 0f, 150, default, 1.1f);
+				Dust.NewDust(
+					player.position, player.width, player.height, DustID.MagicMirror,
+					0f, 0f, 150, default, 1.1f
+				);
 			}
 		}, () => {
 			for (int i = 0; i < 70; i++) {
-				Dust.NewDust(player.position, player.width, player.height, DustID.MagicMirror, player.velocity.X * 0.5f, player.velocity.Y * 0.5f, 150, default, 1.5f);
+				Dust.NewDust(
+					player.position, player.width, player.height, DustID.MagicMirror,
+					player.velocity.X * 0.5f, player.velocity.Y * 0.5f, 150, default, 1.5f
+				);
 			}
 			activate();
 			for (int i = 0; i < 70; i++) {
-				Dust.NewDust(player.position, player.width, player.height, DustID.MagicMirror, 0f, 0f, 150, default, 1.5f);
+				Dust.NewDust(
+					player.position, player.width, player.height, DustID.MagicMirror,
+					0f, 0f, 150, default, 1.5f
+				);
 			}
 		});
 	}
@@ -126,4 +136,5 @@ static class Styles {
 			activate();
 		}
 	}
+
 }

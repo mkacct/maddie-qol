@@ -5,6 +5,7 @@ using Terraria.ID;
 namespace MaddieQoL.Content.Mirrors;
 
 static class Util {
+
 	public static readonly ISet<int> ShellphoneItemIDs = new HashSet<int> {
 		ItemID.ShellphoneDummy,
 		ItemID.Shellphone,
@@ -27,4 +28,5 @@ static class Util {
 		player.accOreFinder = true;
 		player.accDreamCatcher = true;
 	}
+
 }

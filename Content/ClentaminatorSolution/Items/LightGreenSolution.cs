@@ -1,13 +1,14 @@
-using static MaddieQoL.Common.Shorthands;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using MaddieQoL.Util;
-using Terraria.Localization;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.ClentaminatorSolution.Items;
 
 public sealed class LightGreenSolution : AbstractSolutionItem {
+
 	static LocalizedText TooltipWhenEnabled {get; set;}
 
 	public override LocalizedText Tooltip => ModuleConf.enablePurificationOnlySolution ? TooltipWhenEnabled : base.Tooltip;
@@ -30,17 +31,21 @@ public sealed class LightGreenSolution : AbstractSolutionItem {
 		}
 		ItemID.Sets.ShimmerTransformToItem[this.Type] = ItemID.GreenSolution;
 	}
+
 }
 
 public sealed class LightGreenSolutionProjectile : AbstractSolutionProjectile {
+
 	public override string Texture => $"Terraria/Images/Projectile_{ProjectileID.PureSpray}";
 
 	protected override ModBiomeConversion Conversion => ModContent.GetInstance<LightGreenSolutionConversion>();
 	protected override int SprayDustID => DustID.PureSpray;
+
 }
 
 // this should replicate the behavior of the vanilla green solution, just without the mushroom grass conversion
 public sealed class LightGreenSolutionConversion : ModBiomeConversion {
+
 	public override void PostSetupContent() {
 		for (int tileId = 0; tileId < TileLoader.TileCount; tileId++) {
 			this.TryRegisterTileConversion(tileId);
@@ -117,4 +122,5 @@ public sealed class LightGreenSolutionConversion : ModBiomeConversion {
 			this.RegisterOnlySimpleWallConversion(wallId, WallID.Sandstone);
 		}
 	}
+
 }

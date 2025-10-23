@@ -1,4 +1,3 @@
-using static MaddieQoL.Common.Shorthands;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -6,10 +5,12 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using MaddieQoL.Util;
 using MaddieQoL.Common;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.Renewability;
 
 public sealed class RenewabilityRecipes : ModSystem {
+
 	public override void SetStaticDefaults() {
 		AddGoldChestShimmer();
 		AddEarlyGameTreasureShimmers();
@@ -744,4 +745,5 @@ public sealed class RenewabilityRecipes : ModSystem {
 		ItemID.Sets.ShimmerTransformToItem[ItemID.HelFire] = ItemID.Cascade;
 		ItemID.Sets.ShimmerTransformToItem[ItemID.ZapinatorOrange] = ItemID.ZapinatorGray;
 	}
+
 }

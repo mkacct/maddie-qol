@@ -5,6 +5,7 @@ using Terraria.ModLoader.IO;
 namespace MaddieQoL.Content.Misc;
 
 public sealed class CurfewTimeoutSystem : ModSystem {
+
 	public bool IsTimeoutActive {get; set;}
 
 	public override void ClearWorld() {
@@ -24,4 +25,5 @@ public sealed class CurfewTimeoutSystem : ModSystem {
 	public override void SaveWorldData(TagCompound tag) {
 		tag[nameof(this.IsTimeoutActive)] = this.IsTimeoutActive;
 	}
+
 }

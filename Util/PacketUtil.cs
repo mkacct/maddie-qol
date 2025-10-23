@@ -12,6 +12,7 @@ namespace MaddieQoL.Util;
 /// Create only one of these, and put it in a static property.
 /// </summary>
 public class PacketDispatcher {
+
 	readonly Mod _mod;
 
 	readonly IDictionary<int, IPacketHandler> _packetIndicesToHandlers = new Dictionary<int, IPacketHandler>();
@@ -57,28 +58,35 @@ public class PacketDispatcher {
 		packet.Write(index);
 		return packet;
 	}
+
 }
 
 /// <summary>
-/// Implemented by PacketHandler. Exists so PacketDispatcher can call methods without needing to know the packet data type.
+/// Implemented by PacketHandler.
+/// Exists so PacketDispatcher can call methods without needing to know the packet data type.
 /// You shouldn't need to use this interface outside this file.
 /// </summary>
 public interface IPacketHandler {
+
 	void AssignDispatcher(PacketDispatcher dispatcher);
 	void HandlePacket(BinaryReader reader, int srcPlayerId);
+
 }
 
 /// <summary>
 /// A packet handler for sending and receiving packets with packet data type D.
 /// Put these in static readonly fields in classes that need to work with packets.
 /// </summary>
-/// <typeparam name="D">The packet data class (must implement IPacketData and have a no-argument constructor)</typeparam>
+/// <typeparam name="D">
+/// The packet data class (must implement IPacketData and have a no-argument constructor)
+/// </typeparam>
 /// <param name="serverHandler">Called when a packet is received on the server (from the client)</param>
 /// <param name="clientHandler">Called when a packet is received on the client (from the server)</param>
 public class PacketHandler<D>(
 	Action<D, int> serverHandler = null,
 	Action<D> clientHandler = null
 ) : IPacketHandler where D : IPacketData, new() {
+
 	PacketDispatcher _dispatcher = null;
 
 	/// <summary>
@@ -98,7 +106,8 @@ public class PacketHandler<D>(
 	/// <summary>
 	/// Send a packet containing the given packet data.
 	/// If you're on the client, sends to the server.
-	/// If you're on the server, sends to all clients, unless this behavior is overridden by setting either toClient or ignoreClient.
+	/// If you're on the server, sends to all clients,
+	/// unless this behavior is overridden by setting either toClient or ignoreClient.
 	/// </summary>
 	/// <param name="data">The data to send</param>
 	/// <param name="toClient">One client to send to (passed directly to ModPacket.Send())</param>
@@ -127,6 +136,7 @@ public class PacketHandler<D>(
 			clientHandler(data);
 		}
 	}
+
 }
 
 /// <summary>

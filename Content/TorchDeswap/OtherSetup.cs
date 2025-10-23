@@ -1,12 +1,13 @@
 using System.Collections.Generic;
-using MaddieQoL.Common;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using MaddieQoL.Common;
 
 namespace MaddieQoL.Content.TorchDeswap;
 
 public sealed class TorchDeswapOtherSetup : ModSystem {
+
 	public override void PostSetupRecipes() {
 		SuppressCampfireMaterialTooltips();
 	}
@@ -18,4 +19,5 @@ public sealed class TorchDeswapOtherSetup : ModSystem {
 			ItemID.Sets.IsAMaterial[campfire] = false;
 		}
 	}
+
 }

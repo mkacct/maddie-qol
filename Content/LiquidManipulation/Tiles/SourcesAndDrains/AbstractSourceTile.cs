@@ -1,12 +1,13 @@
-using static MaddieQoL.Common.Shorthands;
 using Terraria;
 using Terraria.ID;
-using Terraria.ObjectData;
 using Terraria.Localization;
+using Terraria.ObjectData;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.LiquidManipulation.Tiles.SourcesAndDrains;
 
 public abstract class AbstractSourceTile : AbstractSourceOrDrainTile {
+
 	protected abstract int LiquidType {get;}
 
 	protected override TileObjectData CopyFromTileObjectData => TileObjectData.GetTileData(TileID.OutletPump, 0);
@@ -20,4 +21,5 @@ public abstract class AbstractSourceTile : AbstractSourceOrDrainTile {
 			WorldGen.SquareTileFrame(tileX, tileY);
 		}
 	}
+
 }

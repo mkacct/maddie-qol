@@ -1,13 +1,14 @@
-using static MaddieQoL.Common.Shorthands;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using MaddieQoL.Util;
+using static MaddieQoL.Common.Shorthands;
 using MaddieQoL.Content.LiquidManipulation.Items.SourcesAndDrains;
 
 namespace MaddieQoL.Content.LiquidManipulation;
 
 public sealed class LiquidManipulationRecipes : ModSystem {
+
 	public override void AddRecipes() {
 		AddSourceAndDrainRecipes();
 	}
@@ -80,4 +81,5 @@ public sealed class LiquidManipulationRecipes : ModSystem {
 			recipe.DisableDecraft().RegisterUsing(registrar);
 		}
 	}
+
 }

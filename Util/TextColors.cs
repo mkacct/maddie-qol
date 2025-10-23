@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 namespace MaddieQoL.Util;
 
 public static class TextColors {
+
 	public static readonly Color PlayerChat = Color.White;
 	public static readonly Color Event = new(50, 255, 130);
 	public static readonly Color Boss = new(175, 75, 255);
@@ -22,4 +23,5 @@ public static class TextColors {
 	public static Color DeathCount => NPCDeath;
 
 	public static readonly Color Disabled = new(100, 100, 100);
+
 }

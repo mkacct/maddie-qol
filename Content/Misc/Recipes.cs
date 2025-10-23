@@ -1,12 +1,13 @@
-using static MaddieQoL.Common.Shorthands;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using MaddieQoL.Util;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.Misc;
 
 public sealed class MiscRecipes : ModSystem {
+
 	public override void AddRecipes() {
 		AddDirtBlockRecipe();
 		AddPwnhammerRecipe();
@@ -60,4 +61,5 @@ public sealed class MiscRecipes : ModSystem {
 			}
 		}
 	}
+
 }

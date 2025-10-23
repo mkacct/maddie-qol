@@ -1,14 +1,15 @@
-using static MaddieQoL.Common.Shorthands;
-using static MaddieQoL.Content.Mirrors.MirrorShellphonePlusSystem;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static MaddieQoL.Common.Shorthands;
+using static MaddieQoL.Content.Mirrors.MirrorShellphonePlusSystem;
 
 namespace MaddieQoL.Content.Mirrors;
 
 public sealed class MirrorSwitchAway : GlobalItem {
+
 	static readonly ISet<int> AllTeleportOnUseItems;
 
 	static MirrorSwitchAway() {
@@ -36,4 +37,5 @@ public sealed class MirrorSwitchAway : GlobalItem {
 			}
 		}
 	}
+
 }

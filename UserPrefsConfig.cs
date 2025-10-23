@@ -4,6 +4,7 @@ using Terraria.ModLoader.Config;
 namespace MaddieQoL;
 
 public sealed class UserPrefsConfig : ModConfig {
+
 	public override ConfigScope Mode => ConfigScope.ClientSide;
 
 	// Teleportation
@@ -94,9 +95,11 @@ public sealed class BuffFurnitureAutoActivationPrefs {
 		this.enableForConductorsStand = true;
 		this.enableForNinjaRack = true;
 	}
+
 }
 
 public enum TorchDeswapDisplayMode {
+
 	[Description("Never")]
 	Never,
 
@@ -105,4 +108,5 @@ public enum TorchDeswapDisplayMode {
 
 	[Description("Always")]
 	Always
+
 }

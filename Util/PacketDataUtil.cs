@@ -7,6 +7,7 @@ namespace MaddieQoL.Util;
 /// Packet data containing one XNA integer Point.
 /// </summary>
 public class PointPacketData(Point point) : IPacketData {
+
 	public Point Point {get; set;} = point;
 
 	public PointPacketData() : this(Point.Zero) {}
@@ -19,4 +20,5 @@ public class PointPacketData(Point point) : IPacketData {
 		writer.Write(this.Point.X);
 		writer.Write(this.Point.Y);
 	}
+
 }

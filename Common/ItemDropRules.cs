@@ -4,6 +4,7 @@ using Terraria.GameContent.ItemDropRules;
 namespace MaddieQoL.Common;
 
 public static class ItemDropRules {
+
 	public static IItemDropRule OneStackFromOptions(
 		int chanceDenominator, int minimumDropped, int maximumDropped, params int[] options
 	) {
@@ -19,4 +20,5 @@ public static class ItemDropRules {
 		}
 		return new OneFromRulesRule(chanceDenominator, chanceNumerator, [..ruleOptions]);
 	}
+
 }

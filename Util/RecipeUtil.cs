@@ -5,6 +5,7 @@ using Terraria;
 namespace MaddieQoL.Util;
 
 public static class RecipeExtensions {
+
 	public static Recipe RegisterBeforeFirstRecipeOf(this Recipe recipe, int itemId) {
 		recipe.SortBeforeFirstRecipesOf(itemId);
 		recipe.Register();
@@ -25,9 +26,11 @@ public static class RecipeExtensions {
 	public static bool HasCustomShimmerResults(this Recipe recipe) {
 		return (recipe.customShimmerResults != null) && (recipe.customShimmerResults.Count > 0);
 	}
+
 }
 
 public class RecipeOrderedRegistrar {
+
 	int lastItemId = -1;
 	bool isBefore = false;
 	Recipe lastRecipe = null;
@@ -76,4 +79,5 @@ public class RecipeOrderedRegistrar {
 		this.lastItemId = -1;
 		this.isBefore = false;
 	}
+
 }

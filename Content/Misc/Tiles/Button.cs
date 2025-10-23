@@ -10,6 +10,7 @@ using Terraria.ObjectData;
 namespace MaddieQoL.Content.Misc.Tiles;
 
 public sealed class Button : ModTile {
+
 	public override void SetStaticDefaults() {
 		Main.tileFrameImportant[this.Type] = true;
 		Main.tileSolid[this.Type] = false;
@@ -37,9 +38,7 @@ public sealed class Button : ModTile {
 		player.cursorItemIconID = ModContent.ItemType<Items.Button>();
 	}
 
-	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) {
-		return true;
-	}
+	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
 
 	public override bool RightClick(int i, int j) {
 		Wiring.HitSwitch(i, j);
@@ -63,4 +62,5 @@ public sealed class Button : ModTile {
 		}
 		return false;
 	}
+
 }

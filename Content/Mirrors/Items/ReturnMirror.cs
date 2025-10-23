@@ -1,14 +1,15 @@
-using static MaddieQoL.Common.Shorthands;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using MaddieQoL.Util;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.Mirrors.Items;
 
 public sealed class ReturnMirror : ModItem {
+
 	static LocalizedText TooltipWhenEnabled {get; set;}
 
 	public override LocalizedText Tooltip => ModuleConf.enableReturnTools ? TooltipWhenEnabled : base.Tooltip;
@@ -51,4 +52,5 @@ public sealed class ReturnMirror : ModItem {
 			recipe.RegisterUsing(registrar);
 		}
 	}
+
 }

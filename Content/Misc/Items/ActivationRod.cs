@@ -1,13 +1,14 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Audio;
 using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.Misc.Items;
 
 public sealed class ActivationRod : ModItem {
+
 	public static readonly PacketHandler<PointPacketData> ActivationPacketHandler = new(
 		ServerHandleActivationPacket,
 		ClientHandleActivationPacket
@@ -58,9 +59,7 @@ public sealed class ActivationRod : ModItem {
 		}
 	}
 
-	static bool TileHasWire(Tile tile) {
-		return tile.RedWire || tile.GreenWire || tile.BlueWire || tile.YellowWire;
-	}
+	static bool TileHasWire(Tile tile) => tile.RedWire || tile.GreenWire || tile.BlueWire || tile.YellowWire;
 
 	static void EmitSound(int tileTargetX, int tileTargetY) {
 		SoundEngine.PlaySound(SignalSound, new Vector2(tileTargetX * 16 + 8, tileTargetY * 16 + 8));
@@ -86,4 +85,5 @@ public sealed class ActivationRod : ModItem {
 		recipe.AddTile(TileID.Anvils);
 		recipe.RegisterBeforeFirstRecipeOf(ItemID.ActuationRod);
 	}
+
 }

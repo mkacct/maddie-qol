@@ -1,9 +1,10 @@
-using static MaddieQoL.Common.Shorthands;
 using Terraria;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Common;
 
 public static class Conditions {
+
 	public static Condition InTown => new(
 		ThisMod.GetLocalization($"{nameof(Conditions)}.{nameof(InTown)}"),
 		() => Main.LocalPlayer.townNPCs >= 3f
@@ -23,10 +24,9 @@ public static class Conditions {
 		}
 	);
 
-	public static Condition PlayerHasPickaxePower(int pick) {
-		return new Condition(
-			ThisMod.GetLocalization($"{nameof(Conditions)}.{nameof(PlayerHasPickaxePower)}").WithFormatArgs(pick),
-			() => Main.LocalPlayer.GetBestPickaxe().pick >= pick
-		);
-	}
+	public static Condition PlayerHasPickaxePower(int pick) => new(
+		ThisMod.GetLocalization($"{nameof(Conditions)}.{nameof(PlayerHasPickaxePower)}").WithFormatArgs(pick),
+		() => Main.LocalPlayer.GetBestPickaxe().pick >= pick
+	);
+
 }

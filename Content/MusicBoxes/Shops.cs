@@ -1,11 +1,12 @@
-using static MaddieQoL.Common.Shorthands;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.MusicBoxes;
 
 public sealed class MusicBoxShops : GlobalNPC {
+
 	public override void ModifyShop(NPCShop shop) {
 		switch (shop.NpcType) {
 			case NPCID.Wizard:
@@ -26,4 +27,5 @@ public sealed class MusicBoxShops : GlobalNPC {
 		// MusicBoxTitleAlt is actually Music Box (Journey's Beginning)
 		shop.InsertBefore(ItemID.MusicBoxCredits, ItemID.MusicBoxTitleAlt, Condition.Hardmode);
 	}
+
 }

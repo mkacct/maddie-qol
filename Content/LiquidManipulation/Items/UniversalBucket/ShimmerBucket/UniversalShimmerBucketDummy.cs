@@ -1,12 +1,13 @@
 using Terraria;
-using Terraria.ID;
 using Terraria.DataStructures;
-using MaddieQoL.Common;
+using Terraria.ID;
 using MaddieQoL.Util;
+using MaddieQoL.Common;
 
 namespace MaddieQoL.Content.LiquidManipulation.Items.UniversalBucket.ShimmerBucket;
 
 public sealed class UniversalShimmerBucketDummy : AbstractUniversalShimmerBucket {
+
 	public override void AddRecipes() {
 		RecipeOrderedRegistrar registrar = RecipeOrderedRegistrar.StartingAfter(ItemID.BottomlessShimmerBucket);
 		{
@@ -30,4 +31,5 @@ public sealed class UniversalShimmerBucketDummy : AbstractUniversalShimmerBucket
 	public override void OnCreated(ItemCreationContext context) {
 		this.HandleDummyItemCreation(context);
 	}
+
 }

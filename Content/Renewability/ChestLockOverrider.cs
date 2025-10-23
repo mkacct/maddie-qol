@@ -1,16 +1,17 @@
-using static MaddieQoL.Common.Shorthands;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using System.Collections.Generic;
-using Terraria.Localization;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.Renewability;
 
 public sealed class RenewabilityChestLockOverrider : GlobalItem {
+
 	const int DoorHeightTiles = 3, DoorTilesheetCellSize = 18;
 	const int LihzahrdDoorClosedLockedSubId = 11, LihzahrdDoorClosedUnlockedSubId = 12;
 
@@ -35,11 +36,18 @@ public sealed class RenewabilityChestLockOverrider : GlobalItem {
 	static void TryUseLockOnDoor(Player player) {
 		Item item = player.inventory[player.selectedItem];
 		if (!((item.type == ItemID.ChestLock) && (item.stack > 0))) {return;}
-		if (!(player.IsTargetTileInItemRange(item) && player.ItemTimeIsZero && player.ItemAnimationActive && player.controlUseItem)) {return;}
+		if (!(
+			player.IsTargetTileInItemRange(item)
+			&& player.ItemTimeIsZero
+			&& player.ItemAnimationActive
+			&& player.controlUseItem
+		)) {return;}
 		if (LockDoor(Player.tileTargetX, Player.tileTargetY)) {
 			ConsumeOneOfItem(player);
 			if (Main.netMode == NetmodeID.MultiplayerClient) {
-				NetMessage.SendData(MessageID.LockAndUnlock, -1, -1, null, player.whoAmI, 2f, Player.tileTargetX, Player.tileTargetY);
+				NetMessage.SendData(
+					MessageID.LockAndUnlock, -1, -1, null, player.whoAmI, 2f, Player.tileTargetX, Player.tileTargetY
+				);
 			}
 		}
 	}
@@ -63,9 +71,7 @@ public sealed class RenewabilityChestLockOverrider : GlobalItem {
 		return true;
 	}
 
-	static bool TileIsClosedDoor(Tile tile) {
-		return tile.HasTile && (tile.TileType == TileID.ClosedDoor);
-	}
+	static bool TileIsClosedDoor(Tile tile) => tile.HasTile && (tile.TileType == TileID.ClosedDoor);
 
 	static void ConsumeOneOfItem(Player player) {
 		player.inventory[player.selectedItem].stack--;
@@ -79,4 +85,5 @@ public sealed class RenewabilityChestLockOverrider : GlobalItem {
 		if (item.type != ItemID.ChestLock) {return;}
 		tooltips.Add(new TooltipLine(this.Mod, "CanLockDoor", ChestLockAddlTooltip.Value));
 	}
+
 }

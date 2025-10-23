@@ -1,12 +1,13 @@
-using static MaddieQoL.Common.Shorthands;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.Renewability;
 
 public sealed class RenewabilityInventoryPlayerModifier : ModPlayer {
+
 	public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath) {
 		if (!UserConf.enableDefaultFamiliarSet) {yield break;}
 		if (mediumCoreDeath && !ModuleConf.enableDefaultFamiliarSet) {yield break;}
@@ -14,4 +15,5 @@ public sealed class RenewabilityInventoryPlayerModifier : ModPlayer {
 		yield return new Item(ItemID.FamiliarShirt);
 		yield return new Item(ItemID.FamiliarPants);
 	}
+
 }

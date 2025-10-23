@@ -1,14 +1,15 @@
-using static MaddieQoL.Common.Shorthands;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using MaddieQoL.Common;
-using Terraria.GameContent.ItemDropRules;
 using MaddieQoL.Util;
+using MaddieQoL.Common;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.Renewability;
 
 public sealed class RenewabilityCrateLoot : GlobalItem {
+
 	const int MaxBanners = 2;
 
 	public override void ModifyItemLoot(Item item, ItemLoot itemLoot) {
@@ -164,4 +165,5 @@ public sealed class RenewabilityCrateLoot : GlobalItem {
 		if (!ModuleConf.enableMinecartRenewability) {return;}
 		itemLoot.Add(ItemDropRule.NotScalingWithLuck(ItemID.BeeMinecart, 20));
 	}
+
 }

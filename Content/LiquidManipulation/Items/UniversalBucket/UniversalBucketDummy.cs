@@ -1,11 +1,12 @@
 using Terraria;
-using Terraria.ID;
 using Terraria.DataStructures;
+using Terraria.ID;
 using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.LiquidManipulation.Items.UniversalBucket;
 
 public sealed class UniversalBucketDummy : AbstractUniversalBucket {
+
 	public override void AddRecipes() {
 		Recipe recipe = this.CreateRecipe();
 		recipe.AddIngredient(ItemID.BottomlessBucket);
@@ -18,4 +19,5 @@ public sealed class UniversalBucketDummy : AbstractUniversalBucket {
 	public override void OnCreated(ItemCreationContext context) {
 		this.HandleDummyItemCreation(context);
 	}
+
 }

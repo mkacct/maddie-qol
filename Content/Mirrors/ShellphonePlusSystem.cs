@@ -1,14 +1,15 @@
-using static MaddieQoL.Common.Shorthands;
 using System.Collections.Generic;
-using MaddieQoL.Content.Mirrors.Items.ShellphonePlus;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using MaddieQoL.Util;
-using Terraria.Audio;
+using static MaddieQoL.Common.Shorthands;
+using MaddieQoL.Content.Mirrors.Items.ShellphonePlus;
 
 namespace MaddieQoL.Content.Mirrors;
 
 public sealed class MirrorShellphonePlusSystem : ModSystem {
+
 	internal static readonly int ShellphonePlusDummyItemID = ModContent.ItemType<ShellphonePlusDummy>();
 
 	static readonly int[] ShellphonePlusItemIDSequence = [
@@ -30,7 +31,9 @@ public sealed class MirrorShellphonePlusSystem : ModSystem {
 
 	public override void Load() {
 		SwappableItemUtil.RegisterItemResearchOverrideHook(ShellphonePlusItemIDSequence, ShellphonePlusDummyItemID);
-		SwappableItemUtil.RegisterItemSwapHook(ShellphonePlusItemIDs, ShellphonePlusNextItemID, ShellphonePlusSwapSound);
+		SwappableItemUtil.RegisterItemSwapHook(
+			ShellphonePlusItemIDs, ShellphonePlusNextItemID, ShellphonePlusSwapSound
+		);
 	}
 
 	internal static int ShellphonePlusNextItemID(int itemId) {
@@ -39,4 +42,5 @@ public sealed class MirrorShellphonePlusSystem : ModSystem {
 		} while (!ModuleConf.enableReturnTools && (itemId == ModContent.ItemType<ShellphonePlusReturn>()));
 		return itemId;
 	}
+
 }

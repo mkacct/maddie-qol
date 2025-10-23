@@ -1,15 +1,16 @@
-using static MaddieQoL.Common.Shorthands;
+using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.Misc;
 
 public sealed class BuffFurnitureAutoActivator : ModSystem {
+
 	const int BuffTimeInfinite = 108000;
 
 	readonly record struct TileBuffData(
@@ -69,9 +70,19 @@ public sealed class BuffFurnitureAutoActivator : ModSystem {
 
 	static void TryAddThoriumModContent() {
 		if (ModLoader.TryGetMod("ThoriumMod", out Mod thoriumMod)) {
-			TryAddModFurniture(thoriumMod, "Altar", "AltarBuff", SoundID.Item29, (prefs) => prefs.enableForAltar);
-			TryAddModFurniture(thoriumMod, "ConductorsStand", "ConductorsStandBuff", SoundID.Item29, (prefs) => prefs.enableForConductorsStand);
-			TryAddModFurniture(thoriumMod, "NinjaRack", "NinjaBuff", SoundID.Item37, (prefs) => prefs.enableForNinjaRack);
+			TryAddModFurniture(
+				thoriumMod, "Altar", "AltarBuff", SoundID.Item29,
+				(prefs) => prefs.enableForAltar
+			);
+			TryAddModFurniture(
+				thoriumMod, "ConductorsStand", "ConductorsStandBuff", SoundID.Item29,
+				(prefs) => prefs.enableForConductorsStand
+			);
+			TryAddModFurniture(
+				thoriumMod, "NinjaRack", "NinjaBuff", SoundID.Item37,
+				(prefs) => prefs.enableForNinjaRack
+			);
 		}
 	}
+
 }

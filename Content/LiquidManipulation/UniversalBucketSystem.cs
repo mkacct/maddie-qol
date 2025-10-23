@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Terraria.ModLoader;
-using Terraria.ID;
 using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 using MaddieQoL.Util;
 using MaddieQoL.Content.LiquidManipulation.Items.UniversalBucket;
 using MaddieQoL.Content.LiquidManipulation.Items.UniversalBucket.ShimmerBucket;
@@ -9,6 +9,7 @@ using MaddieQoL.Content.LiquidManipulation.Items.UniversalBucket.ShimmerBucket;
 namespace MaddieQoL.Content.LiquidManipulation;
 
 public sealed class LiquidManipulationUniversalBucketSystem : ModSystem {
+
 	internal static readonly int UniversalBucketDummyItemID = ModContent.ItemType<UniversalBucketDummy>();
 	internal static readonly int UniversalShimmerBucketDummyItemID = ModContent.ItemType<UniversalShimmerBucketDummy>();
 
@@ -52,4 +53,5 @@ public sealed class LiquidManipulationUniversalBucketSystem : ModSystem {
 	internal static int UniversalShimmerBucketNextItemID(int itemId) {
 		return SwappableItemUtil.NextID(UniversalShimmerBucketItemIDSequence, itemId);
 	}
+
 }

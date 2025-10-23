@@ -1,14 +1,15 @@
-using static MaddieQoL.Content.Mirrors.MirrorShellphonePlusSystem;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using MaddieQoL.Util;
+using static MaddieQoL.Content.Mirrors.MirrorShellphonePlusSystem;
 
 namespace MaddieQoL.Content.Mirrors.Items.ShellphonePlus;
 
 public abstract class AbstractShellphonePlus : AbstractSwappableItem {
+
 	protected override SoundStyle AltFunctionSwapSound => ShellphonePlusSwapSound;
 
 	public override void SetStaticDefaults() {
@@ -29,12 +30,11 @@ public abstract class AbstractShellphonePlus : AbstractSwappableItem {
 		Util.DisplayEverything(player);
 	}
 
-	protected override int NextItemID(int itemId) {
-		return ShellphonePlusNextItemID(itemId);
-	}
+	protected override int NextItemID(int itemId) => ShellphonePlusNextItemID(itemId);
 
 	public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI) {
 		ItemUtil.DrawItemInWorld(ShellphonePlusDummyItemID, this.Item, spriteBatch, alphaColor, rotation, scale);
 		return false;
 	}
+
 }

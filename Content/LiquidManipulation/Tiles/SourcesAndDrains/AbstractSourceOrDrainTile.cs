@@ -1,14 +1,15 @@
-using static MaddieQoL.Common.Shorthands;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 using Terraria.ObjectData;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.LiquidManipulation.Tiles.SourcesAndDrains;
 
 public abstract class AbstractSourceOrDrainTile : ModTile {
+
 	protected abstract TileObjectData CopyFromTileObjectData {get;}
 	protected abstract LocalizedText MapEntryName {get;}
 
@@ -44,4 +45,5 @@ public abstract class AbstractSourceOrDrainTile : ModTile {
 	}
 
 	protected abstract void OperateOnTile(int tileX, int tileY);
+
 }

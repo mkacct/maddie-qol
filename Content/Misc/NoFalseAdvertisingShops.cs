@@ -1,12 +1,13 @@
-using static MaddieQoL.Common.Shorthands;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria;
 using MaddieQoL.Util;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.Misc;
 
 public sealed class NoFalseAdvertisingShops : GlobalNPC {
+
 	public override void ModifyShop(NPCShop shop) {
 		switch (shop.NpcType) {
 			case NPCID.Merchant:
@@ -42,4 +43,5 @@ public sealed class NoFalseAdvertisingShops : GlobalNPC {
 			shopCustomPrice = Item.buyPrice(0, 5, 0, 0)
 		});
 	}
+
 }

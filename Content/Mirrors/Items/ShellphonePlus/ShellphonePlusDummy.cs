@@ -1,15 +1,16 @@
-using static MaddieQoL.Common.Shorthands;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
 using MaddieQoL.Util;
 using MaddieQoL.Common;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.Mirrors.Items.ShellphonePlus;
 
 public sealed class ShellphonePlusDummy : AbstractShellphonePlus {
+
 	static LocalizedText TooltipWhenEnabled {get; set;}
 
 	public override LocalizedText Tooltip => ModuleConf.enableReturnTools ? TooltipWhenEnabled : base.Tooltip;
@@ -42,4 +43,5 @@ public sealed class ShellphonePlusDummy : AbstractShellphonePlus {
 	public override void OnCreated(ItemCreationContext context) {
 		this.HandleDummyItemCreation(context);
 	}
+
 }

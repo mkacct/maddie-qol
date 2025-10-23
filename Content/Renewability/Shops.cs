@@ -1,12 +1,12 @@
-using static MaddieQoL.Common.Shorthands;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using MaddieQoL.Common;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.Renewability;
 
 public sealed class RenewabilityShops : GlobalNPC {
+
 	public override void ModifyShop(NPCShop shop) {
 		switch (shop.NpcType) {
 			case NPCID.Merchant:
@@ -81,7 +81,9 @@ public sealed class RenewabilityShops : GlobalNPC {
 
 	static void ModifyMechanicShop(NPCShop shop) {
 		if (!ModuleConf.enableLihzahrdItemRenewability) {return;}
-		shop.InsertAfter(ItemID.BluePressurePlate, ItemID.LihzahrdPressurePlate, Condition.InJungle, Condition.DownedGolem);
+		shop.InsertAfter(
+			ItemID.BluePressurePlate, ItemID.LihzahrdPressurePlate, Condition.InJungle, Condition.DownedGolem
+		);
 	}
 
 	static void ModifySteampunkerShop(NPCShop shop) {
@@ -100,4 +102,5 @@ public sealed class RenewabilityShops : GlobalNPC {
 		if (!ModuleConf.enableGoldChestItemRenewability) {return;}
 		shop.InsertBefore(ItemID.StrangeBrew, ItemID.FlareGun, Condition.MoonPhaseFull);
 	}
+
 }

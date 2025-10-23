@@ -1,12 +1,13 @@
 using System.Collections.Generic;
-using MaddieQoL.Util;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.Renewability;
 
 public sealed class RenewabilityTeamBlocks : GlobalItem {
+
 	static readonly IList<KeyValuePair<int, int>> BlocksToPlatforms = [
 		new(ItemID.TeamBlockRed, ItemID.TeamBlockRedPlatform),
 		new(ItemID.TeamBlockGreen, ItemID.TeamBlockGreenPlatform),
@@ -59,4 +60,5 @@ public sealed class RenewabilityTeamBlocks : GlobalItem {
 		ItemID.Sets.ShimmerTransformToItem[ItemID.TeamBlockYellow] = ItemID.TeamBlockPink;
 		ItemID.Sets.ShimmerTransformToItem[ItemID.TeamBlockPink] = ItemID.TeamBlockWhite;
 	}
+
 }

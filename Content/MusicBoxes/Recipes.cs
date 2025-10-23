@@ -1,12 +1,13 @@
-using static MaddieQoL.Common.Shorthands;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using MaddieQoL.Util;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.MusicBoxes;
 
 public sealed class MusicBoxRecipes : ModSystem {
+
 	public override void AddRecipes() {
 		if (!ModuleConf.enableEasierTitleMusicBoxRecipes) {return;}
 		{ // Music Box (Title)
@@ -27,4 +28,5 @@ public sealed class MusicBoxRecipes : ModSystem {
 			recipe.DisableDecraft().RegisterAfterLastRecipeOf(ItemID.MusicBoxConsoleTitle);
 		}
 	}
+
 }

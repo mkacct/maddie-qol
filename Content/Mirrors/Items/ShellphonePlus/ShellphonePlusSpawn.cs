@@ -1,12 +1,13 @@
-using static MaddieQoL.Common.Shorthands;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.Mirrors.Items.ShellphonePlus;
 
 public sealed class ShellphonePlusSpawn : AbstractShellphonePlus {
+
 	static LocalizedText TooltipWhenEnabled {get; set;}
 
 	public override LocalizedText Tooltip => ModuleConf.enableReturnTools ? TooltipWhenEnabled : base.Tooltip;
@@ -19,4 +20,5 @@ public sealed class ShellphonePlusSpawn : AbstractShellphonePlus {
 	public override void UseStyle(Player player, Rectangle heldItemFrame) {
 		Styles.UseSpawnTpStyle(player, this.Item);
 	}
+
 }

@@ -8,6 +8,7 @@ using MaddieQoL.Util;
 namespace MaddieQoL.Content.BiomeChestWeaponRenewability.Items;
 
 public abstract class AbstractBiomeLockBox : ModItem {
+
 	protected abstract int ChestKeyItemID {get;}
 	protected abstract int ContainedWeaponItemID {get;}
 
@@ -29,11 +30,10 @@ public abstract class AbstractBiomeLockBox : ModItem {
 		this.Item.value = Item.buyPrice(0, 2, 0, 0);
 	}
 
-	public override bool CanRightClick() {
-		return true;
-	}
+	public override bool CanRightClick() => true;
 
 	public override void ModifyItemLoot(ItemLoot itemLoot) {
 		itemLoot.Add(ItemDropRule.NotScalingWithLuck(this.ContainedWeaponItemID));
 	}
+
 }

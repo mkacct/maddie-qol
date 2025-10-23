@@ -6,14 +6,15 @@ using Terraria.DataStructures;
 using Terraria.GameContent.Drawing;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.Localization;
 using MaddieQoL.Util;
 
 namespace MaddieQoL.Content.MusicBoxes.Tiles;
 
 public sealed class SilenceBox : ModTile {
+
 	static Asset<Texture2D> GlowTexture {get; set;}
 
 	public override void SetStaticDefaults() {
@@ -43,9 +44,7 @@ public sealed class SilenceBox : ModTile {
 		player.cursorItemIconID = ModContent.ItemType<Items.SilenceBox>();
 	}
 
-	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) {
-		return true;
-	}
+	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
 
 	public override void PostDraw(int i, int j, SpriteBatch spriteBatch) {
 		Tile tile = Framing.GetTileSafely(i, j);
@@ -53,9 +52,12 @@ public sealed class SilenceBox : ModTile {
 		int drawYOffset = TileObjectData.GetTileData(tile).DrawYOffset;
 		spriteBatch.Draw(
 			GlowTexture.Value,
-			TileUtil.TileDrawPosition(16*i - (int)Main.screenPosition.X, 16*j - (int)Main.screenPosition.Y + drawYOffset),
+			TileUtil.TileDrawPosition(
+				16*i - (int)Main.screenPosition.X, 16*j - (int)Main.screenPosition.Y + drawYOffset
+			),
 			new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, 16),
 			Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f
 		);
 	}
+
 }

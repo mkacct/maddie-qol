@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 namespace MaddieQoL.Content.Misc.Items;
 
 public sealed class Button : ModItem {
+
 	public override LocalizedText Tooltip => LocalizedText.Empty;
 
 	public override void SetStaticDefaults() {
@@ -16,4 +17,5 @@ public sealed class Button : ModItem {
 		this.Item.CloneDefaults(ItemID.Switch);
 		this.Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Button>());
 	}
+
 }

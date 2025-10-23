@@ -9,6 +9,7 @@ using MaddieQoL.Content.BiomeChestWeaponRenewability.Items;
 namespace MaddieQoL.Content.BiomeChestWeaponRenewability;
 
 public sealed class BiomeChestWeaponRenewabilityRecipes : ModSystem {
+
 	public override void AddRecipes() {
 		if (!ModuleConf.enableBiomeLockBoxes) {return;}
 		RecipeOrderedRegistrar registrar = RecipeOrderedRegistrar.StartingAfter(ItemID.CelestialSigil);
@@ -40,4 +41,5 @@ public sealed class BiomeChestWeaponRenewabilityRecipes : ModSystem {
 		recipe.AddTile(TileID.CrystalBall).AddCondition(Condition.InGraveyard);
 		recipe.RegisterUsing(registrar);
 	}
+
 }

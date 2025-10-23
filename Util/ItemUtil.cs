@@ -7,6 +7,7 @@ using Terraria.UI;
 namespace MaddieQoL.Util;
 
 public static class ItemUtil {
+
 	public static void DrawItemInWorld(
 		int drawItemId, Item thisItem,
 		SpriteBatch spriteBatch, Color alphaColor, float rotation, float scale
@@ -14,7 +15,9 @@ public static class ItemUtil {
 		Main.GetItemDrawFrame(drawItemId, out Texture2D itemTexture, out Rectangle itemFrame);
 		Vector2 drawOrigin = itemFrame.Size() / 2f;
 		Vector2 drawPosition = thisItem.Bottom - Main.screenPosition - new Vector2(0, drawOrigin.Y);
-		spriteBatch.Draw(itemTexture, drawPosition, itemFrame, alphaColor, rotation, drawOrigin, scale, SpriteEffects.None, 0);
+		spriteBatch.Draw(
+			itemTexture, drawPosition, itemFrame, alphaColor, rotation, drawOrigin, scale, SpriteEffects.None, 0
+		);
 	}
 
 	public static void DrawHoldItemIcon(Player player, Item thisItem) {
@@ -32,4 +35,5 @@ public static class ItemUtil {
 			orig(item, player);
 		};
 	}
+
 }

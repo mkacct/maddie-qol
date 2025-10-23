@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 namespace MaddieQoL.Content.LiquidManipulation.Items.SourcesAndDrains;
 
 public abstract class AbstractSourceOrDrainItem : ModItem {
+
 	protected abstract int TileIDToPlace {get;}
 
 	protected abstract int ItemIDToClone {get;}
@@ -19,4 +20,5 @@ public abstract class AbstractSourceOrDrainItem : ModItem {
 		this.Item.rare = ItemRarityID.Lime;
 		this.Item.value = Item.sellPrice(0, 10, 0, 0);
 	}
+
 }

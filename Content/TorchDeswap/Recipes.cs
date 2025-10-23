@@ -1,14 +1,15 @@
-using static MaddieQoL.Common.Shorthands;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using MaddieQoL.Util;
 using MaddieQoL.Common;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.TorchDeswap;
 
 public sealed class TorchDeswapRecipes : ModSystem {
+
 	bool _wasUsingBiomeTorches = false;
 
 	public override void AddRecipes() {
@@ -33,4 +34,5 @@ public sealed class TorchDeswapRecipes : ModSystem {
 			Recipe.FindRecipes();
 		}
 	}
+
 }

@@ -1,12 +1,13 @@
-using static MaddieQoL.Common.Shorthands;
 using Terraria;
 using Terraria.ID;
-using Terraria.ObjectData;
 using Terraria.Localization;
+using Terraria.ObjectData;
+using static MaddieQoL.Common.Shorthands;
 
 namespace MaddieQoL.Content.LiquidManipulation.Tiles.SourcesAndDrains;
 
 public abstract class AbstractDrainTile : AbstractSourceOrDrainTile {
+
 	protected override TileObjectData CopyFromTileObjectData => TileObjectData.GetTileData(TileID.InletPump, 0);
 	protected override LocalizedText MapEntryName => this.Mod.GetLocalization($"{LangMisc}.LiquidDrainName");
 
@@ -19,4 +20,5 @@ public abstract class AbstractDrainTile : AbstractSourceOrDrainTile {
 	}
 
 	protected abstract bool CanDrain(int liquidId);
+
 }

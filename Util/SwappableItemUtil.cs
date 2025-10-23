@@ -10,6 +10,7 @@ using Terraria.UI;
 namespace MaddieQoL.Util;
 
 public abstract class AbstractSwappableItem : ModItem {
+
 	protected virtual bool CanSwapByAltFunction => true;
 	protected virtual SoundStyle AltFunctionSwapSound => SoundID.Grab;
 
@@ -36,17 +37,17 @@ public abstract class AbstractSwappableItem : ModItem {
 		Recipe.FindRecipes();
 	}
 
-	protected virtual int NextItemID(int itemId) {
-		throw new NotImplementedException();
-	}
+	protected abstract int NextItemID(int itemId);
 
 	protected void HandleDummyItemCreation(ItemCreationContext context) {
 		if (context is InitializationItemCreationContext) {return;}
 		this.Item.ChangeItemType(this.NextItemID(-1));
 	}
+
 }
 
 public static class SwappableItemUtil {
+
 	public static void RegisterItemResearchOverrideHook(int[] itemIdSequence, int? dummyItemId = null) {
 		int defaultItemId = dummyItemId ?? itemIdSequence[0];
 		int[] otherItemIds = dummyItemId.HasValue ? itemIdSequence : itemIdSequence[1..];
@@ -56,7 +57,9 @@ public static class SwappableItemUtil {
 		};
 	}
 
-	public static void RegisterItemSwapHook(ISet<int> itemIds, Func<int, int> nextItemIdFunc, SoundStyle? swapSound = null) {
+	public static void RegisterItemSwapHook(
+		ISet<int> itemIds, Func<int, int> nextItemIdFunc, SoundStyle? swapSound = null
+	) {
 		SoundStyle swapSoundToUse = swapSound ?? SoundID.Grab;
 		On_ItemSlot.TryItemSwap += (On_ItemSlot.orig_TryItemSwap orig, Item item) => {
 			orig(item);
@@ -87,4 +90,5 @@ public static class SwappableItemUtil {
 		index = (index + 1) % idSequence.Length;
 		return idSequence[index];
 	}
+
 }

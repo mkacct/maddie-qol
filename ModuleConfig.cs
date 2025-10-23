@@ -4,6 +4,7 @@ using Terraria.ModLoader.Config;
 namespace MaddieQoL;
 
 public sealed class ModuleConfig : ModConfig {
+
 	public override ConfigScope Mode => ConfigScope.ServerSide;
 
 	// Teleportation
@@ -146,4 +147,5 @@ public sealed class ModuleConfig : ModConfig {
 	[DefaultValue(false)]
 	[ReloadRequired]
 	public bool enableMerchantShopPerDialogue;
+
 }

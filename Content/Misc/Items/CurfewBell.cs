@@ -1,19 +1,20 @@
 using static MaddieQoL.Common.Shorthands;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using Terraria;
+using Terraria.Chat;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.Chat;
-using Terraria.Audio;
 using MaddieQoL.Util;
 using MaddieQoL.Common;
 
 namespace MaddieQoL.Content.Misc.Items;
 
 public sealed class CurfewBell : ModItem {
+
 	public static readonly PacketHandler<CurfewPacketData> CurfewPacketHandler = new(
 		clientHandler: ClientHandleCurfewPacket
 	);
@@ -45,9 +46,7 @@ public sealed class CurfewBell : ModItem {
 		this.Item.value = Item.buyPrice(0, 10, 0, 0);
 	}
 
-	public override bool CanUseItem(Player player) {
-		return ModuleConf.enableCurfewBell;
-	}
+	public override bool CanUseItem(Player player) => ModuleConf.enableCurfewBell;
 
 	public override bool? UseItem(Player player) {
 		if (Main.netMode == NetmodeID.MultiplayerClient) {return null;}
@@ -74,7 +73,10 @@ public sealed class CurfewBell : ModItem {
 	static void TeleportAllNPCsHome(out ISet<DustCoords> srcCoords, out ISet<DustCoords> destCoords) {
 		srcCoords = new HashSet<DustCoords>();
 		destCoords = new HashSet<DustCoords>();
-		MethodInfo method_AI_007_TownEntities_TeleportToHome = typeof(NPC).GetMethod("AI_007_TownEntities_TeleportToHome", BindingFlags.NonPublic | BindingFlags.Instance, [typeof(int), typeof(int)]);
+		MethodInfo method_AI_007_TownEntities_TeleportToHome = typeof(NPC).GetMethod(
+			"AI_007_TownEntities_TeleportToHome",
+			BindingFlags.NonPublic | BindingFlags.Instance, [typeof(int), typeof(int)]
+		);
 		foreach (NPC npc in Main.npc) {
 			if ((npc != null) && npc.active && npc.townNPC && !npc.homeless) {
 				srcCoords.Add(new(npc.position, npc.width, npc.height));
@@ -84,7 +86,10 @@ public sealed class CurfewBell : ModItem {
 		}
 	}
 
-	public class CurfewPacketData(int itemUserPlayerId, ISet<DustCoords> srcCoords, ISet<DustCoords> destCoords) : IPacketData {
+	public class CurfewPacketData(
+		int itemUserPlayerId, ISet<DustCoords> srcCoords, ISet<DustCoords> destCoords
+	) : IPacketData {
+
 		public int ItemUserPlayerID {get; set;} = itemUserPlayerId;
 		public ISet<DustCoords> SrcCoords {get; set;} = srcCoords;
 		public ISet<DustCoords> DestCoords {get; set;} = destCoords;
@@ -121,6 +126,7 @@ public sealed class CurfewBell : ModItem {
 				writer.Write(item.Height);
 			}
 		}
+
 	}
 
 	static void ClientHandleCurfewPacket(CurfewPacketData data) {
@@ -147,4 +153,5 @@ public sealed class CurfewBell : ModItem {
 			Dust.NewDust(coords.Position, coords.Width, coords.Height, DustID.Cloud);
 		}
 	}
+
 }
